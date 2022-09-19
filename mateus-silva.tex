@@ -134,6 +134,7 @@ lmodern}			% Usa a fonte Latin Modern
 \newtheorem{lema}{Lema}[chapter]
 \newtheorem{corol}{Corolário}[chapter]
 \newtheorem{defi}{Definição}[chapter]
+\newtheorem{axi}{Axioma}
 
 \theoremstyle{definition}
 \newtheorem{obs}{Observação}[chapter]
@@ -192,17 +193,27 @@ lmodern}			% Usa a fonte Latin Modern
   
  
 
+%
+%%Mateus Schroeder da Silva
+%
+
+\newcommand{\authorName}{MATEUS SCHROEDER DA SILVA}
+\newcommand{\orientationBy}{Doutor Marnei Luis Mandler}
+\newcommand{\titleTGR}{A CONSTRUÇÃO DOS NÚMEROS}
+\newcommand{\subtitleTGR}{DOS NATURAIS AOS REAIS}
+\newcommand{\titleComplete}{\textbf{\titleTGR:} \subtitleTGR}
+
 % ----
 % Início
 % ----
 
-\titulo{TÍTULO: SUBTÍTULO (se houver)}
-\autor{MATEUS SCHROEDER DA SILVA}
+\titulo{\titleComplete}
+\autor{\authorName}
 \local{JOINVILLE, SC}
 \date{2023}
 \tipotrabalho{TRABALHO DE CONCLUSÃO DE CURSO}
 \preambulo{ Trabalho de conclusão de curso apresentado como requisito parcial para obtenção do título de licenciado em Matemática pelo curso de Licenciatura em Matemática do Centro de Ciências Tecnológicas - CCT, da Universidade do Estado de Santa Catarina - UDESC. \\
- Orientador: Doutor Marnei Luis Mandler}
+ Orientador: \orientationBy}
 % ---
 
 
@@ -247,9 +258,9 @@ lmodern}			% Usa a fonte Latin Modern
  \textbf{ UNIVERSIDADE DO ESTADO DE SANTA CATARINA - UDESC\\
 CENTRO DE CIÊNCIAS TECNOLÓGICAS - CCT\\
 CURSO DE LICENCIATURA EM MATEMÁTICA\\}
-\vspace{4 cm}\textbf{MATEUS SCHROEDER DA SILVA}
+\vspace{4 cm}\textbf{\authorName}
 
-\vspace{4 cm}\textbf{TÍTULO DO TRABALHO:} SUBTÍTULO
+\vspace{4 cm}\titleComplete
 
 \vspace{\stretch{1}}
 \textbf{JOINVILLE - SC}
@@ -267,10 +278,10 @@ CURSO DE LICENCIATURA EM MATEMÁTICA\\}
 \begin{folhaderosto}
 
   \begin{center}
-    \textbf{NOME DO AUTOR}
+    \textbf{\authorName}
 
     \vspace*{\fill}\vspace*{\fill}
-    \textbf{TÍTULO DO TRABALHO:} SUBTÍTULO
+    \titleComplete
     \vspace*{\fill}
   \end{center}
   
@@ -278,7 +289,7 @@ CURSO DE LICENCIATURA EM MATEMÁTICA\\}
   \begin{minipage}[t]{8 cm}
   { Trabalho de conclusão de curso apresentado como requisito parcial para obtenção do título de licenciado em Matemática pelo curso de Licenciatura em Matemática do Centro de Ciências Tecnológicas - CCT, da Universidade do Estado de Santa Catarina - UDESC. 
 
- Orientador: Doutor Marnei Luis Mandler}
+ Orientador: \orientationBy}
   \end{minipage}
   \end{flushright}
   
@@ -313,10 +324,10 @@ CURSO DE LICENCIATURA EM MATEMÁTICA\\}
 \begin{folhadeaprovacao}
 
   \begin{center}
-    \textbf{MATEUS SCHROEDER DA SILVA}
+    \textbf{\authorName}
 \vspace {1 cm}
 
-     \textbf{TÍTULO DO TRABALHO:} SUBTÍTULO
+   \titleComplete 
    \vspace {1 cm}
   \end{center}
     
@@ -324,7 +335,7 @@ CURSO DE LICENCIATURA EM MATEMÁTICA\\}
   \begin{minipage}[t]{8 cm}
   { Trabalho de conclusão de curso apresentado como requisito parcial para obtenção do título de licenciado em Matemática pelo curso de Licenciatura em Matemática do Centro de Ciências Tecnológicas - CCT, da Universidade do Estado de Santa Catarina - UDESC. 
 
- Orientador: Titulação + nome completo}
+ Orientador: \orientationBy}
  
   \end{minipage}
   \end{flushright}
@@ -337,7 +348,7 @@ CURSO DE LICENCIATURA EM MATEMÁTICA\\}
 	\textbf{BANCA EXAMINADORA}
 	\vspace {2 cm}
 	
-	Nome do Orientador e Titulação
+    \orientationBy
 	
     Nome da Instituição
     
@@ -361,7 +372,7 @@ CURSO DE LICENCIATURA EM MATEMÁTICA\\}
 
 \vspace*{\fill}
      \begin{center}
-	     Joinville, dia do mês e ano.
+	     Joinville, \today.
 \end{center}
 
     
@@ -555,208 +566,226 @@ O desenvolvimento é a demonstração lógica de todo o trabalho, detalha a pesq
 O desenvolvimento pode ser subdivido em seções e subseções com nomenclaturas definidas pelo autor conforme conteúdo apresentado. 
 % ---
 
+% INICIO CAPITULOS
+\chapter{O conjunto dos números Naturais e os axiomas de Peano}
+Os números naturais foram usados por muito tempo como algo por si só e sem fundamentação por outras coisas que os justificassem.
+Houveram algumas tentativas de formalização do conjunto, e no século XIX pelo italiano Giuseppe Peano.
+
+Seguiremos a apresentação dos axiomas apresentando $5$ axiomas, ao contrário de Peano que apresentou $9$ axiomas.
+
+\axi{Zero é um número natural}\label{P1}
+\axi{Se $a$ é um número natural, então $a$ tem um único sucessor que também é um número natural}\label{P2}
+\axi{Zero não é sucessor de nenhum número natural}\label{P3}
+\axi{Dois números naturais que têm sucessores iguais são, eles próprios, iguais.}\label{P4}
+\axi{Se uma coleção $S$ de números naturais contém o zero e, também o sucessor de todo elemento de $S$, então $S$ é o conjunto de todos os números naturais.}\label{P5}
+
+Seguindo o costume, chamaremos de $0$ o Zero, \N o conjunto de todos os números naturais e somente os números naturais, e a função $^+: \N \rightarrow \N$.
+
+
+
+% FIM CAPITULOS
 
 
 % ---------------------------------------------------------
-% primeiro capítulo
-% ---------------------------------------------------------
-\chapter{CAPÍTULO FORMATO E FONTES} % LETRAS MAIÚSCULAS
-
-Você deve sempre mudar de pagina ao iniciar um novo capitulo de seu trabalho.
-
-Para os títulos utilizar o mesmo tipo e tamanho de fonte do texto. 
-
-Usar fonte do tipo Arial ou Times New Roman com tamanho 12, espaçamento entre as linhas 1,5 cm, margem direta 2 cm, margem esquerda 3,0 cm, margem superior 3 cm e inferior com 2cm.
-
-Citações com mais de três linhas, legendas de ilustrações e tabelas, rodapés devem ser digitados em tamanho 10 pt. Citações com mais de 3 linhas devem ter recuo de 4 cm a partir da esquerda.
-
-Abaixo um exemplo de como citar a bibliografia no texto
-
-\begin{citacao}
- Tal disciplina é caracterizada pelo estudo de funções reais ligadas aos processos de limite e pelo fato de seu conteúdo apoiar-se sobre quase todo o saber escolar ensinado aos alunos até então (BARROSO et al, 2009, p.).
-\end{citacao}
-
-Para as divisões principais utilizar maiúsculo e negrito, divisão secundária em letras maiúsculas sem negrito, seção terciária fonte normal com as primeiras letras em maiúsculo e em negrito, seção quartenária utilizar fonte normal somente a primeira letra da primeira palavra em maiúsculo, conforme ex.
-
-%---
-
-% ---
-\section{EXEMPLOS} % LETRAS MAIÚSCULAS
-% ---
-
-
-Nesta seção veremos alguns exemplos de teorema, proposição, observação, lema, formas de numeração, equações, etc.  O texto a seguir não faz muito sentido, são pequenas partes tiradas da minha dissertação de mestrado.
-
-\begin{defi}
-Uma álgebra é um espaço vetorial $A$ sobre o corpo dos números complexo $\C$, munida com uma multiplicação que satisfaz:
-\begin{itemize}
-\item $a(bc)=(ab)c$
-\item $(a+b)c = ac+bc$, \,\,\, $a(b+c)=ab+ac$
-\item $\lambda(ab)=(\lambda a)b=a(\lambda b)$
-\end{itemize}
-para quaisquer $a, b, c \in A$ e $\lambda \in \C.$
-\end{defi}
-
-\begin{obs}
-Se $A$ é um espaço de Banach com relação a uma norma, $\Vert \cdot \Vert $, tal que $$\Vert ab \Vert \leq \Vert a \Vert \Vert b \Vert$$ para quaisquer $a, b \in A$, então $A$ é uma álgebra de Banach.
-\end{obs}
-
-
-\begin{defi} 
-Uma involução em uma álgebra $A$ é uma aplicação $\ast: A \rightarrow A$ que satisfaz:
-\begin{enumerate}
-\item $(a+b)^{\ast}= a^{\ast}+b^{\ast}$
-\item $(\lambda a )^{\ast} = \overline{\lambda} a^{\ast}$
-\item $(ab)^{\ast}=b^{\ast}a^{\ast}$
-\item ${a^{\ast}}^{\ast}=a$
-\end{enumerate}
-para quaisquer $a, b \in A$ e $\lambda \in \C.$ Uma álgebra $A$ munida de uma involução é chamada de $\ast$ - álgebra.
-\end{defi}
-% ---
-
-
-Abaixo um exemplo de como citar a bibliografia no texto.
-
-O exemplo do corpo quadrático $\Q[\sqrt{-5}]$ mostra que o anel dos inteiros algébrico de um corpo de número algébricos nem sempre  fatorial.  De acordo com \cite{endler2006}, para consertar esta falha, foi introduzido por Kummer a noção de "número ideal", que deu origem à noção de "ideal" devida a Dedekind.
-
-
-% ---
-\subsection{Mais exemplos} %Letras Maiúsculas e Minículas
-% ---
-
-
-\begin{defi}\
-\begin{enumerate}
-\renewcommand{\labelenumi}{(\alph{enumi})} % numeração (a), (b), (c) ...
-\item  seminorma sobre um espaço vetorial $X$ é uma função $p: X \rightarrow \R_{+}$ tal que
-\begin{description}
-\item[$\star$] $p(x+y)\leq p(x)+p(y)$
-\item[$\star$] $p(\lambda x)= |\lambda|p(x)$
-\end{description}
-para todo $x, y \in X$ e $\lambda \in \C$. \\
-\item  Uma C*-seminorma $p$ sobre uma $\ast$ -álgebra $A$ é uma seminorma que satisfaz, para todo $x, y \in A$,
-\begin{description}
-\item[$\diamond$] $p(xy)\leq p(x)p(y)$
-\item[$\diamond$] $p(x^*)=p(x)$
-\item[$\diamond$] $p(x^*x)=p(x)^2.$
-\end{description}
-\end{enumerate}
-\end{defi}
-
-
-\begin{lema} 
-Seja $G$ um grupóide.
-\renewcommand{\labelenumi}{(\roman{enumi})} % numeração (i), (ii), ...
-\begin{enumerate}
-  \item $G^0 = \{x \in G \,\, : \,\, x=x^{-1}\}$.
-  \item $G^2=\{(x,y) \in G \times G \,\, : \,\, s(x)=r(y)\}$.
-\end{enumerate}
-\end{lema}
-
-
-\noindent \begin{dem} 
-Se $x \in G^0$ então existe $y \in G$ tal que $x=yy^{-1}$, logo $x^{-1}=(yy^{-1})^{-1}= yy^{-1}=x$. 
-\par $(\supseteq)$ Seja $x \in G$ tal que $x=x^{-1}$. Suponha que não existe $y \in G$ tal que $x=yy^{-1}$, ou seja, $x \neq yy^{-1}$ para todo $y \in G$. Então $x^{-1} \neq (yy^{-1})^{-1}=yy^{-1}=x$, implica que $x^{-1}\neq x$. Absurdo! Portanto existe $y \in G$ tal que $x=yy^{-1}$ e $x \in G^0$...
-\end{dem}
-
-
-Equações:
-
-\begin{equation}\label{produto}  
-f \ast g (x,z) = \sum_{y \in [x]} f(x,y)g(y,z),
-\end{equation}
-
-\begin{equation}\label{involucao} 
-f^*(x,y)= \overline{f(x,y)}.
-\end{equation}
-
-
-\begin{prop}\label{continuas}
-Seja $R$ uma relação étale então as aplicações range e source são contínuas.
-\end{prop}
-
-
-\begin{obs} 
-Pela Proposição \ref{continuas}, temos que $r$ é uma aplicação contínua, então $r|_{\bigtriangleup}$ também é uma aplicação contínua. Portanto $\bigtriangleup = \left(r|_{\bigtriangleup}\right) ^{-1}(X)$ é aberta em $(R, \tau)$.
-\end{obs}
-
-
-Da equação \ref{involucao}, segue que
-\begin{align*}  
-        X & = \sum_{z \in [y]}\overline{f(y,z)}\,\overline{g(z,x)}= \sum_{z \in [y]} f^*(z,y)g^*(x,z)\\
-          & = \sum_{z\in [y]}g^*(x,z)f^*(z,y) = g^* \ast f^* (x,y)
-\end{align*}
-
-
-\begin{teo}
-Para uma relação étale $R$ e  $x \in X$ a representação  $\lambda_x$ definida acima é uma representação não-degenerada e limitada de $C_c(R)$.
-\end{teo}
-
-
-
-
-% ----------------------------------------------------------
-% segundo capítulo
-% ----------------------------------------------------------
-\chapter{FIGURAS E TABELAS}
-
-Exemplos de inserção de figura e tabela.
-
-% ---
-\section{INSERIR FIGURAS}
-% ---
-
-As identificações de qualquer tipo de ilustração devem aparecer na parte superior, precedida da palavra designativa, seguida de seu número de ordem de ocorrência no texto, em algarismos arábicos, travessão e do respectivo título (texto com espaçamento entrelinhas simples e fonte 12). Na parte inferior deve-se indicar a fonte consultada (tamanho 10). Todas as figuras devem ser centralizadas em relação a margem. A figura deve ser colocada após sua citação no texto, deixando-se entrelinhas 1,5 entre o texto e a figura. Após a figura, o texto segue a um espaço de 1,5. Veja na Figura 1 um exemplo de figura:
-
-Seguem dois exemplos de figuras:
-
-Aqui a figura fica dentro de um retângulo (caixa).
-
-%\begin{figure}[!h]
-%	\centering  
-%	\caption{Diagrama de Bratteli}
-%	\label{diagrama}
-%	\fbox{\includegraphics[width=10cm,height=8cm]{diagrama.eps}}
-%	\fonte{{\small Produção do autor}}    
-%\end{figure}
-
-Fora da caixa.
-
-%\begin{figure*}[!h]
+%% primeiro capítulo
+%% ---------------------------------------------------------
+%\chapter{CAPÍTULO FORMATO E FONTES} % LETRAS MAIÚSCULAS
+%
+%Você deve sempre mudar de pagina ao iniciar um novo capitulo de seu trabalho.
+%
+%Para os títulos utilizar o mesmo tipo e tamanho de fonte do texto. 
+%
+%Usar fonte do tipo Arial ou Times New Roman com tamanho 12, espaçamento entre as linhas 1,5 cm, margem direta 2 cm, margem esquerda 3,0 cm, margem superior 3 cm e inferior com 2cm.
+%
+%Citações com mais de três linhas, legendas de ilustrações e tabelas, rodapés devem ser digitados em tamanho 10 pt. Citações com mais de 3 linhas devem ter recuo de 4 cm a partir da esquerda.
+%
+%Abaixo um exemplo de como citar a bibliografia no texto
+%
+%\begin{citacao}
+% Tal disciplina é caracterizada pelo estudo de funções reais ligadas aos processos de limite e pelo fato de seu conteúdo apoiar-se sobre quase todo o saber escolar ensinado aos alunos até então (BARROSO et al, 2009, p.).
+%\end{citacao}
+%
+%Para as divisões principais utilizar maiúsculo e negrito, divisão secundária em letras maiúsculas sem negrito, seção terciária fonte normal com as primeiras letras em maiúsculo e em negrito, seção quartenária utilizar fonte normal somente a primeira letra da primeira palavra em maiúsculo, conforme ex.
+%
+%%---
+%
+%% ---
+%\section{EXEMPLOS} % LETRAS MAIÚSCULAS
+%% ---
+%
+%
+%Nesta seção veremos alguns exemplos de teorema, proposição, observação, lema, formas de numeração, equações, etc.  O texto a seguir não faz muito sentido, são pequenas partes tiradas da minha dissertação de mestrado.
+%
+%\begin{defi}
+%Uma álgebra é um espaço vetorial $A$ sobre o corpo dos números complexo $\C$, munida com uma multiplicação que satisfaz:
+%\begin{itemize}
+%\item $a(bc)=(ab)c$
+%\item $(a+b)c = ac+bc$, \,\,\, $a(b+c)=ab+ac$
+%\item $\lambda(ab)=(\lambda a)b=a(\lambda b)$
+%\end{itemize}
+%para quaisquer $a, b, c \in A$ e $\lambda \in \C.$
+%\end{defi}
+%
+%\begin{obs}
+%Se $A$ é um espaço de Banach com relação a uma norma, $\Vert \cdot \Vert $, tal que $$\Vert ab \Vert \leq \Vert a \Vert \Vert b \Vert$$ para quaisquer $a, b \in A$, então $A$ é uma álgebra de Banach.
+%\end{obs}
+%
+%
+%\begin{defi} 
+%Uma involução em uma álgebra $A$ é uma aplicação $\ast: A \rightarrow A$ que satisfaz:
+%\begin{enumerate}
+%\item $(a+b)^{\ast}= a^{\ast}+b^{\ast}$
+%\item $(\lambda a )^{\ast} = \overline{\lambda} a^{\ast}$
+%\item $(ab)^{\ast}=b^{\ast}a^{\ast}$
+%\item ${a^{\ast}}^{\ast}=a$
+%\end{enumerate}
+%para quaisquer $a, b \in A$ e $\lambda \in \C.$ Uma álgebra $A$ munida de uma involução é chamada de $\ast$ - álgebra.
+%\end{defi}
+%% ---
+%
+%
+%Abaixo um exemplo de como citar a bibliografia no texto.
+%
+%O exemplo do corpo quadrático $\Q[\sqrt{-5}]$ mostra que o anel dos inteiros algébrico de um corpo de número algébricos nem sempre  fatorial.  De acordo com \cite{endler2006}, para consertar esta falha, foi introduzido por Kummer a noção de "número ideal", que deu origem à noção de "ideal" devida a Dedekind.
+%
+%
+%% ---
+%\subsection{Mais exemplos} %Letras Maiúsculas e Minículas
+%% ---
+%
+%
+%\begin{defi}\
+%\begin{enumerate}
+%\renewcommand{\labelenumi}{(\alph{enumi})} % numeração (a), (b), (c) ...
+%\item  seminorma sobre um espaço vetorial $X$ é uma função $p: X \rightarrow \R_{+}$ tal que
+%\begin{description}
+%\item[$\star$] $p(x+y)\leq p(x)+p(y)$
+%\item[$\star$] $p(\lambda x)= |\lambda|p(x)$
+%\end{description}
+%para todo $x, y \in X$ e $\lambda \in \C$. \\
+%\item  Uma C*-seminorma $p$ sobre uma $\ast$ -álgebra $A$ é uma seminorma que satisfaz, para todo $x, y \in A$,
+%\begin{description}
+%\item[$\diamond$] $p(xy)\leq p(x)p(y)$
+%\item[$\diamond$] $p(x^*)=p(x)$
+%\item[$\diamond$] $p(x^*x)=p(x)^2.$
+%\end{description}
+%\end{enumerate}
+%\end{defi}
+%
+%
+%\begin{lema} 
+%Seja $G$ um grupóide.
+%\renewcommand{\labelenumi}{(\roman{enumi})} % numeração (i), (ii), ...
+%\begin{enumerate}
+%  \item $G^0 = \{x \in G \,\, : \,\, x=x^{-1}\}$.
+%  \item $G^2=\{(x,y) \in G \times G \,\, : \,\, s(x)=r(y)\}$.
+%\end{enumerate}
+%\end{lema}
+%
+%
+%\noindent \begin{dem} 
+%Se $x \in G^0$ então existe $y \in G$ tal que $x=yy^{-1}$, logo $x^{-1}=(yy^{-1})^{-1}= yy^{-1}=x$. 
+%\par $(\supseteq)$ Seja $x \in G$ tal que $x=x^{-1}$. Suponha que não existe $y \in G$ tal que $x=yy^{-1}$, ou seja, $x \neq yy^{-1}$ para todo $y \in G$. Então $x^{-1} \neq (yy^{-1})^{-1}=yy^{-1}=x$, implica que $x^{-1}\neq x$. Absurdo! Portanto existe $y \in G$ tal que $x=yy^{-1}$ e $x \in G^0$...
+%\end{dem}
+%
+%
+%Equações:
+%
+%\begin{equation}\label{produto}  
+%f \ast g (x,z) = \sum_{y \in [x]} f(x,y)g(y,z),
+%\end{equation}
+%
+%\begin{equation}\label{involucao} 
+%f^*(x,y)= \overline{f(x,y)}.
+%\end{equation}
+%
+%
+%\begin{prop}\label{continuas}
+%Seja $R$ uma relação étale então as aplicações range e source são contínuas.
+%\end{prop}
+%
+%
+%\begin{obs} 
+%Pela Proposição \ref{continuas}, temos que $r$ é uma aplicação contínua, então $r|_{\bigtriangleup}$ também é uma aplicação contínua. Portanto $\bigtriangleup = \left(r|_{\bigtriangleup}\right) ^{-1}(X)$ é aberta em $(R, \tau)$.
+%\end{obs}
+%
+%
+%Da equação \ref{involucao}, segue que
+%\begin{align*}  
+%        X & = \sum_{z \in [y]}\overline{f(y,z)}\,\overline{g(z,x)}= \sum_{z \in [y]} f^*(z,y)g^*(x,z)\\
+%          & = \sum_{z\in [y]}g^*(x,z)f^*(z,y) = g^* \ast f^* (x,y)
+%\end{align*}
+%
+%
+%\begin{teo}
+%Para uma relação étale $R$ e  $x \in X$ a representação  $\lambda_x$ definida acima é uma representação não-degenerada e limitada de $C_c(R)$.
+%\end{teo}
+%
+%
+%
+%
+%% ----------------------------------------------------------
+%% segundo capítulo
+%% ----------------------------------------------------------
+%\chapter{FIGURAS E TABELAS}
+%
+%Exemplos de inserção de figura e tabela.
+%
+%% ---
+%\section{INSERIR FIGURAS}
+%% ---
+%
+%As identificações de qualquer tipo de ilustração devem aparecer na parte superior, precedida da palavra designativa, seguida de seu número de ordem de ocorrência no texto, em algarismos arábicos, travessão e do respectivo título (texto com espaçamento entrelinhas simples e fonte 12). Na parte inferior deve-se indicar a fonte consultada (tamanho 10). Todas as figuras devem ser centralizadas em relação a margem. A figura deve ser colocada após sua citação no texto, deixando-se entrelinhas 1,5 entre o texto e a figura. Após a figura, o texto segue a um espaço de 1,5. Veja na Figura 1 um exemplo de figura:
+%
+%Seguem dois exemplos de figuras:
+%
+%Aqui a figura fica dentro de um retângulo (caixa).
+%
+%%\begin{figure}[!h]
+%%	\centering  
+%%	\caption{Diagrama de Bratteli}
+%%	\label{diagrama}
+%%	\fbox{\includegraphics[width=10cm,height=8cm]{diagrama.eps}}
+%%	\fonte{{\small Produção do autor}}    
+%%\end{figure}
+%
+%Fora da caixa.
+%
+%%\begin{figure*}[!h]
+%%	\centering
+%%	\caption{Título da Figura}
+%%	\label{referencia}
+%%	\includegraphics[width=7cm]{exemplo1.eps}
+%%	\fonte{{\small Produção do autor}}
+%%\end{figure*}
+%
+%
+%
+%
+%%---------
+%\section{CRIAR TABELA}
+%
+%Segundo a ABNT em tabelas não deve-se utilizar linhas verticais para separar as colunas, conforme exemplo abaixo na Tabela \ref{tabelaABNT}. 
+%
+%\begin{table}[!h]
 %	\centering
-%	\caption{Título da Figura}
-%	\label{referencia}
-%	\includegraphics[width=7cm]{exemplo1.eps}
-%	\fonte{{\small Produção do autor}}
-%\end{figure*}
-
-
-
-
-%---------
-\section{CRIAR TABELA}
-
-Segundo a ABNT em tabelas não deve-se utilizar linhas verticais para separar as colunas, conforme exemplo abaixo na Tabela \ref{tabelaABNT}. 
-
-\begin{table}[!h]
-	\centering
-	\caption{Percentual de alunos aprovados e reprovados na disciplina de Cálculo I por curso}
-	\label{tabelaABNT}
-	\begin{tabular}{l c c} \hline
-		\textbf{Curso}   &   \textbf{Aprovados (\%)}   &   \textbf{Reprovados (\%)}  \\  \hline
-		Engenharia Civil   &  65  &  35   \\   
-		Engenharia Elétrica &  40  &  60   \\ 
-		Engenharia Mecânica   & 68 & 32 \\
-		Engenharia de Produção & 34 &  66\\ \hline
-	\end{tabular}
-	\fonte{{\small Acervo do autor}}
-	
-\end{table}
-
-
-
-
-
+%	\caption{Percentual de alunos aprovados e reprovados na disciplina de Cálculo I por curso}
+%	\label{tabelaABNT}
+%	\begin{tabular}{l c c} \hline
+%		\textbf{Curso}   &   \textbf{Aprovados (\%)}   &   \textbf{Reprovados (\%)}  \\  \hline
+%		Engenharia Civil   &  65  &  35   \\   
+%		Engenharia Elétrica &  40  &  60   \\ 
+%		Engenharia Mecânica   & 68 & 32 \\
+%		Engenharia de Produção & 34 &  66\\ \hline
+%	\end{tabular}
+%	\fonte{{\small Acervo do autor}}
+%	
+%\end{table}
+%
+%
+%
+%
+%
 
 % ------------------------------------------------------------
 % Conclusão
