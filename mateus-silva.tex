@@ -573,14 +573,40 @@ Houveram algumas tentativas de formalização do conjunto, e no século XIX pelo
 
 Seguiremos a apresentação dos axiomas apresentando $5$ axiomas, ao contrário de Peano que apresentou $9$ axiomas.
 
-\axi{Zero é um número natural}\label{P1}
-\axi{Se $a$ é um número natural, então $a$ tem um único sucessor que também é um número natural}\label{P2}
-\axi{Zero não é sucessor de nenhum número natural}\label{P3}
-\axi{Dois números naturais que têm sucessores iguais são, eles próprios, iguais.}\label{P4}
-\axi{Se uma coleção $S$ de números naturais contém o zero e, também o sucessor de todo elemento de $S$, então $S$ é o conjunto de todos os números naturais.}\label{P5}
+Para apresentarmos os axiomas, temos que ter em mente que elas são afirmações sobre algo, em especial, esses axiomas relacionam conceitos chamados de 'conceitos primitivos', que intuitivamente são conceitos que se tomam como compreendidos e 'não se tenta defini-los'.
 
-Seguindo o costume, chamaremos de $0$ o Zero, \N o conjunto de todos os números naturais e somente os números naturais, e a função $^+: \N \rightarrow \N$.
 
+
+\begin{axi}{Zero é um número natural}\label{P1}\end{axi}
+\begin{axi}{Se $a$ é um número natural, então $a$ tem um único sucessor que também é um número natural}\label{P2}\end{axi}
+\begin{axi}{Zero não é sucessor de nenhum número natural}\label{P3}\end{axi}
+\begin{axi}{Dois números naturais que têm sucessores iguais são, eles próprios, iguais.}\label{P4}\end{axi}
+\begin{axi}{Se uma coleção $S$ de números naturais contém o zero e, também o sucessor de todo elemento de $S$, então $S$ é o conjunto de todos os números naturais.}\label{P5}\end{axi}
+
+Seguindo o costume, chamaremos de $0$ o Zero, \N o conjunto de todos os números naturais e somente os números naturais, e a função $^+: \N \rightarrow \N$ para denotar a relação 'é sucessor de'.
+
+\begin{defi}{A adição (x,y) $\rightarrow x + y$ em \N é definido como: \\
+	$a + 0 = a$ \\
+	$a + b+ = (a + b)^+$
+}\label{adicao}
+
+\end{defi}
+
+\begin{obs}
+	Denotaremos por 1 o sucessor do zero, isto é, $0^+$, o 2 será para denotar o sucessor do 1, isto é, $1^+$, e assim por diante.
+\end{obs}
+\begin{obs}
+	Algumas conclusões são imediatas:\\
+	Por $\ref{P1} \N \neq  $ \\
+	Em \ref{P4}, ao aplicar a contra-positiva, obtemos $a \neq b \implies a^+ \neq b^+$
+\end{obs}
+
+Listaremos algumas propriedades da adição e depois provaremos essas afirmações.
+\begin{itemize}
+	\item Associativa: $(a + b) + c = a + (b + c)$
+	\item Comutativa: $a + b =  b + a$
+	\item Elemento neutro: $\exists b \in \N / \forall a, a + b = b + a = a$
+\end{itemize}
 
 
 % FIM CAPITULOS
@@ -807,7 +833,7 @@ negativos. Geralmente inclui recomendações e/ou sugestões.
 
 
 
-%\bibliography{bibliografia}
+\bibliography{BARBOSA, João Lucas Marques. Geometria Euclidiana Plana. 11. ed. Rio de Janeiro: Sbm, 2012.}
 
 
 
