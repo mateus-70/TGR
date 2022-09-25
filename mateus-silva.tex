@@ -123,6 +123,8 @@ lmodern}			% Usa a fonte Latin Modern
 \newcommand{\N}{\ensuremath {\mathbb{N}} }
 \newcommand{\C}{\ensuremath {\mathbb{C}} }
 \newcommand{\K}{\ensuremath {\mathbb{K}} }
+\renewcommand{\S}{\ensuremath {\mathbb{S}} }
+
 
 
 % ---
@@ -135,6 +137,7 @@ lmodern}			% Usa a fonte Latin Modern
 \newtheorem{corol}{Corolário}[chapter]
 \newtheorem{defi}{Definição}[chapter]
 \newtheorem{axi}{Axioma}
+\newtheorem{peano}{Peano}
 
 \theoremstyle{definition}
 \newtheorem{obs}{Observação}[chapter]
@@ -517,8 +520,8 @@ Elemento opcional utilizado pelo autor para registrar agradecimento às pessoas 
   \item[$ \mathbb{Z} $] Conjunto dos números inteiros 
   \item[$ \mathbb{Q} $] Conjunto dos números racionais 
   \item[$ \mathbb{R} $] Conjunto dos números reais 
-  \item[$ \mathbb{C} $] Conjunto dos números complexos
-  \item[$ C_c(R) $] Conjunto das funções $f: R \rightarrow \C$ contínuas com suporte compacto em um conjunto $R$.
+ %\item[$ \mathbb{C} $] Conjunto dos números complexos
+ %\item[$ C_c(R) $] Conjunto das funções $f: R \rightarrow \C$ contínuas com suporte compacto em um conjunto $R$.
 \end{simbolos}
 % ---
 
@@ -567,46 +570,130 @@ O desenvolvimento pode ser subdivido em seções e subseções com nomenclaturas
 % ---
 
 % INICIO CAPITULOS
-\chapter{O conjunto dos números Naturais e os axiomas de Peano}
-Os números naturais foram usados por muito tempo como algo por si só e sem fundamentação por outras coisas que os justificassem.
-Houveram algumas tentativas de formalização do conjunto, e no século XIX pelo italiano Giuseppe Peano.
+\chapter{O CONJUNTO DOS NÚMEROS NATURAIS E OS AXIOMAS DE PEANO}
+Os números naturais foram usados por muito tempo como algo por si só e sem fundamentação por outras coisas que os justificassem. Não houve preocupação na sua formalização até recentemente, quando Hermann Grassmann mostrou na década de 1860 que vários fatos de aritmética básica podiam ser obtidas através de alguns "fatos básicos" (ou axiomas) da aritmética.
+Houveram algumas tentativas de formalização do conjunto, e no século XIX o italiano Giuseppe Peano formulou seus axiomas utilizando o trabalho de Grassmann e Richard Dedekind como base.
 
-Seguiremos a apresentação dos axiomas apresentando $5$ axiomas, ao contrário de Peano que apresentou $9$ axiomas.
+Peano em seu 'Arithmetices Principia, Nova Methodo Exposita' fundamentou a sua aritmética com $9$ axiomas, que em notação moderna são:
+\begin{peano}
+    $1 \in \N$
+\end{peano}
+\begin{peano}
+    $a \in \N \rightarrow a = a$
+\end{peano}
+\begin{peano}
+    $a,b,c \in \N \rightarrow a = b \iff b = a$
+\end{peano}
+\begin{peano}
+    $a,b,c \in \N \rightarrow (a = b \land b = c \rightarrow a = c) $
+\end{peano}
+\begin{peano}
+    $a = b \land b \in \N \rightarrow a \in \N$
+\end{peano}
+\begin{peano}
+    $a \in \N \rightarrow sa \in \N$
+\end{peano}
+\begin{peano}
+    $a,b \in \N \rightarrow (a = b \iff sa = sb)$
+\end{peano}
+\begin{peano}
+    $a \in \N \rightarrow sa \neq 1$
+\end{peano}
+\begin{peano}
+    $A \in \textbf{SET} \land 1 \in A \land (x \in \N \land x \in A \rightarrow sx \in A)$
+\end{peano}
 
-Para apresentarmos os axiomas, temos que ter em mente que elas são afirmações sobre algo, em especial, esses axiomas relacionam conceitos chamados de 'conceitos primitivos', que intuitivamente são conceitos que se tomam como compreendidos e 'não se tenta defini-los'.
+Esses axiomas relacionam conceitos primitivos. Conceitos primitivos podem ser entendidos como base para fazer proposições e outros conceitos. Peano escolheu 3 conceitos primitivos (nós faremos igualmente), que listaremos e forneceremos uma 'interpretação' inicial:
+\begin{itemize}
+    \item $1$: Algum elemento.
+    \item Número natural: Algo que é número e que podemos chamar de 'natural'.
+    \item sucessor: uma relação entre exatamente 2 elementos.
+\end{itemize}
+
+*citação do jogo de xadrez das peças de geometria*
 
 
+Para este trabalho, apresentaremos 4 axiomas, mas para isso precisaremos de algumas definições sobre \emph{funções}:
 
-\begin{axi}{Zero é um número natural}\label{P1}\end{axi}
-\begin{axi}{Se $a$ é um número natural, então $a$ tem um único sucessor que também é um número natural}\label{P2}\end{axi}
-\begin{axi}{Zero não é sucessor de nenhum número natural}\label{P3}\end{axi}
-\begin{axi}{Dois números naturais que têm sucessores iguais são, eles próprios, iguais.}\label{P4}\end{axi}
-\begin{axi}{Se uma coleção $S$ de números naturais contém o zero e, também o sucessor de todo elemento de $S$, então $S$ é o conjunto de todos os números naturais.}\label{P5}\end{axi}
+\begin{defi}{Produto cartesiano}
+    O produto cartesiano de X por Y é o conjunto $\{(x,y) : x \in X \land y \in Y\}$. Denotamos por $X \times Y$.
+\end{defi}
+\begin{obs}
+    O elemento $(x,y)$ é chamado de par ordenado, e ocorre que $(a,b) = (c,d) \iff a = c \land b = d$. Fica subentendido na definição anterior que é o conjunto de todos os pares ordenados com $x \in X$ e $y \in Y$.
+\end{obs}
 
-Seguindo o costume, chamaremos de $0$ o Zero, \N o conjunto de todos os números naturais e somente os números naturais, e a função $^+: \N \rightarrow \N$ para denotar a relação 'é sucessor de'.
-
-\begin{defi}{A adição (x,y) $\rightarrow x + y$ em \N é definido como: \\
-	$a + 0 = a$ \\
-	$a + b+ = (a + b)^+$
-}\label{adicao}
-
+\begin{defi}{Relação}
+    Uma relação é qualquer subconjunto do produto cartesiano.
 \end{defi}
 
-\begin{obs}
-	Denotaremos por 1 o sucessor do zero, isto é, $0^+$, o 2 será para denotar o sucessor do 1, isto é, $1^+$, e assim por diante.
-\end{obs}
-\begin{obs}
-	Algumas conclusões são imediatas:\\
-	Por $\ref{P1} \N \neq  $ \\
-	Em \ref{P4}, ao aplicar a contra-positiva, obtemos $a \neq b \implies a^+ \neq b^+$
-\end{obs}
 
-Listaremos algumas propriedades da adição e depois provaremos essas afirmações.
+
+
+\begin{axi}\label{axi-existe-n-s}
+    Existe um conjunto de exatamente todos os números naturais, que será denotado por $\N$, e existe uma função $s: \N \rightarrow \N$, que é a relação "sucessor". \footnote{O leitor poderia perguntar, como podemos fazer um produto cartesiano de conjuntos que não conhecemos?}
+\end{axi} % Não teria que especificar que é o mesmo 's' em todos os axiomas?
+\begin{axi}\label{axi-um-natural}
+    Um é um número natural, isto é, $1 \in \N$
+\end{axi}
+\begin{axi}\label{axi-um-nao-sucessor}
+    Um não é sucessor de nenhum número, isto é, $1 \not \in Im(s)$ ou ainda, $\not \exists k \in \N : sk = 1$
+\end{axi}
+\begin{axi}\label{axi-s-injetora}
+    $s$ é injetora, isto é, $sa = sb \implies a = b$
+\end{axi}
+\begin{obs}
+    Vale notar a contra positiva que estabelece, nesse caso: $a \neq b \implies sa \neq sb$
+\end{obs}
+\begin{axi}\label{axi-ind-finita}
+    Se $\S$ é um subconjunto de $\N$, caso $1 \in \S$ e se para todo $k$ em $\S\ sk$ também esteja em $\S$, então $\S = \N$, isso é o mesmo que colocar:
+     $\S \subseteq \N \land 1 \in S \land ( k \in \S \implies sk \in \S) \implies \S = \N$
+\end{axi}
+\begin{obs}
+    Denotaremos o sucessor de $k$ por $sk$ ao invés de $s(k)$ por questão de brevidade. Além disso, ao longo do trabalho, colocaremos poucos parênteses a fim de evitar sobrecarregar a notação desnecessariamente.
+\end{obs}
+Este último axioma é chamado de axioma da indução finita.
+
+Devemos notar que o axioma \ref{axi-um-natural} garante $\N \neq \emptyset $. Além dele, como $1 \in \N$ e pelo axioma \ref{axi-existe-n-s} temos que $s1 \in \N$. Analogamente, $ss1 \in \N$.
+
+\begin{lema}{Nenhum número natural é seu próprio sucessor}
+    $k \in \N \implies k \neq sk $
+\end{lema}
+\begin{dem}
+    Faremos por indução. Seja $\S \subseteq \N$ tal que $k \in \S \implies k \neq sk$.\\
+    O axioma \ref{axi-um-natural} e \ref{axi-um-nao-sucessor} garantem que $1 \in \S$.\\
+    Supondo que $\exists k \in \S : k \neq sk$, queremos provar que $s(k) \neq s(sk)$, que vem do axioma \ref{axi-s-injetora}.
+\end{dem}
+\begin{teo}
+    Todo número natural, exceto o $1$ é sucessor de algum outro número natural, que é único, isto é, $\forall k (k \in \N \land k \neq 1 \implies \exists! r : sr = k)$
+\end{teo}
+\begin{dem}
+    A prova é feita por indução. Seja $\S = \{x \in \N : x \neq 1 \implies (\exists!r \in \N : sr = k)\}$.\\
+    Claro que $1 \in \S$. Com um $k$ em  \S, queremos mostrar que $sk \in \S$. \\
+    É imediato que $sk \in \S$ pois, se $k \in \S$, para o sucessor $sk$ existe um número $k$ tal que $\underbrace{sk}_{\text{Da regra de } \S} = \underbrace{sk}_{\text{Axioma }\ref{axi-ind-finita}}$.\\
+    A unicidade de $r$ também é imediata, pois $sa = sb = k \implies a = b$ pelo axioma \ref{axi-s-injetora}.
+\end{dem}
+\begin{obs}
+    Diremos que o número que o número $a$ é antecessor de $k = sa$.
+\end{obs}
+\begin{defi}{Adição}\label{adicao}
+A adição (x,y) $\rightarrow x + y$ em \N é definida como: 
+    \begin{itemize}
+        \item $a + 1 = sa$
+        \item $a + sb = s(a+b)$
+    \end{itemize}
+\end{defi}
+
+Listaremos algumas propriedades da adição e depois provaremos essas afirmações. Sejam $a, b \in \N$
 \begin{itemize}
+    \item Fechamento: $a + b \in \N$
 	\item Associativa: $(a + b) + c = a + (b + c)$
 	\item Comutativa: $a + b =  b + a$
-	\item Elemento neutro: $\exists b \in \N / \forall a, a + b = b + a = a$
+	\item Inexistência de neutro: $\not\exists e \in \N : \forall a, a + e = e + a = a$
 \end{itemize}
+
+\begin{dem}{Fechamento:}
+    
+\end{dem}
 
 
 % FIM CAPITULOS
