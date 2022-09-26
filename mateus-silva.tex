@@ -675,12 +675,12 @@ Devemos notar que o axioma \ref{axi-um-natural} garante $\N \neq \emptyset $. Al
 \begin{obs}
     Diremos que o número que o número $a$ é antecessor de $k = sa$.
 \end{obs}
-\begin{defi}{Adição}\label{adicao}
-A adição (x,y) $\rightarrow x + y$ em \N é definida como: 
-    \begin{itemize}
+\begin{defi}{Soma}\label{def-soma-N}
+A soma (x,y) $\rightarrow x + y$ em \N é definida como: 
+    \begin{enumerate}[label=(\roman*)]
         \item $a + 1 = sa$
         \item $a + sb = s(a+b)$
-    \end{itemize}
+    \end{enumerate}
 \end{defi}
 
 Listaremos algumas propriedades da adição e depois provaremos essas afirmações. Sejam $a, b \in \N$
@@ -692,9 +692,33 @@ Listaremos algumas propriedades da adição e depois provaremos essas afirmaçõ
 \end{itemize}
 
 \begin{dem}{Fechamento:}
-    
+    This;
 \end{dem}
 
+\begin{defi}{Produto}\label{def-produto-N}
+	O produto de $x$ por $y$, denotador por $x \cdot y$, é uma operação sobre \N $ (x,y) \rightarrow \N$ 
+	\begin{enumerate}[label=(\roman*)]
+		\item $m \cdot 1 = m$
+		\item $m \cdot sn = m + mn$
+	\end{enumerate}
+\end{defi}
+\begin{obs}
+	Com o intuito de omitir parênteses que seriam usados demais de outro modo, estebeleceremos a seguinte convenção: \\
+	$a + b \cdot c = a + (b \cdot c)$ e $a \cdot b + c = (a \cdot b) + c$
+\end{obs}
+
+\begin{lema}
+	Para qualquer número natural $m$, vale: $1 \cdot m = m \cdot 1$
+\end{lema}
+\begin{dem}
+		Para $1$ temos: \\
+		$1 \cdot 1 = 1$ por def i\\
+		Sabemos que vale para algum $k \in \N$, isto é \\
+		$1 \cdot k = k \cdot 1$, é possível concluir que vale para $sk$? \\
+		$sk \cdot 1$ \\
+		$1 + k$ \\
+		$1 + 1 \cdot k$ 
+\end{dem}
 
 % FIM CAPITULOS
 
