@@ -1,0 +1,221 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\chapter{O CONJUNTO DOS NÚMEROS NATURAIS E OS AXIOMAS DE PEANO}
+
+\section{Um pouco de história}
+Os números naturais foram usados por muito tempo como algo por si só e sem fundamentação por outras coisas que os justificassem. Não houve preocupação na sua formalização até recentemente, quando Hermann Grassmann mostrou na década de 1860 que vários fatos de aritmética básica podiam ser obtidas através de alguns "fatos básicos" (ou axiomas) da aritmética.
+Houveram algumas tentativas de formalização do conjunto, e no século XIX o italiano Giuseppe Peano formulou seus axiomas utilizando o trabalho de Grassmann e Richard Dedekind como base.
+
+Peano em seu 'Arithmetices Principia, Nova Methodo Exposita' fundamentou a sua aritmética com $9$ axiomas, que em notação moderna são:
+\begin{peano}
+    $1 \in \N$
+\end{peano}
+\begin{peano}
+    $a \in \N \rightarrow a = a$
+\end{peano}
+\begin{peano}
+    $a,b,c \in \N \rightarrow a = b \iff b = a$
+\end{peano}
+\begin{peano}
+    $a,b,c \in \N \rightarrow (a = b \land b = c \rightarrow a = c) $
+\end{peano}
+\begin{peano}
+    $a = b \land b \in \N \rightarrow a \in \N$
+\end{peano}
+\begin{peano}
+    $a \in \N \rightarrow sa \in \N$
+\end{peano}
+\begin{peano}
+    $a,b \in \N \rightarrow (a = b \iff sa = sb)$
+\end{peano}
+\begin{peano}
+    $a \in \N \rightarrow sa \neq 1$
+\end{peano}
+\begin{peano}
+    $A \in \textbf{SET} \land 1 \in A \land (x \in \N \land x \in A \rightarrow sx \in A)$
+\end{peano}
+
+Esses axiomas relacionam conceitos primitivos. Conceitos primitivos podem ser entendidos como base para fazer proposições e outros conceitos. Peano escolheu 3 conceitos primitivos (nós faremos igualmente), são eles:
+\begin{itemize}
+    \item Um, denotado por $1$
+    \item Número natural
+    \item sucessor: uma relação entre exatamente 2 elementos. \footnote{Embora na prática utilizemos apenas um elemento e o símbolo da relação, o outro elemento fica subentendido por ser a imagem da relação que é uma função.}
+\end{itemize}
+
+*citação do jogo de xadrez das peças de geometria*
+
+
+\section{Axiomas}
+Com o intuito de construir os conjuntos numéricos até os números reais, começaremos por tomar o conjunto dos números naturais como dado, onde sua caracterização faremos também com axiomas, isto é
+Para o nosso desenvolvimento, escolheremos 4 axiomas, que utilizam os mesmos conceitos primitivos que Peano.
+\begin{axi}\label{axi-existe-n-s}
+    Existe um conjunto de exatamente todos os números naturais, que será denotado por $\N$, e existe uma função $s: \N \rightarrow \N$, que é a relação "sucessor". 
+    % TODO \footnote{O leitor poderia perguntar, como podemos fazer um produto cartesiano de conjuntos que não conhecemos?}
+\end{axi} % TODO Não teria que especificar que é o mesmo 's' em todos os axiomas?
+\begin{axi}\label{axi-um-natural}
+    Um é um número natural, isto é, $1 \in \N$
+\end{axi}
+\begin{axi}\label{axi-um-nao-sucessor}
+    Um não é sucessor de nenhum número, isto é, $1 \not \in Im(s)$ ou ainda, $\not \exists x \in \N : sx = 1$
+\end{axi}
+\begin{axi}\label{axi-s-injetora}
+    $s$ é injetora, isto é, $sx = sy \implies x = y$ \footnote{Vale notar a contra-positiva que estabelece, nesse caso: $x \neq y \implies sx \neq sy$}
+\end{axi}
+\begin{axi}\label{axi-ind-finita}
+    Se $\S$ é um subconjunto de $\N$, caso $1 \in \S$ e se para todo $k$ em $\S\ sk$ também esteja em $\S$, então $\S = \N$, isso é o mesmo que colocar:
+     $\S \subseteq \N \land 1 \in S \land ( k \in \S \implies sk \in \S) \implies \S = \N$
+\end{axi}
+Este último axioma é chamado de axioma da indução finita.
+
+Denotamos o sucessor de $k$ por $sk$ ao invés de $s(k)$ por questão de brevidade. Além disso, ao longo do trabalho, colocaremos poucos parênteses a fim de evitar sobrecarregar a notação desnecessariamente.
+
+Conforme os axiomas aprsentados, deve ser notado que o conjunto \N (na nossa axiomatização) não tem o $0$ (zero) que é, usualmente, o neutro da soma em \N. O intuito de construir a partir do $1$ é pela questão que às vezes surge em diversas situações: "$0$ é um número natural?". Em diversos locais, dizem que pode ser e pode não ser. É dito que fica a critério de conveniência, embora para nós, seja 'inconveniente' perder o neutro da soma (que aparecerá sua primeira vez em \Z). 
+
+Justificamos essa escolha pois essa dificuldade na ausência do zero terá algumas implicações, que poderão ser observadas na nossa construção. Além disso, a bibliografia principal trata o zero como um número natural, então a construção será com métodos muitas vezes alternativos, diferentes do comum.
+
+Observemos também que o próprio Peano começou originalmente pelo $1$ e somente depois colocou o $0$ como o primeiro número natural.
+
+Para comerçarmos nosso desenvolvimento, podemos notar que o axioma \ref{axi-um-natural} garante $\N \neq \emptyset $. Além dele, como $1 \in \N$ e pelo axioma \ref{axi-existe-n-s} temos que $s1 \in \N$. Analogamente, $ss1 \in \N$.
+
+Em seguida apresentamos um lema que será necessário para ampliação de nosso ferramental inicial.
+\begin{lema}{Nenhum número natural é seu próprio sucessor}\label{n-dif-sucessor}
+    $x \in \N \implies x \neq sx $
+\end{lema}
+\begin{dem}
+    Faremos por indução. Seja $\S = \{x \in \N : x \neq sx \}$
+    O axioma \ref{axi-um-natural} e \ref{axi-um-nao-sucessor} garantem que $1 \in \S$.\\
+    Supondo que $\exists k \in \S : k \neq sk$, queremos provar que o sucessor de $k$ é diferente do sucessor do sucessor de $k$, isto é, $s(k) \neq s(sk)$. Como $k\ neq sk$ e $s$ é injetora pelo axioma \ref{axi-s-injetora}, concluímos que $s(k) \neq s(sk)$.
+\end{dem}
+\begin{teo}\label{suc-unico}
+    Todo número natural, exceto o $1$ é sucessor de algum outro número natural, que é único, isto é, $\forall x (x \in \N \land x \neq 1 \implies \exists! y : sy = x)$
+\end{teo}
+\begin{dem}
+    A prova é feita por indução. Seja $\S = \{x \in \N : x \neq 1 \implies (\exists!y \in \N : sy = x)\}$.\\
+    Sabemos que $1 \in \S$ porque $x = 1$ torna o antecedente falso, onde podemos concluir qualquer coisa. Suponhamos que existe um $k$ em \S, queremos mostrar que $sk \in \S$. \\
+    É imediato que $sk \in \S$ pois, se $k \in \S$, para o sucessor $sk$ existe um número $k$ tal que $\underbrace{sk}_{\text{Da regra de } \S} = \underbrace{sk}_{\text{Axioma }\ref{axi-ind-finita}}$.\\
+    A unicidade de $y$ também é imediata, pois $sa = sb = k \implies a = b$ pela injetividade de $s$ axioma \ref{axi-s-injetora}.
+\end{dem}
+\begin{obs}
+    Diremos que o número $y$ é antecessor de $x = sy$. Além disso vale notar que $s$ conforme definida no axioma \ref{axi-existe-n-s} não é sobrejetora somente pelo fato de o contradomínio ser \N. Mas se considerarmos o caso restrito para $\N \\ \{1\}$ 
+    teremos que $s$ é uma \emph{bijeção}.
+\end{obs}
+
+\section{A adição}
+\begin{defi}{Adição}\label{def-adicao-N}
+Sejam $x, y \in \N$. A adição entre $x$ e $y$, denotada por $x + y$ é definida com as seguintes condições: 
+    \begin{enumerate}[label=(\roman*)]
+        \item $x + 1 = sx$
+        \item $x + sy = s(x+y)$
+    \end{enumerate}
+\end{defi}
+Às vezes poderemos fazer referência à operação de adição com o nome de soma.
+
+Na sequência veremos algumas propriedades básicas sobre a adição no conjunto \N.
+\begin{prop}{Sejam $a, b, c, d \in \N$ valem:}
+    \begin{enumerate}[label=(\roman*)]
+    	\item Associativa: $(a + b) + c = a + (b + c)$
+    	\item Comutativa: $a + b =  b + a$
+        \item Lei do corte: $a + c = b + c \implies a = b$
+        \item Fechamento: $a + b \in \N$
+    	\item Inexistência de neutro: $\not\exists e \in \N : \forall a, a + e = e + a = a$
+    \end{enumerate}
+\end{prop}
+\begin{lema}{Comutatividade do $1$ na soma}\label{soma-n-um-comut}
+    O $1$ comuta com qualquer número na soma, isto é,$ \forall x, x + 1 = 1 + x$
+\end{lema}
+%        Seja $\S = \{ x \in \N : \}$
+\begin{dem}
+    Seja $\S = \{ x \in \N : x + 1 = 1 + x\}$. O $1$ está em \S pois $1 + 1 = 1 + 1$.
+    Sabendo que existe um $k$ em \S, queremos provar que $sk$ também está em \S. Como
+    $sk + 1 = s(sk) = s(k+1) = s(1+k) = 1 + sk$. Portanto $sk$ também está em \S sempre que $k$ também está, o que pelo princípio de indução \S = \N.
+\end{dem} \\
+\begin{dem}{A soma é associativa}
+     Seja $\S = \{ x \in \N : (a + b) + x = a + (b + x) \}$. Para o $1$ temos então
+     $(a + b) + 1 = s(a + b) = a + sb = a + (b + 1)$, o que mostra que o $1$ está em \S. 
+     Mostraremos que $k \in \S \implies sk \in \S$, pois:
+     $(a + b) + sk = s( (a + b) + k) = s(a + (b + k)) = a + s(b + k) = a + (b + sk)$, o que, pelo princípio de indução \S = \N.
+\end{dem}
+\begin{obs}
+    Com isso tomamos a liberdade natural de omitir os parênteses na soma.
+\end{obs}
+\begin{dem}{Comutativa}
+    Consideremos o conjunto $\S = \{ x \in \N : a + x = x + a\}$. O $1 \in \S$ pois 
+    $a + 1 = 1 + a$ conforme o lema \ref{soma-n-um-comut}.
+    Provemos então que se $k \in \S$ então $sk \in \S$, pois 
+    $a + sk = s(a + k) = s(k + a) = k + sa = k + a + 1 = k + 1 + a = sk + a$
+\end{dem}
+\begin{dem}{Lei do corte}
+    Seja $\S = \{ x \in \N : x + b = x + c \implies b = c \}$, vamos provar que \S = \N. Obviamente o $1$ está em \S pois $1 + b = 1 + c \iff b + 1 = c + 1$ e pelo axioma da injetividade, se dois elementos tem sucessores iguais, eles próprios são iguais. Agora consideremos se vale que $(k + b = k + c \implies b = c) \implies (sk + b = sk + c \implies b = c)$. \\
+    $sk + b = sk + c \iff (k + b) + 1 = (k + c) + 1$, o que pelo mesmo motivo anterior, concluímos que $k + b = k + c$, e pela nossa hipótese concluímos que $b = c$.
+\end{dem}
+
+\begin{dem}{Fechamento}
+    Seja $\S = \{ x \in \N : a + x \in \N \}$. Obviamente o $1$ está em \S. Suponhamos então que existe $k \in \S$, queremos saber se isso garante que $sk \in \S$. Temos então que $a + k \in \N$, já para $a + sk = a + k + 1 = (a + k) + 1 = s(a + k) \in \S$ pelo axioma \ref{axi-existe-n-s} a função tem domínio e contradomínio \N.     
+\end{dem}
+
+% \begin{teo}{O elemento neutro, se existir, é único}
+%     Sejam
+% \end{teo}
+
+\begin{dem}{Inexistência de neutro}
+    Seja $\S = \{ x \in \N : \text{é falso que} x + a = a \}$, temos certeza que o $1 \in \S$, porque de fato é falso que $1 + a = sa = a$. Mas se por hipótese temos que $k \in \S$ o que significa que $k + a \neq a$. Então, para o sucessor teremos $sk + a = (k + a) + 1 = s(k + a)$. Agora suponhamos que $sk + a = a$
+\end{dem}
+
+\section{A multiplicação}
+\begin{defi}{Multiplicação}\label{def-multiplicacao-N}
+    Sejam $x, y \in \N$. A multiplicação entre $x$ e $y$, denotada por $x \cdot y$ é definida com as seguintes condições: 
+	\begin{enumerate}[label=(\roman*)]
+		\item $x \cdot 1 = x$
+		\item $x \cdot sy = x + x \cdot y$
+	\end{enumerate}
+\end{defi}
+\begin{obs}
+	Com o intuito de omitir parênteses que seriam usados demais de outro modo, estebeleceremos a seguinte convenção: \\
+	$x + y \cdot z \defeq x + (y \cdot z)$ \footnote{$\defeq$ é o símbolo que representa que o que está à esquerda é por definição igual ao que está à direita} \\
+	$x \cdot y + z \defeq (x \cdot y) + z$ \\
+	$x \cdot y \defeq xy$
+\end{obs}
+
+\begin{lema}
+	Para qualquer número natural $x$, vale: $1 \cdot x = x \cdot 1$
+\end{lema}
+\begin{dem}
+		Para $1$ temos: \\
+		$1 \cdot 1 = 1$ por def i\\
+		Sabemos que vale para algum $k \in \N$, isto é \\
+		$1 \cdot k = k \cdot 1$, é possível concluir que vale para $sk$? \\
+		$sk \cdot 1$ \\
+		$1 + k$ \\
+		$1 + 1 \cdot k$ 
+\end{dem}
+\\
+Enunciaremos abaixo algumas propriedades da multiplicação.
+\begin{prop}{Sejam $a, b, c, d \in \N$ valem:}
+    \begin{enumerate}[label=(\roman*)]
+        \item Associativa: $(a \cdot b) \cdot c = a \cdot (b \cdot c)$
+        \item Comutativa: $a \cdot b = b \cdot a$
+        \item Elemento neutro: $\exists e \in \N : a \cdot e = e \cdot a = a$
+        \item Lei do corte: $a \cdot b = a \cdot c \implies b = c$
+        \item $a \cdot b = 1 \implies a = b = 1$
+        \item Distributiva à esquerda: $a \cdot (b + c) = ab + ac$
+    \end{enumerate}
+\end{prop}
+
+\section{A relação de ordem}
+\begin{prop}{Sejam $a, b, c, d \in \N$ valem:}
+    \begin{enumerate}[label=(\roman*)]
+        \item Reflexiva: $a \leq a$
+        \item Antissimétrica: $a \leq b \land b \leq a \implies a = b$
+        \item Transitiva: $a \leq b \land b \leq c \implies a \leq c$
+        \item Totalidade: $a \leq b \lor b \leq a$
+        \item Compatível com adição: $a \leq b \iff a + c \leq b + c$
+        \item Compatível com multiplicação: $a \leq b \iff ac \leq bc$
+    \end{enumerate}
+\end{prop}
+\begin{teo}{Princípio do menor elemento}
+...
+\end{teo}
+\begin{teo}{Primeiro princípio de indução}
+...
+\end{teo}
+\end{document}

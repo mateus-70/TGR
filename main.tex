@@ -1,0 +1,323 @@
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+% Modelo de TGR para o curso de Licenciatura em Matemática - UDESC/CCT
+%
+% Este modelo usa o pacote ABNTeX2, para instalar siga as seguintes instruções:
+% Para poder usar o ABNTeX2 é necessário ter o LaTeX instalado. Para Windows, o MikTeX é o mais usado. 
+% Vá até a página de download do abntex2 (http://code.google.com/p/abntex2/downloads/list), baixe uma das versões (eu usei abntex2.tds-1.7.1.zip) e descompacte em uma pasta temporária.
+% Encontre a pasta na qual o MikTeX instalou seus arquivos (no meu computador foi C:\Arquivos de Programas(x86)\MikTex 2.9).
+% Vá na pasta C:\temp\abntex-<versão>\texmf, selecione o conteúdo e copie tudo.
+% Agora vá na pasta de instalação do MikTex e cole tudo (talvez vá sobrescrever alguma coisa). São os diretórios bibtex, doc e tex.
+% Feito isso, será necessário atualizar o MikTeX destas mudanças. Para isso, vá em  Iniciar/Programas/MikTeX/Maintenance(Admin)/Settings e clique no botão Refresh Now.
+% No Linux basta instalar o pacote texlive-full.
+%
+%
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	oneside,			% para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
+
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{cmap}				% Mapear caracteres especiais no PDF
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+% \usepackage[dvips]{graphicx}    % Inclusão de gráficos (.eps)
+\usepackage{graphicx} 
+\usepackage{epstopdf}			%conversão direta para pdf permitindo inserir figuras jpg
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[left=3cm,right=2cm,top=3cm,bottom=2cm]{geometry}
+\usepackage{mathtools}
+\usepackage{subfiles}
+
+
+% ---
+\usepackage{titlesec} %Adequação dos títulos as normas da UDESC
+% ---
+\titleformat{\chapter}
+{\normalfont\normalfont\bfseries}
+{\thechapter.}{0.5em}{}
+
+
+
+\titleformat{\section}
+{\normalfont}
+{\thesection.}{0.5em}{}
+
+\titleformat{\subsection}
+{\normalfont}
+{\thesection.}{0.5em}{}
+
+% ---
+\usepackage{etoc} %Adequação do sumário as normas da UDESC
+% ---
+
+\etocsetstyle{section}
+{\normalfont}
+{\addvspace{.5ex}\noindent\setlength{\leftskip}{1.5cm}\noindent}
+{\llap{\makebox[1.5cm][l]{{\etocnumber}}}\etocname
+  \hspace{10pt}\nobreak\dotfill\hspace{10pt}{\etocpage}\par}
+{}
+\etocsetstyle{chapter} 
+{\bfseries}
+{\addvspace{.5ex}\setlength{\leftskip}{1.5cm}\noindent}
+{\llap{\makebox[1.5cm][l]{\bfseries\etocnumber}}\etocname
+  \hspace{10pt}\nobreak\dotfill\hspace{10pt}\etocpage\par}
+{}
+
+\etocsetstyle{chapter} 
+{\bfseries}
+{\addvspace{.5ex}\setlength{\leftskip}{1.5cm}\noindent}
+{\llap{\makebox[1.5cm][l]{\bfseries\etocnumber}}\etocname
+  \hspace{10pt}\nobreak\dotfill\hspace{10pt}\etocpage\par}
+{}
+
+\etocsetstyle{subsection}
+{\bfseries}
+{\addvspace{.5ex}\noindent\setlength{\leftskip}{1.5cm}\noindent}
+{\llap{\makebox[1.5cm][l]{{\bfseries\etocnumber}}}\etocname
+  \hspace{10pt}\nobreak\dotfill\hspace{10pt}{\etocpage}\par}
+{}
+\etocsetstyle{chapter} 
+{\bfseries}
+{\addvspace{.5ex}\setlength{\leftskip}{1.5cm}\noindent}
+{\llap{\makebox[1.5cm][l]{\bfseries\etocnumber}}\etocname
+  \hspace{10pt}\nobreak\dotfill\hspace{10pt}\etocpage\par}
+{}
+
+\etocsettocstyle{\chapter*{\bfseries SUMÁRIO}}
+{\bfseries}
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{2}
+
+
+
+% ---
+% Novos Comandos 
+% ---
+\newcommand{\R}{\ensuremath {\mathbb{R}} }
+\newcommand{\Z}{\ensuremath {\mathbb{Z}} }
+\newcommand{\Q}{\ensuremath {\mathbb{Q}} }
+\newcommand{\N}{\ensuremath {\mathbb{N}} }
+\newcommand{\C}{\ensuremath {\mathbb{C}} }
+\newcommand{\K}{\ensuremath {\mathbb{K}} }
+\renewcommand{\S}{\ensuremath {\mathbb{S}} }
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+
+\newcommand{\authorName}{MATEUS SCHROEDER DA SILVA}
+\newcommand{\orientationBy}{Doutor Marnei Luis Mandler}
+\newcommand{\titleTGR}{A CONSTRUÇÃO DOS NÚMEROS}
+\newcommand{\subtitleTGR}{DOS NATURAIS AOS REAIS}
+\newcommand{\titleComplete}{\textbf{\titleTGR:} \subtitleTGR}
+
+
+
+% ---
+% Estilo teoremas  e atalhos para comandos 
+% ---
+\theoremstyle{plain}
+\newtheorem{teo}{Teorema}[chapter]
+\newtheorem{prop}{Proposição}[chapter]
+\newtheorem{lema}{Lema}[chapter]
+\newtheorem{corol}{Corolário}[chapter]
+\newtheorem{defi}{Definição}[chapter]
+\newtheorem{axi}{Axioma}
+\newtheorem{peano}{Peano}
+
+\theoremstyle{definition}
+\newtheorem{obs}{Observação}[chapter]
+\newtheorem{ex}{Exemplo}[chapter]
+
+\newenvironment{dem}[1][\textbf{Demonstração:} \ ]{\textbf{#1}}{\hfill\rule{2mm}{2mm}}
+\newcommand{\afi}{\textbf{Afirmação:} }
+% ---
+
+%\usepackage{lipsum}				% para geração de dummy text
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+%\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+
+
+
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+%%Cabeçalho
+% ---
+\makepagestyle{meuestilo}
+  %%cabeçalhos
+ % \makeevenhead{meuestilo} %%pagina par
+  %  {topo par à esquerda}
+  %  {centro \thepage}
+    % {direita}
+  \makeoddhead{meuestilo} %%pagina ímpar ou com oneside
+     {} %esquerda
+     {} %centro
+     {\thepage}%direita
+
+% ----
+% Início
+% ----
+
+\titulo{\titleComplete}
+\autor{\authorName}
+\local{JOINVILLE, SC}
+\date{2023}
+\tipotrabalho{TRABALHO DE CONCLUSÃO DE CURSO}
+\preambulo{ Trabalho de conclusão de curso apresentado como requisito parcial para obtenção do título de licenciado em Matemática pelo curso de Licenciatura em Matemática do Centro de Ciências Tecnológicas - CCT, da Universidade do Estado de Santa Catarina - UDESC. \\
+ Orientador: \orientationBy}
+% ---
+
+\makeatother
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.25cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% % ----
+\begin{document}
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+\subfile{chapter/presentation}
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+
+\textual
+\pagestyle{meuestilo}
+\subfile{chapter/introduction}
+
+% INICIO CAPITULOS
+
+\subfile{chapter/naturals}
+\subfile{chapter/integers}
+\subfile{chapter/rationals}
+\subfile{chapter/reals}
+
+% FIM CAPITULOS
+
+% ------------------------------------------------------------
+% Conclusão
+% ------------------------------------------------------------
+\subfile{chapter/conclusion}
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\subfile{chapter/references}
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+
+%\chapter*[Apêndice]{APÊNDICE A - TÍTULO}
+%\addcontentsline{toc}{chapter}{APÊNDICE A - TÍTULO}
+% ----------------------------------------------------------
+
+%Lalalalalala....
+
+% ----------------------------------------------------------
+%\chapter{Titulo do Segundo Apêndice}
+% ----------------------------------------------------------
+
+%Lalalalalala...
+
+
+% ---
+
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+
+
+
+% ---
+%\chapter*[Anexos]{ANEXO A - TÍTULO}
+%\addcontentsline{toc}{chapter}{ANEXO A - TÍTULO}
+% ---
+
+%Lalalalalala...
+
+% ---
+%\chapter{Nome do anexo 2}
+% ---
+
+%lalalalalalalala....
+
+
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+
+\printindex
+
+\end{document}
