@@ -52,6 +52,8 @@
 \usepackage[left=3cm,right=2cm,top=3cm,bottom=2cm]{geometry}
 \usepackage{mathtools}
 \usepackage{subfiles}
+\usepackage{pdfpages}
+\usepackage{relsize}
 
 
 % ---
@@ -135,7 +137,7 @@
 \newcommand{\subtitleTGR}{DOS NATURAIS AOS REAIS}
 \newcommand{\titleComplete}{\textbf{\titleTGR:} \subtitleTGR}
 
-
+\newcommand{\absurd}{\Rightarrow\!\Leftarrow}
 
 % ---
 % Estilo teoremas  e atalhos para comandos 
@@ -153,8 +155,11 @@
 \newtheorem{obs}{Observação}[chapter]
 \newtheorem{ex}{Exemplo}[chapter]
 
-\newenvironment{dem}[1][\textbf{Demonstração:} \ ]{\textbf{#1}}{\hfill\rule{2mm}{2mm}}
+\newenvironment{dem}[1][\textbf{Demonstração:} \ ]{\textbf{#1}}{\hfill\rule{2mm}{2mm} \\ }
 \newcommand{\afi}{\textbf{Afirmação:} }
+
+\relpenalty=9999
+\binoppenalty=9999
 % ---
 
 %\usepackage{lipsum}				% para geração de dummy text
@@ -243,7 +248,7 @@
 % Retira espaço extra obsoleto entre as frases.
 \frenchspacing 
 
-\subfile{chapter/presentation}
+%\subfile{chapter/presentation}
 
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
@@ -251,26 +256,26 @@
 
 \textual
 \pagestyle{meuestilo}
-\subfile{chapter/introduction}
+%\subfile{chapter/introduction}
 
 % INICIO CAPITULOS
 
-\subfile{chapter/naturals}
-\subfile{chapter/integers}
+%\subfile{chapter/naturals}
+%\subfile{chapter/integers}
 \subfile{chapter/rationals}
-\subfile{chapter/reals}
+%\subfile{chapter/reals}
 
 % FIM CAPITULOS
 
 % ------------------------------------------------------------
 % Conclusão
 % ------------------------------------------------------------
-\subfile{chapter/conclusion}
+%\subfile{chapter/conclusion}
 
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
-\subfile{chapter/references}
+%\subfile{chapter/references}
 
 % ----------------------------------------------------------
 % Apêndices
@@ -280,8 +285,9 @@
 %\chapter*[Apêndice]{APÊNDICE A - TÍTULO}
 %\addcontentsline{toc}{chapter}{APÊNDICE A - TÍTULO}
 % ----------------------------------------------------------
-
-%Lalalalalala....
+%\chapter*[Apêndice]{APÊNDICE A - TÍTULO}
+%\addcontentsline{toc}{chapter}{APÊNDICE A - TÍTULO}
+%\subfile{chapter/apendix-A}
 
 % ----------------------------------------------------------
 %\chapter{Titulo do Segundo Apêndice}

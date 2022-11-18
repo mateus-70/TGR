@@ -1,4 +1,365 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \chapter{O CONJUNTO DOS NÚMEROS INTEIROS}
+Neste capítulos faremos a construção dos números inteiros. A bibliografia principal continua sendo FERREIRA e DOMINGUES. Será apresentado uma relação de equivalência que servirá para criar \Z. Depois definiremos uma adição e um produto que tenha algumas propriedades que já tinham em \N, isto é, queremos "estender" \N.
+
+Devemos observar que em \N temos que a subtração, tal como conhecemos no ensino básico, não é uma operação (no sentido da álgebra), pois a subtração não está definida para quaisquer dois elementos de \N tal que o resultado esteja em \N. 
+
+Com o objetivo de contornar esse problema, queremos criar um novo conjunto a partir de \N tal que a subtração também seja uma operação. Veremos que isso é possível, tal conjunto será denotado por \Z e chamaremos ele de conjunto dos \emph{números inteiros}.
+
+Nos números naturais, poderíamos ter definido uma função que tivesse o intuito de fazer o inverso da soma, que seria a subtração denotada por "$-$". Seguindo esse raciocínio poderíamos mostrar que $9-3 = 8-2 = 7-1$. Concluiríamos com base nessas igualdades, que $9 + 2 = 8 + 3$ e $8 + 1 = 7 + 2$, o que em ambos os casos, os resultados são números naturais. 
+
+Além disso, queremos expressar um número inteiro apenas com números naturais, sem ter que assumir mais que \N, a lógica e a teoria de conjuntos que já foram assumidas. Além disso, tentar dar significado à expressões do tipo $3-5, 4-8, 2-3$ que nesses exemplos não são números naturais.
+
+A maneira como expressaremos será através de uma relação binária $\sim$ sobre $\N \times \N$ definida desse modo: $(a,b) \sim (c,d) \iff a+d = b+c$.
+\begin{teo}
+    A relação $\sim$ é de equivalência.
+\end{teo}
+\begin{dem}
+    \begin{enumerate}[label=(\roman*)]
+        \item Reflexiva: $(a,b) \sim (a,b) \iff a+b=b+a$.
+        \item Simetria: $(a,b) \sim (c,d) \iff (c,d) \sim (a,b)$ \\
+        Temos $ a+d = b+c = c+b = d+a \iff (c,d) \sim (a,b)$.
+        \item Transitiva: $(a,b) \sim (c,d) \land (c,d) \sim (e,f) \implies (a,b) \sim (e,f)$. \\
+        Temos $(a,b) \sim (c,d) \iff a+d=b+c$ \\
+        e também que $(c,d) \sim (e,f) \iff c+f=d+e$. \\
+        Somando os dois primeiros termos entre si, e os dois segundos termos entre si, e igualando os resultados, temos: \\ 
+        $a+d+(c+f)= b+c+(d+e) \iff a+f = b+e \iff (a,b) \sim (e,f)$.
+    \end{enumerate}
+\end{dem}
+\begin{defi}
+    O conjunto quociente $\N \times \N / \sim = \{ \overline{(a,b)}: (a,b) \in \N \times \N\}$ será chamado de $\emph{conjunto dos números inteiros}$ e será denotado, conforme já anunciado, por \Z.
+\end{defi}
+\begin{obs}
+    Utilizaremos a mesma notação para adição e multiplicação de números inteiros, que utilizamos nos números naturais. Inicialmente para o desenvolvimento do texto, sempre que $x,y \in \N$ entenderemos a soma $x+y$ como sendo executada em \N. Caso $x,y \in \Z$ entenderemos a soma $x+y$ sendo executada em \Z. Posteriormente justificaremos a escolha de utilizar os mesmos símbolos sendo que os conjuntos são diferentes. Isso se repetirá com a multiplicação e coma a relação de ordem.
+\end{obs}
+
+Com essa definição de número inteiro podemos interpretar, a nível de ensino básico, que o número $\overline{(a,b)}$ é $a - b$. Embora caso fôssemos definir subtração em \N, ela não seria uma operação, pois estaria definida apenas quando $a > b$.
+
+
+\begin{prop}
+    Podemos considerar uma "lei do corte" dentro do par ordenado, isto é, se $a,b,k \in \N$ vale que: $\overline{(a+k,b+k)} = \overline{(a,b)}$
+\end{prop}
+\begin{dem}
+    A demonstração é imediata, vemos que os elementos (os pares ordenados) representam a mesmo conjunto pois $a+k+b = b+k+a$.
+\end{dem}
+
+\section{A adição em \Z}
+Tínhamos a adição em \N. Vamos definir uma adição em \Z, se possível, mantendo algumas propriedades da adição em \N. Veremos que a maneira como definiremos garante isso.
+\begin{defi}
+    Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em \Z, definimos a adição $\overline{(a,b)} + \overline{(c,d)}$ pelo número $\overline{(a+c, b+d)}$.
+\end{defi}
+\begin{prop}
+    A operação de adição está bem definida em \Z. Isto é, a adição em \Z não depende do representante das classes envolvidas na adição. Podemos expressar isso assim também: $a,a',b,b',c,c',d,d' \in \N$, $\overline{(a,b)} = \overline{(a',b')} \land \overline{(c,d)} = \overline{(c',d')}
+    \implies \overline{(a,b)} + \overline{(c,d)} = \overline{(a',b')} + \overline{(c',d')} $.
+\end{prop}
+\begin{dem}
+    Vamos desenvolver as duas somas e mostrar que são iguais. Consideremos 
+    $\overline{(a,b)} + \overline{(c,d)} = \overline{(a+c,b+d)}$.
+    Considerando agora a segunda soma temos: 
+    $\overline{(a',b')} + \overline{(c',d')} = \overline{(a'+c',b'+d')}$.
+    Precisamos agora apenas mostrar que $(a+c,b+d) \sim (a'+c',b'+d')$, isso mostrará que 
+    $\overline{(a+c,b+d)} = \overline{(a'+c',b'+d')}$. 
+    Como $\overline{(a,b)} = \overline{(a',b')} \iff a+b' = b+a'$.
+    Também como $\overline{(c,d)} = \overline{(c',d')} \iff c+d' = d+c'$ teremos então que $(a+b')+(c+d') = (b+a')+(d+c') \iff (a+c) + (b'+d') = (b+d) + (a'+c') \iff (a+c,b+d) \sim (a'+c',b'+d')$.
+\end{dem}
+
+\begin{prop}{Sejam $\overline{(a,b)}, \overline{(c,d)}, \overline{(e,f)}$ números inteiros quaisquer, para a adição valem as seguintes propriedades:}
+    \begin{enumerate}[label=(\roman*)]
+        \item Associativa: $\big(\overline{(a,b)} + \overline{(c,d)}\big) +  \overline{(e,f)} = \overline{(a,b)} + \big(\overline{(c,d)} +  \overline{(e,f}\big)$;
+        
+        \item Comutativa: $\overline{(a,b)} + \overline{(c,d)} =  \overline{(c,d)} + \overline{(a,b)}$;
+        
+        \item Elemento neutro: $\exists!\overline{(x,y)} \in \Z : \overline{(x,y)} + \overline{(a,b)} = \overline{(a,b)} + \overline{(x,y)} = \overline{(a,b)}$;
+        
+        \item Lei do cancelamento: $\overline{(a,b)} + \overline{(c,d)} = \overline{(a,b)} + \overline{(e,f)} \implies \overline{(c,d)} = \overline{(e,f)}$
+        
+        \item Simétrico: $\forall \overline{(a,b)} \exists!\overline{(c,d)} : \overline{(a,b)} + \overline{(c,d)} = \overline{(c,d)} + \overline{(a,b)}  = 0$;
+        
+        \item Fechamento: $\overline{(a,b)} + \overline{(c,d)} \in \Z$
+    \end{enumerate}
+\end{prop}
+
+\begin{dem}
+    \begin{enumerate}[label=(\roman*)]
+        \item Associativa: 
+        $\big(\overline{(a,b)} + \overline{(c,d)}\big) +  \overline{(e,f)} =
+        \overline{(a+c,b+d)}+\overline{(e,f)} = \overline{(a+c+e, b+d+f)} = \overline{(a+(c+e), b+(d+f))} = \overline{(a,b)} + (\overline{(c+e, d+f)})$.
+       
+        \item Comutativa: $\overline{(a,b)} + \overline{(c,d)} = \overline{(a+c,b+d)} = \overline{(c+a,d+b)} = \overline{(c,d)} + \overline{(a,b)}$;
+       
+        \item Elemento neutro: $\exists!\overline{(x,y)} \in \Z : \overline{(x,y)} + \overline{(a,b)} = \overline{(a,b)} + \overline{(x,y)} = \overline{(a,b)}$; \\
+        Consideremos $\overline{(1,1)}$, vamos mostrar que ele é neutro pela esquerda. Temos que $\overline{(1,1)} + \overline{(a,b)} = \overline{(1+a,1+b)}$. Provemos que $\overline{(1+a,1+b)} \sim \overline{(a,b)}$.
+        Temos então que $(1+a)+b = (1+b)+a$, o que sempre ocorre, portanto $\overline{(1,1)}$ é neutro pela esquerda. Analogamente prova-se que é pela direita, e além disso, todo elemento neutro para uma operação é único, conforme o teorema \ref{agb-neutro-unico}, o que conclui nossa prova. Denotaremos o elemento neutro da adição de $0$ e chamaremos de zero.
+       
+        \item Lei do cancelamento: $\overline{(a,b)} + \overline{(c,d)} = \overline{(a,b)} + \overline{(e,f)} \implies \overline{(c,d)} = \overline{(e,f)}$.
+        Temos $\overline{(a,b)} + \overline{(c,d)} = \overline{(a,b)} + \overline{(e,f)} \iff \overline{(a+c,b+d)} = \overline{(a+e,b+f)} \iff (a+c)+(b+f)=(b+d)+(a+e) \iff c+f = d+e \iff \overline{(c,d)} = \overline{(e,f)}$. A comutatividade garante a lei do cancelamento à esquerda e à direita.
+       
+        \item Simétrico: $\forall \overline{(a,b)} \exists!\overline{(c,d)} : \overline{(a,b)} + \overline{(c,d)} = \overline{(c,d)} + \overline{(a,b)}  = 0$; \\
+        Consideremos então $\overline{(a,b)}$, mostraremos que $\overline{(b,a)}$ é tal que $\overline{(a,b)}+\overline{(b,a)} = \overline{(1,1)}$. Temos que $\overline{(a+b,b+a)} = \overline{(1,1)}$ porque $a+b+1 = b+a+1$, o que sempre ocorre. Considerando qualquer $\overline{(c,d)}$ tal que $\overline{(a,b)} + \overline{(c,d)} = \overline{(1,1)}$ teremos que $\overline{(a,b)} + \overline{(c,d)} = \overline{(a,b)} + \overline{(b,a)} \iff \overline{(c,d)} = \overline{(b,a)}$ pela lei do cancelamento da adição. Com isso, fica opcional a utilização da notação $-$ na frente do número, desse modo: $-\overline{(a,b)}$ para representar o simétrico de $\overline{(a,b)}$, porque ele existe e é único.
+       
+        \item Fechamento: $\overline{(a,b)} + \overline{(c,d)} \in \Z$:
+        Essa é imediata pois $a+c \in \N \land b+d \in \N \implies \overline{(a+c,b+d)} \in \Z$.
+    \end{enumerate}
+\end{dem}
+
+Com essas propriedades, podemos ver que a comutatividade, associatividade e fechamento são mantidos, com a diferença que agora trabalhamos com números inteiros e não naturais. Indo além, é possível ver que o elemento neutro da soma e o simétrico surgem naturalmente, embora não possamos dizer que o neutro em \Z é $(0,0)$, pois nenhuma das coordenadas desse par ordenado são números naturais, não obstante qualquer $k \in \N$ temos que $(k,k) = 0 \in \Z$. E por último e não menos importante, temos agora um simétrico para a soma, o que em \N não tem análogo.
+
+\section{A multiplicação em \Z}
+Novamente, podemos entender a multiplicação em \Z como tentativa de estensão de \N e, portanto, a multiplicação como uma notação resumida da soma.
+\begin{defi}
+    Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em \Z, definimos a multiplicação $\overline{(a,b)} \cdot \overline{(c,d)}$ pelo número $\overline{(a \cdot c + b \cdot d, a \cdot d + b \cdot c)}$.
+\end{defi}
+\begin{obs}
+    Poderemos omitir o símbolo da operação de multiplicação "$\cdot$" que fizemos nos naturais, quando não houver ambiguidade.
+\end{obs}
+\begin{teo}
+    A operação de multiplicação está bem definida em \Z. Isto é, a multiplicação em \Z não depende do representante das classes envolvidas na multiplicação. Equivale a dizer que, se \\
+    $a,a',b,b',c,c',d,d' \in \N \land \overline{(a,b)} = \overline{(a',b')} \land \overline{(c,d)} = \overline{(c',d')}
+    \implies \overline{(a,b)} \cdot \overline{(c,d)} = \overline{(a',b')} \cdot \overline{(c',d')} $.
+\end{teo}
+\begin{dem}
+    Comecemos pela definição de multiplicação, $\overline{(a,b)} = \overline{(a',b')}$ e $\overline{(c,d)} = \overline{(c',d')}$ teremos os produtos:
+    $\overline{(a,b)} \cdot \overline{(c,d)} = \overline{(ac+bd,ad+bc)}$ e $\overline{(a',b')} \cdot \overline{(c',d')} = \overline{(a'c'+b'd',a'd'+b'c')}$.
+    
+    Vamos considerar agora as igualdades das classes, temos: \\
+        $\overline{(a,b)} = \overline{(a',b')} \iff a + b' = b + a' $ disso concluímos que 
+        $ (a + b')c' = (b + a')c'$ e que $(a + b')d' = (b + a')d'$. \\
+    Considerando $\overline{(c,d)} = \overline{(c',d')} \iff c + d' = d + c' $, temos que
+    $a(c + d') = a(d + c')$ e também que $b(c + d') = b(d + c')$.
+    
+    Das igualdades que obtemos no parágrafo anterior, colocaremos na ordem de aparecimento as duas últimas de cada caso, embora apliquemos as distributivas e talvez troquemos o primeiro com o segundo termo da igualdade.
+    \begin{align*}
+        ac'+b'c' &= bc'+a'c' \\
+        bd'+a'd' &= ad'+b'd' \\
+        ac+ad'   &= ad+ac' \\
+        bd+bc'   &= bc+bd'   
+    \end{align*}
+    Vamos agora somar a colona à esquerda, depois a coluna à direita, e colocar na mesma equação, assim:
+    $$ac'+b'c' + bd'+a'd' + ac+ad' + bd+bc' = bc'+a'c' + ad'+b'd' + ad+ac' + bc+bd'$$
+    Cancelando os termos $ac', bd', ad', bc'$ ficamos com:
+    \begin{align*}
+        b'c' +a'd' + ac + bd  &= a'c' + b'd' + ad+ + bc \\
+        ac + bd + a'd' + b'c' &= ad + bc + a'c' + b'd'
+    \end{align*}
+    Com isso provamos que $ (ac+bd,ad+bc) \sim (a'c'+b'd',a'd'+b'c')$, o que nos mostra que a classe é a mesma, então o produto não depende do representante da classe, que pode, portanto, ser arbitrário.
+\end{dem}
+\begin{prop}{Sejam $\overline{(a,b)}, \overline{(c,d)}, \overline{(e,f)}$ números inteiros quaisquer, para a multiplicação valem as seguintes propriedades:}
+    \begin{enumerate}[label=(\roman*)]
+        \item Associativa: $\big(\overline{(a,b)} \cdot \overline{(c,d)}\big) \cdot  \overline{(e,f)} = \overline{(a,b)} \cdot \big(\overline{(c,d)} \cdot  \overline{(e,f}\big)$;
+        
+        \item Comutativa: $\overline{(a,b)} \cdot \overline{(c,d)} =  \overline{(c,d)} \cdot \overline{(a,b)}$;
+        
+        \item Elemento neutro: $\exists!\overline{(x,y)} \in \Z : \overline{(x,y)} \cdot \overline{(a,b)} = \overline{(a,b)} \cdot \overline{(x,y)} = \overline{(a,b)}$;
+        
+        \item Lei do cancelamento: $\overline{(a,b)} \cdot \overline{(c,d)} = \overline{(a,b)} \cdot \overline{(e,f)} \implies \overline{(c,d)} = \overline{(e,f)}$
+        
+        \item Fechamento: $\overline{(a,b)} \cdot \overline{(c,d)} \in \Z$
+        
+        \item Lei do anulamento do produto:
+            $\overline{(a,b)} \cdot \overline{(c,d)} = 0 \implies \overline{(a,b)} = 0 \lor \overline{(c,d)}=0$;
+        
+        \item Distributivas: $\overline{(a,b)} \cdot \big( \overline{(c,d)} + \overline{(e,f)} \big) = \big( \overline{(a,b)} \cdot \overline{(c,d)} \big) + \big( \overline{(a,b)} \cdot \overline{(e,f)} \big)$
+    \end{enumerate}
+\end{prop}
+\begin{dem}
+    \begin{enumerate}[label=(\roman*)]
+        \item Associativa: 
+        \begin{align*}
+            \big(\overline{(a,b)} \cdot \overline{(c,d)}\big) \cdot  \overline{(e,f)} &= \overline{(ac+bd, ad+bc)} \cdot \overline{(e,f)} \\
+            &= \overline{((ac+bd)e + (ad+bc)f , (ac+bd)f + (ad+bc)e} \\
+            &= \overline{(ace+bde+adf+bcf, acf+bdf+ade+bce)} \\
+            &= \overline{(ace+adf+bcf+bde, acf+ade+bce+bdf)} \\
+            &= \overline{(a(ce+df) + b(cf+de) , a(cf+de) + b(ce+df))} \\
+            &= \overline{(a,b)} \cdot \overline{(ce+df, cf+de)} \\
+            &= \overline{(a,b)} \cdot \big( \overline{(c,d)} \cdot \overline{(e,f)} \big)
+        \end{align*}
+        
+        
+        \item Comutativa: 
+        \begin{align*}
+            \overline{(a,b)} \cdot \overline{(c,d)} &= \overline{(ac+bd, ad+bc)} \\
+            &= \overline{(ca+db, bc+da)} \\
+            &= \overline{(c,d)} \cdot \overline{(a,b)}            
+        \end{align*}
+
+        \item Elemento neutro: Consideremos o número $\overline{(2,1)}$. Vamos mostrar que ele é neutro pela direita. Temos $\overline{(a,b)} \cdot \overline{(2,1)} = \overline{(2a+b, a+2b)} = \overline{(a,b)}$, essa última igualdade é porque $a + a + 2b = b + 2a + b$. Analogamente se mostra que é neutro pela esquerda. A unicidade é garantido pelo teorema \ref{agb-neutro-unico}.
+        
+        \item Lei do cancelamento: Por hipótese temos 
+        
+        \begin{center}
+            $\overline{(a,b)} \cdot \overline{(c,d)} = \overline{(a,b)} \cdot \overline{(e,f)}$ \\
+            $\overline{(ac+bd, ad+bc)} = \overline{(ae+bf, af+be)}$
+        \end{center}
+        O que equivale a: 
+        \begin{center}
+            $ac+bd+af+be = ad+bc+ae+bf$
+        \end{center}
+        Como $\overline{(a,b)} \neq 0$, $a \neq b$. Suponhamos sem perda de generalidade que $a > b$, temos que $a = b + m$ para algum $m$ natural. Substituindo na equação ficamos com 
+        \begin{center}
+            $(b+m)(c+f)+ b(d+e) = (b+m)(d+e)+b(c+f)$ \\
+            $bc + bf + mc + mf + bd + be = bd + be + md + me + bc + bf$
+        \end{center}
+        Cancelando os termos $bc, bf, bd, be$ ficamos com
+        \[\begin{split}
+             mc + mf = md + me \iff \\
+            m(c+f) = m(d+e) \iff \\
+            c+f = d+e \iff \\
+            (c,d) \sim (e,f)           
+        \end{split} \]
+       $$\therefore \overline{(c,d)} = \overline{(e,f)}$$
+        
+        \item Fechamento: $\overline{(a,b)} \cdot \overline{(c,d)} \in \Z$
+        Temos $\overline{(a,b)} \cdot \overline{(c,d)} = \overline{(ac+bd, ad+bc)}$. Como $ac+bd \in \N$ e também $ad+bc \in \N$ temos $\overline{(ac+bd, ad+bc)} \in \Z$.
+
+        \item Lei do anulamento do produto:
+            $\overline{(a,b)} \cdot \overline{(c,d)} = 0 \implies \overline{(a,b)} = 0 \lor \overline{(c,d)}=0$; \\
+            TODO
+        \item Distributiva: primeiro vamos mostrar a distributiva à esquerda.
+        \begin{align*}
+            \overline{(a,b)} \cdot \big( \overline{(c,d)} + \overline{(e,f)} \big) &= \overline{(a,b)} + (\overline{(c,d)} + \overline{(e,f)}) \\
+            &= \overline{(a(c+e) + b(d+f), a(d+f) +b(c+e)} \\
+            &= \overline{(ac+ae+bd+bf, ad+af+bc+be)} \\
+            &= \overline{(ac+bd, ad+bc)} + \overline{(ae+bf, af+be)} \\
+            &= \big( \overline{(a,b)} \cdot \overline{(c,d)} \big) + \big( \overline{(a,b)} \cdot \overline{(e,f)} \big)    
+        \end{align*}
+        Pela comutatividade do produto em \Z e pela distributiva à esquerda, a distributiva a direita está também provada.
+        
+    \end{enumerate}
+\end{dem}
+
+
+\begin{lema}
+    $\forall \overline{(a,b)} \in \Z : \overline{(a,b)} \cdot 0 = 0$
+\end{lema}
+\begin{dem}
+    Temos que $\overline{(a,b)} \cdot 0 = \overline{(a,b)} \cdot \overline{(1,1)} = \overline{(a+b,a+b)} = 0$.
+\end{dem}
+
+\section{Relação de ordem}
+\begin{defi}
+    Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em \Z, definimos a relação de ordem $\leq$ e dizemos que $\overline{(a,b)}$ é menor do que ou igual a $\overline{(c,d)}$ quando $a+d \leq b+c$ e denotamos por $\overline{(a,b)} \leq \overline{(c,d)}$.
+\end{defi}
+\begin{prop}{Sejam $\overline{(a,b)}, \overline{(c,d)}, \overline{(e,f)}$ números inteiros quaisquer, para a relação de ordem valem as seguintes propriedades:}
+    \begin{enumerate}[label=(\roman*)]
+        \item Reflexiva: \\
+        $\overline{(a,b)} \leq \overline{(a,b)}$
+        
+        \item Antissimétrica: \\
+        $\overline{(a,b)}  \leq \overline{(c,d)} \land \overline{(c,d)} \leq \overline{(a,b)} \implies \overline{(a,b)} = \overline{(c,d)}   $
+        
+        \item Transitiva: \\
+        $\overline{(a,b)} \leq \overline{(c,d)} \land \overline{(c,d)} \leq \overline{(e,f)} \implies \overline{(a,b)} \leq \overline{(e,f)}  $
+        
+        \item Totalidade: \\
+        $\overline{(a,b)} \leq \overline{(c,d)} \lor \overline{(c,d)} \leq \overline{(a,b)}  $
+        
+        \item Compatível com a adição: \\
+        $\overline{(a,b)} \leq \overline{(c,d)} \implies \overline{(a,b)} + \overline{(e,f)} \leq \overline{(c,d)} + \overline{(e,f)}$
+        
+        \item Compatível com a multiplicação:\\
+        $\overline{(a,b)} \leq \overline{(c,d)} \land 0 = \overline{(1,1)} \leq \overline{(e,f)} \implies \overline{(a,b)} \cdot \overline{(e,f)} \leq \overline{(c,d)} \cdot \overline{(e,f)}$.
+        
+    \end{enumerate}
+\end{prop}
+\begin{dem}
+    \begin{enumerate}[label=(\roman*)]
+        \item Reflexiva: \\
+            De fato ocorre que $a+b \leq b+a \therefore \overline{(a,b)} \leq \overline{(a,b)}$.
+        
+        \item Antissimétrica: 
+            \begin{center}
+                $\overline{(a,b)} \leq \overline{(c,d)} \land \overline{(c,d)} \leq \overline{(a,b)}$ \\
+                $a+d \leq c+b \land c+b \leq d+a$
+            \end{center}
+            O que, pela antissimetria em \N temos que $a+d = c+b$, então $(a,b) \sim (c,d)$ e $\overline{(a,b)} = \overline{(c,d)} $.
+        
+        \item Transitiva: 
+        \begin{align*}
+            \overline{(a,b)} \leq \overline{(c,d)} & \land \overline{(c,d)} \leq \overline{(e,f)} \iff \\
+            a+d \leq b+c & \land c+f \leq d+e \iff \\
+            a+d+f \leq b + c + f & \land c + f + b \leq d + e + b \iff \\
+            a + d + f & \leq d + e + b \iff\\
+            a + f & \leq b + e \iff
+            \therefore \overline{(a,b)} \leq \overline{(e,f)}.
+        \end{align*}
+            
+        \item Totalidade: 
+        \begin{align*}
+            \overline{(a,b)} \leq \overline{(c,d)} &\lor \overline{(c,d)} \leq \overline{(a,b)} \\ 
+            a+d \leq b+c &\lor c+b \leq d+a   
+        \end{align*}
+        Pela totalidade em \N temos que sempre pelo menos uma das proposições disjuntas pelo $\lor$ ocorre.
+        
+        \item Compatível com a adição: \\
+        \begin{center}
+            $\overline{(a,b)} \leq \overline{(c,d)}$ \\
+            $\overline{(a,b)} + \overline{(e,f)} + \overline{(f,e)} \leq \overline{(c,d)} + \overline{(e,f)} + \overline{(f,e)}$
+        \end{center}
+        O que pela lei do cancelamento, temos \\
+        \begin{center}
+            $\overline{(a,b)} + \overline{(e,f)} \leq \overline{(c,d)} + \overline{(e,f)}$.
+        \end{center}
+        
+        \item Compatível com a multiplicação: \\
+        Por hipótese temos $\overline{(a,b)} \leq \overline{(c,d)}$ e $0 = \overline{(1,1)} \leq \overline{(e,f)}$.
+        Isso nos garante que $e > f$ pois $a+f < 1+e$. Seja então $e = f+m$ para algum $m$ natural. Consideremos agora o que queremos provar:
+        \begin{center}
+            $\overline{(a,b)} \cdot \overline{(e,f)} \leq \overline{(c,d} \cdot \overline{(e,f)} \iff $ \\
+            $\overline{(ae+bf, af+be)} \leq \overline{(ce+df, cf+de)} \iff $ \\
+            $ae+bf + cf+de \leq af+be + ce+df \iff Já_foi_provado??$ \\
+            $am + dm \leq bm + cm \iff$ \\
+            $(a+d)m \leq (b+c)m \iff$ \\
+            $a+d \leq b+c$
+        \end{center}        
+        
+    \end{enumerate}
+\end{dem}
+\section{Imersão de \N em \Z}
+\begin{teo}
+    Seja a função $f: \N \rightarrow \Z, f(k) \mapsto f(k+1, 1)$. Essa função tem as propriedades a seguir:
+    \begin{enumerate}[label=(\roman*)]
+        \item $f(a + b) = f(a) + f(b)$;
+        \item $f(a \cdot b) = f(a) \cdot f(b)$;
+        \item $a \leq b \implies f(a) \leq f(b)$.
+    \end{enumerate}
+\end{teo}
+\begin{dem}
+    \begin{enumerate}[label=(\roman*)]
+        \item $f(a + b) = f(a) + f(b)$\\
+        \begin{align*}
+            f(a + b) &= \overline{(a+b+1, 1)}. \\
+                     &= \overline{(a+1+b+1, 1+1)} \\
+                     &= f(a) + f(b).
+        \end{align*}
+    
+        \item $f(a \cdot b) = f(a) \cdot f(b)$;
+        \begin{align*}
+            f(a \cdot b) &= \overline{(ab+1, 1)}\\
+                        &= \overline{(ab+a+b+1+1, a+1+b+1)}\\
+                        &= \overline{((a+1)(b+1)+1, (a+1)1 + 1(b+1))}\\
+                        &= \overline{(a+1,1)} \cdot \overline{(b+1,1)}\\
+                        &= f(a) + f(b).
+        \end{align*}        
+        
+        \item $a \leq b \implies f(a) \leq f(b)$ \\
+        Se $a=b$ então $f(a)=f(b)$ é óbvio. Suponhamos, por outro lado, $a \neq b$.
+        Então $a<b \iff b=a+m$ para algum $m \in \N$.
+        Temos então $f(a) = \overline{(a+1,1)}$ e $f(b) = f(a+m) = \overline{(a+m+1,1)}$.
+        Vemos que $\overline{(a+1,1)} \leq \overline{(a+m+1,1)}$ porque $a+1+1 \leq 1 + a + m + 1$.
+    \end{enumerate}
+\end{dem}
+\begin{obs}
+    A partir de agora, tomaremos a liberdade de escrever os números inteiros com a notação usual de \N, isto é $1 = \overline{(2,1)}, 2 = \overline{(3,1)}, 3 = \overline{(4,1)}$ e assim por diante, além de representar o $\overline{(1,2)} = -1,\ \overline{(1,3)} = -2,\ \overline{(4,1)} = -3$ analogamente, ad infinitum.
+\end{obs}
+
+A imersão de \N em \Z permite-nos interpretar \N como um subconjunto de \Z, embora pela nossa construção fique evidente que isso não ocorra, nos termos de elementos dos conjuntos. Mas, por outro lado, as operações de adição e multiplicação e a relação de ordem funcionam analogamente em \Z, ou seja, o objetivo inicial de construir mantendo certa semelhança funcionou.
+
+Essa é uma parte importante da construção dos números inteiros. Em geral não importa o que é um número, mas apenas o que conseguimos fazer com ele, as regras do jogo. Por outro lado, a construção do conjunto dos números inteiros mostra-nos que, se existir um conjunto \N, a lógica e a teoria de conjuntos elementar que assumimos até agora, então existe um conjunto \Z que podemos manipular com as regras mostradas.
+
+Num ponto de vista mais algébrico, num estudo básico de gradução, não interessa o que são e como são definidas as operações de soma e produto, mas, admitindo que exista um conjunto $A$ com uma operação de soma e uma operação de produto, ambas tendo certas propriedades, é possível provar teoremas sem levar em conta a \emph{natureza} dos entes matemáticos envolvidos.
+
+A construção de \Z, a apresentação e prova das proposições apresentadas caminham nesse sentido de permitir uma abstração do conjunto, para que não seja mais necessário trabalhado com pares ordenados (ainda mais sem o $0$ em \N!).
+
+Poderíamos desenvolver alguns tópicos importantes levando em conta a natureza dos nossos números inteiros, que são pares ordenados. Isso é satisfatório, se conseguirmos provar o que queremos. Por outro lado, tratar com conjuntos genéricos permite uma abstração e uma generalização, mostrando que certas características não dependem de um conjunto específico, porque um conjunto está inexoravelmente ligado às propriedades que esse conjunto tem (claro que dependendo do que se assume como basilar). As abstrações permitem formar conclusões dependendo de apenas algumas caracterísitcas/propriedades do conjunto.
 \end{document}

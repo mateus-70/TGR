@@ -1,0 +1,20 @@
+Padronizar proposições e teoremas ao longo dos textos. (ver com orientador)
+
+Padronizar definições
+> Verificar enunciado geral, e se nos casos específicos vale a pena diferenciá-los de alguma maneira. (ver com orientador)
+
+Padronizar locais das seções, em Z não tem uma seção geral do cap antes da adição.
+
+Provar que a relação de ordem está bem def em Z.
+> Verificar todas as boas definições de operações.
+
+Escolher se será apenas apresentados exemplos de classe de equivalência OU se será apresentado o sistema de numeração decimal.
+
+Escolher e verificar viabilidade de construir N.
+
+
+<< LATEX >>
+Gerar bibliografia.
+Apresentar frações adequadamente, para que as frações não fique sobre a linha acima e abaixo da atual.
+Ajustar fontes e tamanhos dos símbolos. ? Qual caso específico mesmo?
+

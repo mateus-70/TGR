@@ -1,4 +1,207 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \chapter{O CONJUNTO DOS NÚMEROS RACIONAIS}
+\section{Ideias iniciais e objetivos}
+
+No capítulo anterior, conseguimos criar um conjunto cuja soma tivesse elemento neutro e que todo elemento tivesse um elemento simétrico nessa mesma operaçao. Neste capítulo vamos tentar construir um conjunto tal que para a multiplicação, dado qualquer elemento, seja também possível encontrar um simétrico. Para isso a bibliografia utilizada será DOMINGUES e FERREIRA.
+
+O conjunto que criaremos será chamado de conjunto dos números racionais e será denotado por \Q.
+
+\section{Definição do conjunto}
+Para criar os racionais, vamos utilizar o mesmo artifício das classes de equivalência num subconjunto do produto cartesiano. O produto cartesiano que precisaremos excluirá o neutro da soma em \Z da segunda cordenada, que será justificado no tempo devido.
+
+$$\Z \times \Z^* = \{ \left( a,b \right) : a \in \Z \land b \in \Z^* \}$$
+
+Sobre $\Z \times \Z$ vamos considerar a relação definida por $\left( a,b \right) \sim \left( c,d \right) \iff ad = bc$. Muito, muito analogamente à criação de \Z.
+
+\begin{teo}
+    A relação $\sim$ é de equivalência.
+\end{teo}
+\begin{dem}
+    \begin{enumerate}[label=(\roman*)]
+        \item Reflexiva: $\left( a,b \right) \sim \left( a,b \right) \iff a  \cdot b=b  \cdot a$.
+        \item Simetria: $ \left( a ,b \right) \sim \left( c,d \right) \iff \left( c,d \right) \sim \left( a,b \right) $ \\
+        Temos $ a  \cdot d = b  \cdot c = c  \cdot b = d  \cdot a \iff \left( c,d \right) \sim \left( a,b \right) $.
+        \item Transitiva: $ \left( a,b \right) \sim \left( c,d \right) \land \left( c,d \right) \sim \left( e,f \right) \implies \left( a,b \right) \sim \left( e,f \right)$. \\
+        Temos $\left( a,b \right) \sim \left( c,d \right) \iff a  \cdot d=b  \cdot c$ \\
+        e também que $\left( c,d \right) \sim \left( e,f \right) \iff c  \cdot f=d  \cdot e$. \\
+        Multiplicando os dois primeiros termos entre si, e os dois segundos termos entre si, e igualando os resultados, temos: \\ 
+        $\left( a  \cdot d \right)  \cdot \left( c  \cdot f \right)= \left(b  \cdot c\right)  \cdot \left(d  \cdot e\right) \iff a  \cdot f = b  \cdot e \iff \left( a,b \right) \sim \left( e,f \right)$.
+    \end{enumerate}
+\end{dem}
+\begin{obs}
+    Ao invés de utilizar a notação ostensiva de pares ordenados como utilizamos nos inteiros, passaremos a utilizar a notação de fração, que consiste em separar os elementos do par, na ordem, por uma barra horizontal, denotada $\frac{a}{b}$ ou por uma barra inclinada denotada assim: $a/b$, em ambos os casos representam $\overline{\left( a,b \right)} \in \Q$. 
+\end{obs}
+\begin{defi}
+   Os números racionais são o conjunto $\Z \times \Z^* / \sim$, que será denotado por $\Q$.
+\end{defi}
+Claro que com essa definição, os números de \Q são classes de equivalência em $\Z \times \Z$, então quando escrevermos que $\frac{a}{b}$ ou $a/b$ e dissermos que eles são números racionais, estaremos afirmando também que $a \in \Z$ e que $b \in \Z^*$.
+
+
+%%%% ADICAO %%%%%
+
+\section{Adição em \Q}
+\begin{defi}{Adição em \Q}
+    Sejam $x = \dfrac{a}{b}$ e $y = \dfrac{c}{d}$ números racionais. Chamamos de adição entre $x$ e $y$, denotada por $x + y$ que é definido como $\dfrac{ad+bc}{bd}$.
+\end{defi}
+\begin{prop}
+    A operação de adição está bem definida.
+\end{prop}
+\begin{dem}
+    DEMONSTRACAO  A operação de adição está bem definida.
+\end{dem}
+\begin{prop}
+    A adição em \Q é associativa, comutativa, tem elemento neutro, cada elemento tem um único simétrico, atende a lei do cancelamento e é fechada em \Q.
+\end{prop}
+\begin{prop}{Para a adição valem as seguintes propriedades:}
+    \begin{enumerate}[label=(\roman*)]
+        \item Associativa;
+        \item Comutativa;
+        \item Existe um elemento neutro; 
+        \item Todo elemento tem um simétrico;
+        \item Lei do cancelamento;
+        \item Fechamento;
+    \end{enumerate}
+\end{prop}
+\begin{prop}{Sejam $\dfrac{a}{b}, \dfrac{c}{d}, \dfrac{e}{f}$ números racionais quaisquer, para a adição valem as seguintes propriedades:}
+    \begin{enumerate}[label=(\roman*)]
+        \item Associativa: 
+            $\left( \dfrac{a}{b} + \dfrac{c}{d}\right) + \dfrac{e}{f} = 
+            \dfrac{a}{b} + \left(\dfrac{c}{d} + \dfrac{e}{f}\right)$
+        
+        \item Comutativa: $\dfrac{a}{b} + \dfrac{c}{d} = \dfrac{c}{d} + \dfrac{a}{b}$
+        
+        \item Elemento neutro: $\mathlarger{\exists!} \dfrac{x}{y} : \dfrac{x}{y} + \dfrac{c}{d} =     \dfrac{c}{d}$
+        
+        \item Simétrico: $\forall \dfrac{a}{b} \exists! \dfrac{x}{y} :  \dfrac{a}{b} + \dfrac{x}{y} = \dfrac{0}{1}$
+        
+        \item Lei do cancelamento:
+            $\dfrac{a}{b} + \dfrac{c}{d} = \dfrac{a}{b} + \dfrac{e}{f} \implies \dfrac{c}{d} = \dfrac{e}{f}$.
+            
+        \item Fechamento:
+        $\dfrac{a}{b} + \dfrac{c}{d} \in \Q$.
+    \end{enumerate}
+\end{prop}
+\begin{dem}
+    \begin{enumerate}[label=(\roman*)]
+        \item Associativa: 
+            $\left( \dfrac{a}{b} + \dfrac{c}{d}\right) + \dfrac{e}{f} = 
+            \dfrac{a}{b} + \left(\dfrac{c}{d} + \dfrac{e}{f}\right)$
+        
+        \item Comutativa: $\dfrac{a}{b} + \dfrac{c}{d} = \dfrac{c}{d} + \dfrac{a}{b}$
+        
+        \item Elemento neutro: $\exists! \dfrac{x}{y} : \dfrac{x}{y} + \dfrac{c}{d} =     \dfrac{c}{d}$
+        
+        \item Simétrico: $\forall \dfrac{a}{b} \exists! \dfrac{x}{y} :  \dfrac{a}{b} + \dfrac{x}{y} = \dfrac{0}{1}$
+        
+        \item Lei do cancelamento:
+            $\dfrac{a}{b} + \dfrac{c}{d} = \dfrac{a}{b} + \dfrac{e}{f} \implies \dfrac{c}{d} = \dfrac{e}{f}$.
+            
+        \item Fechamento:
+        $\dfrac{a}{b} + \dfrac{c}{d} \in \Q$.
+    \end{enumerate}    
+\end{dem}
+
+
+%%% MULTIPLICACAO %%%
+\section{Multiplicação}
+
+\begin{defi}
+    Sejam $\dfrac{a}{b}$ e $\dfrac{c}{d}$ números racionais quaisquer. A multiplicação de $\dfrac{a}{b}$ por $\dfrac{c}{d}$ será denotada por $\dfrac{a}{b} \cdot \dfrac{c}{d}$ e é definida por $\dfrac{ac}{bd}$.
+\end{defi}
+\begin{prop}
+    A multiplicação em \Q está bem definida.
+\end{prop}
+\begin{prop}{Sejam $\dfrac{a}{b}, \dfrac{c}{d}, \dfrac{e}{f}$ números racionais quaisquer, para a multiplicação valem as seguintes propriedades:}
+    \begin{enumerate}[label=(\roman*)]
+        \item Associativa: 
+            $\left( \dfrac{a}{b} \cdot \dfrac{c}{d}\right) \cdot \dfrac{e}{f} = 
+            \dfrac{a}{b} \cdot \left(\dfrac{c}{d} \cdot \dfrac{e}{f}\right)$
+        
+        \item Comutativa: $\dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{c}{d} \cdot \dfrac{a}{b}$
+        
+        \item Elemento neutro: $\exists! \dfrac{x}{y} : \dfrac{x}{y} \cdot \dfrac{c}{d} =     \dfrac{c}{d}$
+        
+        \item Simétrico: $\forall \dfrac{a}{b} \exists! \dfrac{x}{y} :  \dfrac{a}{b} \cdot \dfrac{x}{y} = \dfrac{0}{1}$
+        
+        \item Lei do cancelamento:
+            $\dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{a}{b} \cdot \dfrac{e}{f} \implies \dfrac{c}{d} = \dfrac{e}{f}$.
+            
+        \item Fechamento:
+        $\dfrac{a}{b} \cdot \dfrac{c}{d} \in \Q$.
+    \end{enumerate}
+\end{prop}
+\begin{dem}
+    \begin{enumerate}[label=(\roman*)]
+        \item Associativa: \\
+            $\left( \dfrac{a}{b} \cdot \dfrac{c}{d}\right) \cdot \dfrac{e}{f} = \\
+            \left(\dfrac{a}{b} \cdot \dfrac{c}{d}\right) \dfrac{e}{f} = \\
+            \dfrac{ace}{bdf} = \dfrac{a}{b} \cdot \dfrac{ce}{df} = \\
+            \dfrac{a}{b} \cdot \left(\dfrac{c}{d} \cdot \dfrac{e}{f}\right)$
+            
+        
+        \item Comutativa: \\
+            $\dfrac{a}{b} \cdot \dfrac{c}{d} = \\
+            \dfrac{ac}{bd} = \\
+            \dfrac{ac}{db} = \\
+            \dfrac{c}{d} \cdot \dfrac{a}{b}$
+        
+        \item Elemento neutro: $\exists! \dfrac{x}{y} : \dfrac{x}{y} \cdot \dfrac{c}{d} =     \dfrac{c}{d}$ \\
+        Consideremos o $1/1$. Afirmamos que ele é o neutro do produto, pois: $\left(1c/1d \right) = c/d$.
+        Assim, provamos que é neutro pela esquerda. Pela direita é evidente pela comutatividade do produto em \Z. A unicidade é dada pelo teorema \ref{agb-neutro-unico}.
+        
+        \item Simétrico: $\forall \dfrac{a}{b} \exists! \dfrac{x}{y} :  \dfrac{a}{b} \cdot \dfrac{x}{y} = \dfrac{0}{1}$
+        Consideremos o elemento $\dfrac{b}{a}$. Mostraremos que ele é o simétrico de $\dfrac{a}{b}$ pois ocorre que $\dfrac{a}{b} \cdot \dfrac{b}{a} = \dfrac{ab}{ba} = \dfrac{1}{1}$ pois $ab\cdot 1 = ba\cdot 1$.
+        
+        \item Lei do cancelamento: \\
+            $\dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{a}{b} \cdot \dfrac{e}{f} \iff \\
+            \dfrac{b}{a} \cdot \dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{b}{a} \cdot  \dfrac{a}{b} \cdot \dfrac{e}{f} \implies \\
+            \implies \dfrac{c}{d} = \dfrac{e}{f}$.
+            
+        \item Fechamento: \\
+        $\dfrac{a}{b} \cdot \dfrac{c}{d} \in \Q$, como $a,b,c,d \in \Z$, temos que $ac \in \Z$ e $bd \in \Z$. Além disso, por causa do anulamento do produto em \Z, temos que $bd = 0 \iff b = 0 \lor d = 0$, mas como originalmente $b,d \neq 0$, temos $bd \neq 0$.
+    \end{enumerate}    
+\end{dem}
+
+
+\section{Relação de ordem}
+\begin{defi}
+    Sejam $\dfrac{a}{b}$ e $\dfrac{c}{d}$ números racionais quaisquer. A relação de ordem $\leq$ entre $\dfrac{a}{b}$ e $\dfrac{c}{d}$ será denotada por $\dfrac{a}{b} \leq \dfrac{c}{d}$ e representa que $ad \leq bc$. 
+\end{defi}
+\begin{obs}
+    Deve ser notado que a última desigualdade da definição, bem como seu produto são em \Z.
+\end{obs}
+\begin{prop}
+    A relação de ordem está bem definida.
+\end{prop}
+\begin{prop}{Relação de ordem}
+    \begin{enumerate}[label=(\roman*)]
+        \item Reflexiva:
+        \item Antissimétrica:
+        \item Transitiva:
+        \item Totalidade:
+        \item Compatível com a adição:
+        \item Compatível com a multiplicação:
+    \end{enumerate}
+\end{prop}
+
+\begin{dem}
+    Demonst   racao 
+    \begin{enumerate}[label=(\roman*)]
+        \item Reflexiva:
+        \item Antissimétrica:
+        \item Transitiva:
+        \item Totalidade:
+        \item Compatível com a adição:
+        \item Compatível com a multiplicação:
+    \end{enumerate}
+\end{dem}
+
+\begin{teo}
+    Imersão de \Z em \Q.
+\end{teo}
+\begin{dem}
+    PROVA RPD
+    POJASPDOJPAOSDJOPZ<X
+\end{dem}
 \end{document}

@@ -1,0 +1,41 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\chapter*[Apêndice]{APÊNDICE A - TÍTULO}
+\begin{defi}{Par ordenado}\label{def-par-ord}
+     Dados um conjunto não vazio $A$ e $a,b \in A$, definimos o \emph{par ordenado $(a,b)$} como sendo o conjunto $\{\{a\}, \{a,b\}\}$.
+\end{defi}
+\begin{obs}
+    Essa definição de par ordenado visa formar conjuntos onde a "ordem" importa, isto é, $(a , b) = (c , d) \iff a=c \land b=d$.
+\end{obs}
+\begin{defi}{Produto Cartesiano}\label{def-prod-cart}
+     Dado um conjunto $A$, o produto cartesiano de A por A, denotado por $A \times A$, é o conjunto de todos os pares ordenados compostos por elementos de $A$, isto é, $A \times A = \{ (x,y) : x,y \in A \}$.
+\end{defi}
+\begin{defi}{Relação binária}
+    Uma \emph{relação binária R} num conjunto $A$ é qualquer subconjunto do produto cartesiano $A \times A$, isto é, $R \subset A \times A$.
+\end{defi}
+\begin{defi}
+    Uma relação $R$ é chamada de \emph{Relação de equivalência} quando possuir as seguintes propriedades:
+    \begin{enumerate}[label=(\roman*)]
+        \item reflexiva $aRa, \forall a \in A$;
+        \item simétrica $aRb \implies bRa, \forall a,b \in A$;
+        \item transitiva $aRb \land bRc \implies aRc, \forall a,b,c \in A$.
+    \end{enumerate}
+\end{defi}
+\begin{defi}
+    Seja $R$ uma relação de equivalência num conjunto $A$ e seja $a \in A$ um elemento fixado arbitrariamente. O conjunto \\
+    $$\Bar{a} = \{x \in A : xRa\}$$
+    chama-se \emph{classe de equivalência de a pela relação R}.
+\end{defi}
+\begin{teo}
+    Sejam $R$ uma relação de equivalência em um conjunto $A$ e sejam $a,b$ elementos quaisquer de $A$, então:
+    \begin{enumerate}
+        \item $a \in \Bar{a}$;
+        \item $\Bar{a} = \Bar{b} \iff aRb$;
+        \item $\Bar{a} \neq \Bar{b} \implies \Bar{a} \cap \Bar{b} = \emptyset $.
+    \end{enumerate}
+\end{teo}
+\begin{defi}
+    Seja $R$ uma relação de equivalência num conjunto $A$. O conjunto constituído das classes de equivalência em $A$ pela relação $R$ é denotado por $A / R$ e denominado \emph{conjunto quociente} de $A$ por $R$. \\
+    Assim, $A / R = \{\Bar{a} : a \in A\}$.
+\end{defi}
+\end{document}

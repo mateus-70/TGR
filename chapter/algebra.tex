@@ -1,8 +1,6 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
-\chapter{ALGEBRA DEFINICOES}
-
-Para este trabalho, apresentaremos 4 axiomas, mas para isso precisaremos de algumas definições sobre \emph{funções}:
+\chapter{ALGEBRA Def E teo}
 
 \begin{defi}{Produto cartesiano}
     O produto cartesiano de X por Y é o conjunto $\{(x,y) : x \in X \land y \in Y\}$. Denotamos por $X \times Y$.
@@ -14,4 +12,13 @@ Para este trabalho, apresentaremos 4 axiomas, mas para isso precisaremos de algu
 \begin{defi}{Relação}
     Uma relação é qualquer subconjunto do produto cartesiano.
 \end{defi}
+
+\begin{teo}\label{agb-neutro-unico}
+    Seja $A$ um conjunto, e seja $*$ uma operação sobre \N. Se existir um elemento $e \in A$ que é neutro, então ele é único.
+\end{teo}
+\begin{dem}
+    Vamos considerar dois elementos neutros quaisquer, $e, e'$. 
+    Temos então que $e = e * e' = e'$. A primeira igualdade se justifica porque $e'$ é neutro pela direita, a segunda igualdade porque $e$ é neutro pela esquerda.
+\end{dem}
+
 \end{document}
