@@ -1,6 +1,74 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
-\chapter*[Apêndice]{APÊNDICE A - TÍTULO}
+
+\chapter*[Apêndice]{APÊNDICE A - ÁLGEBRA BÁSICA}
+\addcontentsline{toc}{chapter}{APÊNDICE A - ÁLGEBRA BÁSICA}
+
+\begin{defi}
+    Seja $A$ um conjunto arbitrário. Uma operação $*$ sobre $A$ é uma função que a cada $x,y \in A$ associa um elemento $x * y \in A$, ou seja, associa a cada 2 elementos em $A$ a sua imagem $x * y$ que também é um elemento de $A$.
+\end{defi}
+Por essa definição, a adição em \N, \Z, \Q e \R são operações, sobre cada um desses conjuntos, cada um com sua adição. Por outro lado, a subtração em \N não é uma operação em \N pois $1-2 \neq \in \N$. Também a divisão não é uma operação em \N e em \Z, pelo mesmo motivo.
+
+\begin{defi}
+    Seja $A$ um conjunto e seja $*$ uma operação em $A$. Se existir um $e \in A$ tal que para qualquer $x \in A$ valer $e * x = x$ dizemos que $e$ é elemento neutro à esquerda.
+\end{defi}
+Por analogia definimos neutro à direita.
+
+\begin{defi}
+    Seja $A$ um conjunto, , e seja $*$ uma operação sobre $A$. Dizemos que a operação $*$ tem a propriedade:
+    \begin{enumerate}[label=(\roman*)]
+        \item associativa, quando para quaisquer $x,y,z \in A$ é válido que $ x * ( y * z ) = ( x * y ) * z$.
+        \item comutativa, quando para quaisquer $x,y \in A$ é válido que $x * y = y * x$.
+        \item do elemento neutro, quando existe $e \in A$, onde $e$ é neutro à esquerda e à direita.
+        \item do elemento simétrico, quando para qualquer $x \in A$ existe algum $w \in A$, onde é válido que $x * w$ é o elemento neutro de $*$.
+        \item do fechamento, quando para quaisquer $x, y \in A$ ocorre que $x * y \in A$.
+    \end{enumerate}
+\end{defi}
+Em geral, nesse trabalho, o elemento neutro para a operação de adição é o $0$ e o elemento neutro para a multiplicação é o $1$. 
+\begin{obs}
+    A propriedade do fechamento na verdade é imediata da definição de operação, colocamos para realçar o fato de que a operação tem imagem em $A$ e não qualquer elemento que não esteja em $A$.
+\end{obs}
+
+\begin{defi}
+    Sejam $A$ um conjunto e sejam $+$ e $\cdot$ operações sobre $A$. Dizemos que a multiplicação é distributiva em relação a soma quando para quaisquer $x, y, z \in A$ é valido que $x \cdot (y + z) = x\cdot y + x\cdot z$.
+\end{defi}
+Frequentemente omitimos o símbolo da multiplicação.
+
+\begin{teo}
+    Seja $A$ um conjunto e $*$ uma operação em $A$. Se existir elemento neutro para $*$, então ele é único.
+\end{teo}
+\begin{dem}
+    Sejam $e_1 e e_2$ dois elementos neutros para $*$. Temos que $e_1 = e_1 * e_2 = e_2$, portanto $e_1 = e_2$. A primeira igualdade é porque $e_2$ é neutro à direita, a segunda igualdade é porque $e_1$ é neutro à esquerda.
+\end{dem}
+Em particular deve ser observada a comutatividade do elemento neutro com qualquer elemento, para uma dada operação.
+\begin{teo}
+    Seja $A$ um conjunto e $*$ uma operação em $A$. Se $*$ é associativa e tem a propriedade do elemento simétrico, então o simétrico de cada elemento é único.
+\end{teo}
+\begin{dem}
+    Seja $x \in A$, e seja $y, z$ dois elementos simétricos de $x$, assim temos que $x*y = e = x*z$. 
+    Temos $y = y * e = y * (x * z) = (y * x) * z = ( x * y ) * z = e * z = z$.
+\end{dem}
+
+\begin{defi}
+    Seja $A$ um conjunto, e sejam $+, \cdot$ duas operações sobre $A$, chamadas de adição e multiplicação. Se são válidas as propriedades:
+    \begin{enumerate}[label=(\roman*)]
+        \item associativa da adição
+        \item comutativa da adição;
+        \item do elemento neutro para adição;
+        \item do elemento simétrico para a adição;
+        \item associativa da multiplicação;
+        \item comutativa da multiplicação;
+        \item do elemento neutro da multiplicação;
+        \item da distributiva do produto em relação à soma;
+    \end{enumerate}
+    dizemos que $(A, +, \cdot)$ é um anel. Quando não houver ambiguidade chama-se apenas de anel $A$.
+
+\end{defi}
+
+\begin{defi}
+    Um corpo é um anel $A$ em que cada elemento diferente do zero aditivo tem um simétrico multiplicativo.
+\end{defi}
+
 \begin{defi}{Par ordenado}\label{def-par-ord}
      Dados um conjunto não vazio $A$ e $a,b \in A$, definimos o \emph{par ordenado $(a,b)$} como sendo o conjunto $\{\{a\}, \{a,b\}\}$.
 \end{defi}

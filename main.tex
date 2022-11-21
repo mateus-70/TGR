@@ -54,7 +54,12 @@
 \usepackage{subfiles}
 \usepackage{pdfpages}
 \usepackage{relsize}
+\usepackage{microtype}
+\usepackage[style=numeric, sorting=nty, style=authoryear]{biblatex}
+\usepackage{csquotes}
 
+
+% https://pt.overleaf.com/latex/templates/modelo-canonico-de-trabalhos-academicos-com-abntex2/ybtpkzkccnnj
 
 % ---
 \usepackage{titlesec} %Adequação dos títulos as normas da UDESC
@@ -167,33 +172,38 @@
 % ---
 % Pacotes de citações
 % ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+
+%% Tentarei usar não abnt, somente as próprias ferramentas do latex mais comuns e não estritas "ABNT".
+%% Conforme http://tug.ctan.org/macros/latex/contrib/abntex2/doc/abntex2cite.pdf
+
+%\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+%\nocite{*}
 %\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
-
-
+\addbibresource{./include/refs.bib}
+\DeclareNameAlias{sortname}{family-given} % Para usar nas referências, colocar último sobrenome na frente e ordenar
 
 
 % --- 
 % CONFIGURAÇÕES DE PACOTES
 % --- 
 
-% ---
-% Configurações do pacote backref
-% Usado sem a opção hyperpageref de backref
-\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-% Texto padrão antes do número das páginas
-\renewcommand{\backref}{}
-% Define os textos da citação
-\renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
-		Nenhuma citação no texto.%
-	\or
-		Citado na página #2.%
-	\else
-		Citado #1 vezes nas páginas #2.%
-	\fi}%
-% ---
+% % ---
+% % Configurações do pacote backref
+% % Usado sem a opção hyperpageref de backref
+% \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% % Texto padrão antes do número das páginas
+% \renewcommand{\backref}{}
+% % Define os textos da citação
+% \renewcommand*{\backrefalt}[4]{
+% 	\ifcase #1 %
+% 		Nenhuma citação no texto.%
+% 	\or
+% 		Citado na página #2.%
+% 	\else
+% 		Citado #1 vezes nas páginas #2.%
+% 	\fi}%
+% % ---
 
 % ---
 %%Cabeçalho
@@ -260,22 +270,22 @@
 
 % INICIO CAPITULOS
 
-%\subfile{chapter/naturals}
-%\subfile{chapter/integers}
+\subfile{chapter/naturals}
+\subfile{chapter/integers}
 \subfile{chapter/rationals}
-%\subfile{chapter/reals}
+\subfile{chapter/reals}
 
 % FIM CAPITULOS
 
 % ------------------------------------------------------------
 % Conclusão
 % ------------------------------------------------------------
-%\subfile{chapter/conclusion}
+\subfile{chapter/conclusion}
 
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
-%\subfile{chapter/references}
+\subfile{chapter/references}
 
 % ----------------------------------------------------------
 % Apêndices
@@ -287,7 +297,7 @@
 % ----------------------------------------------------------
 %\chapter*[Apêndice]{APÊNDICE A - TÍTULO}
 %\addcontentsline{toc}{chapter}{APÊNDICE A - TÍTULO}
-%\subfile{chapter/apendix-A}
+\subfile{chapter/apendix-A}
 
 % ----------------------------------------------------------
 %\chapter{Titulo do Segundo Apêndice}
