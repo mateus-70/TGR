@@ -1,3 +1,6 @@
+File :Algebra
+> Definicao de distributiva do produto à esquerda, corrigir, def n ta correta
+
 Padronizar proposições e teoremas ao longo dos textos. (ver com orientador)
 
 Padronizar definições
@@ -12,9 +15,15 @@ Escolher se será apenas apresentados exemplos de classe de equivalência OU se 
 
 Escolher e verificar viabilidade de construir N.
 
+É possível mostrar que existe apenas uma função para adição e multiplicação como definidas, cap 2 pg 20. Unicidade, citar.
+
+Lei do anulamento do produto em Z.
+Fechamento do produto em N.
 
 << LATEX >>
-Gerar bibliografia.
+Gerar bibliografia, verificar citações em ABNT.
+
 Apresentar frações adequadamente, para que as frações não fique sobre a linha acima e abaixo da atual.
 Ajustar fontes e tamanhos dos símbolos. ? Qual caso específico mesmo?
 
+package ntheorem or amsthm

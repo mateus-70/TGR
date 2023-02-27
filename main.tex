@@ -56,10 +56,26 @@
 \usepackage{relsize}
 \usepackage{microtype}
 \usepackage[style=numeric, sorting=nty, style=authoryear]{biblatex}
-\usepackage{csquotes}
+\usepackage[portuguese=brazilian]{csquotes} % Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing. Loading 'csquotes' recommended.
+\usepackage{etoolbox} % para modificar as citacoes, colocar margem no blockquote
+%\usepackage{showkeys} % para que quando for usar \ref apareça uma prévia do que se trata, teorema prop, def etc. pois \ref gera apenas numeros
+\usepackage{cleveref}
+\usepackage{physics} % para \abs{}
+%%  You'll get surprised by
+%%  https://en.wikibooks.org/wiki/LaTeX/Package_Reference
 
+\usepackage{eufrak} % para estilizar o elemento neutro 'e'
 
 % https://pt.overleaf.com/latex/templates/modelo-canonico-de-trabalhos-academicos-com-abntex2/ybtpkzkccnnj
+
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\usepackage[symbol]{footmisc} % para alterar rótulos de footnote 
+
+\usepackage{color,soul} % para marcar para revisao
+\newcommand{\gray}[1]{{\sethlcolor{gray}\hl{#1}}\gappto{\yellowhook}{#1}}
+\newcommand{\yellow}[1]{{\sethlcolor{yellow}\hl{#1}}\gappto{\yellowhook}{#1}}
+\newcommand{\textoIncluido}{\todo{Texto Incluído} \color{blue}}
+\newcommand{\textoRemovido}{\todo{Texto Removido} \color{gray}}
 
 % ---
 \usepackage{titlesec} %Adequação dos títulos as normas da UDESC
@@ -135,6 +151,9 @@
 \newcommand{\defeq}{\vcentcolon=}
 \newcommand{\eqdef}{=\vcentcolon}
 
+\newcommand{\spaceLand}{\hspace{8pt} \land \hspace{8pt}}
+\newcommand{\spaceNeq}{\hspace{8pt} \neq \hspace{8pt}}
+\newcommand{\myspace}[1]{\hspace{8pt} {#1} \hspace{8pt}}
 
 \newcommand{\authorName}{MATEUS SCHROEDER DA SILVA}
 \newcommand{\orientationBy}{Doutor Marnei Luis Mandler}
@@ -143,6 +162,43 @@
 \newcommand{\titleComplete}{\textbf{\titleTGR:} \subtitleTGR}
 
 \newcommand{\absurd}{\Rightarrow\!\Leftarrow}
+%\patchcmd{\blockquote}{\leftmargin}{\leftmargin 4cm}{}{}
+%\patchcmd{\quote}{\rightmargin}{\leftmargin 4cm \rightmargin}{}{}
+
+\renewcommand*{\nameyeardelim}{\addcomma\space} % para adicionar vírgula entre autor e data quando usar \cite ou análogos
+% Para colocar parencite em maiúscu
+\makeatletter
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \ifdefstring{\blx@delimcontext}{parencite}
+    {\MakeUppercase{#1}}
+    {#1}}
+\makeatother
+
+\DeclareFieldFormat{title}{\mkbibbold{#1}} % Alterar o field title para que fique em negrito.
+\newcommand\textMyUpperCase[1]{\MakeUppercase{#1}} % https://tex.stackexchange.com/questions/214897/authors-name-in-scshape-with-biblatex
+\renewcommand{\mkbibnamefamily}{\textMyUpperCase} % isso aqui eu nao entendi, boa sorte no link acima para ver mais. 
+
+
+
+% https://tex.stackexchange.com/questions/588/how-can-i-change-the-margins-for-only-part-of-the-text
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+\makeatletter
+%Take the original environment definition and change the leftmargin to 1cm
+\renewenvironment*{displayquote}
+  { \begin{changemargin}{4cm}{0cm}  \fontsize{10pt}{10pt}\selectfont}
+  { \end{changemargin}  }
+
+ 
+
+% \renewenvironment{displayquote}
+%   {}
+%   {}
+\makeatother
+
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 % ---
 % Estilo teoremas  e atalhos para comandos 
@@ -270,22 +326,23 @@
 
 % INICIO CAPITULOS
 
+\subfile{chapter/algebra}
 \subfile{chapter/naturals}
 \subfile{chapter/integers}
 \subfile{chapter/rationals}
-\subfile{chapter/reals}
+%\subfile{chapter/reals}
 
 % FIM CAPITULOS
 
 % ------------------------------------------------------------
 % Conclusão
 % ------------------------------------------------------------
-\subfile{chapter/conclusion}
+%\subfile{chapter/conclusion}
 
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
-\subfile{chapter/references}
+%\subfile{chapter/references}
 
 % ----------------------------------------------------------
 % Apêndices
@@ -297,7 +354,7 @@
 % ----------------------------------------------------------
 %\chapter*[Apêndice]{APÊNDICE A - TÍTULO}
 %\addcontentsline{toc}{chapter}{APÊNDICE A - TÍTULO}
-\subfile{chapter/apendix-A}
+%\subfile{chapter/apendix-A}
 
 % ----------------------------------------------------------
 %\chapter{Titulo do Segundo Apêndice}

@@ -3,7 +3,7 @@
 \chapter{O CONJUNTO DOS NÚMEROS RACIONAIS}
 \section{Ideias iniciais e objetivos}
 
-No capítulo anterior, conseguimos criar um conjunto cuja soma tivesse elemento neutro e que todo elemento tivesse um elemento simétrico nessa mesma operaçao. Neste capítulo vamos tentar construir um conjunto tal que para a multiplicação, dado qualquer elemento, seja também possível encontrar um simétrico. Para isso a bibliografia utilizada será DOMINGUES e FERREIRA.
+No capítulo anterior, conseguimos criar um conjunto \Z cuja soma tivesse elemento neutro e que todo elemento tivesse um elemento simétrico nessa mesma operaçao. Neste capítulo vamos tentar construir um conjunto tal que para a multiplicação, dado qualquer elemento (exceto o neutro da soma), seja também possível encontrar um simétrico. Para isso a bibliografia utilizada será \parencite{domingues-2009} e \parencite{ferreira}.
 
 O conjunto que criaremos será chamado de conjunto dos números racionais e será denotado por \Q.
 
@@ -12,7 +12,7 @@ Para criar os racionais, vamos utilizar o mesmo artifício das classes de equiva
 
 $$\Z \times \Z^* = \{ \left( a,b \right) : a \in \Z \land b \in \Z^* \}$$
 
-Sobre $\Z \times \Z$ vamos considerar a relação definida por $\left( a,b \right) \sim \left( c,d \right) \iff ad = bc$. Muito, muito analogamente à criação de \Z.
+Sobre $\Z \times \Z^*$ vamos considerar a relação definida por $\left( a,b \right) \sim \left( c,d \right) \iff ad = bc$. Muito, muito analogamente à criação de \Z.
 
 \begin{teo}
     A relação $\sim$ é de equivalência.
@@ -25,81 +25,83 @@ Sobre $\Z \times \Z$ vamos considerar a relação definida por $\left( a,b \righ
         \item Transitiva: $ \left( a,b \right) \sim \left( c,d \right) \land \left( c,d \right) \sim \left( e,f \right) \implies \left( a,b \right) \sim \left( e,f \right)$. \\
         Temos $\left( a,b \right) \sim \left( c,d \right) \iff a  \cdot d=b  \cdot c$ \\
         e também que $\left( c,d \right) \sim \left( e,f \right) \iff c  \cdot f=d  \cdot e$. \\
-        Multiplicando os dois primeiros termos entre si, e os dois segundos termos entre si, e igualando os resultados, temos: \\ 
+        Se $a=0$, temos que $ad = 0$, assim, ocorre que $b=0 \lor c=0$. Como $b \neq 0$, então $c=0$. Reciprocamente, se $c=0$ então $bc = 0 = ad$, como $d \neq 0$, então $a=0$. Desse modo concluímos também que, $a=0$ se, e somente se $c=0$ e $e=0$. Temos daí que $ad = bc = cf = de = 0$. \\
+        Agora supondo que $a \neq 0$, então $c \neq 0$ e $e \neq 0$.
+        Podemos multiplicar os termos das igualdades iniciais, igualando os resultados e aplicando o cancelamento do produto, ficamos com: \\ 
         $\left( a  \cdot d \right)  \cdot \left( c  \cdot f \right)= \left(b  \cdot c\right)  \cdot \left(d  \cdot e\right) \iff a  \cdot f = b  \cdot e \iff \left( a,b \right) \sim \left( e,f \right)$.
     \end{enumerate}
 \end{dem}
-\begin{obs}
-    Ao invés de utilizar a notação ostensiva de pares ordenados como utilizamos nos inteiros, passaremos a utilizar a notação de fração, que consiste em separar os elementos do par, na ordem, por uma barra horizontal, denotada $\frac{a}{b}$ ou por uma barra inclinada denotada assim: $a/b$, em ambos os casos representam $\overline{\left( a,b \right)} \in \Q$. 
-\end{obs}
+
 \begin{defi}
    Os números racionais são o conjunto $\Z \times \Z^* / \sim$, que será denotado por $\Q$.
 \end{defi}
-Claro que com essa definição, os números de \Q são classes de equivalência em $\Z \times \Z$, então quando escrevermos que $\frac{a}{b}$ ou $a/b$ e dissermos que eles são números racionais, estaremos afirmando também que $a \in \Z$ e que $b \in \Z^*$.
+Claro que com essa definição, os números de \Q são classes de equivalência em $\Z \times \Z^*$, então quando escrevermos que $\frac{a}{b}$ ou $a/b$ fica entendido que eles são números racionais, estaremos também afirmando que $a \in \Z$ e que $b \in \Z^*$. Nesses exemplos, o $a$ é chamado numerador, e o $b$ é chamado denominador.
 
+Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6$. O que também é fácil de provar, vejamos as duas primeiras representações: em \Z vale $1 \cdot 4 = 2 \cdot 2$.
 
+\begin{obs}
+    Ao invés de utilizar a notação ostensiva de pares ordenados como utilizamos nos inteiros, passaremos a utilizar a notação de fração, que consiste em separar os elementos do par, na ordem, por uma barra horizontal, denotada $\frac{a}{b}$ ou por uma barra inclinada denotada assim: $a/b$, em ambos os casos representam $\overline{\left( a,b \right)} \in \Q$. 
+\end{obs}
+
+\begin{prop}
+    Seja $\frac{a}{b}$ um número racional, vale que $ \frac{a}{b} = \frac{ac}{bc}$, para qualquer $c \in \Z^*$.
+\end{prop}
+\begin{dem}
+    Basta observar que $a \cdot bc = b \cdot ac$.
+\end{dem}
 %%%% ADICAO %%%%%
 
 \section{Adição em \Q}
-\begin{defi}{Adição em \Q}
-    Sejam $x = \dfrac{a}{b}$ e $y = \dfrac{c}{d}$ números racionais. Chamamos de adição entre $x$ e $y$, denotada por $x + y$ que é definido como $\dfrac{ad+bc}{bd}$.
+\begin{defi}
+    Sejam $\frac{a}{b}$ e $\frac{c}{d}$ números racionais. Chamamos de adição entre $\frac{a}{b}$ e $\frac{c}{d}$, denotada por $\frac{a}{b} + \frac{c}{d}$ que é definido como $\frac{ad+bc}{bd}$.
 \end{defi}
 \begin{prop}
-    A operação de adição está bem definida.
+    A adição está bem definida.
 \end{prop}
 \begin{dem}
-    DEMONSTRACAO  A operação de adição está bem definida.
+    Sejam $a/b$ e $a'/b'$ duas representações de um mesmo número racional, tal que não necessariamente $a = a'$ e $b=b'$. Do mesmo modo, sejam $c/d$ e $c'/d'$ duas representações de um número racional qualquer, tal que não necessariamente $c=c'$ e $d=d'$.
+    
+    Vamos mostrar que $\frac{a}{b} + \frac{c}{d} = \frac{a'}{b'} + \frac{c'}{d'}$.
+    Pela definição de adição, no primeiro caso temos: $\frac{ad+bc}{bd}$, e no segundo caso temos $\frac{a'd'+b'c'}{b'd'}$.
+    Vamos mostrar que o representante do primeiro caso se relaciona com o segundo, isto é, 
+    \begin{center}
+        $(ad+bc)(b'd') = (bd)(a'd'+b'c')$ \\
+        $adb'd'+bcb'd' = bda'd' + bdb'c'$ \\
+        $ab'dd' + cd'bb' = a'bdd' + c'dbb'$
+    \end{center}
+    Essa última igualdade é uma tautologia, pois $ab' = a'b$ e $cd' = c'd$.
 \end{dem}
-\begin{prop}
-    A adição em \Q é associativa, comutativa, tem elemento neutro, cada elemento tem um único simétrico, atende a lei do cancelamento e é fechada em \Q.
-\end{prop}
+% \begin{prop} Alteração de formato do texto/apresentação da proposicao
+%     A adição em \Q é associativa, comutativa, tem elemento neutro, cada elemento tem um único simétrico, atende a lei do cancelamento e é fechada em \Q.
+% \end{prop}
 \begin{prop}{Para a adição valem as seguintes propriedades:}
     \begin{enumerate}[label=(\roman*)]
-        \item Associativa;
-        \item Comutativa;
-        \item Existe um elemento neutro; 
-        \item Todo elemento tem um simétrico;
-        \item Lei do cancelamento;
-        \item Fechamento;
+        \item fechamento;
+        \item associativa;
+        \item comutativa;
+        \item do elemento neutro; 
+        \item do elemento simétrico;
+        \item lei do cancelamento;
     \end{enumerate}
 \end{prop}
-\begin{prop}{Sejam $\dfrac{a}{b}, \dfrac{c}{d}, \dfrac{e}{f}$ números racionais quaisquer, para a adição valem as seguintes propriedades:}
-    \begin{enumerate}[label=(\roman*)]
-        \item Associativa: 
-            $\left( \dfrac{a}{b} + \dfrac{c}{d}\right) + \dfrac{e}{f} = 
-            \dfrac{a}{b} + \left(\dfrac{c}{d} + \dfrac{e}{f}\right)$
-        
-        \item Comutativa: $\dfrac{a}{b} + \dfrac{c}{d} = \dfrac{c}{d} + \dfrac{a}{b}$
-        
-        \item Elemento neutro: $\mathlarger{\exists!} \dfrac{x}{y} : \dfrac{x}{y} + \dfrac{c}{d} =     \dfrac{c}{d}$
-        
-        \item Simétrico: $\forall \dfrac{a}{b} \exists! \dfrac{x}{y} :  \dfrac{a}{b} + \dfrac{x}{y} = \dfrac{0}{1}$
-        
-        \item Lei do cancelamento:
-            $\dfrac{a}{b} + \dfrac{c}{d} = \dfrac{a}{b} + \dfrac{e}{f} \implies \dfrac{c}{d} = \dfrac{e}{f}$.
-            
-        \item Fechamento:
-        $\dfrac{a}{b} + \dfrac{c}{d} \in \Q$.
-    \end{enumerate}
-\end{prop}
+
 \begin{dem}
+    Sejam $\frac{a}{b}, \frac{c}{d}, \frac{e}{f}$ números racionais quaisquer, temos:
     \begin{enumerate}[label=(\roman*)]
-        \item Associativa: 
-            $\left( \dfrac{a}{b} + \dfrac{c}{d}\right) + \dfrac{e}{f} = 
-            \dfrac{a}{b} + \left(\dfrac{c}{d} + \dfrac{e}{f}\right)$
+        \item fechamento: pois $ad+bc \in \Z$ e $bd \in \Z^*$.
+        \item associativa: \\
+        \[ \left( \frac{a}{b} + \frac{c}{d} \right) + \frac{e}{f} = \frac{ad+bc}{bd} + \frac{e}{f} = \frac{(ad+bc)f + bde}{bdf}
+        = \frac{adf + bcf + bde}{bdf} = \]
+        \[ \frac{adf+b(cf+de)}{bdf} = \frac{a}{b} + \frac{cf+de}{df} = \frac{a}{b} + \left( \frac{c}{d} + \frac{e}{f} \right). \]
         
-        \item Comutativa: $\dfrac{a}{b} + \dfrac{c}{d} = \dfrac{c}{d} + \dfrac{a}{b}$
-        
-        \item Elemento neutro: $\exists! \dfrac{x}{y} : \dfrac{x}{y} + \dfrac{c}{d} =     \dfrac{c}{d}$
-        
-        \item Simétrico: $\forall \dfrac{a}{b} \exists! \dfrac{x}{y} :  \dfrac{a}{b} + \dfrac{x}{y} = \dfrac{0}{1}$
-        
-        \item Lei do cancelamento:
-            $\dfrac{a}{b} + \dfrac{c}{d} = \dfrac{a}{b} + \dfrac{e}{f} \implies \dfrac{c}{d} = \dfrac{e}{f}$.
-            
-        \item Fechamento:
-        $\dfrac{a}{b} + \dfrac{c}{d} \in \Q$.
-    \end{enumerate}    
+        \item comutativa:
+        \[ \frac{a}{b} + \frac{c}{d} = \frac{ad+bc}{bd} = \frac{cb + da}{db} = \frac{c}{d} + \frac{a}{b}. \]
+        \item do elemento neutro: Consideremos o número $\frac{0}{a}$, assim, $a \neq 0$. Temos:
+        \[ \frac{0}{a} + \frac{c}{d} = \frac{0d+ac}{ad} = \frac{ac}{ad} = \frac{c}{d} \text{ pois } ac \cdot d = ad \cdot c. \footnote{Como também não depende de $a$, usualmente escreve-se somente $0$.}\]
+        \item do elemento simétrico: basta considerar $\frac{a}{b}$ e $\frac{-a}{b}$, temos:
+        \[ \frac{a}{b} + \frac{-a}{b} = \frac{ab + (-ab)}{bb} = \frac{0}{bb} = 0.\]
+        \item lei do cancelamento, conforme \cref{agb-prop-leiCancelamento}.
+    \end{enumerate}
 \end{dem}
 
 
@@ -107,73 +109,84 @@ Claro que com essa definição, os números de \Q são classes de equivalência 
 \section{Multiplicação}
 
 \begin{defi}
-    Sejam $\dfrac{a}{b}$ e $\dfrac{c}{d}$ números racionais quaisquer. A multiplicação de $\dfrac{a}{b}$ por $\dfrac{c}{d}$ será denotada por $\dfrac{a}{b} \cdot \dfrac{c}{d}$ e é definida por $\dfrac{ac}{bd}$.
+    Sejam $\frac{a}{b}$ e $\frac{c}{d}$ números racionais quaisquer. A multiplicação de $\frac{a}{b}$ por $\frac{c}{d}$ será denotada por $\frac{a}{b} \cdot \frac{c}{d}$ e é definida por $\frac{ac}{bd}$.
 \end{defi}
 \begin{prop}
     A multiplicação em \Q está bem definida.
 \end{prop}
-\begin{prop}{Sejam $\dfrac{a}{b}, \dfrac{c}{d}, \dfrac{e}{f}$ números racionais quaisquer, para a multiplicação valem as seguintes propriedades:}
+\begin{dem}
+    Sejam $\frac{a}{b} = \frac{a'}{b'}$ e $\frac{c}{d} = \frac{c'}{d'}$ números racionais quaisquer. Então temos $ab' = ba'$ e $cd' = dc'$. Segue que $ab'cd' = ba'dc' \iff acb'd' = bda'c'$ então a classe $\frac{ac}{bd}$ é a mesma que classe $\frac{a'c'}{b'd'}$.
+\end{dem}
+\begin{prop}{Para a multiplicação valem as seguintes propriedades:}
     \begin{enumerate}[label=(\roman*)]
-        \item Associativa: 
-            $\left( \dfrac{a}{b} \cdot \dfrac{c}{d}\right) \cdot \dfrac{e}{f} = 
-            \dfrac{a}{b} \cdot \left(\dfrac{c}{d} \cdot \dfrac{e}{f}\right)$
-        
-        \item Comutativa: $\dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{c}{d} \cdot \dfrac{a}{b}$
-        
-        \item Elemento neutro: $\exists! \dfrac{x}{y} : \dfrac{x}{y} \cdot \dfrac{c}{d} =     \dfrac{c}{d}$
-        
-        \item Simétrico: $\forall \dfrac{a}{b} \exists! \dfrac{x}{y} :  \dfrac{a}{b} \cdot \dfrac{x}{y} = \dfrac{0}{1}$
-        
-        \item Lei do cancelamento:
-            $\dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{a}{b} \cdot \dfrac{e}{f} \implies \dfrac{c}{d} = \dfrac{e}{f}$.
-            
-        \item Fechamento:
-        $\dfrac{a}{b} \cdot \dfrac{c}{d} \in \Q$.
+        \item fechamento;
+        \item associativa;
+        \item comutativa;
+        \item do elemento neutro; 
+        \item do elemento simétrico;
+        \item lei do cancelamento;
     \end{enumerate}
 \end{prop}
 \begin{dem}
     \begin{enumerate}[label=(\roman*)]
+        \item Fechamento: \\
+        Temos que $ac \in \Z$ e $bd \in \Z$. Além disso, porque em \Z vale que $bd = 0 \iff b = 0 \lor d = 0$, considerando originalmente como tínhamos $b,d$ ambos não nulos, temos $bd \neq 0$.
+        
         \item Associativa: \\
-            $\left( \dfrac{a}{b} \cdot \dfrac{c}{d}\right) \cdot \dfrac{e}{f} = \\
-            \left(\dfrac{a}{b} \cdot \dfrac{c}{d}\right) \dfrac{e}{f} = \\
-            \dfrac{ace}{bdf} = \dfrac{a}{b} \cdot \dfrac{ce}{df} = \\
-            \dfrac{a}{b} \cdot \left(\dfrac{c}{d} \cdot \dfrac{e}{f}\right)$
+            \[
+            \left( \frac{a}{b} \cdot \frac{c}{d}\right) \cdot \frac{e}{f} = 
+            \left(\frac{a}{b} \cdot \frac{c}{d}\right) \frac{e}{f} = 
+            \frac{ace}{bdf} = \frac{a}{b} \cdot \frac{ce}{df} = 
+            \frac{a}{b} \cdot \left(\frac{c}{d} \cdot \frac{e}{f}\right)
+            .
+            \]
+            
             
         
         \item Comutativa: \\
-            $\dfrac{a}{b} \cdot \dfrac{c}{d} = \\
-            \dfrac{ac}{bd} = \\
-            \dfrac{ac}{db} = \\
-            \dfrac{c}{d} \cdot \dfrac{a}{b}$
-        
-        \item Elemento neutro: $\exists! \dfrac{x}{y} : \dfrac{x}{y} \cdot \dfrac{c}{d} =     \dfrac{c}{d}$ \\
-        Consideremos o $1/1$. Afirmamos que ele é o neutro do produto, pois: $\left(1c/1d \right) = c/d$.
-        Assim, provamos que é neutro pela esquerda. Pela direita é evidente pela comutatividade do produto em \Z. A unicidade é dada pelo teorema \ref{agb-neutro-unico}.
-        
-        \item Simétrico: $\forall \dfrac{a}{b} \exists! \dfrac{x}{y} :  \dfrac{a}{b} \cdot \dfrac{x}{y} = \dfrac{0}{1}$
-        Consideremos o elemento $\dfrac{b}{a}$. Mostraremos que ele é o simétrico de $\dfrac{a}{b}$ pois ocorre que $\dfrac{a}{b} \cdot \dfrac{b}{a} = \dfrac{ab}{ba} = \dfrac{1}{1}$ pois $ab\cdot 1 = ba\cdot 1$.
-        
-        \item Lei do cancelamento: \\
-            $\dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{a}{b} \cdot \dfrac{e}{f} \iff \\
-            \dfrac{b}{a} \cdot \dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{b}{a} \cdot  \dfrac{a}{b} \cdot \dfrac{e}{f} \implies \\
-            \implies \dfrac{c}{d} = \dfrac{e}{f}$.
+        \[ \frac{a}{b} \cdot \frac{c}{d} = 
+            \frac{ac}{bd} = 
+            \frac{ca}{db} = 
+            \frac{c}{d} \cdot \frac{a}{b} . \]
             
-        \item Fechamento: \\
-        $\dfrac{a}{b} \cdot \dfrac{c}{d} \in \Q$, como $a,b,c,d \in \Z$, temos que $ac \in \Z$ e $bd \in \Z$. Além disso, por causa do anulamento do produto em \Z, temos que $bd = 0 \iff b = 0 \lor d = 0$, mas como originalmente $b,d \neq 0$, temos $bd \neq 0$.
+        
+        \item Elemento neutro: Afirmamos que o $\frac{1}{1}$ é o neutro do produto, pois: $\left(1c/1d \right) = c/d$.
+        Assim, provamos que é neutro pela esquerda. Pela direita é evidente pela comutatividade do produto em \Z. A unicidade é consequência do teorema \cref{agb-neutro-unico}.
+        
+        \item Simétrico: Vamos obter o simétrico de $\frac{a}{b}$. Por hipótese temos $b \neq 0$. Suponhamos que $a=0$. Vejamos se algum $\frac{c}{d}$
+        pode ser simétrico de $\frac{a}{b}$. Temos $\frac{a}{b} \frac{c}{d} = \frac{ac}{bd} = \frac{0}{bd} \neq \frac{1}{1}$. Assim não podemos ter zero no numerador. \\
+        Suponhamos por outro lado, $a \neq 0$. Temos $\frac{ac}{bd} = \frac{1}{1} \implies ac = bd$, que é o mesmo que dizer que $\frac{a}{b} = \frac{d}{c}$. Para que a igualdade ocorra, basta tomar $c=b$ e $d=a$, assim, o simétrico do produto de $\frac{a}{b}$ é $\frac{c}{d} = \frac{b}{a}$. O simétrico é único, conforme \cref{agb-simetrico-unico}.
+        
+        \item a lei do cancelamento é provada pela \cref{agb-lei-cancelamento}.
+
     \end{enumerate}    
 \end{dem}
 
 
 \section{Relação de ordem}
 \begin{defi}
-    Sejam $\dfrac{a}{b}$ e $\dfrac{c}{d}$ números racionais quaisquer. A relação de ordem $\leq$ entre $\dfrac{a}{b}$ e $\dfrac{c}{d}$ será denotada por $\dfrac{a}{b} \leq \dfrac{c}{d}$ e representa que $ad \leq bc$. 
+    Sejam $\frac{a}{b}$ e $\frac{c}{d}$ números racionais quaisquer. A relação de ordem $\leq$ entre $\frac{a}{b}$ e $\frac{c}{d}$ será denotada por $\frac{a}{b} \leq \frac{c}{d}$ e representa que $ad \leq bc$. 
 \end{defi}
 \begin{obs}
     Deve ser notado que a última desigualdade da definição, bem como seu produto são em \Z.
 \end{obs}
 \begin{prop}
-    A relação de ordem está bem definida.
+    A relação de ordem está bem definida. \todo{Provar}
 \end{prop}
+\begin{prop}
+    Dado um número racional $\frac{a}{b}$, é sempre possível encontrar esse número com denominador positivo.
+\end{prop}
+\begin{dem}
+    Seja então $b \leq 0$, tem-se que $\frac{a}{b} = \frac{-a}{-b}$ pois $a \cdot (-b) = b \cdot (-a)$, assim, $-b \geq 0$.
+\end{dem}
+
+\begin{prop}
+    Se um número racional $\frac{a}{b} > \frac{0}{1}$, e $b > 0$, então $a > 0$.
+\end{prop}
+\begin{dem}
+    Temos $0b < a$.
+\end{dem}
+
 \begin{prop}{Relação de ordem}
     \begin{enumerate}[label=(\roman*)]
         \item Reflexiva:
@@ -186,22 +199,57 @@ Claro que com essa definição, os números de \Q são classes de equivalência 
 \end{prop}
 
 \begin{dem}
-    Demonst   racao 
+    Sejam $\frac{a}{b}, \frac{c}{d}, \frac{e}{f}$ números racionais quaisquer tais que $b,d,f > 0$.
     \begin{enumerate}[label=(\roman*)]
-        \item Reflexiva:
-        \item Antissimétrica:
-        \item Transitiva:
+        \item Reflexiva, pois $\frac{a}{b} \leq \frac{a}{b} \iff ab \leq ba$.
+        \item Antissimétrica, pois se $\frac{a}{b} \leq \frac{c}{d} \iff ad \leq bc$. Por outro lado, $\frac{c}{d} \leq \frac{a}{b} \iff cb \leq da$. Pela antissimetria de $\leq$ em \Z, concluímos que $\frac{a}{b} = \frac{c}{d}$.
+        \item Transitiva: \\
+        $\frac{a}{b} \leq \frac{c}{d} \iff ad \leq bc$. \\
+        $\frac{c}{d} \leq \frac{e}{f} \iff cf \leq de$. \\
+        Pela compatibilidade do produto em \Z, temos: \\
+        $adf \leq bcf$ e $bcf \leq bde$, assim $adf \leq bde$.
+        Logo $af \leq be \therefore \frac{a}{b} \leq \frac{e}{f}$.
+        
         \item Totalidade:
-        \item Compatível com a adição:
+        Temos que $\frac{a}{b} \leq \frac{c}{d} \iff ad \leq bc$. \\
+        Também, $\frac{c}{d} \leq \frac{a}{b} \iff cb \leq da$. \\
+        Como a relação de ordem em \Z é total, aqui também é, como consequência.
+        
+        \item Compatível com a adição: \\
+        Temos $\frac{a}{b} \leq \frac{c}{d} \iff ad \leq bc$. As linhas abaixo são equivalentes: \\
+        \[ afd \leq bcf \]
+        \[ afd + bed \leq bcf + bde \]   
+        \[ (af+be)df \leq bf(cf+de) \]
+        \[ \frac{af+be}{bf} \leq \frac{cf+de}{df} \]
+        \[ \frac{a}{b} + \frac{e}{f} \leq \frac{c}{d} + \frac{e}{f}. \]
+        
         \item Compatível com a multiplicação:
+        Se $\frac{a}{b} \leq \frac{c}{d}$ e $\frac{0}{1} \leq \frac{e}{f}$, temos: \\
+        
+            \[ ad \leq bc \]
+            \[adef \leq bcef \] 
+            \[ aedf \leq bfce \]
+            \[\frac{ae}{bf} \leq \frac{ce}{df} \] 
+            \[\frac{a}{b} \frac{e}{f} \leq \frac{c}{d} \frac{e}{f}. \]                   
     \end{enumerate}
 \end{dem}
 
-\begin{teo}
-    Imersão de \Z em \Q.
+
+\section{Imersão de \Z em \Q}
+\begin{teo}\label{rac-teo-imersao}
+    Seja a função $f: \Z \rightarrow \Q, f(x) \mapsto \frac{x}{1}$. Essa função tem as propriedades a seguir:
+    \begin{enumerate}[label=(\roman*)]
+        \item $f(a + b) = f(a) + f(b)$;
+        \item $f(a \cdot b) = f(a) \cdot f(b)$;
+        \item $a \leq b \implies f(a) \leq f(b)$.
+    \end{enumerate}
 \end{teo}
 \begin{dem}
-    PROVA RPD
-    POJASPDOJPAOSDJOPZ<X
+    \begin{enumerate}[label=(\roman*)]
+        \item $f(a + b) = \frac{a+b}{1} = \frac{a}{1} + \frac{b}{1} = f(a) + f(b)$;
+        \item $f(a \cdot b) = \frac{ab}{1} = \frac{a}{1} \frac{b}{1} = f(a) \cdot f(b)$;
+        \item Temos que $a \leq b$, assim, $\frac{a}{1} \leq \frac{b}{1} \iff a1 \leq 1b$ o que sempre ocorre, observando a hipótese.
+    \end{enumerate}
 \end{dem}
+
 \end{document}

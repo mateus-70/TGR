@@ -1,4 +1,31 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \chapter{O CONJUNTO DOS NÚMEROS REAIS}
+\label{cap-reais}
+\begin{defi}
+    A regra de sinais para o produto é como a seguir:
+    \begin{enumerate}[label=(\roman*)]
+        \item $-\left(\abs{\alpha}\abs{\beta}\right)$, se $\alpha < 0^*, \beta \geq 0^*$
+        \item $-\left(\abs{\alpha}\abs{\beta}\right)$, se $\alpha \geq 0^*, \beta < 0^*$
+        \item $\left(\abs{\alpha}\abs{\beta}\right)$, se $\alpha < 0^*, \beta < 0^*$
+    \end{enumerate}
+\end{defi}
+\begin{prop}
+    Sejam $\alpha$ e $\beta$ cortes. Vale que $\left( - \alpha \right) \beta = \alpha \left( -\beta \right) = -\left(\alpha \beta \right) $ e também que $\left( -\alpha \right) \left( -\beta \right) = \alpha \beta$.
+\end{prop}
+\begin{dem}
+Consideremos quatro casos distintos, de combinações de $\alpha, \beta$ sendo maior ou menor do que $0^*$.
+\begin{enumerate}
+    \item $\alpha \geq 0^*$ e $\beta \geq 0^*$ \\
+        $(-\alpha)\beta = -(\abs{-\alpha}\abs{\beta}) = -(\abs{\alpha}\abs{\beta})$ \\
+        $\alpha(-\beta) = -(\abs{\alpha}\abs{-\beta}) = -(\abs{\alpha}\abs{\beta})$ \\
+        Mas $-(\abs{\alpha}\abs{\beta}) = -(\alpha\beta)$.
+        
+    \item $\alpha < 0^*$ e $\beta \geq 0^*$
+    
+    \item $\alpha \geq 0^*$ e $\beta < 0^*$
+    
+    \item $\alpha < 0^*$ e $\beta < 0^*$
+\end{enumerate}
+\end{dem}
 \end{document}
