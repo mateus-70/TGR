@@ -261,7 +261,22 @@ Com isso, podemos observar a \cref{agb-def-anel} e concluir que \Z com essa soma
 \begin{defi}
     Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em \Z, definimos a relação de ordem $\leq$ e dizemos que $\overline{(a,b)}$ é menor do que ou igual a $\overline{(c,d)}$ quando $a+d \leq b+c$ e denotamos por $\overline{(a,b)} \leq \overline{(c,d)}$.
 \end{defi}
-\todo{Boa definição da relação de ordem}
+
+\begin{prop}
+    A relação de ordem está bem definida, isto é, sejam $\overline{(a,b)} = \overline{(a',b')}$ e $\overline{(c,d)} = \overline{(c',d')}$. Se $\overline{(a,b)} \leq \overline{(c,d)}$, então $\overline{(a',b')} \leq \overline{(c',d')}$.
+\end{prop}
+\begin{dem}
+    Temos $\overline{(a,b)} = \overline{(a',b')} \iff a+b' = b+a'$. 
+    Também $\overline{(c,d)} = \overline{(c',d')} \iff c+d' = d+c'$. 
+    Como $\overline{(a,b)} \leq \overline{(c,d)} \iff a+d \leq b+c$, temos:
+    \begin{align*}
+        b+a'+c+d' &= a+b' + d+c' \\
+        a'+d' + a+d + m &= b' + c' + a + d \\
+        a'+d' + m &= b' + c'  \\
+        a'+d' & \leq b'+c'.
+    \end{align*}
+     
+\end{dem}
 \begin{prop}{Sejam $\overline{(a,b)}, \overline{(c,d)}, \overline{(e,f)}$ números inteiros quaisquer, para a relação de ordem valem as seguintes propriedades:}
     \begin{enumerate}[label=(\roman*)]
         \item Reflexiva;
@@ -270,7 +285,6 @@ Com isso, podemos observar a \cref{agb-def-anel} e concluir que \Z com essa soma
         \item Totalidade;
         \item Compatível com a adição;
         \item Compatível com a multiplicação.
-        
     \end{enumerate}
 \end{prop}
 \begin{dem}
@@ -340,7 +354,28 @@ Com isso, podemos observar a \cref{agb-def-anel} e concluir que \Z com essa soma
     \leq \overline{(c,d)} \cdot \overline{(e,f)}$, então $\overline{(a,b)} \leq \overline{(c,d)}$. Comentário análogo vale para essa compatibilidade com a adição.
 \end{obs}
 
+\begin{prop}
+    É válido que $\overline{(a,b)} < \overline{(c,d)}$ se, e somente se, existe um $\overline{(e,f)} > 0$ onde $\overline{(a,b)} + \overline{(e,f)} = \overline{(c,d)}$.
+\end{prop}
+\begin{dem}
+    Como $\overline{(a,b)} < \overline{(c,d)}$, temos $a+d + m = b+c$, para algum $m$ natural. Consideremos o número $\overline{(m+1, 1)}$, vamos mostrar que ele é o número procurado. Sabemos que ele é positivo pois $\overline{(1,1)} < \overline{(m+1, 1)} \iff 1+1 < 1+m+1 $. \\
+    Agora, $\overline{(a,b)} + \overline{(m+1,1)} = \overline{(a+m+1,b+1)} = \overline{(a+m, b)}$.
+    Podemos observar que $\overline{(a+m, b)} = \overline{(c,d)}$, pois $a+m+d = b+c$.
 
+    Provemos a volta. Suponhamos que $\overline{(a,b)} + \overline{(e,f)} = \overline{(c,d)}$, para algum $\overline{(e,f)} > 0$. Temos $e=f+m$ para algum $m$ natural. Assim, ficamos com $\overline{(a+f+m, b+f)} = \overline{(a+m, b)} = \overline{(c,d)}$. Assim, $a+m+d = b+c$, logo, $a+d < b+c 
+    \therefore \overline{(a,b)} < \overline{(c,d)}$.
+\end{dem}
+
+\begin{prop}
+    Complementando a proposição anterior, vale que $\overline{(a,b)} \leq \overline{(c,d)}$ se, e somente se, existe um $\overline{(e,f)} \geq 0$ onde $\overline{(a,b)} + \overline{(e,f)} = \overline{(c,d)}$.
+\end{prop}
+\begin{dem}
+    Vamos separar em 4 casos: \\
+    Se $\overline{(a,b)} = \overline{(c,d)}$ então $\overline{(a,b)} + 0 = \overline{(c,d)}$. \\ 
+    Se $\overline{(a,b)} < \overline{(c,d)}$, caímos na proposição anterior. \\
+    Se $\overline{(e,f)} = 0$, temos $\overline{(a,b)} + 0 = \overline{(c,d)}$. \\
+    Se $\overline{(e,f)} > 0$, caímos na proposição anteior.
+\end{dem}
 
 \section{Imersão de \N em \Z}
 A imersão que trataremos a seguir justificará que utilizemos apenas um símbolo para adição, quer trabalhemos com \N, quer trabalhemos com \Z. Isso valerá também para \Q e \R também, que serão apresentados nos seus respectivos capítulos. A ideia de imersão trata de nos permitir corresponder um conjunto num outro, no caso, \N em \Z, e assim trabalhar como se \N fosse um subconjunto de \Z.

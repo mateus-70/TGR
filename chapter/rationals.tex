@@ -7,8 +7,7 @@ No capítulo anterior, conseguimos criar um conjunto \Z cuja soma tivesse elemen
 
 O conjunto que criaremos será chamado de conjunto dos números racionais e será denotado por \Q.
 
-\section{Definição do conjunto}
-Para criar os racionais, vamos utilizar o mesmo artifício das classes de equivalência num subconjunto do produto cartesiano. O produto cartesiano que precisaremos excluirá o neutro da soma em \Z da segunda cordenada, que será justificado no tempo devido.
+Para criar os racionais, vamos utilizar o mesmo artifício das classes de equivalência num subconjunto do produto cartesiano. O produto cartesiano que precisaremos excluirá o neutro da soma em \Z da segunda cordenada, que se justificará no próximo teorema.
 
 $$\Z \times \Z^* = \{ \left( a,b \right) : a \in \Z \land b \in \Z^* \}$$
 
@@ -28,7 +27,7 @@ Sobre $\Z \times \Z^*$ vamos considerar a relação definida por $\left( a,b \ri
         Se $a=0$, temos que $ad = 0$, assim, ocorre que $b=0 \lor c=0$. Como $b \neq 0$, então $c=0$. Reciprocamente, se $c=0$ então $bc = 0 = ad$, como $d \neq 0$, então $a=0$. Desse modo concluímos também que, $a=0$ se, e somente se $c=0$ e $e=0$. Temos daí que $ad = bc = cf = de = 0$. \\
         Agora supondo que $a \neq 0$, então $c \neq 0$ e $e \neq 0$.
         Podemos multiplicar os termos das igualdades iniciais, igualando os resultados e aplicando o cancelamento do produto, ficamos com: \\ 
-        $\left( a  \cdot d \right)  \cdot \left( c  \cdot f \right)= \left(b  \cdot c\right)  \cdot \left(d  \cdot e\right) \iff a  \cdot f = b  \cdot e \iff \left( a,b \right) \sim \left( e,f \right)$.
+        $\left( a  \cdot d \right)  \cdot \left( c  \cdot f \right)= \left(b  \cdot c\right)  \cdot \left(d  \cdot e\right) \iff a  \cdot f = b  \cdot e \iff \left( a,b \right) \sim \left( e,f \right)$. \footnote{Caso admitíssemos o $0$ na segunda coordenada, teríamos $\frac{0}{0} \sim \frac{a}{b}$ para qualquer $a,b$, mas a transitiva iria falhar, por exemplo, $\frac{1}{2} \not\sim \frac{3}{2}$.}
     \end{enumerate}
 \end{dem}
 
@@ -155,9 +154,9 @@ Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6
         
         \item Simétrico: Vamos obter o simétrico de $\frac{a}{b}$. Por hipótese temos $b \neq 0$. Suponhamos que $a=0$. Vejamos se algum $\frac{c}{d}$
         pode ser simétrico de $\frac{a}{b}$. Temos $\frac{a}{b} \frac{c}{d} = \frac{ac}{bd} = \frac{0}{bd} \neq \frac{1}{1}$. Assim não podemos ter zero no numerador. \\
-        Suponhamos por outro lado, $a \neq 0$. Temos $\frac{ac}{bd} = \frac{1}{1} \implies ac = bd$, que é o mesmo que dizer que $\frac{a}{b} = \frac{d}{c}$. Para que a igualdade ocorra, basta tomar $c=b$ e $d=a$, assim, o simétrico do produto de $\frac{a}{b}$ é $\frac{c}{d} = \frac{b}{a}$. O simétrico é único, conforme \cref{agb-simetrico-unico}.
+        Suponhamos por outro lado, $a \neq 0$. Temos $\frac{ac}{bd} = \frac{1}{1} \implies ac = bd$, que é o mesmo que dizer que $\frac{a}{b} = \frac{d}{c}$. Para que a igualdade ocorra, basta tomar $c=b$ e $d=a$, assim, o simétrico do produto de $\frac{a}{b}$ é $\frac{c}{d} = \frac{b}{a}$. O simétrico é único, conforme \cref{agb-teo-simetricoUnico}.
         
-        \item a lei do cancelamento é provada pela \cref{agb-lei-cancelamento}.
+        \item a lei do cancelamento é provada pela \cref{agb-prop-leiCancelamento}.
 
     \end{enumerate}    
 \end{dem}
@@ -171,8 +170,40 @@ Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6
     Deve ser notado que a última desigualdade da definição, bem como seu produto são em \Z.
 \end{obs}
 \begin{prop}
-    A relação de ordem está bem definida. \todo{Provar}
+    A relação de ordem está bem definida. \todo{Isso está incompleto} \\
+    vi a demosntracao nesse site \url{https://math.stackexchange.com/questions/4626648/proving-order-is-well-defined-on-mathbbq}\\
+    O problema é que eu não achei legal em vários lugares já supor que os denominadores são positivos.
+    Isto é, sejam $\frac{a}{b} = \frac{a'}{b'}$ e $\frac{c}{d} = \frac{c'}{d'}$. Ainda, suponha que $\frac{a}{b} \leq \frac{c}{d}$. Então 
+    $\frac{a'}{b'} = \frac{c'}{d'}$.
 \end{prop}
+\begin{dem}
+    Das hipóteses temos: \\
+    $ab' = ba'$, $cd' = dc'$ e $ad \leq bc \iff 0 \leq bc-ad$ 
+    Temos que: 
+    \[ (c'b'-a'd')bd = \]
+    \[ c'b'bd - a'd'bd = \]
+    \[ cd'b'b - ab'd'd = \]
+    \[ (bc-ad) b'd' \]
+
+    Assim, 
+    \[ (b'c'-a'd')(bd)(b'd')(bd) =\]
+    \[ (bc-ad)(b'd')(b'd')(bd) \]
+
+    Agora vamos fazer considerações à respeito da relação ordem e dos sinais. \\
+    Temos $0 \leq (bc-ad)$ por hipótese.
+    Observando a expressão $(bc-ad)bd$, ela será positiva se $b$ e $d$ tiverem o mesmo sinal, e será negativa caso contrário. Por outro lado, um número multiplicado por ele mesmo sempre será positivo. \\
+    Consideremos o primeiro caso, suponhamos que $b,d$ tenham o mesmo sinal, desse modo
+    \[ (b'c'-a'd')(bd)(b'd')(bd) = (bc-ad)bd(b'd')(b'd') > 0 \]
+    e 
+    \[ (b'c'-a'd')b'd' > 0 \].
+    
+    
+    % Se $(bc-ad)bd \geq 0$ então \\
+    % $(c'b'-a'd')b'd'(bd)(bd) = (bc-ad)db(d'b')(d'b') > 0$ com isso \\
+    % $(b'c'-a'd')b'd' > 0$.
+    
+\end{dem}
+
 \begin{prop}
     Dado um número racional $\frac{a}{b}$, é sempre possível encontrar esse número com denominador positivo.
 \end{prop}

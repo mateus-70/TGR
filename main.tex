@@ -1,3 +1,5 @@
+%%% PERDEIS VOSSAS ESPERANÇAS JÁ AQUI QUEM ENTRAIS %%%
+
 %-------------------------------------------------------------------------
 %-------------------------------------------------------------------------
 % Modelo de TGR para o curso de Licenciatura em Matemática - UDESC/CCT
@@ -55,7 +57,7 @@
 \usepackage{pdfpages}
 \usepackage{relsize}
 \usepackage{microtype}
-\usepackage[style=numeric, sorting=nty, style=authoryear]{biblatex}
+\usepackage[citestyle=authoryear, sorting=nty, style=abnt]{biblatex}
 \usepackage[portuguese=brazilian]{csquotes} % Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing. Loading 'csquotes' recommended.
 \usepackage{etoolbox} % para modificar as citacoes, colocar margem no blockquote
 %\usepackage{showkeys} % para que quando for usar \ref apareça uma prévia do que se trata, teorema prop, def etc. pois \ref gera apenas numeros
@@ -165,37 +167,7 @@
 %\patchcmd{\blockquote}{\leftmargin}{\leftmargin 4cm}{}{}
 %\patchcmd{\quote}{\rightmargin}{\leftmargin 4cm \rightmargin}{}{}
 
-\renewcommand*{\nameyeardelim}{\addcomma\space} % para adicionar vírgula entre autor e data quando usar \cite ou análogos
-% Para colocar parencite em maiúscu
-\makeatletter
-\renewcommand*{\mkbibnamefamily}[1]{%
-  \ifdefstring{\blx@delimcontext}{parencite}
-    {\MakeUppercase{#1}}
-    {#1}}
-\makeatother
 
-\DeclareFieldFormat{title}{\mkbibbold{#1}} % Alterar o field title para que fique em negrito.
-\newcommand\textMyUpperCase[1]{\MakeUppercase{#1}} % https://tex.stackexchange.com/questions/214897/authors-name-in-scshape-with-biblatex
-\renewcommand{\mkbibnamefamily}{\textMyUpperCase} % isso aqui eu nao entendi, boa sorte no link acima para ver mais. 
-
-
-
-% https://tex.stackexchange.com/questions/588/how-can-i-change-the-margins-for-only-part-of-the-text
-\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
-\let\endchangemargin=\endlist 
-
-\makeatletter
-%Take the original environment definition and change the leftmargin to 1cm
-\renewenvironment*{displayquote}
-  { \begin{changemargin}{4cm}{0cm}  \fontsize{10pt}{10pt}\selectfont}
-  { \end{changemargin}  }
-
- 
-
-% \renewenvironment{displayquote}
-%   {}
-%   {}
-\makeatother
 
 
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
@@ -237,8 +209,49 @@
 %\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
 \addbibresource{./include/refs.bib}
-\DeclareNameAlias{sortname}{family-given} % Para usar nas referências, colocar último sobrenome na frente e ordenar
+% \DeclareNameAlias{sortname}{family-given} % Para usar nas referências, colocar último sobrenome na frente e ordenar
+% % https://tex.stackexchange.com/questions/380299/change-position-of-year-field-in-authoryear-biblatex-style
+% \DeclareFieldFormat{url}{Disponível em: \addcolon\space\url{#1}} % https://tex.stackexchange.com/questions/510625/how-to-change-url-to-available-at-for-citing-a-website-in-biblatex
+% \DeclareDelimFormat{finalnamedelim}{\addsemicolon\space}
 
+
+% \renewcommand*{\nameyeardelim}{\addcomma\space} % para adicionar vírgula entre autor e data quando usar \cite ou análogos
+% % Para colocar parencite em maiúsculas, somente parencite Parencite
+% \makeatletter
+% \renewcommand*{\mkbibnamefamily}[1]{%
+%   \ifdefstring{\blx@delimcontext}{parencite}
+%     {\MakeUppercase{#1}}
+%     {#1}}
+%   % \ifdefstring{\blx@delimcontext}{printbibliography}
+%   %   {\MakeUppercase{#1}}
+%   %   {#1}}
+
+% \makeatother
+
+ % \newcommand\textMyUpperCase[1]{\MakeUppercase{#1}} % https://tex.stackexchange.com/questions/214897/authors-name-in-scshape-with-biblatex
+ % \renewcommand{\mkbibnamefamily}{\textMyUpperCase} % isso aqui eu nao entendi, boa sorte no link acima para ver mais. 
+
+% % faz título negrito, subtítulo continua normal.
+% \renewbibmacro{title}{
+% \let\itshape\upshape
+%     \mkbibbold{\printfield{title}}\iffieldundef{subtitle}{.}{: \printfield{subtitle}}
+% }
+
+\AtEveryBibitem{
+    \clearfield{series}
+    \clearfield{isbn}
+}
+
+% https://tex.stackexchange.com/questions/588/how-can-i-change-the-margins-for-only-part-of-the-text
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+\makeatletter
+%Take the original environment definition and change the leftmargin to 1cm
+\renewenvironment*{displayquote}
+  { \begin{changemargin}{4cm}{0cm}  \fontsize{10pt}{10pt}\selectfont}
+  { \end{changemargin}  }
+\makeatother
 
 % --- 
 % CONFIGURAÇÕES DE PACOTES
@@ -326,11 +339,11 @@
 
 % INICIO CAPITULOS
 
-\subfile{chapter/algebra}
-\subfile{chapter/naturals}
-\subfile{chapter/integers}
-\subfile{chapter/rationals}
-%\subfile{chapter/reals}
+ \subfile{chapter/algebra}
+ \subfile{chapter/naturals}
+ \subfile{chapter/integers}
+ \subfile{chapter/rationals}
+\subfile{chapter/reals}
 
 % FIM CAPITULOS
 
@@ -344,6 +357,10 @@
 % ----------------------------------------------------------
 %\subfile{chapter/references}
 
+\chapter*[Referências]{REFERÊNCIAS}
+\addcontentsline{toc}{chapter}{REFERÊNCIAS}
+\nocite{*}
+\printbibliography[block=none, heading=none]
 % ----------------------------------------------------------
 % Apêndices
 % ----------------------------------------------------------
