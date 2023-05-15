@@ -2,53 +2,66 @@
 \begin{document}
 \chapter{ÁLGEBRA BÁSICA}
 
-Neste capítulo apresentaremos as definições usadas ao longo do texto e também apresentaremos alguns resultados importantes que, embora simples, podem ser generalizados para os conjuntos (numéricos) que trabalharemos. A referência principal para este capítulo é \Parencite{domingues-iezzi-2018}.
+Neste capítulo apresentaremos as definições usadas ao longo do texto e também apresentaremos alguns resultados importantes que, embora simples, podem ser generalizados para os conjuntos (numéricos) que trabalharemos. A referência principal para este capítulo é \textcite{domingues-iezzi-2018}.
 
-Assumimos familiaridade com os conjuntos numéricos comuns como dos naturais, inteiros, racionais e reais além disso dos símbolos e ideiais básicas da lógica tais como implicação, conjunção e disjunção. O objetivo aqui é colocar uma fundamentação inicial mais sólida para os capítulos subsequentes, para que o conteúdo principal (a construção dos conjuntos numéricos) fique melhor consolidada. 
+Assumimos familiaridade com a Teoria dos Conjuntos e com os símbolos e ideias básicas da lógica tais como implicação, conjunção e disjunção. O objetivo aqui é colocar uma fundamentação inicial mais sólida para os capítulos subsequentes, para que o conteúdo principal (a construção dos conjuntos numéricos) fique melhor consolidada. 
 
 \section{Conjuntos e relações}
 Neste primeiro momento vamos abordar conjuntos, pares ordenados e relações, e veremos algumas definições básicas. É claro que no estudo mais profundo de conjuntos precisaríamos de mais axiomas e outras definições, mas foge do escopo do nosso trabalho.
 
 \begin{defi}\label{agb-def-parOrd}
-     Dados um conjunto não vazio $A$ e sejam $a,b \in A$, definimos o \emph{par ordenado} $(a,b)$ como sendo o conjunto $\{\{a\}, \{a,b\}\}$.
+     Dados um conjunto não vazio $A$ e $a,b \in A$, definimos o \emph{par ordenado} $(a,b)$ como o conjunto $\{\{a\}, \{a,b\}\}$.
 \end{defi}
     O elemento $a$ dizemos que está na primeira entrada do par ordenado, e o $b$ está na segunda entrada do par ordenado.
     
-    Essa definição de par ordenado visa "corrigir" o problema que o conjunto $\{a,b\}$ e $\{b,a\}$, com $b$ diferente de $a$ são o mesmo conjunto.
-    É satisfatório nesse objetivo, mas para nós o que irá importar é a o lema a seguir:
-\begin{lema}
+    \todo{vírgula} Essa definição de par ordenado visa "corrigir"\ o problema que os conjuntos $\{a,b\}$ e $\{b,a\}$, com $b$ diferente de $a$ são o mesmo conjunto.
+    A \Cref{agb-def-parOrd} é satisfatória para eesse objetivo, mas para nós o que irá importar é o lema a seguir:
+
+\begin{lema}\label{agb-lema-parOrdenado}
     Dois pares ordenados $(a,b)$ e $(c,d)$ são iguais se, e somente se, $a=c$ e $b=d$.
 \end{lema}
-Consideremos os pares ordenados $(1,2)$ e $(2,1)$, eles não são iguais porque $1 \neq 2$ e $2 \neq 1$. Podemos observar também que os pares ordenados $(1,2)$ e $(1,1)$ não são iguais pois embora $1=1$, $2 \neq 1$, e basta que uma coordenada seja diferente para que o par como um todo, seja diferente.
+A demonstração do \Cref{agb-lema-parOrdenado} pode ser encontrada em \textcite[p. 42]{suppes}.
+
+\begin{ex}
+    Consideremos os pares ordenados $(1,2)$ e $(2,1)$. Eles não são iguais porque $1 \neq 2$ e $2 \neq 1$. Podemos observar também que os pares ordenados $(1,2)$ e $(1,1)$ não são iguais pois embora $1=1$, $2 \neq 1$, e basta que uma coordenada seja diferente para que o par como um todo, seja diferente.
+\end{ex}
 
 \begin{defi}\label{agb-def-prodCart}
-     Dados dois conjuntos não vazios, $A,B$, o \emph{produto cartesiano} de A por B, denotado por $A \times B$, é o conjunto de todas as combinações $(a,b)$ onde $a \in A$ e $b \in B$ , isto é, $A \times B = \{ (a,b) : a \in A \land b \in B \}$.
+     Dados dois conjuntos não vazios, $A,B$, o \emph{produto cartesiano} de A por B, denotado por $A \times B$, é o conjunto de todos os pares ordenados $(a,b)$ onde $a \in A$ e $b \in B$ , isto é, $A \times B = \{ (a,b) : a \in A \land b \in B \}$.
 \end{defi}
-Por exemplo consideremos os conjuntos $A = \{1,5,6\}$ e o conjunto $B = \{1,3,4,9\}$, o conjunto $A \times B = \{(1,1), (1,3), (1,4), (1,9), (5,1), (5,3), (5,4), (5,9), (6,1), (6,3), (6,4), (6,9)\}$. Já se $A = \{-1,3,4\}$ e $B = \{0,5\}$ o conjunto $A \times B$ será $\{(-1,0), (-1,5), (3,0), (3,5), (4,0), (4,5)\}$.
+\begin{ex}
+    Consideremos os conjuntos $A = \{1,5,6\}$ e o conjunto $B = \{1,3,4,9\}$, o conjunto $A \times B = \{(1,1), (1,3), (1,4), (1,9), (5,1), (5,3), (5,4), (5,9), (6,1), (6,3), (6,4), (6,9)\}$. Já se $A = \{-1,3,4\}$ e $B = \{0,5\}$ então conjunto $A \times B$ será $\{(-1,0), (-1,5), (3,0), (3,5), (4,0), (4,5)\}$.
+\end{ex}
+    
 
 \begin{defi}\label{agb-def-relBin}
     Uma \emph{relação binária} R num conjunto $A$ é qualquer subconjunto do produto cartesiano $A \times A$, isto é, $R \subset A \times A$.
 \end{defi}
-Frequentemente utiliza-se a notação $aRb$ para indicar o par ordenado $(a,b)$.
 
-Podemos citar como exemplo no conjunto \R a relação binária que é da parábola, onde a parábola $P \subset \R \times \R$ e $P = \{(a,a^2) : a \in \R \}$, embora nesses casos de funções não seja comum encontrar a notação $(a,a^2) \in P$ ou $a P a^2$.
+Frequentemente utiliza-se a notação $aRb$ para indicar que o par ordenado $(a,b) \in R$.
 
-Um exemplo mais importante é a desigualdade, que em geral ao invés de trabalhar com pares ordenados, $(a,b)$ normalmente se opta pela utilização do símbolo da relação entre os elementos $a<b$. 
+\begin{ex}
+    No conjunto $\mathbb{R}$ a relação binária definida por uma função quadrática, onde a parábola $P \subset \mathbb{R} \times \mathbb{R}$ e $P = \{(a,a^2) : a \in \mathbb{R} \}$. Embora nesses casos de funções não seja comum utilizar a notação $(a,a^2) \in P$ ou $a P a^2$.    
+\end{ex}
+\begin{ex}
+    Ainda mais importante é a desigualdade, que em geral, ao invés de trabalhar com pares ordenados, $(a,b)$ normalmente se opta pela utilização do símbolo da relação entre os elementos $a<b$.     
+\end{ex}
 
 \begin{defi}
-    Seja $A$ um conjunto não vazio, e seja $R$ uma relação sobre $A$. Dizemos que a relação $R$ tem a propriedade:
+    Seja $A$ um conjunto não vazio e seja $R$ uma relação sobre $A$. Dizemos que a relação $R$ tem\todo{tem a propriedade} a propriedade:
     \begin{enumerate}[label=(\roman*)]
-        \item \emph{Reflexiva}, quanto para qualquer $a \in A$ valer $aRa$;
+        \item \emph{Reflexiva}, quando para qualquer $a \in A$ valer $aRa$;
+        \item \emph{Simétrica}\todo{macro, estilo das definicoes}, quando para quaisquer $a,b \in A$, valer $aRb \implies bRa$.\todo{simétrica, revisao}
         \item \emph{Antissimétrica}, quando para quaisquer $a,b \in A$, valer ($a R b \land bRa) \implies a = b$;
         \item \emph{Transitiva}, quando para quaisquer $a,b,c \in A$, valer $(aRb \land bRc) \implies aRc$;
         \item \emph{Totalidade}, quando para quaisquer $a,b \in A$, valer $aRb \lor bRa$.
     \end{enumerate}
 \end{defi}
 
-Trabalharemos com dois tipos especiais de relações, as relações de equivalência, e as relações de ordem.
+Trabalharemos com dois tipos especiais de relações, as relações de equivalência, e as relações de ordem. \todo{porque essas? revisao} As relações de equivalência são necessárias para a criação dos conjuntos $\mathbb{Z}$ e $\mathbb{Q}$. A relação de ordem aparece em todos os conjuntos mas é nos números reais que sua apresentação será necessária, considerando o desenvolvimento deste trabalho, e além da criação de $\mathbb{R}$, ela também servirá para verificar a não enumerabilidade de $\mathbb{R}$.
 
 \begin{defi}
-    Uma relação $R$ é chamada de \emph{relação de equivalência} quando possuir as seguintes propriedades:
+    Uma relação $R$ é chamada de \emph{relação de equivalência} quando possuir\todo{satisfazer} as seguintes propriedades:
     \begin{enumerate}[label=(\roman*)]
         \item reflexiva;
         \item simétrica;
@@ -56,23 +69,31 @@ Trabalharemos com dois tipos especiais de relações, as relações de equivalê
     \end{enumerate}
 \end{defi}
 
-Por exemplo, seja $A = \{0,1,2,3,4,5,6,7,8\}$. A relação 
-\begin{align}
-    R = \{ & (0,0), (0,3), (0,6), (3,0), (3,3), (3,6), (6,0),(6,3), (6,6), \\
-& (1,1), (1,4), (1,7), (4,1), (4,4), (4,7), (7,1), (7,4), (7,7), \\
-& (2,2), (2,5), (2,8), (5,2), (5,5), (5,8), (8,2), (8,5), (8,8) \}
-\end{align}
-é uma relação de equivalência, pois cumpre os critérios da definição anterior.
+\begin{ex}\label{agb-ex-restosDiv3}
+    Seja $A = \{0,1,2,3,4,5,6,7,8\}$. A relação 
+    \begin{align*}
+        R = \{ & (0,0), (0,3), (0,6), (3,0), (3,3), (3,6), (6,0),(6,3), (6,6), \\
+    & (1,1), (1,4), (1,7), (4,1), (4,4), (4,7), (7,1), (7,4), (7,7), \\
+    & (2,2), (2,5), (2,8), (5,2), (5,5), (5,8), (8,2), (8,5), (8,8) \}
+    \end{align*}
+    é uma relação de equivalência, pois cumpre os critérios da definição anterior.    
+\end{ex}
+
 
 \begin{defi}
-    Seja $R$ uma relação de equivalência num conjunto $A$ e seja $a \in A$ um elemento fixado arbitrariamente. O conjunto \\
-    $$\Bar{a} = \{x \in A : xRa\}$$
+    Seja $R$ uma relação de equivalência num conjunto $A$ não fazio e seja $a \in A$ um elemento fixado arbitrariamente. O conjunto \\
+    \[ \Bar{a} = \{x \in A : xRa\} \]
+    
     chama-se \emph{classe de equivalência de $a$ pela relação R}.
 \end{defi}
-Como um exemplo clássico disso é a classe de restos da divisão em \N. Na verdade é o que já foi mostrado no exemplo anterior, mas note as entradas dos pares ordenados são os números que deixam o mesmo resto na divisão por $3$. Por exemplo, $1 \divisionsymbol 3$ tem resto $1$, assim como $4 \divisionsymbol 3$, assim $1R4$, e a classe de equivalências podemos denotar $\Bar{1}$ ou $\Bar{4}$, que é possível pelo resultado do teorema a seguir.
+
+\begin{ex} \todo{melhorar, primeiro exibir as classes de cada elemento}
+    Vejamos agora a classe de restos da divisão em $\mathbb{N}$. Na verdade é o que já foi mostrado no \Cref{agb-ex-restosDiv3}, mas note as entradas dos pares ordenados são os números que deixam o mesmo resto na divisão por $3$. Por exemplo, $1 \divisionsymbol 3$ tem resto $1$, assim como $4 \divisionsymbol 3$, assim $1R4$, e a classe de equivalências podemos denotar $\Bar{1}$ ou $\Bar{4}$, que é possível pelo resultado do teorema a seguir.
+\end{ex}
+
 
 \begin{teo}
-    Sejam $R$ uma relação de equivalência em um conjunto $A$ e sejam $a,b$ elementos quaisquer de $A$, então:
+    Seja $R$ uma relação de equivalência em um conjunto não vazio $A$ e sejam $a,b$ elementos quaisquer de $A$, então:
     \begin{enumerate}[label=(\roman*)]
         \item $a \in \Bar{a}$;
         \item $\Bar{a} = \Bar{b} \iff aRb$;
@@ -81,23 +102,26 @@ Como um exemplo clássico disso é a classe de restos da divisão em \N. Na verd
 \end{teo}
 
 \begin{dem}
+    Seja $R$ uma relação de equivalência. Tem-se que
     \begin{enumerate}[label=(\roman*)]
         \item Como $a \in A$ e como $R$ é reflexiva, vale $aRa$, assim $a \in \Bar{a}$.
         \item Pelo item anterior, $a \in \Bar{a} = \Bar{b}$. 
-        Agora tentemos montar uma contradição, se é falso que $aRb$ então $a \not\in \Bar{b}$. Mas sabemos que $a \in \Bar{b}$ assim é verdade que $aRb$.
-        \item De novo por contradição, se existe $c \in \Bar{a} \cap \Bar{b}$ então vale $cRa \land cRb$, como é $R$ é simétrica, vale $aRc$, e como é transitiva vale $aRb$, pelo item anterior $\Bar{a} = \Bar{b}$.
+        Agora tentemos montar uma contradição, se é falso que $aRb$ então $a \not\in \Bar{b}$. Mas sabemos que $a \in \Bar{b}$ assim é verdade que $aRb$. \todo{Falta algo aqui, rever}
+        \item Pelo item anterior, $a \in \overline{a}$ logo $a \in \overline{b} = \overline{a}$, assim $aRb$. Para provar a volta, por contradição, suponhamos sem perda de generalidade, que exista $c \in \Bar{a} \setminus \Bar{b}$. Como $cRa$ e $aRb$, como $R$ é transitiva temos $cRb$, desse modo $c \in \Bar{b}$ o que é uma contradição.
+        \item Suponhamos que $\Bar{a} \neq \Bar{b}$. Por contradição, se existe $c \in \Bar{a} \cap \Bar{b}$ então $cRa \land cRb$. Como  $R$ é simétrica, vale $aRc \land cRb$, e como é transitiva tem-se que $aRb$, pelo item anterior $\Bar{a} = \Bar{b}$.
     \end{enumerate}
 \end{dem}
-Para nós não será relevante o fato de $A$ ser ou não vazio agora, pois quando formos construir \Z, usaremos \N que será não vazio por axioma.
+Para nós não será relevante o fato de $A$ ser ou não vazio agora, pois quando formos construir $\mathbb{Z}$, usaremos $\mathbb{N}$ que será não vazio por axioma. \todo{precisa?}
 
 \begin{defi}\label{agb-def-conjQuoc}
-    Seja $R$ uma relação de equivalência num conjunto $A$. O conjunto constituído das classes de equivalência em $A$ pela relação $R$ é denotado por $A / R$ e denominado \emph{conjunto quociente} de $A$ por $R$. \\
-    Assim, $A / R = \{\Bar{a} : a \in A\}$.
+    Seja $R$ uma relação de equivalência num conjunto $A$. O conjunto constituído das classes de equivalência em $A$ pela relação $R$ é denotado por $A / R$ e denominado \emph{conjunto quociente} de $A$ por $R$. Assim, 
+    \[ A / R = \{\Bar{a} : a \in A\}. \]
+    
 \end{defi}
-O conjunto quociente serve para particionar o conjunto, por exemplo em \Z, se considerarmos os restos da divisão por $5$, teremos $5$ classes de equivalência distintas.
+O conjunto quociente serve para particionar o conjunto em subconjuntos distintos, por exemplo em $\mathbb{Z}$, se considerarmos os restos da divisão por $5$, teremos $5$ classes de equivalência distintas. \todo{melhorar} \todo{colocar exemplo}
 
 \begin{defi}\label{agb-def-relOrd}
-    Seja $\leq$ uma relação sobre $A$. Ela é chamada de \emph{relação de ordem parcial} se valer as propriedades:
+    Seja $R$ uma relação sobre $A$. Ela é chamada de \emph{relação de ordem parcial} se valer as propriedades:
     \begin{enumerate}[label=(\roman*)]
         \item Reflexiva;
         \item Antissimétrica;
@@ -105,9 +129,9 @@ O conjunto quociente serve para particionar o conjunto, por exemplo em \Z, se co
     \end{enumerate}
 \end{defi}
 
-Além das relações de ordem habituais, por exmplo $a \leq b$, $1 \leq 2$, $-1 \leq 0$, podemos citar em \N a relação de ordem que é obtida pela divisão, isto é, $a \leq b \iff a | b$ (a divide b). Note que $a$ divide $a$, se $a | b$ e $b | c$, então $a | c$, e que $a | b \land b | a \implies a=b$. A prova dessas afirmações será omitida.
+Além da relação de ordem habitual, dada por $aRb \iff a \leq b$, podemos citar em $\mathbb{N}$ a relação de ordem parcial que é obtida pela divisão, isto é, $a R b \iff a | b$ (a divide b). Note que $a$ divide $a$, se $a | b$ e $b | c$, então $a | c$, e que $a | b \land b | a \implies a=b$. A prova dessas afirmações será omitida neste texto, mas pode ser encontrada em \textcite[p. 52]{domingues-2009}.
 
-\begin{defi}
+\begin{defi} \todo{Mas definir uma notação não se trata de uma definição também? ver ferreira p 59, 71}
     Utilizaremos a notação $a < b$ quando $a \leq b$ mas $a \neq b$. Também utilizaremos a notação $b \geq a$ e $b > a$ quando $a \leq b$ e $a < b$, respectivamente.
 \end{defi}
 
@@ -119,145 +143,176 @@ Além das relações de ordem habituais, por exmplo $a \leq b$, $1 \leq 2$, $-1 
     Uma relação de ordem parcial $\leq$ sobre um conjunto $A$ e chamada de \emph{relação de ordem total} caso quaisquer elementos de $A$ sejam comparáveis através da relação $\leq$.
 \end{defi}
 
-Uma consequência da \cref{agb-defOrdTotal} para nós nesse trabalho é que apenas utilizaremos relações de ordem que são totais, em especial as relações de ordem usuais em \N, \Z, \Q e \R são todas relações de ordem totais.
+Considerando a estrutura do nosso trabalho, com a \Cref{agb-defOrdTotal} esclarecemos que utilizaremos apenas relações de ordem que são totais, em especial as relações de ordem usuais em $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$ e $\mathbb{R}$ são todas relações de ordem totais. Por outro lado, exemplos e considerações podem não ser totais. 
 
-Outra coisa que pode ser tido à respeito das relações, é que usaremos os significados usuais para $=, <, \leq$. Também trabalharemos com a notação usual $a \leq b$ ao invés de colocar $(a,b) \in \leq$, que embora correto, fica estranho. 
+Outra coisa que pode ser dito à respeito das relações, é que usaremos os significados usuais para $=, <, \leq$. Também trabalharemos com a notação usual $a \leq b$ ao invés de colocar $(a,b) \in \leq$, que embora correto, fica estranho. 
 
 \begin{defi}
     Seja $A$ um conjunto numérico, e sejam $a,b \in A$. Considere uma relação de ordem parcial $\leq$ sobre $A$, ela é dita tricotômica,
-    quando para quaisquer $a,b \in A$, valer um e apenas um caso dos a seguir: $a < b$ ou $b < a$ ou $a = b$.
+    quando para quaisquer $a,b \in A$, valer um e apenas um caso dos a seguir: ou $a < b$ ou $b < a$ ou $a = b$.
 \end{defi}
+
+\begin{defi}\label{agb-def-cotaSup}
+    Sejam $A$ e $E$ conjuntos, com $\emptyset \neq A \subset E$, e $\leq$ uma relação de ordem parcial sobre $E$. Um elemento $L$ de $E$ é chamado de cota superior de $A$ se para qualquer elemento $a \in A$ vale $a \leq L$.
+\end{defi}
+Analogamente definimos cota inferior, como na definição a seguir:
+\begin{defi}\label{agb-def-cotaInf}
+    Sejam $A$ e $E$ conjuntos, com $\emptyset \neq A \subset E$, e $\leq$ uma relação de ordem parcial sobre $E$. Um elemento $l$ de $E$ é chamado de cota inferior de $A$ se para qualquer elemento $a \in A$ vale $l \leq a$.
+\end{defi}
+\begin{defi}\label{agb-def-maximo}\todo{no livro de algebra moderna do higino havia essa consideracao do conjunto E}
+     Sejam $A$ e $E$ conjuntos, com $\emptyset \neq A \subset E$, e $\leq$ uma relação de ordem parcial sobre $E$. Um elemento $M$ de $A$ é chamado de máximo de $A$ se para qualquer elemento $a \in A$ vale $a \leq M$, assim, um máximo é uma cota superior que pertence ao conjunto $A$.   
+\end{defi}
+\begin{defi}\label{agb-def-minimo}\todo{acho que é porque cota superior só faz sentido se considerar um conjunto universo E e um subconjunto de E}
+     Sejam $A$ e $E$ conjuntos, com $\emptyset \neq A \subset E$, e $\leq$ uma relação de ordem parcial sobre $E$. Um elemento $m$ de $A$ é chamado de mínimo de $A$ se para qualquer elemento $a \in A$ vale $m \leq a$, assim, um mínimo é uma cota inferior que pertence ao conjunto $A$.   
+\end{defi}
+\begin{prop}
+    Seja $A \neq \emptyset$ um subconjunto de um conjunto parcialmente ordenado $E$. Se existir um máximo para $A$ então esse elemento é único.
+\end{prop} 
+\begin{dem}
+    Sejam $\leq$ uma relação de ordem sobre $A$, e $M_1$ e $M_1$ dois máximos de $A$. Temos $M_1, M_2 \in A$, e também $M_1 \leq M_2$  e $M_2 \leq M_1$. Como uma relação de ordem é antissimétrica, na \Cref{agb-def-relOrd}, concluí-se que $M_1 = M_2$.
+\end{dem}
+
 \section{Operações}
 
-Nesta seção apresentaremos algumas definições que tem como fundamento o conceito de operação. Intuitivamente o conceito de operação é pegar algum elemento qualquer e fazer alguma coisa sobre ele. Poderíamos citar a operação de negação da lógica, ou a operação de troca de sinal para um número inteiro. Nesses dois casos trata-se de uma operação que utiliza um elemento para chegar em outro elemento (como resultado, resposta).
+Nesta seção apresentaremos algumas definições que tem como objetivo fundamentar o conceito de operação. Intuitivamente o conceito de operação é pegar algum elemento qualquer e fazer alguma coisa sobre ele. Poderíamos citar a operação de negação da lógica, ou a operação de troca de sinal para um número inteiro. Nesses dois casos trata-se de uma operação que utiliza um elemento para chegar em outro elemento (como resultado, resposta).
 
-Nós focaremos nas operações que utilizam dois elementos como entradas, na verdade a nossa definição vai considerar uma operação como sendo exatamente duas entradas, e como será uma função, o resultado será fixo, exato e único. Isso será explicado na \cref{agb-obs-operacao}.
+Nós focaremos nas operações binárias, isto é, que utilizam dois elementos como entradas. Na verdade a nossa definição vai considerar uma operação como sendo exatamente duas entradas, e como será uma função, o resultado será fixo, exato e único. Isso será explicado na \Cref{agb-obs-operacao}.
 
 \begin{defi}\label{agb-def-operacao}
-    Seja $A$ um conjunto arbitrário. Uma operação $*$ sobre $A$ é uma função que a cada $a,b \in A$ associa um elemento $a * b \in A$, ou seja, associa a cada 2 elementos em $A$ a sua imagem $a * b$ que também é um elemento de $A$.
+    Seja $A$ um conjunto arbitrário. Uma operação $*$ sobre $A$ é uma função que a cada $a,b \in A$ associa um único elemento $a * b \in A$, ou seja, associa a cada dois elementos em $A$ a sua imagem $a * b$, que também é um elemento de $A$. \todo{citar ferreira p8, o proprio hygino algebra moderna define operacao como funcao}
 \end{defi}
 
 \begin{obs}\label{agb-obs-operacao}
-    Anteriormente falamos em fixo, exato e único. Com fixo queremos dizer que se $a*b = c$, o elemento $c$ será também fixo se $a$ e $b$ também forem fixos. O elemento $c$ é também único, pois a operação é uma função, e com exato queremos dizer que ele existe, é fixo e é único. 
+    Anteriormente falamos em fixo, exato e único. Com fixo queremos dizer que se $a*b = c$, o elemento $c$ será fixo se $a$ e $b$ também forem fixos. O elemento $c$ é também único, pois a operação é uma função, e com exato queremos dizer que ele existe, é fixo e é único. 
 \end{obs}
 
-Por essa definição, a adição em \N, \Z, \Q e \R são operações, sobre cada um desses conjuntos, cada um com sua adição. Por outro lado, a subtração em \N não é uma operação em \N pois $1-2 \not \in \N$. Também a divisão não é uma operação em \N e em \Z, pelo mesmo motivo.
+Pela \Cref{agb-def-operacao}, a adição em $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$ e $\mathbb{R}$ são operações, sobre cada um desses conjuntos, cada um com sua adição. Por outro lado, a subtração em $\mathbb{N}$ não é uma operação em $\mathbb{N}$ pois $1-2 \not \in \mathbb{N}$. Também a divisão não é uma operação em $\mathbb{N}$ e em $\mathbb{Z}$, pelo mesmo motivo.
 
 \begin{defi}
-    Seja $A$ um conjunto e seja $*$ uma operação em $A$. Se existir um $\mathfrak{e} \in A$ tal que para qualquer $a \in A$ valer $\mathfrak{e} * a = a$ dizemos que $\mathfrak{e}$ é elemento neutro à esquerda.
+    Seja $A$ um conjunto e seja $*$ uma operação em $A$. Se existir um $\mathfrak{e} \in A$ tal que para qualquer $a \in A$ valer $\mathfrak{e} * a = a$ dizemos que $\mathfrak{e}$ é elemento neutro à esquerda da operação $*$. \todo{virgulas}
 \end{defi}
-Por analogia definimos neutro à direita.
+Por analogia definimos neutro à direita da operação $*$ como $\mathfrak{e'} \in A$ tal que $a * \mathfrak{e'} = a$ para qualquer $a$ em A.
 
 \begin{defi}\label{agb-def-propriedades}
     Seja $A$ um conjunto, e seja $*$ uma operação sobre $A$. Dizemos que a operação $*$ tem a propriedade:
     \begin{itemize}
         \item associativa, quando para quaisquer $a,b,c \in A$ é válido que $ a * ( b * c ) = ( a * b ) * c$.
         \item comutativa, quando para quaisquer $a,b \in A$ é válido que $a * b = b * a$.
-        \item do elemento neutro, quando existe $\mathfrak{e} \in A$, onde $\mathfrak{e}$ é neutro à esquerda e à direita.
-        \item do elemento simétrico, quando para qualquer $a \in A$ existe algum $d \in A$, onde é válido que $a * d = d * a$ é o elemento neutro de $*$.
+        \item de existência do elemento neutro, quando existe $\mathfrak{e} \in A$, onde $\mathfrak{e}$ é neutro à esquerda e à direita.
+        \item de existência do elemento simétrico, quando para qualquer $a \in A$ existe algum $d \in A$, em que é válido que $a * d = d * a = \mathfrak{e}$, onde $\mathfrak{e}$ é o elemento neutro de $*$.
         \item do fechamento, quando para quaisquer $a, b \in A$ ocorre que $a * b \in A$.   
     \end{itemize}
 \end{defi}
-Tradicionalmente o neutro da soma é denotado por $0$ e o neutro do produto é denotado por $1$ (nós faremos da mesma maneira). Além disso, denotaremos o neutro de uma operação $*$ por $\mathfrak{e}$.
+Tradicionalmente o neutro da soma é denotado por $0$ e o neutro do produto é denotado por $1$ (nós faremos da mesma maneira). Além disso, denotaremos o neutro de uma operação $*$ por $\mathfrak{e}$, onde o contexto deixará claro que estaremos nos referindo ao neutro por apenas um lado, caso ainda não esteja provado que se trata de um neutro de ambos os lados. Quando omitido o lado, considera-se que é neutro de ambos os lados.
 
 A propriedade do fechamento na verdade é imediata da definição de operação, colocamos para realçar o fato de que a operação tem imagem em $A$ e não qualquer elemento que não esteja em $A$.
 
 Poderemos omitir os parênteses numa operação associativa, uma vez que poderemos realizar as operações em qualquer ordem.
 
-A \cref{agb-def-propriedades} é uma definição inicial, colocando a quantidade mínima de elementos da operação, mas por exemplo, a "comutatividade entre três elementos" pode ser feita assim: $a * b * c = a * (b*c) = a*(c*b) = (c*b)*a = (b*c)*a = b*(c*a) = b*(a*c) =b*(c*a) =(c*a)*b = c * a * b$. A associatividade pode ser feita de maneira análoga.
+A \Cref{agb-def-propriedades} é uma definição inicial, colocando a quantidade mínima de elementos para indicar a propriedade da operação, mas por exemplo, a "comutatividade entre três elementos"\ pode ser feita assim: 
+%\[ a * b * c = a * (b*c) = a*(c*b) = (c*b)*a = (b*c)*a = b*(c*a) = b*(a*c) =b*(c*a) =(c*a)*b = c * a * b. \] \\ 
+\begin{center}
+    $a * b * c = a * (b*c) = a*(c*b) = (c*b)*a = (b*c)*a =$ \\
+     $b*(c*a) = b*(a*c) = b*(c*a) =(c*a)*b = c * a * b.$
+\end{center}
+
+
+% \begin{align*}
+%     a * b * c &= a * (b*c) \\ 
+%     &= a*(c*b) \\
+%     &= (c*b)*a \\
+%     &= (b*c)*a \\
+%     &= b*(c*a) \\ 
+%     &= b*(a*c) \\ 
+%     &= b*(c*a) \\
+%     &= (c*a)*b \\
+%     &= c * a * b.  
+% \end{align*} 
+A associatividade pode ser feita de maneira análoga.
 
 \begin{teo}\label{agb-neutro-unico}
     Seja $A$ um conjunto e $*$ uma operação em $A$. Se existir elemento neutro para $*$, então ele é único.
 \end{teo}
 \begin{dem}
-    Sejam $\mathfrak{e_1}$ e $\mathfrak{e_2}$ dois elementos neutros para $*$. Temos que $\mathfrak{e_1} = \mathfrak{e_1}* \mathfrak{e_2} = \mathfrak{e_2}$, portanto $\mathfrak{e_1} = \mathfrak{e_2}$. A primeira igualdade é porque $\mathfrak{e_2}$ é neutro à direita, a segunda igualdade é porque $\mathfrak{e_1}$ é neutro à esquerda.
+    Sejam $\mathfrak{e_1}$ e $\mathfrak{e_2}$ dois elementos neutros para $*$. Temos que ${\mathfrak{e_1} = \mathfrak{e_1} * \mathfrak{e_2} = \mathfrak{e_2}}$, portanto ${\mathfrak{e_1} = \mathfrak{e_2}}$. A primeira igualdade é porque $\mathfrak{e_2}$ é neutro à direita, a segunda igualdade é porque $\mathfrak{e_1}$ é neutro à esquerda.
 \end{dem}
+
 Em particular deve ser observada a comutatividade do elemento neutro com qualquer elemento, para uma dada operação.
 
 \begin{teo}\label{agb-teo-simetricoUnico}
-    Seja $A$ um conjunto e $*$ uma operação em $A$. Se $*$ é associativa e tem a propriedade do elemento simétrico, então o simétrico de cada elemento é único.
+    Sejam $A$ um conjunto e $*$ uma operação em $A$. Se $*$ é associativa e tem a propriedade da existência do elemento simétrico, então o simétrico de cada elemento é único.
 \end{teo}
 \begin{dem}
-    Seja $a \in A$, e seja $b, c$ dois elementos simétricos de $a$, assim temos que $b*a = \mathfrak{e} = a*c$. 
-    Temos $b = b * \mathfrak{e} = b * (a * c) = (b * a) * c = ( a * b ) * c = \mathfrak{e} * c = c$.
+    Seja $a \in A$, e sejam $b, c$ dois elementos simétricos de $a$, assim temos que $b*a = \mathfrak{e} = a*c$. 
+    Com isso, $b = b * \mathfrak{e} = b * (a * c) = (b * a) * c = ( a * b ) * c = \mathfrak{e} * c = c$.
 \end{dem}
 
 \begin{prop}\label{agb-prop-simetricoSimetrico}
     Seja $A$ um conjunto e $*$ uma operação sobre $A$ que seja associativa e admita simétrico. Seja $a$ um elemento de $A$. O simétrico do simétrico de $a$ é o próprio $a$. 
 \end{prop}
 \begin{dem}
-    Seja $a \in A$, seja $a'$ o simétrico de $a$ e seja $a''$ o simétrico de $a'$. Assim temos que $a * a' = \mathfrak{e}$, além disso $a' * a'' = \mathfrak{e}$.
-    Temos que $a = a * \mathfrak{e} = a * (a' * a'') = (a * a') * a'' = \mathfrak{e} * a'' = a''$.
+    Seja $a \in A$. Considere $a'$ o simétrico de $a$ e $a''$ o simétrico de $a'$. Assim temos que $a * a' = \mathfrak{e}$, além disso $a' * a'' = \mathfrak{e}$.
+    Temos que 
+    \[ a = a * \mathfrak{e} = a * (a' * a'') = (a * a') * a'' = \mathfrak{e} * a'' = a''. \]
 \end{dem}
 \begin{defi}
-    Seja $A$ um conjunto, seja $*$ uma operação em $A$ e sejam $b,c$ elementos de $A$. Dizemos que um elemento $a \in A$ cumpre a lei do cancelamento à esquerda se vale que $a*b=a*c \implies b=c$.
+    Sejam $A$ um conjunto, $*$ uma operação em $A$ e $b,c$ elementos de $A$. Dizemos que um elemento $a \in A$ cumpre a lei do cancelamento à esquerda se vale que \[ a*b=a*c \implies b=c. \]
 \end{defi}
     Analogamente define-se que um elemento cumpre a lei do cancelamento à direita. E caso o elemento cumpra ambos os tipos de cancelamento à direita e à esquerda para uma mesma operação, dizemos apenas que ele cumpre a lei do cancelamento para aquela operação.
 \begin{prop}\label{agb-prop-leiCancelamento}
     Seja $A$ um conjunto e $*$ uma operação em $A$. Se $*$ for associativa e adimitir simétrico, então vale a lei do cancelamento para a operação $*$.
 \end{prop}
 \begin{dem}
-    Sejam $a,b,c,a'$ elementos de $A$, e seja $a'$ simétrico de $a$ para a operação $*$. Temos que $a*b = a*c \implies a' * (a * b) = a' *(a*c) = (a' * a ) b = (a'*a)*c \implies \mathfrak{e} * b = \mathfrak{e} * c \implies b = c$. Assim, $a$ é cancelável à esquerda, analogamente prova-se que é cancelável à direita.
+    Sejam $a,b,c,a'$ elementos de $A$, e seja $a'$ simétrico de $a$ para a operação $*$. Temos que 
+    \[a*b = a*c \implies a' * (a * b) = a' *(a*c) = (a' * a ) b = (a'*a)*c \implies \mathfrak{e} * b = \mathfrak{e} * c \implies b = c. \] 
+    Assim, $a$ é cancelável à esquerda, analogamente prova-se que é cancelável à direita.
 \end{dem}
 
-Até agora a operação utilizamos uma única operação $*$ com o intuito de generalizar resultados que são válidas tanto para as adições quanto para as multiplicações que trabalharemos. Mas agora passaremos a distinguir duas operações que chamaremos de soma e multiplicação. 
+Até agora a operação utilizamos uma única operação $*$ com o intuito de generalizar resultados que são válidas tanto para as adições quanto para as multiplicações que trabalharemos. Mas agora passaremos a distinguir duas operações que chamaremos de soma e multiplicação, denotadas respectivamente por $+$ e $\cdot$.
 
 Deixemos claro que o nome de soma e de multiplicação não agregam em nada como serão definidas essas operações, isso falando de uma maneira genérica. É claro que as somas e produtos que trabalharemos serão os usuais (vistos apenas de uma maneira mais formal).
 
-{\textoIncluido
 \begin{obs}
-    Na \cref{agb-prop-leiCancelamento} quando estamos nos referindo a lei do cancelamento para uma soma, não há excessões, todas as soma (neste trabalho) tem a propriedade da lei do cancelamento válidas para qualquer elemento de $A$. Por outro lado, quando a operação é um produto, diremos que esse produto tem a propriedade da lei do cancelamento quando todo elemento diferente do neutro da soma é cancelável no produto.
+    Na \Cref{agb-prop-leiCancelamento} quando estamos nos referindo a lei do cancelamento para uma soma, não há excessões, todas as soma (neste trabalho) tem a propriedade da lei do cancelamento válidas para qualquer elemento de $A$. Por outro lado, quando a operação é um produto, diremos que esse produto tem a propriedade da lei do cancelamento quando todo elemento diferente do neutro da soma é cancelável no produto.
 \end{obs}
-}
 
 \begin{defi}
-    Sejam $A$ um conjunto e sejam $+$ e $\cdot$ operações sobre $A$. Dizemos que a multiplicação é distributiva em relação a soma quando para quaisquer $a, b, c \in A$ é válido que $a \cdot (b + c) = a \cdot b + a\cdot c$.
+    Sejam $A$ um conjunto e sejam $+$ e $\cdot$ operações sobre $A$. Dizemos que a multiplicação é distributiva em relação a soma quando para quaisquer $a, b, c \in A$ é válido que \[ a \cdot (b + c) = a \cdot b + a\cdot c. \]
 \end{defi}
 Às vezes omitiremos o símbolo da multiplicação (também chamado de produto) por simplicidade.
 \begin{defi}
-    Uma relação de ordem parcial $\leq$ diz-se \emph{Compatível com a adição}, quando para quaisquer $a,b,c \in A$, 
-    valer \\ $a \leq b \implies a + c \leq b + c$.
+    Uma relação de ordem parcial $\leq$ é dita \emph{compatível com a adição}, quando para quaisquer $a,b,c \in A$, 
+    valer \[ a \leq b \implies a + c \leq b + c. \]
 \end{defi}
 
-\begin{defi}\label{agb-defPositivo}
-    Dizemos que um número \footnote{Para nós, números são elementos de \N, \Z, \Q ou \R, exceto se explicitamente mencionados de outra maneira.} $a$ é positivo quando ocorre ao menos uma situação dos itens abaixo:
+\begin{defi}\label{agb-def-numPositivo}
+    Dizemos que um número \footnote{Para nós, números são elementos de $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$ ou $\mathbb{R}$, exceto se explicitamente mencionados de outra maneira.} $a$ é positivo quando ocorre ao menos uma situação dos itens abaixo:
     \begin{itemize}
-        \item $a \in \N$;
-        \item $a$ é um elemento de algum conjunto de \Z, \Q, \R e é maior que o elemento neutro desse conjunto.
+        \item $a \in \mathbb{N}$;
+        \item $a$ é um elemento de algum conjunto de $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$ e é maior que o elemento neutro aditivo desse conjunto.
     \end{itemize}
 \end{defi}
 
 A definição acima nos permite a definição a seguir.
 \begin{defi}
-    Seja $A$ um conjunto parcialmente ordenado pela relação $\leq$. Seja $\leq$ uma relação sobre $A$, e sejam $a,b,c \in A$, sendo $c$ um número positivo. Seja também $\cdot$ uma multiplicação sobre $A$.
-    Dizemos que $\leq$ é \emph{compatível com a multiplicação} quando ocorre $a \leq b \implies ac \leq bc$.
+    Seja $A$ um conjunto parcialmente ordenado pela relação $\leq$. Sejam $a,b,c \in A$, em que $c$ é um número positivo. Seja também $\cdot$ uma multiplicação sobre $A$.
+    Dizemos que $\leq$ é \emph{compatível com a multiplicação} quando 
+    \[ a \leq b \implies ac \leq bc. \]
 \end{defi}
 
-\todo{Removido, incluído substituto abaixo do anel}
-{\textoRemovido
-\begin{prop}
-    Seja $A$ um conjunto e sejam $+$ e $\cdot$ uma soma e um produto, duas operações em $A$. Se adição admite elemento neutro e também a lei do cancelamento para todo elemento de $A$, e se o produto é distributivo em relação à soma, então para qualquer $a \in A$ vale que $a \cdot 0 = 0$.
-\end{prop}
-\begin{dem}
- Temos que as seguintes igualdades são válidas: $a0+0 = a0 = a(0+0) = a0+a0$. Assim $a0+0 = a0+a0$ e pela lei do cancelamento, $0=a0$.
-\end{dem}
-
-}
-
-
 \begin{defi}\label{agb-def-anel}
-    Seja $A$ um conjunto, e sejam $+, \cdot$ duas operações sobre $A$, chamadas de adição e multiplicação. Se são válidas as propriedades:
+    Seja $A$ um conjunto, e sejam $+, \cdot$ duas operações sobre $A$, chamadas de adição e multiplicação. Dizemos que $(A, +, \cdot)$ é um anel se são válidas as propriedades:
     \begin{enumerate}[label=(\roman*)]
         \item associativa da adição
         \item comutativa da adição;
-        \item do elemento neutro para adição;
-        \item do elemento simétrico para a adição;
+        \item de existência do elemento neutro para adição;
+        \item de existência do elemento simétrico para a adição;
         \item associativa da multiplicação;
         \item comutativa da multiplicação;
-        \item do elemento neutro da multiplicação;
+        \item de existência do elemento neutro da multiplicação;
         \item da distributiva da multiplicação em relação à adição;
     \end{enumerate}
-    dizemos que $(A, +, \cdot)$ é um anel. Quando não houver ambiguidade chama-se apenas de anel $A$.
+    Quando não houver ambiguidade chama-se apenas de anel $A$.
 \end{defi}
 \begin{obs}
 	Com o intuito de omitir parênteses, estebeleceremos a seguinte convenção: 
@@ -268,12 +323,12 @@ A definição acima nos permite a definição a seguir.
 	\end{center}
 \end{obs}
 
-{ \textoIncluido
+
 \begin{prop}
-    Seja $A$ um anel. Então para qualquer $a \in A$ vale que $a0 = 0 = 0a$.
+    Seja $A$ um anel. Então para qualquer $a \in A$ vale que $a \cdot 0 = 0 = 0 \cdot a$.
 \end{prop}
 \begin{dem}
- Temos que as seguintes igualdades são válidas: $a0+0 = a0 = a(0+0) = a0+a0$. Assim $a0+0 = a0+a0$ e pela lei do cancelamento, $0=a0$. Ainda, como o produto é comutativo, vale $a0=0a$.
+ Temos que as seguintes igualdades são válidas: $a \cdot 0+0 = a \cdot 0 = a \cdot (0+0) = a \cdot 0+a \cdot 0$. Assim $a \cdot 0+0 = a \cdot 0+a \cdot 0$ e pela lei do cancelamento, $0=a \cdot 0$. Ainda, como o produto é comutativo, vale $a \cdot 0=0 \cdot a$.
 \end{dem}
 
 \begin{prop}
@@ -283,11 +338,13 @@ A definição acima nos permite a definição a seguir.
     Se $a = 0$ ou se $b=0$ então $ab = 0$ pela proposição anterior.
     Agora, se $ab=0$, e suponhamos $b \neq 0$, então temos $ab = 0 = 0b$, como $b \neq 0$ podemos cancelar, ficamos com $a=0$. Analogamente caso $a \neq 0$.
 \end{dem}
-}
+
 
 
 \begin{defi}
     Um corpo é um anel $A$ em que cada elemento diferente do zero aditivo tem um simétrico multiplicativo.
 \end{defi}
-As manipulações numéricas que fazemos no ensino básico não levam em conta o fato de \Q ser diferente de \R. Essa semelhança vem do fato de que ambos \Q e \R são corpos ordenados, como mostraremos no \cref{cap-reais}, dos números reais. 
+
+% As manipulações numéricas que fazemos no ensino básico não levam em conta o fato de $\mathbb{Q}$ ser diferente de $\mathbb{R}$. Essa semelhança vem do fato de que ambos $\mathbb{Q}$ e $\mathbb{R}$ são corpos ordenados, como mostraremos no \Cref{cap-reais}, dos números reais. 
+
 \end{document}

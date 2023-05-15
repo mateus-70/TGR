@@ -2,42 +2,657 @@
 \begin{document}
 \chapter{O CONJUNTO DOS NÚMEROS REAIS}\label{cap-reais}
 
-Neste capítulo vamos fazer a construção do conjunto dos números reais. Vamos construir através de cortes de Dedekind, e como nos capítulos anteriores, mostrar a cópia algébrica de \Q em \R. A propriedade que \R tem que o diferencia de \Q será o fato de ser completo, pois \Q não é completo.
+Neste capítulo vamos fazer a construção do conjunto dos números reais. Vamos construir através de cortes de Dedekind, e como nos capítulos anteriores, mostrar a cópia algébrica de $\mathbb{Q}$ em $\mathbb{R}$. A propriedade que $\mathbb{R}$ tem que o diferencia de $\mathbb{Q}$ será o fato de ser completo, pois $\mathbb{Q}$ não é completo.
 
-A ideia de completeza é que cada subconjunto de um dado conjunto tem um máximo. Podemos, a título de observação, ver que o conjunto 
-$A = \{ x \in \Q : x^2 < 2\}$ não tem um máximo em $Q$. Vamos provar isso.
+A ideia de completeza é que cada subconjunto de um dado conjunto limitado tem um máximo. Podemos, a título de observação, ver que o conjunto 
+$A = \{ x \in \mathbb{Q} : x^2 < 2\}$ não tem um máximo em $Q$. Vamos provar isso.
 \begin{prop}
-    O conjunto $A = \{ x \in \Q : x^2 < 2\}$ não tem um máximo em $Q$.
+    O conjunto $A = \{ x \in \mathbb{Q} : x^2 < 2\}$ não tem um máximo em $Q$.
 \end{prop}
 \begin{dem}
     \todo{demonstrar}
 \end{dem}
 
-
-\begin{defi}
-    A regra de sinais para o produto é como a seguir:
+\begin{defi}\label{reais-def-corte}
+    Um conjunto $\alpha$ de números racionais será chamado de corte caso ele atenda as condições a seguir:
     \begin{enumerate}[label=(\roman*)]
-        \item $-\left(\abs{\alpha}\abs{\beta}\right)$, se $\alpha < 0^*, \beta \geq 0^*$
-        \item $-\left(\abs{\alpha}\abs{\beta}\right)$, se $\alpha \geq 0^*, \beta < 0^*$
-        \item $\left(\abs{\alpha}\abs{\beta}\right)$, se $\alpha < 0^*, \beta < 0^*$
+        \item\label{reais-corte-subconjProprio} $\emptyset \neq \alpha \neq \mathbb{Q}$;
+        \item\label{reais-corte-precede} se $r \in \alpha$ e $s < r$, sendo $s$ um racional qualquer, então $s \in \alpha$;
+        \item\label{reais-corte-semMaximo} o conjunto $\alpha$ não tem máximo.
     \end{enumerate}
 \end{defi}
+
+A ideia por trás da definição de corte é que o corte é um subconjunto próprio do conjunto dos números racionais, e que para qualquer elemento do corte, todos os elementos que o precedem pela relação de ordem nos racionais, também está no corte.
+
+\begin{defi}
+    O conjunto dos números reais, denotado por $\mathbb{R}$ é o conjunto de todos os cortes dado na \Cref{reais-def-corte}.
+\end{defi}
+
+\begin{obs}
+    Algo muito importante que devemos ter em mente na definição de corte é o fato do corte ser subconjunto de $\mathbb{Q}$ e além disso, de que o conjunto $\mathbb{Q}$ é o conjunto universo aqui considerado.
+\end{obs}
+
+Alguns exemplos de corte são:
+
+\begin{ex}
+    O conjunto $\alpha = \{ x \in \mathbb{Q} : x < 5 \}$ é um corte.
+\end{ex}
+\begin{ex}
+    O conjunto $\alpha = \{ x \in \mathbb{Q} : x < 5/2 \}$ é um corte.
+\end{ex}
+\begin{ex}
+    O conjunto $\alpha =  \mathbb{Q}_{-}^* \cup \{ x \in \mathbb{Q_{+}} : x \cdot x < 2 \} $ é um corte.
+\end{ex}
+
+Alguns exemplos de conjuntos que não são cortes são:
+\begin{ex}
+    O conjunto $A = \{ x \in \mathbb{Q} : x > 5 \}$ não é um corte, pois $4 < 5$ mas $4 \not\in A$.
+\end{ex}
+\begin{ex}
+    O conjunto $A = \{ x \in \mathbb{Q} : x \leq 5 \}$ não é um corte, pois $5$ é máximo de $A$.
+\end{ex}
+\begin{ex}
+    O conjunto $A = \{ x \in \mathbb{Q} : 1 < x < 5 \}$ não é um corte, pois $2 \in A$, mas $0 < 2$ e $0$ não está em $A$.
+\end{ex}
+
+\begin{teo}
+    Todo corte tem uma cota superior.
+\end{teo}
+\begin{dem}
+    Vamos mostrar por contradição, supondo que $\alpha$ seja um corte sem cota superior.
+    Como $\alpha$ é um subconjunto próprio de $\mathbb{Q}$, existe $q \in \mathbb{Q} \setminus \alpha$. Como $q$ não é cota superior de $\alpha$, deve existir um $r > q$, onde $r \in \alpha$, mas como $\alpha$ é um corte, pelo \Cref{reais-corte-precede}, $q \in \alpha$, o que é uma contradição.
+\end{dem}
+
 \begin{prop}
-    Sejam $\alpha$ e $\beta$ cortes. Vale que $\left( - \alpha \right) \beta = \alpha \left( -\beta \right) = -\left(\alpha \beta \right) $ e também que $\left( -\alpha \right) \left( -\beta \right) = \alpha \beta$.
+    Sejam $\alpha$ um corte e $r \in \mathbb{Q}$. O número $r$ é cota superior de $\alpha$ se, e somente se $r \in \mathbb{Q} \setminus \alpha$. 
 \end{prop}
 \begin{dem}
-Consideremos quatro casos distintos, de combinações de $\alpha, \beta$ sendo maior ou menor do que $0^*$.
-\begin{enumerate}
-    \item $\alpha \geq 0^*$ e $\beta \geq 0^*$ \\
-        $(-\alpha)\beta = -(\abs{-\alpha}\abs{\beta}) = -(\abs{\alpha}\abs{\beta})$ \\
-        $\alpha(-\beta) = -(\abs{\alpha}\abs{-\beta}) = -(\abs{\alpha}\abs{\beta})$ \\
-        Mas $-(\abs{\alpha}\abs{\beta}) = -(\alpha\beta)$.
-        
-    \item $\alpha < 0^*$ e $\beta \geq 0^*$
-    
-    \item $\alpha \geq 0^*$ e $\beta < 0^*$
-    
-    \item $\alpha < 0^*$ e $\beta < 0^*$
-\end{enumerate}
+    Primeiro provemos a ida. Por hipótese $r$ é cota superior de $\alpha$, desse modo $r$ não pode estar em $\alpha$ pois se estivesse seria máximo de $\alpha$, o que contradiz o \Cref{reais-corte-semMaximo}.
+    Agora vamos provar a volta. Por hipótese $r \not\in \alpha$. Argumentando por contradição, se $r$ não fosse cota superior de $\alpha$ existiria um $s > r$ com $s \in \alpha$, e pelo \Cref{reais-corte-precede} teríamos que $r \in \alpha$, o que é uma contradição.
 \end{dem}
+\begin{teo}\label{reais-teo-corteRacional}
+    Seja $r$ um racional e $\alpha = \{ x \in \mathbb{Q} : x < r \}$, então $\alpha$ é um corte é $r$ é a menor cota superior de $\alpha$.
+\end{teo}
+\begin{dem}
+    
+    Primeiro vamos provar que $\alpha$ é de fato um corte. Observando que o número $r - 1 \in \alpha$, sabemos que $\alpha$ não é vazio, e como $r \not< r$, $r \not\in \alpha$, logo $\alpha$ é um subconjunto próprio de $\mathbb{Q}$, assim provamos \Cref{reais-corte-subconjProprio}.
+    Para o \Cref{reais-corte-precede}, se $s \in \alpha$, então $s < r$, e para qualquer $q < s$, com $q$ racional, vale que $q < s < r$, logo $q \in \alpha$.
+    Agora mostremos que $\alpha$ não tem máximo. Consideremos um número $s \in \alpha$, assim vale que $s < \frac{s+r}{2}$ conforme \Cref{rac-corol-terceiroEntreDois}, e analogamente $\frac{s+r}{2} < r$, assim $s$ não é máximo de $\alpha$, como $s$ é arbitrário, $\alpha$ não tem máximo.
+
+    Com isso provamos que $\alpha$ é um corte. Provemos agora que $r$ é a menor cota superior de $\alpha$. Seja $t < r$, com $t$ racional. Pela definição de $\alpha$ sabemos que $t \in \alpha$, assim $t$ não pode ser máximo\todo{fazer definicao de maximo e cotas em AGB} de $\alpha$, logo qualquer $t < r$ não é cota superior de $\alpha$.
+\end{dem}
+
+\begin{defi}
+    Seja $\alpha = \{ x \in \mathbb{Q} : x < r \text{(com $r$ racional)} \}$. O conjunto $\alpha$ é chamado de corte racional e é representado por $r^*$. Que o conjunto $\alpha$ definido assim é corte, provamos na demonstração do \Cref{reais-teo-corteRacional}.
+\end{defi}
+
+\begin{teo}
+    Todo corte com cota superior mínima é racional.
+\end{teo}
+\begin{dem}
+    Sejam $\alpha$ um corte e $q$ a menor cota superior de $\alpha$. Vamos mostrar que $\alpha = \{ x \in \mathbb{Q} : x < q \}$.
+    Consideremos um número racional $r$, com $r < q$. Devemos ter que $r \in \alpha$, pois se não estivésse, $q$ não seria a menor cota superior de $\alpha$.
+\end{dem}
+
+
+
+\section{Relação de ordem e operações}
+
+\begin{defi}
+    Sejam $\alpha$ e $\beta$ cortes. Diremos que $\alpha$ é menor do que $\beta$ e denotaremos $\alpha < \beta$ quando $\beta \setminus \alpha \neq \emptyset$.
+\end{defi}
+\begin{obs}
+    Como entendemos nos outros conjuntos de maneira análoga, aqui $\alpha \leq \beta$ quando $\alpha < \beta$ ou $\alpha = \beta$.
+\end{obs}
+\begin{defi}
+    Um corte $\alpha$ será chamado de:
+    \begin{enumerate}
+        \item corte positivo, quando $0^* < \alpha$;
+        \item corte negativo, quando $0^* > \alpha$;
+        \item corte não negativo, quando $0^* \leq \alpha$;
+        \item corte não positivo, quando $0^* \geq \alpha$.
+    \end{enumerate}
+\end{defi}
+
+\begin{teo}\label{reais-teo-subset}
+    Sejam $\alpha$ e $\beta$ números reais. Valem:
+    \begin{enumerate}[label=(\roman*)]
+        \item $\alpha < \beta \iff \alpha \subset \beta$ e $\alpha \neq \beta$;
+        \item $\alpha \leq \beta \iff \alpha \subset \beta$.
+    \end{enumerate}
+\end{teo}
+
+\begin{dem}
+    \begin{enumerate}[label=(\roman*)]
+        \item\label{reais-dummy-subset} $\alpha < \beta \iff \alpha \subset \beta$ e $\alpha \neq \beta$; \\
+        De $\alpha < \beta$ temos que existe $x \in \beta \setminus \alpha$, logo $x$ é cota superior de $\alpha$. Sendo assim $x > y$ para qualquer $y \in \alpha$, e ainda, como $\alpha \subset \mathbb{Q}$, temos que $y \in \beta$ para qualquer $y \in \alpha$ (devido à \Cref{reais-corte-precede}), assim $\alpha \subset \beta$. Obviamente $\alpha \neq \beta$ pois $K \setminus K  = \emptyset$, qualquer que seja o conjunto arbitrário $K$.
+        
+        \item $\alpha \leq \beta \iff \alpha \subset \beta$ \\
+        Se $\alpha \leq \beta$ pode ocorrer uma de duas situações: $\alpha < \beta$, o que nos leva ao \Cref{reais-dummy-subset}. Se por outro lado, $\alpha = \beta$, pela dupla inclusão de conjuntos, $\alpha \subset \beta$. 
+    \end{enumerate}
+\end{dem}
+
+\begin{teo}
+    A relação $\leq$ é tricotômica.
+\end{teo}
+\begin{dem}
+    Sejam $\alpha$ e $\beta$ números reais.
+    Primeiro vamos mostrar que no máximo uma relação entre $=, <$ e $>$ pode ocorrer.
+    Comecemos analizando a igualdade. Se $\alpha = \beta$ então $\alpha \setminus \beta = \beta \setminus \alpha = \emptyset$, logo $\alpha \not< \beta$ e $\beta \not< \alpha$.
+    Agora analisemos as desigualdades $<, >$ e constatemos que elas não podem ocorrer simultaneamente. Se $\alpha < \beta$ existe $x \in \beta \setminus \alpha$. Por contradição admitamos que possa ocorrer $\beta < \alpha$, desse modo existe $y \in \alpha \setminus \beta$, mas tal $y$ não pode existir pois conforme o \Cref{reais-teo-subset} temos $\alpha \subset \beta$. \\
+
+    Agora vamos mostrar que ao menos uma delas ocorre. Se $\alpha = \beta$ nada há para provar. Se $\alpha \neq \beta$ então ocorre $\alpha \setminus \beta \neq \emptyset$ ou $\beta \setminus \alpha \neq \emptyset$, assim $\alpha \leq \beta$ ou $\beta \leq \alpha$, o que garante que ao menos uma das três relações ocorre.
+\end{dem}
+
+\begin{teo}
+    A relação de $\leq$ é uma relação de ordem total sobre $\mathbb{R}$.
+\end{teo}
+\begin{dem}
+    Sejam $\alpha, \beta$ e $\gamma$ números reais, a relação $\leq$
+    \begin{enumerate}[label=(\roman*)]
+        \item É reflexiva pois tem-se $\alpha \subset \alpha$, assim $\alpha \leq \alpha$ ;
+        \item É antissimétrica pois de $\alpha \leq \beta$ e $\beta \leq \alpha$ temos $\alpha \subset \beta$ e $\beta \subset \alpha$, o que pela antissimetria da inclusão de conjuntos $\alpha = \beta$;
+        \item É transitiva pois se $\alpha \leq \beta$ e $\beta \leq \gamma$ temos $\alpha \subset \beta$ e $\beta \subset \gamma$, e da transitividade da inclusão de conjuntos $\alpha \subset \gamma$, assim $\alpha \leq \gamma$;
+        \item É total, pois é tricotômica.
+    \end{enumerate}
+\end{dem}
+
+
+\section{Adição}
+\begin{defi}
+    Sejam $\alpha$ e $\beta$ números reais. A adição de $\alpha$ e $\beta$, denotada por $\alpha + \beta$ é definida por $\gamma = \{ x + y : x \in \alpha \land y \in \beta \}$.
+\end{defi}
+\begin{prop}\label{reais-prop-prop}{Sejam $\alpha, \beta$ números reais quaisquer, para a adição valem as seguintes propriedades:}
+    \begin{enumerate}[label=(\roman*)]
+        \item fechamento;
+        \item associativa;
+        \item comutativa;
+        \item do elemento neutro; 
+        \item do elemento simétrico;
+        \item lei do cancelamento.
+    \end{enumerate}
+\end{prop}
+\begin{dem}
+    Sejam $\alpha, \beta$ números reais quaisquer, e \[ \gamma = \alpha + \beta = \{ x + y : x \in \alpha \land y \in \beta \} \]
+    \begin{enumerate}[label=(\roman*)]
+        \item fechamento; \\
+            Devemos provar que $\gamma$ é um número real (ou seja, um corte). \\
+            
+            Como $\alpha, \beta$ são não vazios, $\gamma \neq \emptyset$. Para mostrar que $\gamma \neq \mathbb{Q}$ tomemos $a$ como cota superior de $\alpha$, e $b$ como cota superior de $\beta$. Como $a > x$ e $b > y$, para qualquer $a \in \alpha$ e $b \in \beta$, temos que $a + b > x + y$, logo $a+b \not\in \gamma$. 
+
+            
+            Se $a \in \gamma$ e $b < a$, com $b \in \mathbb{Q}$, mostremos que $b \in \gamma$. Como $a = x + y$, com $x \in \alpha$ e $y \in \beta$.
+            Como $b < a = x + y$ temos $b = x + y'$ para algum $y' < y$ logo $y' \in \beta$, logo $b = x + y'$ com $x \in \alpha$ e $y' \in \beta$ concluímos que $b \in \gamma$. \\
+
+            Para mostrar que em $\gamma$ não há máximo, suponhamos que $a = x + y$ seja máximo de $\gamma$. Como existe $x' \in \alpha$ com $x' > x$, temos $x + y < x' + y$, o que contradiz nossa suposição de que $a$ é máximo de $\gamma$.
+
+            Com isso provado, observando a \Cref{reais-def-corte}, concluímos que $\gamma$ é um corte, ou seja, um número real.
+        
+        \item associativa \footnote{Por ser útil ao leitor a apresentação das propriedades (como a comutatividade da conjunção) conforme \textcite[p. 147]{mortari}, onde posteriormente naquele trabalho é apresentado maneiras de provar essas propriedades.}: 
+
+            \begin{align*}
+                (\alpha+\beta)+\gamma &= \{ x+y: x \in \alpha \land y \in \beta \} + \gamma  \\
+                &= \{ (x+y)+z : (x \in \alpha \land y \in \beta) \land z \in \gamma \} \\
+                &= \{ x+(y+z) : x \in \alpha \land (y \in \beta \land z \in \gamma) \} \\
+                &= \alpha + (\beta + \gamma).
+            \end{align*}
+            
+        \item comutativa: \\
+            $\alpha + \beta = \{ x+y : x \in \alpha \land y \in \beta \} = \{ y+x: y \in \beta \land x \in \alpha \} = \beta + \alpha$.
+            
+        \item do elemento neutro; \\
+            Vamos mostrar que $0^*$ é o elementro neutro para a adição. Para isso mostraremos que dado $\alpha \in \mathbb{R}$, temos $\alpha + 0^* \subset \alpha$ e também que $\alpha \subset \alpha + 0^*$.
+
+            Seja $r \in \alpha + 0^*$. Temos que $r = x+y$ com $x \in \alpha$ e $y \in 0^*$. De $y \in 0^*$ sabemos que $y < 0 \in \mathbb{Q}$. Desse modo $r < x$ e portanto $r \in \alpha + 0^*$, logo $\alpha + 0^* \subset \alpha$.
+
+            Para mostrar que $\alpha \subset \alpha + 0^*$ tomemos $a, b \in \alpha$ tal que $a < b$. Consideremos a soma $b + (a - b) = a$, temos $b \in \alpha$ e $a-b \in 0^*$ pois $a-b < 0$, portanto $\alpha \subset \alpha + 0^*$.
+        \item do elemento simétrico;
+            Seja $\delta = \{ p \in \mathbb{Q} : -p \text{ é cota superior não mínima de } \alpha \}$. Denotaremos o conjunto das cotas superiores não mínimas de $\alpha$ por $\mathbb{S}_{\alpha}$.
+            Vamos mostrar que $\delta$ é um número real e que $\alpha + \delta = 0^*$.
+
+            Pelo \Cref{reais-corte-subconjProprio}, devemos mostrar que $\delta$ é um subconjunto próprio de $\mathbb{Q}$. Um corte sempre admite uma infinidade de cotas superiores, e alguma delas não será mínima, assim $\delta \neq \emptyset$. Para mostrar que $\delta \neq \mathbb{Q}$, pegue um número $-a \in \alpha$, logo $-a$ não é cota superior de $\alpha$ e assim $a \not\in \delta$.
+
+            Vejamos um exemplo, sejam $\alpha = 5^*$ e $\delta = \{ b \in  \mathbb{Q} : -b \in \mathbb{S}_{\alpha} \}$.
+            Sabemos que o $-(-7) = 7 \in \mathbb{S}_{\alpha}$. Daí vem que $-7 \in \delta$. Por outro lado o $-(-3) = 3 \not\in \mathbb{S}_{\alpha}$, daí $-3 \not\in \delta$.
+
+            Para \Cref{reais-corte-precede}, devemos mostrar que se $a < b \in \delta$ então $a \in \delta$. Basta observar que $a < b \iff -b < -a$, logo tanto $-b$ quanto $-a$ são cotas superiores de $\alpha$ e não são mínimas, pois $-b$ já não era mínima, assim $-a \in \mathbb{S}_{\alpha}$ portanto $a \in \delta$.
+
+            Para verificar a \Cref{reais-corte-semMaximo}, seja $-a \in \mathbb{S}_{\alpha}$ assim $-a$ é uma cota superior não mínima de $\alpha$. Seja $-b$ uma outra cota superior de $\alpha$ onde $-b < -a$. Para $-b$ não precisamos da exigência de não ser mínima. Pegamos $-c = \frac{-a-b}{2}$, daí $-b < -c < -a$, desse modo $b > c > a$. Note que $-c$ é cota superior não mínima de $\alpha$ pois $-b < -c$ e $-b$ é cota superior de $\alpha$. Desse modo, para qualquer $a \in \delta$ existirá algum $b \in \delta$ com $b > a$, assim $\delta$ não possuí máximo.
+
+            Com isso provamos que $\delta \in \mathbb{R}$. Para mostrar a igualdade, vamos iniciar por esta inclusão $\alpha + \delta \subset 0^*$. 
+            Seja $c \in \alpha + \delta$, assim $c = a + d$ com $a \in \alpha, d \in \delta$, logo $-d > a \implies 0 > a + d \in 0^*$. Assim está provada a primeira inclusão. 
+
+            Agora vamos mostrar que $0^* \subset \alpha + \delta$. Pelo \todo{Seja r>0, existe p,q tal que q-p = r, p esta no corte e q não esta.}.
+            Seja $c \in 0^*$, então $c \in \mathbb{Q}_{-}^*$. Temos que existem $d, d'$ onde $d'-d = -c$, com $d' \in \mathbb{S}_{\alpha}$ e $d \in \alpha$. Assim $d' \in \delta$, mas de $-c = d' - d$ temos $c = -d' + d \iff c = d -d'$, com $d \in \alpha,\ d' \in \delta$ assim $c \in \alpha + \delta$.
+            
+        \item lei do cancelamento, é válida conforme a \Cref{agb-prop-leiCancelamento}, pois é associativa e admite simétrico.
+
+    \end{enumerate}
+\end{dem}
+
+
+\begin{prop}\label{reais-prop-adicaoCompativelOrdem}
+    A relação $\leq$ é compatível com a adição.
+\end{prop}
+\begin{dem}
+    Vamos mostrar que $\alpha \leq \beta \implies \alpha + \gamma \leq \beta + \gamma$.
+    Primeiro observemos que se $x \in \alpha + \gamma$ então $x = r + s$ com $r \in \alpha$ e $s \in \gamma$. Por outro lado temos $\alpha \subset \beta$, então $r \in \beta$, desse modo $r + s \in \beta + \gamma$. Com isso concluímos que $\alpha + \gamma \subset \beta + \gamma$ o que nos mostra $\alpha + \gamma \leq \beta + \gamma$.
+\end{dem}
+\begin{defi}
+    Sejam $\alpha$ e $\beta$ números reais. A subtração de $\alpha$ por $\beta$, denotada por $\alpha - \beta$ é definida como $\alpha + (-\beta)$.
+\end{defi}
+\begin{prop}
+    A subtração é fechada em $\mathbb{R}$.
+\end{prop}
+\begin{dem}
+    Basta observar que a subtração é uma adição, que é fechada conforme \Cref{reais-prop-prop}.
+\end{dem}
+
+\begin{prop}\label{reais-prop-regraSinais}
+    Sejam $\alpha, \beta, \gamma$ números reais. Vale:
+    \begin{enumerate}[label=(\roman*)]
+        \item $-(-\alpha) = \alpha$;
+        \item $-\alpha - \beta = -(\alpha + \beta)$;
+    \end{enumerate}
+\end{prop}
+
+\begin{dem}
+    \begin{enumerate}[label=(\roman*)]
+        \item $-(-\alpha) = \alpha$ pois a adição admite neutro e é associativa, conforme \Cref{agb-prop-simetricoSimetrico}. 
+        \item Vamos provar que ambos são simétricos de $(\alpha + \beta)$. Temos 
+        \[ -(\alpha + \beta) + (\alpha + \beta) = (\alpha + \beta) - (\alpha + \beta) = 0^*. \] Por outro lado, \[ (-\alpha - \beta) + (\alpha + \beta) = \alpha + (- \alpha) + \beta +(- \beta) = 0^*. \]
+    \end{enumerate}    
+\end{dem}
+
+\begin{prop}\label{reais-prop-negativo}
+    Se $0^* \leq \alpha$ então $-\alpha \leq 0^*$.
+\end{prop}
+\begin{dem}
+    De $0^* \leq \alpha$ obtemos $0^* + (-\alpha) \leq \alpha + (-\alpha) \iff -\alpha \leq 0^*$.
+\end{dem}
+\begin{prop}
+    Se $\alpha \neq 0^*$, então $-\alpha \neq 0^*$.
+\end{prop}
+\begin{dem}
+    Sabemos que $\alpha + (-\alpha) = 0^*$. Se admitíssemos que pudesse ocorrer $-\alpha = 0^*$, teríamos $\alpha + 0^* = 0^*$, o que contradiz a hipótese da proposição. 
+\end{dem}
+\begin{corol}
+    Se $0^* < \alpha$ então $-\alpha < 0^*$.
+\end{corol}
+\begin{dem}
+    Como $0^* < \alpha \implies 0^* \leq \alpha$, o que pela \Cref{reais-prop-negativo} obtemos que $-\alpha \leq 0^*$. Como $\alpha \neq 0$, ficamos com $-\alpha \neq 0$, assim $-\alpha < 0$.
+\end{dem}
+
+\begin{teo}\label{reais-teo-desigualdadeSimetrico}
+    Sejam $\alpha, \beta \in \mathbb{R}$, vale que $\alpha \leq \beta \iff -\beta \leq -\alpha$.
+\end{teo}
+\begin{dem}
+    Utilizando a compatibilidade da adição com a relação de ordem (\Cref{reais-prop-adicaoCompativelOrdem}), temos que as desigualdades a seguir são equivalentes:
+    \begin{align*}
+        \alpha &\leq \beta \\
+        \alpha - \alpha &\leq \beta - \alpha \\
+        -\beta + 0^* &\leq - \beta + \beta - \alpha \\
+        -\beta &\leq -\alpha.
+    \end{align*}
+\end{dem}
+
+\begin{defi}
+    O módulo de um corte $\alpha$, denotado por $\abs{\alpha}$, é 
+    \begin{equation}
+        \abs{\alpha} = 
+        \begin{cases}
+        \begin{aligned}
+             &\alpha \hspace{0.6cm} \text{ , se } \alpha \geq 0^* \\
+            -&\alpha \hspace{0.6cm} \text{ , se } \alpha < 0^*
+        \end{aligned}
+        \end{cases}            
+    \end{equation}
+\end{defi}
+
+\begin{teo}
+    Para qualquer número real $\alpha$, vale $\abs{\alpha} \geq 0^*$.
+\end{teo}
+\begin{dem}
+    Se $\alpha \geq 0^*$, então $\abs{\alpha} = \alpha \geq 0^*$. \\
+    Se $\alpha \leq 0^*$, então $\abs{\alpha} = -\alpha \geq 0^*$, conforme a \Cref{reais-prop-negativo}. 
+\end{dem}
+\begin{prop}\label{reais-prop-mod00}
+    Para qualquer número real $\alpha$, vale $\abs{\alpha} = 0^* \iff \alpha = 0^*$.
+\end{prop}
+\begin{dem}
+    Se $\alpha = 0^*$ então obtemos $\abs{0^*} = 0^*$. 
+    Se $\alpha \neq 0^*$ então, ou $\alpha > 0$ ou $\alpha < 0$. No primeiro caso temos $\abs{\alpha} = \alpha > 0$. No segundo temos $\abs{\alpha} = -\alpha$, como $\alpha \leq 0^*$, pela \Cref{reais-prop-negativo}, temos $-\alpha \geq 0^*$, mas tínhamos $\alpha \neq 0$, assim $-\alpha \neq 0$ onde concluímos que $-\alpha > 0$.
+\end{dem}
+\begin{prop}
+    Para qualquer número real $\alpha$, vale $\abs{\alpha} \geq \alpha$.
+\end{prop}
+\begin{dem}
+    Se $\gamma \geq 0^*$ então $\abs{\gamma} = \gamma$.\\
+    Se $\gamma < 0^*$ então $\abs{\gamma} = -\gamma \geq 0^* > \gamma$.
+\end{dem}
+\begin{prop}\label{reais-prop-somaMod}
+    Se $\alpha, \beta \in \mathbb{R}$, com $\alpha \geq \abs{\beta}$, então $\alpha + \beta \geq 0^*$
+\end{prop}
+\begin{dem}
+    Notando que $\alpha \geq 0^*$, caso $\beta \geq 0^*$ então $\alpha + \beta \geq 0^*$. Já se $\beta < 0^*$, temos $\alpha \geq \abs{\beta} = -\beta$, assim $\alpha \geq -\beta \iff \alpha + \beta \geq 0^*$.
+\end{dem}
+
+\section{Multiplicação}
+\begin{defi}\label{reais-def-multiplicacao}
+    A multiplicação de dois números reais $\alpha$ e $\beta$, denotada por $\alpha \cdot \beta$ é definida por:
+    \begin{equation}
+         \alpha \cdot \beta = 
+        \begin{cases}
+        \begin{aligned}
+            & \mathbb{Q}^*_{-} \cup \{ rs : r \in \alpha \text{ e } s \in \beta, 0 \leq r, 0 \leq s \} \text{, se } & \alpha \geq 0^*, \beta \geq 0^*  \\
+            - & \left(\abs{\alpha}\abs{\beta}\right) \hspace{0.6cm} \text{, se } & \alpha < 0^*, \beta \geq 0^* \\
+            - & \left(\abs{\alpha}\abs{\beta}\right) \hspace{0.6cm} \text{, se } & \alpha \geq 0^*, \beta < 0^* \\
+              & \left(\abs{\alpha}\abs{\beta}\right) \hspace{0.6cm} \text{, se } & \alpha < 0^*, \beta < 0^*
+        \end{aligned}
+        \end{cases}
+    \end{equation}
+    % \begin{enumerate}[label=(\roman*)]
+    %     \item $-\left(\abs{\alpha}\abs{\beta}\right)$, se $\alpha < 0^*, \beta \geq 0^*$
+    %     \item $-\left(\abs{\alpha}\abs{\beta}\right)$, se $\alpha \geq 0^*, \beta < 0^*$
+    %     \item $\left(\abs{\alpha}\abs{\beta}\right)$, se $\alpha < 0^*, \beta < 0^*$
+    % \end{enumerate}
+\end{defi}
+Essa definição faz com que a multiplicação fique "fundamentada"\ no produto de dois números positivos, e quando um dos fatores for negativo, utilizamos o módulo para obter um número positivo para calcular o produto, e depois aplicamos uma regra de sinal.
+
+\begin{prop}
+    A multiplicação de dois números reais é fechada, isto é, também é um número real (corte).
+\end{prop}
+
+\begin{dem}
+    Vamos primeiro mostrar que quando $\alpha$ e $\beta$ são ambos não negativos, o resultado do produto é um número real. \\
+
+    Seja $\alpha \beta = \mathbb{Q}^*_{-} \cup \{ rs : r \in \alpha \text{ e } s \in \beta, 0 \leq r, 0 \leq s \}$.
+    
+   
+    Vamos mostrar que $\alpha\beta$ é um conjunto próprio de $\mathbb{Q}$. Sabemos que $\mathbb{Q}^*_{-} \subset \alpha \beta$,assim o produto é não vazio. Sejam $r'$ uma cota superior de $\alpha$ e $s'$ uma cota superior de $\beta$, assim ficamos com $0 \leq r < r'$ para qualquer $r$ não negativo de $\alpha$ (caso exista, isto é, $\alpha \neq 0$. Analogamente para $\beta$, temos $0 \leq s < s'$ para qualquer $s$ não negativo de $\beta$. Pelo \Cref{rac-prop-produtoMaioresMaior}, temos $rs < r's'$, desse modo $r's' \not\in \alpha \beta$, assim $\alpha \beta \neq \mathbb{Q}$.
+
+    Para verificar o segundo item da \Cref{reais-def-corte}, observamos que o conjunto é uma união dos racionais negativos com outro conjunto (com a parte do conjunto que pode ter alguns racionais não negativos), desse modo qualquer número racional negativo está em $\alpha \beta$. Vejamos agora se dados $r,s$ com $0 < s < r$ e $r \in \alpha \beta$, vale $s \in \alpha \beta$. Temos que $r = xy$, com $0 \leq x \in \alpha$ e $0 \leq y \in \beta$, assim $0 < s < xy$ pela compatibilidade do produto com a relção de ordem (\Cref{rac-prop-relOrdem} \todo{compatibilidade me Q}, 
+    do que obtemos $\frac{s}{x} < y$. Como $s = x \cdot \frac{s}{x}$, e $x \in \alpha, \frac{s}{x} < y \in \beta$, temos que $s \in \alpha \beta$.    
+
+    Para mostrar que não há máximo em $\alpha \beta$ usamos o fato de que não há máximo nem em $\alpha$ nem em $\beta$. Sejam $r \in \alpha$ e $s \in \beta$, em $\alpha$ existe $r' > r$ e em $\beta$ existe $s' > s$, dessa forma, pelo \Cref{rac-prop-produtoMaioresMaior}, \todo{compatibulidade em Q} $rs < r's'  \in \alpha \beta$.
+
+    Desse modo concluímos que quando $\alpha$ e $\beta$ são não negativos, o resultado é um corte não negativo (pois $\alpha\beta \supset \mathbb{Q}_{-}^*$.
+
+    Para os outros casos da definição, observemos que o módulo de um número real é um número real, bem como o simétrico. Com isso, independentemente de $\alpha, \beta$ serem positivos ou não, sempre $\alpha\beta \in \mathbb{R}$.
+    
+\end{dem}
+
+\begin{prop}
+    Sejam $\alpha$ e $\beta$ números reais. Vale que $\left( - \alpha \right) \beta = \alpha \left( -\beta \right) = -\left(\alpha \beta \right) $.
+\end{prop}
+\begin{dem}
+    Consideremos quatro casos distintos, de combinações de $\alpha, \beta$ sendo maior do que ou igual a $0^*$, e sendo menor do que $0^*$.
+    \begin{enumerate}
+        \item $\alpha \geq 0^*$ e $\beta \geq 0^*$ \\
+            $(-\alpha)\beta = -(\abs{-\alpha}\abs{\beta}) = -(\abs{\alpha}\abs{\beta})$ \\
+            $\alpha(-\beta) = -(\abs{\alpha}\abs{-\beta}) = -(\abs{\alpha}\abs{\beta})$ \\
+            Mas $-(\abs{\alpha}\abs{\beta}) = -(\alpha\beta)$.
+            
+        \item $\alpha < 0^*$ e $\beta \geq 0^*$
+        
+        \item $\alpha \geq 0^*$ e $\beta < 0^*$ \\
+            $(-\alpha)\beta = \abs{-\alpha}\abs{\beta} = \alpha(-\beta)$.  \\
+            Temos também que $-(\alpha \beta) = -(- (\abs{\alpha}\abs{\beta} )) = \abs{\alpha}\abs{\beta} = \alpha(-\beta)$
+        \item $\alpha < 0^*$ e $\beta < 0^*$ \\
+        \begin{align*}
+            (-\alpha) \beta &= -(\abs{-\alpha} \abs{\beta}) &= -((-\alpha)(-\beta)) \\
+            \alpha (-\beta) &= -(\abs{\alpha}  \abs{-\beta}) &= -((-\alpha)(-\beta)) \\
+            -(\alpha \beta) &= -(\abs{\alpha}  \abs{\beta})  &= -((-\alpha)(-\beta))
+        \end{align*}
+            
+    \end{enumerate}
+\end{dem}
+
+\begin{prop}\label{reais-prop-regraSinaisProduto}
+    Sejam $\alpha$ e $\beta$ números reais, vale que $\left( -\alpha \right) \left( -\beta \right) = \alpha \beta$.
+\end{prop}
+\begin{dem}
+    \begin{enumerate}
+        \item $\alpha \geq 0^*$ e $\beta \geq 0^*$ \\
+            $(-\alpha)(-\beta) = \abs{-\alpha}\abs{-\beta} = \alpha\beta$
+        
+        \item $\alpha \geq 0^*$ e $\beta < 0^*$ \\
+            $(-\alpha)(-\beta) = -(\abs{-\alpha}\abs{-\beta}) = -(\abs{\alpha}\abs{\beta}) = \alpha\beta $
+        \item $\alpha < 0^*$ e $\beta \geq 0^*$ \\
+         
+        \item $\alpha < 0^*$ e $\beta < 0^*$ \\
+            % $(-\alpha)(-\beta) = \abs{-\alpha}\abs{-\beta}$ \\
+            $\alpha\beta = \abs{\alpha}\abs{\beta} = (-\alpha)(-\beta)$.
+    \end{enumerate}
+\end{dem}
+
+\begin{prop}
+    Vale a distributividade
+\end{prop}
+\begin{dem}
+    Sejam $\alpha, \beta, \gamma$ números reais. Inicialmente vamos supor que sejam não negativos. \\
+    $\beta + \gamma = \{ y+z \in \mathbb{Q} : y \in \beta \land z \in \gamma \}$ \\
+    Seja $A = \alpha(\beta+\gamma) = \mathbb{Q}^*_{-} \cup \{ r \in \mathbb{Q} : r = pq, \text{ com } 0 \leq p \in \alpha \land 0 \leq q \in \beta + \gamma \}$ \\
+    Assim, de $q \in \beta$ temos que $q = y + z$ com $y \in \beta$ e $z \in \gamma$. \\
+    Os elementos de $A$ são ou racionais negativos, ou da forma $r = p(y+z) = py + pz$ com $0 \leq p \in \alpha$, $y \in \beta$ e $z \in \gamma$ tal que $0 \leq y + z$. \\
+    Note que embora $\alpha, \beta$ e $\gamma$ sejam positivos, os seus elementos, que são números racionais, podem não ser. \\
+
+    Já para $B = \alpha\beta + \alpha\gamma$ temos: \\
+    $\alpha\beta = \mathbb{Q}^*_{-} \cup \{ r'= p'y', \text{ com } 0 \leq p' \in \alpha \text{ e } 0 \leq y' \in \beta \}$ \\
+
+    $\alpha \gamma = \mathbb{Q}^*_{-} \cup \{ r'' \in \mathbb{Q} : r'' = p''z'' \text{ com } 0 \leq p'' \in \alpha \text{ e } 0 \leq z'' \in \gamma \}$ \\
+    
+    $B = \alpha \beta + \alpha \gamma = \{ s+t \in \mathbb{Q} : s \in \alpha \beta \text{ e } t \in \alpha \gamma \}$ \\
+
+    Desse modo os elementos de $B$ são de uma das formas:
+    \begin{enumerate}[label=(\roman*)]\label{reais-dummy-charBFormas}
+        \item\label{reais-dummy-charBa} $a + b \text{, com } a, b \in \mathbb{Q}^*_{-}$; 
+        \item\label{reais-dummy-charBb} $a + p''z''\text{, com }a \in \mathbb{Q}^*_{-} \text{ , } 0 \leq p'' \in \alpha \text{ e }0 \leq z'' \in \gamma$; 
+        \item\label{reais-dummy-charBc} $p'y' + b\text{, com }b \in \mathbb{Q}^*_{-} \text{ , } 0 \leq p' \in \alpha \text{ , } 0 \leq y' \in \beta$; 
+        \item\label{reais-dummy-charBd} $p'y' + p''z''\text{, com }0 \leq p' \in  \alpha \text{ , } 0 \leq y' \in \beta \text{ , } 0 \leq p'' \in \alpha\text{ e }0 \leq z'' \in \gamma$;
+    \end{enumerate}
+
+    Para $ A \subset B$, observemos que $A$ é a união de dois conjuntos:
+    \begin{enumerate}
+        \item se $x$ é um número negativo de $A$, então em $B$, o elemento $x$ se caracteriza por \Cref{reais-dummy-charBa}.
+        \item {se $r$ de $A$ é da forma $r = py + pz$, com $0 \leq p \in \alpha$ e $0 \leq y+z$ com $y \in \beta$ e $z \in \gamma$, dividimos em quatro subcasos:
+            \begin{enumerate}
+                \item se $y \geq 0 \land z \geq 0$ então $r$ está em $B$ na forma \Cref{reais-dummy-charBd}.
+                \item se $y \leq 0 \land z \geq 0$ então $r = py+pz = a + pz$ com $a \leq 0$, aí se $a=0$, então está em $B$ na forma \Cref{reais-dummy-charBd}, caso $a < 0$ então está em $B$ na forma $\Cref{reais-dummy-charBb}$.
+                \item se $y \geq 0 \land z \leq 0$ então $r = py + pq$, daí $py + 0$ está em \Cref{reais-dummy-charBd}, caso contrário temos $py + b, b< 0$, aí é da forma \Cref{reais-dummy-charBc}.
+                \item para $y < 0 \land z < 0$ temos um caso impossível, pois temos necessariamente $0 > y+z$.
+            \end{enumerate}
+        }
+    \end{enumerate}
+
+    Assim concluímos que $A \subset B$.
+
+    Para mostrar que $B \subset A$ precisamos mostrar que o caso \ref{reais-dummy-charBd} está em $A$, e também que para qualquer elemento $s$ que esteja representado em uma das outras três formas de $B$ existirá um elemento $r$ na forma \ref{reais-dummy-charBd} onde vale $r > s$.  
+    
+    Tomemos um elemento da forma \ref{reais-dummy-charBd}. \\
+    $p'y' + p''z''$ com $0 \leq p' \in \alpha, 0 \leq y' \in \beta, 0 \leq p'' \in \alpha, 0 \leq z'' \in \gamma$. 
+        Sabemos que pela tricotomia de $\mathbb{Q}$, vale $p' \geq p'' \lor p'' > p'$, temos:\\
+        \begin{enumerate}
+            \item Se $p' \geq p''$ então:
+                \begin{align}
+                    p'y' + p''z'' &= p'y' + p'z'' - p'z'' + p''z'' \\
+                    &= p'(y' + z'') + z''(p''-p') 
+                \end{align}
+                Sabemos que $p'(y' + z'') \in A$, e que $z''(p''-p') \leq 0$, como $A$ é um corte então $z''(p''-p') \in A$, e também $p'(y' + z'')+z''(p''-p') < p'(y' + z'')$, assim $p'(y' + z'') + z''(p''-p') \in A$.
+        
+        \item Se $p'' > p'$ então:
+            \begin{align}
+                p'y' + p''z'' &= p'y' + p''y' - p''y' + p''z'' \\
+                &= p''y' + p''z'' + p'y' - p''y' \\
+                &= p''(y'+z'') + y'(p'-p'')
+            \end{align}
+            Analogamente ao caso anterior, a primeira parcela da soma está em $A$ e a segunda parcela é um número negativo, então a soma está no corte $A$.
+    \end{enumerate}
+    Agora vamos mostrar que sempre podemos escolher um elemento na forma \ref{reais-dummy-charBd} onde ele é maior que algum elemento com uma representação fixa em alguma das outras três formas.
+    
+    Para mostrar que podemos escolher um elemento na forma \ref{reais-dummy-charBd} onde ele é maior que algum elemento fixo com alguma das outras três formas, basta observar que as formas em \Cref{reais-dummy-charBFormas} são tais que $a, b \in \mathbb{Q}_{-}^*,\ p',p'' \in \alpha,\ y' \in \beta,\ z'' \in \gamma$. Ficamos então com:
+
+      \begin{enumerate}[label=(\roman*)]\label{reais-dummy-charBFormas}
+        \item\label{reais-dummy-charBa} $p'y' + p''z'' > a + b $; 
+        \item\label{reais-dummy-charBb} $p'y' + p''z'' > a + p''z''$; 
+        \item\label{reais-dummy-charBc} $p'y' + p''z'' > p'y' + b$; 
+    \end{enumerate}
+
+    Com isso provamos a distributividade no caso onde $\alpha, \beta$ e $\gamma$ são não negativos.
+
+    Vamos mostrar agora que vale também para os casos onde $\alpha, \beta$ e $\gamma$ possam ser negativos também.
+
+    \begin{enumerate}
+        \item 
+            $\alpha < 0^* \land \beta, \gamma \geq 0^*$ 
+            \begin{align*}
+                \alpha (\beta + \gamma) &= -(\abs{\alpha}\abs{\beta+\gamma}) \\
+                &= -((-\alpha)(\beta+\gamma)) \\
+                &= -((-\alpha)\beta + (-\alpha)\gamma) , -\alpha \geq 0 \\
+                &= - (-\alpha\beta - \alpha\gamma), \text{\Cref{reais-prop-regraSinaisProduto}} \\
+                &= - ((-\alpha\beta) + (-\alpha\gamma)) \\
+                &= - (-\alpha\beta) - (-\alpha\gamma), \text{\Cref{reais-prop-regraSinais}} \\
+                &= (\alpha\beta + \alpha\gamma)
+            \end{align*}
+
+        \item $\alpha \geq 0^*, \beta, \gamma < 0^*$
+            \begin{align*}
+                \alpha(\beta+\gamma) &= -(\abs{\alpha}\abs{\beta+\gamma}) \\
+                &= - (\alpha \cdot (-(\beta+\gamma))) \\
+                &= -(\alpha((-\beta)+(-\gamma))),  \text{\Cref{reais-prop-regraSinais}} \\
+                &= -(\alpha(-\beta) + \alpha(-\gamma)) \\
+                &=-\alpha(-\beta)-\alpha(-\gamma) \\
+                &= \alpha\beta + \alpha\gamma
+            \end{align*}
+
+        \item $\alpha,\beta \geq 0^*, \gamma < 0^*$
+            Vamos separar em dois casos, considerando a desigualdade entre $\beta$ e $\abs{\gamma}$.
+            \begin{enumerate}
+                \item Se $\beta \geq \abs{\gamma} = -\gamma$:
+                    \begin{align*}
+                        \alpha\beta &= \alpha(\beta+\gamma-\gamma) \\
+                        &= \alpha((\beta+\gamma)+(-\gamma)) , \text{\Cref{reais-prop-somaMod}} \\
+                        &= \alpha(\beta+\gamma) - \alpha\gamma \\
+                    \end{align*}
+                    Assim, $\alpha\beta = \alpha(\beta+\gamma) - \alpha\gamma \implies \alpha\beta + \alpha\gamma = \alpha(\beta+\gamma)$.
+
+                \item Se $\beta < \abs{\gamma} = -\gamma$:
+                    \begin{align*}
+                        \alpha\gamma &= \alpha(\gamma+\beta-\beta) \\
+                        &= \alpha((\gamma+\beta)-\beta) \\
+                        &= \alpha(\gamma+\beta) - \alpha\beta
+                    \end{align*}
+                    Assim, $\alpha\gamma = \alpha(\gamma+\beta) - \alpha\beta \implies \alpha\gamma + \alpha\beta = \alpha(\gamma+\beta)$.
+
+            \end{enumerate}
+            
+
+
+        \item $\alpha,\beta,\gamma < 0^*$
+        \begin{align*}
+            \alpha(\beta+\gamma) &= \abs{\alpha}\abs{\beta+\gamma} \\
+            &= (-\alpha)(-\beta-\gamma) \\
+            &= (-\alpha)(-\beta) + (-\alpha)(-\gamma) \\
+            &= \alpha\beta + \alpha\gamma.
+        \end{align*}
+    \end{enumerate}
+\end{dem}
+
+\begin{teo}
+    Seja $\alpha \in \mathbb{R}$, vale que $\alpha \cdot 0^* = 0^*$.
+\end{teo}
+\begin{dem}
+    Primeiro notemos que $0^* = \mathbb{Q}_{-}^*$, ou seja, todos os racionais negativos. Sabemos que se $\alpha \geq 0^*$, 
+    então $\alpha \cdot 0^* = \mathbb{Q}_{-}^* \cup \{ rs : 0 \leq r \in \alpha \land 0 \leq s \in 0^* \}$, mas como não existe elemento em $0^*$ que seja maior do que ou igual a zero, a segunda parte da união é vazia, dessem modo $\alpha \cdot 0^* = 0^*$ para $\alpha \geq 0^*$.
+
+    Por outro lado, se $\alpha < 0$, temos $\alpha \cdot 0^* = -(\abs{\alpha} \cdot \abs{0^*}) = -(\abs{\alpha} \cdot 0^*) = 0^*$. Note que na última igualdade usamos a primeira parte dessa demonstração e na penúltima igualdade usamos a \Cref{reais-prop-mod00}.
+\end{dem}
+
+\begin{teo}\label{reais-teo-multCompativelOrdem}
+    O produto em $\mathbb{R}$ é compatível com a relação de ordem.
+\end{teo}
+\begin{dem}
+    Sejam $\alpha, \beta \in \mathbb{R}$ e $0^* \leq \gamma \in \mathbb{R}$. Vamos separar em três casos:
+    \begin{enumerate}
+        \item $0^* \leq \alpha \leq \beta$.
+            Temos \[ \alpha\gamma = \mathbb{Q}_{-}^* \cup \{ rs : 0 \leq r \in \alpha \land 0 \leq s \in \gamma \} , \]
+            já para $\beta$ temos:
+            \[ \beta\gamma = \mathbb{Q}_{-}^* \cup \{ r's' : 0 \leq r' \in \beta \land 0 \leq s' \in \gamma \} \]
+            Obviamente $\mathbb{Q}_{-}^* $ está contido em $\alpha\gamma$ e em $\beta\gamma$. Para a segunda parte da união de $\alpha\gamma$, como ocorre que $r \in \alpha \implies r \in \beta$, temos também que $rs \in \beta\gamma$ quando $s \in \gamma$.
+
+        \item $\alpha \leq \beta \leq 0^*$: \\
+            As linhas abaixo são equivalentes:
+            \begin{align*}
+                \alpha &\leq \beta \\
+                -\beta &\leq -\alpha \littleSpace  \text{, \Cref{reais-teo-desigualdadeSimetrico}} \\
+                -\beta\gamma &\leq -\alpha\gamma \littleSpace \text{ pois } -\alpha, -\beta \geq 0^* \\
+                \alpha\gamma &\leq \beta\gamma \littleSpace \text{, \Cref{reais-teo-desigualdadeSimetrico}} 
+            \end{align*}
+
+        \item $\alpha \leq 0^* \leq \beta$: \\
+            Basta observar a \Cref{reais-def-multiplicacao}, pois $\alpha\gamma = -(\abs{\alpha}\abs{\gamma}) \leq 0^*$ e $\beta\gamma \geq 0^*$.
+    \end{enumerate}
+\end{dem}
+
+\begin{teo}\label{reais-teo-simetricoProduto}
+    \todo{Falta provar neutro produto}
+    Se $0^* \neq \alpha \in \mathbb{R}$ então $\alpha$ admite um simétrico multiplicativo, isto é, existe um $\beta \in \mathbb{R}$ onde $\alpha \cdot \beta = 1^*$.
+\end{teo}
+\begin{dem}
+    A demonstração é parecida com a da simetria na \Cref{reais-prop-prop}, mas com algumas diferenças que aparecem também devido ao fato de um número racional ser uma fração com denominador não nulo.
+
+    Seja $\mathbb{S}_{\alpha} = \{a \in \mathbb{Q} : a\ \text{é cota superior não mínima de }\alpha \}$.
+
+    Vamos supor inicialmente que $\alpha > 0^*$. Consideremos 
+    \[ \beta = \mathbb{Q}_{-}^* \cup \{ 0 \} \cup 
+    \{ a \in \mathbb{Q}_{+}^* : \frac{1}{a} \in \mathbb{S}_{\alpha} \}. \] 
+
+    Vamos mostrar que $\beta \in \mathbb{R}$.
+    Mostrar i e ii de corte. \todo{todo}
+    Para mostrar o \Cref{reais-corte-semMaximo}, devemos mostrar que dado $r \in \beta$, existe $s>r$ com $s \in \beta$. Qualquer racional não positivo está em $\beta$ que é óbvio na união. Se por outro lado escolhermos um $r > 0$ de $\beta$, então $\frac{1}{r} \in \mathbb{S}_{\alpha}$, e como $\frac{1}{r}$ não é cota superior mínima, existe uma cota superior \todo{mostrar q pode ser esolhido} $\frac{1}{s} < \frac{1}{r}$, onde $\frac{1}{s}$ é uma cota superior de $\alpha$ não necessariamente mínima. Seja 
+    \[ \dfrac{1}{t} = \dfrac{\frac{1}{s} + \frac{1}{r}}{2}, \]
+    assim $\frac{1}{s} < \frac{1}{t} < \frac{1}{r}$ \todo{provar} e portanto $s > t > r$, mas observando que $\frac{1}{t} \in \mathbb{S}_{\alpha}$ concluímos que $t \in \beta$, com $t>r$, desse modo $\beta$ não tem máximo. 
+\end{dem}
+
+\begin{prop}\todo{colocar no lugar adequado, reorganizar ordem das props e teos}
+    Comutativa
+\end{prop}
+\begin{dem}
+
+    \begin{enumerate}
+        \item Se $\alpha, \beta \geq 0^*$, temos: \\
+        $\alpha \beta = \mathbb{Q}_{-}^* \cup \{ ab : a \in \alpha \land b \in \beta \}$ que também é:
+        $\mathbb{Q}_{-}^* \cup \{ ba: b \in \beta \land a \in \alpha \}$.
+    
+    
+        \item Se $\alpha \geq 0^*$ e $\beta < 0^*$ temos: \\
+        $\alpha\beta = -(\abs{\alpha}\abs{\beta}) = -(\alpha(-\beta)) = -((-\beta)\alpha) = -(-\beta\alpha) = \beta\alpha$.
+    
+        \item Se $\alpha < 0^*$ e $\beta \geq 0^*$ temos: \\
+            $\alpha\beta = -(\abs{\alpha}\abs{\beta}) = -((-\alpha)\beta) = -(\beta(-\alpha)) = -(-\beta\alpha) = \beta\alpha$
+        
+        \item Se $\alpha, \beta < 0^*$ temos: \\
+        $\alpha \beta = \abs{\alpha}\abs{\beta} = (-\alpha)(-\beta) = (-\beta)(-\alpha) = \beta\alpha$.
+    \end{enumerate}
+
+    
+\end{dem}
+
+\begin{prop}
+    Associativa
+\end{prop}
+\begin{dem}
+    $(\alpha\beta)\gamma = \alpha(\beta\gamma)$: \\
+    \begin{enumerate}
+        \item Se $\alpha, \beta, \gamma \geq 0^*$ Vamos primeiro montar o primeiro produto:
+        $\alpha\beta = \mathbb{Q}_{-}^* \cup \{ ab : a \in \alpha \land b \in \beta \}$ segue que: \\
+        $(\alpha\beta)\gamma = \mathbb{Q}_{-}^* \cup \{ (ab)c : (a \in \alpha \land b \in \beta) \land c \in \gamma \}$ \\
+        $\alpha(\beta\gamma) = \mathbb{Q}_{-}^* \cup \{ a(bc) : a \in \alpha \land (b \in \beta \land c \in \gamma) \}$
+
+        \item .\todo{oof}
+    \end{enumerate}
+\end{dem}
+
+\todo{Simétrico e inverso, verificar utilizações e padronizar}
+
 \end{document}

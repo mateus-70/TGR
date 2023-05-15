@@ -57,27 +57,32 @@
 \usepackage{pdfpages}
 \usepackage{relsize}
 \usepackage{microtype}
-\usepackage[citestyle=authoryear, sorting=nty, style=abnt]{biblatex}
+\usepackage[sorting=nty, style=abnt]{biblatex} % citestyle=authoryear, 
 \usepackage[portuguese=brazilian]{csquotes} % Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing. Loading 'csquotes' recommended.
 \usepackage{etoolbox} % para modificar as citacoes, colocar margem no blockquote
 %\usepackage{showkeys} % para que quando for usar \ref apareça uma prévia do que se trata, teorema prop, def etc. pois \ref gera apenas numeros
-\usepackage{cleveref}
+\usepackage[capitalise]{cleveref}
 \usepackage{physics} % para \abs{}
 %%  You'll get surprised by
 %%  https://en.wikibooks.org/wiki/LaTeX/Package_Reference
+%\usepackage{array}
 
-\usepackage{eufrak} % para estilizar o elemento neutro 'e'
+
+%\usepackage{eufrak} % para estilizar o elemento neutro 'e' // %  eufrak package is redundant if the amsfonts package is used
 
 % https://pt.overleaf.com/latex/templates/modelo-canonico-de-trabalhos-academicos-com-abntex2/ybtpkzkccnnj
 
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
-\usepackage[symbol]{footmisc} % para alterar rótulos de footnote 
+%\usepackage[numeric]{footmisc} % para alterar rótulos de footnote 
 
 \usepackage{color,soul} % para marcar para revisao
-\newcommand{\gray}[1]{{\sethlcolor{gray}\hl{#1}}\gappto{\yellowhook}{#1}}
-\newcommand{\yellow}[1]{{\sethlcolor{yellow}\hl{#1}}\gappto{\yellowhook}{#1}}
-\newcommand{\textoIncluido}{\todo{Texto Incluído} \color{blue}}
-\newcommand{\textoRemovido}{\todo{Texto Removido} \color{gray}}
+% \newcommand{\gray}[1]{{\sethlcolor{gray}\hl{#1}}\gappto{\yellowhook}{#1}}
+% \newcommand{\yellow}[1]{{\sethlcolor{yellow}\hl{#1}}\gappto{\yellowhook}{#1}}
+% \newcommand{\textoIncluido}[1]{\todo{Texto Incluído} {\color{blue} \textit{#1}}}
+% \newcommand{\textoRemovido}[1]{\todo{Texto Removido} {\color{gray} \textit{#1}}}
+
+
+
 
 % ---
 \usepackage{titlesec} %Adequação dos títulos as normas da UDESC
@@ -143,19 +148,14 @@
 % ---
 % Novos Comandos 
 % ---
-\newcommand{\R}{\ensuremath {\mathbb{R}} }
-\newcommand{\Z}{\ensuremath {\mathbb{Z}} }
-\newcommand{\Q}{\ensuremath {\mathbb{Q}} }
-\newcommand{\N}{\ensuremath {\mathbb{N}} }
-\newcommand{\C}{\ensuremath {\mathbb{C}} }
-\newcommand{\K}{\ensuremath {\mathbb{K}} }
-\renewcommand{\S}{\ensuremath {\mathbb{S}} }
+
 \newcommand{\defeq}{\vcentcolon=}
 \newcommand{\eqdef}{=\vcentcolon}
 
 \newcommand{\spaceLand}{\hspace{8pt} \land \hspace{8pt}}
 \newcommand{\spaceNeq}{\hspace{8pt} \neq \hspace{8pt}}
 \newcommand{\myspace}[1]{\hspace{8pt} {#1} \hspace{8pt}}
+\newcommand{\littleSpace}{\hspace{12pt}}
 
 \newcommand{\authorName}{MATEUS SCHROEDER DA SILVA}
 \newcommand{\orientationBy}{Doutor Marnei Luis Mandler}
@@ -170,7 +170,7 @@
 
 
 
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 % ---
 % Estilo teoremas  e atalhos para comandos 
@@ -195,6 +195,13 @@
 \binoppenalty=9999
 % ---
 
+\newcommand{\crefpairconjunction}{ e }
+\Crefname{teo}{Teorema}{Teoremas}
+\Crefname{prop}{Proposição}{Proposições}
+\Crefname{corol}{Corolário}{Corolários}
+\Crefname{ex}{Exemplo}{Exemplos}
+\Crefname{defi}{Definição}{Definições}
+\Crefname{axi}{Axioma}{Axiomas}
 %\usepackage{lipsum}				% para geração de dummy text
 
 % ---
@@ -343,7 +350,7 @@
  \subfile{chapter/naturals}
  \subfile{chapter/integers}
  \subfile{chapter/rationals}
-\subfile{chapter/reals}
+ \subfile{chapter/reals}
 
 % FIM CAPITULOS
 
@@ -357,10 +364,10 @@
 % ----------------------------------------------------------
 %\subfile{chapter/references}
 
-\chapter*[Referências]{REFERÊNCIAS}
-\addcontentsline{toc}{chapter}{REFERÊNCIAS}
-\nocite{*}
-\printbibliography[block=none, heading=none]
+% \chapter*[Referências]{REFERÊNCIAS}
+% \addcontentsline{toc}{chapter}{REFERÊNCIAS}
+% \nocite{*}
+% \printbibliography[block=none, heading=none]
 % ----------------------------------------------------------
 % Apêndices
 % ----------------------------------------------------------

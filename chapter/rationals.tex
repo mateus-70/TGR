@@ -3,15 +3,15 @@
 \chapter{O CONJUNTO DOS NÚMEROS RACIONAIS}
 \section{Ideias iniciais e objetivos}
 
-No capítulo anterior, conseguimos criar um conjunto \Z cuja soma tivesse elemento neutro e que todo elemento tivesse um elemento simétrico nessa mesma operaçao. Neste capítulo vamos tentar construir um conjunto tal que para a multiplicação, dado qualquer elemento (exceto o neutro da soma), seja também possível encontrar um simétrico. Para isso a bibliografia utilizada será \parencite{domingues-2009} e \parencite{ferreira}.
+No capítulo anterior, conseguimos criar um conjunto $\mathbb{Z}$ cuja soma tivesse elemento neutro e que todo elemento tivesse um elemento simétrico nessa mesma operaçao. Neste capítulo vamos tentar construir um conjunto tal que para a multiplicação, dado qualquer elemento (exceto o neutro da soma), seja também possível encontrar um simétrico. Para isso a bibliografia utilizada será \parencite{domingues-2009} e \parencite{ferreira}.
 
-O conjunto que criaremos será chamado de conjunto dos números racionais e será denotado por \Q.
+O conjunto que criaremos será chamado de conjunto dos números racionais e será denotado por $\mathbb{Q}$.
 
-Para criar os racionais, vamos utilizar o mesmo artifício das classes de equivalência num subconjunto do produto cartesiano. O produto cartesiano que precisaremos excluirá o neutro da soma em \Z da segunda cordenada, que se justificará no próximo teorema.
+Para criar os racionais, vamos utilizar o mesmo artifício das classes de equivalência num subconjunto do produto cartesiano. O produto cartesiano que precisaremos excluirá o neutro da soma em $\mathbb{Z}$ da segunda cordenada, que se justificará no próximo teorema.
 
-$$\Z \times \Z^* = \{ \left( a,b \right) : a \in \Z \land b \in \Z^* \}$$
+$$\mathbb{Z} \times \mathbb{Z}^* = \{ \left( a,b \right) : a \in \mathbb{Z} \land b \in \mathbb{Z}^* \}$$
 
-Sobre $\Z \times \Z^*$ vamos considerar a relação definida por $\left( a,b \right) \sim \left( c,d \right) \iff ad = bc$. Muito, muito analogamente à criação de \Z.
+Sobre $\mathbb{Z} \times \mathbb{Z}^*$ vamos considerar a relação definida por $\left( a,b \right) \sim \left( c,d \right) \iff ad = bc$. Muito, muito analogamente à criação de $\mathbb{Z}$.
 
 \begin{teo}
     A relação $\sim$ é de equivalência.
@@ -27,30 +27,30 @@ Sobre $\Z \times \Z^*$ vamos considerar a relação definida por $\left( a,b \ri
         Se $a=0$, temos que $ad = 0$, assim, ocorre que $b=0 \lor c=0$. Como $b \neq 0$, então $c=0$. Reciprocamente, se $c=0$ então $bc = 0 = ad$, como $d \neq 0$, então $a=0$. Desse modo concluímos também que, $a=0$ se, e somente se $c=0$ e $e=0$. Temos daí que $ad = bc = cf = de = 0$. \\
         Agora supondo que $a \neq 0$, então $c \neq 0$ e $e \neq 0$.
         Podemos multiplicar os termos das igualdades iniciais, igualando os resultados e aplicando o cancelamento do produto, ficamos com: \\ 
-        $\left( a  \cdot d \right)  \cdot \left( c  \cdot f \right)= \left(b  \cdot c\right)  \cdot \left(d  \cdot e\right) \iff a  \cdot f = b  \cdot e \iff \left( a,b \right) \sim \left( e,f \right)$. \footnote{Caso admitíssemos o $0$ na segunda coordenada, teríamos $\frac{0}{0} \sim \frac{a}{b}$ para qualquer $a,b$, mas a transitiva iria falhar, por exemplo, $\frac{1}{2} \not\sim \frac{3}{2}$.}
+        $\left( a  \cdot d \right)  \cdot \left( c  \cdot f \right)= \left(b  \cdot c\right)  \cdot \left(d  \cdot e\right) \iff a  \cdot f = b  \cdot e \iff \left( a,b \right) \sim \left( e,f \right)$. \footnote{Caso admitíssemos o $0$ na segunda coordenada, teríamos $\frac{0}{0} \sim \frac{a}{b}$ para qualquer $a,b$, mas a transitiva iria falhar, por exemplo, $\frac{1}{2} \not\sim \frac{3}{2}$.}\label{rac-just-zeroDenominador}
     \end{enumerate}
 \end{dem}
 
 \begin{defi}
-   Os números racionais são o conjunto $\Z \times \Z^* / \sim$, que será denotado por $\Q$.
+   Os números racionais são o conjunto $\mathbb{Z} \times \mathbb{Z}^* / \sim$, que será denotado por $\mathbb{Q}$.
 \end{defi}
-Claro que com essa definição, os números de \Q são classes de equivalência em $\Z \times \Z^*$, então quando escrevermos que $\frac{a}{b}$ ou $a/b$ fica entendido que eles são números racionais, estaremos também afirmando que $a \in \Z$ e que $b \in \Z^*$. Nesses exemplos, o $a$ é chamado numerador, e o $b$ é chamado denominador.
+Claro que com essa definição, os números de $\mathbb{Q}$ são classes de equivalência em $\mathbb{Z} \times \mathbb{Z}^*$, então quando escrevermos que $\frac{a}{b}$ ou $a/b$ fica entendido que eles são números racionais, estaremos também afirmando que $a \in \mathbb{Z}$ e que $b \in \mathbb{Z}^*$. Nesses exemplos, o $a$ é chamado numerador, e o $b$ é chamado denominador.
 
-Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6$. O que também é fácil de provar, vejamos as duas primeiras representações: em \Z vale $1 \cdot 4 = 2 \cdot 2$.
+Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6$. O que também é fácil de provar, vejamos as duas primeiras representações: em $\mathbb{Z}$ vale $1 \cdot 4 = 2 \cdot 2$.
 
 \begin{obs}
-    Ao invés de utilizar a notação ostensiva de pares ordenados como utilizamos nos inteiros, passaremos a utilizar a notação de fração, que consiste em separar os elementos do par, na ordem, por uma barra horizontal, denotada $\frac{a}{b}$ ou por uma barra inclinada denotada assim: $a/b$, em ambos os casos representam $\overline{\left( a,b \right)} \in \Q$. 
+    Ao invés de utilizar a notação ostensiva de pares ordenados como utilizamos nos inteiros, passaremos a utilizar a notação de fração, que consiste em separar os elementos do par, na ordem, por uma barra horizontal, denotada $\frac{a}{b}$ ou por uma barra inclinada denotada assim: $a/b$, em ambos os casos representam $\overline{\left( a,b \right)} \in \mathbb{Q}$. 
 \end{obs}
 
 \begin{prop}
-    Seja $\frac{a}{b}$ um número racional, vale que $ \frac{a}{b} = \frac{ac}{bc}$, para qualquer $c \in \Z^*$.
+    Seja $\frac{a}{b}$ um número racional, vale que $ \frac{a}{b} = \frac{ac}{bc}$, para qualquer $c \in \mathbb{Z}^*$.
 \end{prop}
 \begin{dem}
     Basta observar que $a \cdot bc = b \cdot ac$.
 \end{dem}
 %%%% ADICAO %%%%%
 
-\section{Adição em \Q}
+\section{Adição em $\mathbb{Q}$}
 \begin{defi}
     Sejam $\frac{a}{b}$ e $\frac{c}{d}$ números racionais. Chamamos de adição entre $\frac{a}{b}$ e $\frac{c}{d}$, denotada por $\frac{a}{b} + \frac{c}{d}$ que é definido como $\frac{ad+bc}{bd}$.
 \end{defi}
@@ -71,7 +71,7 @@ Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6
     Essa última igualdade é uma tautologia, pois $ab' = a'b$ e $cd' = c'd$.
 \end{dem}
 % \begin{prop} Alteração de formato do texto/apresentação da proposicao
-%     A adição em \Q é associativa, comutativa, tem elemento neutro, cada elemento tem um único simétrico, atende a lei do cancelamento e é fechada em \Q.
+%     A adição em \mathbb{Q} é associativa, comutativa, tem elemento neutro, cada elemento tem um único simétrico, atende a lei do cancelamento e é fechada em \mathbb{Q}.
 % \end{prop}
 \begin{prop}{Para a adição valem as seguintes propriedades:}
     \begin{enumerate}[label=(\roman*)]
@@ -87,7 +87,7 @@ Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6
 \begin{dem}
     Sejam $\frac{a}{b}, \frac{c}{d}, \frac{e}{f}$ números racionais quaisquer, temos:
     \begin{enumerate}[label=(\roman*)]
-        \item fechamento: pois $ad+bc \in \Z$ e $bd \in \Z^*$.
+        \item fechamento: pois $ad+bc \in \mathbb{Z}$ e $bd \in \mathbb{Z}^*$.
         \item associativa: \\
         \[ \left( \frac{a}{b} + \frac{c}{d} \right) + \frac{e}{f} = \frac{ad+bc}{bd} + \frac{e}{f} = \frac{(ad+bc)f + bde}{bdf}
         = \frac{adf + bcf + bde}{bdf} = \]
@@ -99,7 +99,7 @@ Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6
         \[ \frac{0}{a} + \frac{c}{d} = \frac{0d+ac}{ad} = \frac{ac}{ad} = \frac{c}{d} \text{ pois } ac \cdot d = ad \cdot c. \footnote{Como também não depende de $a$, usualmente escreve-se somente $0$.}\]
         \item do elemento simétrico: basta considerar $\frac{a}{b}$ e $\frac{-a}{b}$, temos:
         \[ \frac{a}{b} + \frac{-a}{b} = \frac{ab + (-ab)}{bb} = \frac{0}{bb} = 0.\]
-        \item lei do cancelamento, conforme \cref{agb-prop-leiCancelamento}.
+        \item lei do cancelamento, conforme \Cref{agb-prop-leiCancelamento}.
     \end{enumerate}
 \end{dem}
 
@@ -111,7 +111,7 @@ Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6
     Sejam $\frac{a}{b}$ e $\frac{c}{d}$ números racionais quaisquer. A multiplicação de $\frac{a}{b}$ por $\frac{c}{d}$ será denotada por $\frac{a}{b} \cdot \frac{c}{d}$ e é definida por $\frac{ac}{bd}$.
 \end{defi}
 \begin{prop}
-    A multiplicação em \Q está bem definida.
+    A multiplicação em $\mathbb{Q}$ está bem definida.
 \end{prop}
 \begin{dem}
     Sejam $\frac{a}{b} = \frac{a'}{b'}$ e $\frac{c}{d} = \frac{c'}{d'}$ números racionais quaisquer. Então temos $ab' = ba'$ e $cd' = dc'$. Segue que $ab'cd' = ba'dc' \iff acb'd' = bda'c'$ então a classe $\frac{ac}{bd}$ é a mesma que classe $\frac{a'c'}{b'd'}$.
@@ -129,7 +129,8 @@ Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6
 \begin{dem}
     \begin{enumerate}[label=(\roman*)]
         \item Fechamento: \\
-        Temos que $ac \in \Z$ e $bd \in \Z$. Além disso, porque em \Z vale que $bd = 0 \iff b = 0 \lor d = 0$, considerando originalmente como tínhamos $b,d$ ambos não nulos, temos $bd \neq 0$.
+        Temos que $ac \in \mathbb{Z}$ e $bd \in \mathbb{Z}$. Além disso, porque em $\mathbb{Z}$ vale que \\ 
+        $bd = 0 \iff b = 0 \lor d = 0$, considerando originalmente como tínhamos $b,d$ ambos não nulos, temos $bd \neq 0$.
         
         \item Associativa: \\
             \[
@@ -139,8 +140,6 @@ Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6
             \frac{a}{b} \cdot \left(\frac{c}{d} \cdot \frac{e}{f}\right)
             .
             \]
-            
-            
         
         \item Comutativa: \\
         \[ \frac{a}{b} \cdot \frac{c}{d} = 
@@ -150,52 +149,88 @@ Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6
             
         
         \item Elemento neutro: Afirmamos que o $\frac{1}{1}$ é o neutro do produto, pois: $\left(1c/1d \right) = c/d$.
-        Assim, provamos que é neutro pela esquerda. Pela direita é evidente pela comutatividade do produto em \Z. A unicidade é consequência do teorema \cref{agb-neutro-unico}.
+        Assim, provamos que é neutro pela esquerda. Pela direita é evidente pela comutatividade do produto em $\mathbb{Z}$. A unicidade é consequência do teorema \Cref{agb-neutro-unico}.
         
         \item Simétrico: Vamos obter o simétrico de $\frac{a}{b}$. Por hipótese temos $b \neq 0$. Suponhamos que $a=0$. Vejamos se algum $\frac{c}{d}$
         pode ser simétrico de $\frac{a}{b}$. Temos $\frac{a}{b} \frac{c}{d} = \frac{ac}{bd} = \frac{0}{bd} \neq \frac{1}{1}$. Assim não podemos ter zero no numerador. \\
-        Suponhamos por outro lado, $a \neq 0$. Temos $\frac{ac}{bd} = \frac{1}{1} \implies ac = bd$, que é o mesmo que dizer que $\frac{a}{b} = \frac{d}{c}$. Para que a igualdade ocorra, basta tomar $c=b$ e $d=a$, assim, o simétrico do produto de $\frac{a}{b}$ é $\frac{c}{d} = \frac{b}{a}$. O simétrico é único, conforme \cref{agb-teo-simetricoUnico}.
+        Suponhamos por outro lado, $a \neq 0$. Temos $\frac{ac}{bd} = \frac{1}{1} \implies ac = bd$, que é o mesmo que dizer que $\frac{a}{b} = \frac{d}{c}$. Para que a igualdade ocorra, basta tomar $c=b$ e $d=a$, assim, o simétrico do produto de $\frac{a}{b}$ é $\frac{c}{d} = \frac{b}{a}$. O simétrico é único, conforme \Cref{agb-teo-simetricoUnico}.
         
-        \item a lei do cancelamento é provada pela \cref{agb-prop-leiCancelamento}.
+        \item a lei do cancelamento é provada pela \Cref{agb-prop-leiCancelamento}.
 
     \end{enumerate}    
 \end{dem}
 
 
 \section{Relação de ordem}
-\begin{defi}
-    Sejam $\frac{a}{b}$ e $\frac{c}{d}$ números racionais quaisquer. A relação de ordem $\leq$ entre $\frac{a}{b}$ e $\frac{c}{d}$ será denotada por $\frac{a}{b} \leq \frac{c}{d}$ e representa que $ad \leq bc$. 
+Para definirmos a relação de ordem em $\mathbb{Q}$ vamos fazer de maneira semelhante à de $\mathbb{Z}$, mas com uma diferença crucial que exploraremos logo depois da \Cref{rac-def-relOrdem}.
+\begin{teo}\label{rac-teo-fracSinais}
+    Sejam $a,b$ números inteiros, sendo $b$ não nulo. As igualdades (em $\mathbb{Q}$) a seguir são válidas:
+    \[ \frac{-a}{b} = \frac{a}{-b} = -\frac{a}{b} \]
+\end{teo}
+\begin{dem}
+    Para a primeira igualdade temos $\frac{-a}{b} = \frac{a}{-b} \iff (-a)(-b) = ba$ que vale conforme \Cref{int-corol-sinalRegra2}. Para mostrar a segunda igualdade, consideremos o número racional $\frac{a}{b}$. Ele é simétrico aditivo de $-\frac{a}{b}$, pois a soma é comutativa. Vejamos que ele também é simétrico aditivo de $\frac{-a}{b}$, pois vale que $\frac{-a}{b} + \frac{a}{b} = \frac{(-a)b + ba}{bb} = \frac{ab - ab}{bb}$, pela \Cref{int-prop-sinalRegra1}
+\end{dem}
+\begin{corol}\label{rac-corol-escolhaDenominador}
+    Qualquer que seja o número racional $\frac{a}{b}$, é sempre possível escolher uma representação $\frac{c}{d}$, de tal modo que $\frac{a}{b} = \frac{c}{d}$ com $d > 0$.
+\end{corol}
+\begin{dem}
+    A primeira igualdade do \Cref{rac-teo-fracSinais} diz que $\frac{-a}{b} = \frac{a}{-b}$. Os denominadores são $b$ e $-b$, ambos não nulos, logo pelo \Cref{int-corol-numeroOuSimetricoPositivo}, ao menos um deles é positivo.
+\end{dem}
+
+\begin{defi}\label{rac-def-relOrdem}
+    Sejam $\frac{a}{b}$ e $\frac{c}{d}$ números racionais quaisquer, sendo $b$ e $d$ inteiros positivos. A relação de ordem $\leq$ entre $\frac{a}{b}$ e $\frac{c}{d}$ será denotada por $\frac{a}{b} \leq \frac{c}{d}$ para indicar que $ad \leq bc$ e diremos que $\frac{a}{b}$ é menor do que ou igual a $\frac{c}{d}$. 
 \end{defi}
 \begin{obs}
-    Deve ser notado que a última desigualdade da definição, bem como seu produto são em \Z.
+    Deve ser notado que a última desigualdade da definição, bem como seu produto são em $\mathbb{Z}$.
 \end{obs}
-\begin{prop}
-    A relação de ordem está bem definida. \todo{Isso está incompleto} \\
-    vi a demosntracao nesse site \url{https://math.stackexchange.com/questions/4626648/proving-order-is-well-defined-on-mathbbq}\\
-    O problema é que eu não achei legal em vários lugares já supor que os denominadores são positivos.
-    Isto é, sejam $\frac{a}{b} = \frac{a'}{b'}$ e $\frac{c}{d} = \frac{c'}{d'}$. Ainda, suponha que $\frac{a}{b} \leq \frac{c}{d}$. Então 
-    $\frac{a'}{b'} = \frac{c'}{d'}$.
+
+Vamos fazer agora a análise que comentamos no início da seção. Quando definimos a relação de ordem em $\mathbb{Z}$, podíamos utilizar qualquer representante da classe. Aqui nos racionais por outro lado, devemos restringir que os denominador sejam positivos.
+
+\begin{afi}
+    A \Cref{rac-def-relOrdem} não pode ser enfraquecida apenas retirando a obrigatoriedade dos denominadores serem positivos.
+\end{afi}
+
+\begin{dem}
+    Observemos que o racional nulo pode ser representado das seguintes maneiras: $\frac{0}{1} = \frac{0}{-1}$ uma vez que $0 \cdot (-1) = 1 \cdot 0$.
+    Seja $\frac{0}{1} \leq \frac{a}{b}$, temos $0b \leq 1a$. Por outro lado, de $\frac{0}{-1} \leq \frac{a}{b}$ temos $0b \leq -1a$ 
+    daí pelo \Cref{int-corol-numeroOuSimetricoPositivo} temos $a \leq 0$. Note que não fizemos nenhuma suposição sobre $a \in \mathbb{Z}$. Assim, o mesmo método que diz $a \leq 0$ também diz que $0 \leq a$, o que é uma contradição.
+\end{dem}
+
+Com isso a relação de ordem fica mais limitada no que diz respeito a escolhermos elementos para trabalhar com ela, pois agora não podemos trabalhar na relação de ordem com denominadores negativos. Por outro lado, como o denominador ser negativo ou positivo é uma questão apenas de representação do número e não do número em si, isso não danifica o caráter da relação de ordem, que é a de ordenar números e não suas representações. 
+
+Devemos notar também que as operações de adição e multiplicação são independentes de representação, ou seja, podemos calcular uma soma ou produto sem receio de usar denominadores negativos, embora o denominador zero não possa ser utilizado, porque não é tanto questão de representação, mas começa a se configurar mais com o conceito de número, e o número precisa ter um denominador não negativo.
+
+\begin{prop}\label{rac-prop-relOrdemBemDef}
+    A relação de ordem está bem definida, isto é, sejam $\frac{a}{b} = \frac{a'}{b'}$ e $\frac{c}{d} = \frac{c'}{d'}$ com 
+    $\frac{a}{b} \leq \frac{c}{d}$ e com $b,b',d,d' > 0$. Vale que $\frac{a'}{b'} = \frac{c'}{d'}$.
 \end{prop}
 \begin{dem}
     Das hipóteses temos: \\
-    $ab' = ba'$, $cd' = dc'$ e $ad \leq bc \iff 0 \leq bc-ad$ 
-    Temos que: 
+    \[ ab' = ba',\ cd' = dc', \] 
+    \[ ad \leq bc \iff 0 \leq bc-ad \]
+    Consideremos a expressão $(b'c'-a'd')bd$, temos: 
+    \[ (b'c'-a'd')bd = \]
     \[ (c'b'-a'd')bd = \]
     \[ c'b'bd - a'd'bd = \]
+    \[ dc'bb' - ba'dd' = \]
     \[ cd'b'b - ab'd'd = \]
     \[ (bc-ad) b'd' \]
 
-    Assim, 
-    \[ (b'c'-a'd')(bd)(b'd')(bd) =\]
-    \[ (bc-ad)(b'd')(b'd')(bd) \]
+    Então concluímos que, 
+    \[ (b'c'-a'd')bd = (bc-ad) b'd' \]
 
-    Agora vamos fazer considerações à respeito da relação ordem e dos sinais. \\
-    Temos $0 \leq (bc-ad)$ por hipótese.
-    Observando a expressão $(bc-ad)bd$, ela será positiva se $b$ e $d$ tiverem o mesmo sinal, e será negativa caso contrário. Por outro lado, um número multiplicado por ele mesmo sempre será positivo. \\
-    Consideremos o primeiro caso, suponhamos que $b,d$ tenham o mesmo sinal, desse modo
-    \[ (b'c'-a'd')(bd)(b'd')(bd) = (bc-ad)bd(b'd')(b'd') > 0 \]
-    e 
-    \[ (b'c'-a'd')b'd' > 0 \].
+    Devemos observar que $0 < bd$, pois $b$ e $d$ são positivos por hipótese. Como o lado direito da igualdade é não negativo, pois 
+    tanto $bc-ad$ quando $b'd'$ não são negativos, e o produto é compatível com a relação de ordem. Assim conclímos que o lado esquerdo também não é negativo, logo $b'c'-a'd'$ deve ser não negativo, o que nos dá:
+    \[ 0 \leq b'c'-a'd' \iff a'd' \leq b'c' \iff \frac{a'}{b'} \leq \frac{c'}{d'}\]
+    % \[ (b'c'-a'd')(bd)(b'd')(bd) = (bc-ad)(b'd')(b'd')(bd) \]
+
+    % Agora vamos fazer considerações à respeito da relação ordem e dos sinais. \\
+    % Temos $0 \leq (bc-ad)$ consequência direta da hipótese. Utilizando a compatibilidade do produto com a relação de ordem em $\mathbb{Z}$, e
+    % considerando o membro direito da última equação e observando a expressão $(bc-ad)bd$, ela é positiva pois $b$ e $d$ tem o mesmo sinal, ambos positivos, por hipótese. Também será positivo $(b'd') \cdot (b'd')$, conforme \Cref{int-prop-quadradoPositivo}. \\
+    % Consideremos o primeiro caso, suponhamos que $b,d$ tenham o mesmo sinal, desse modo
+    % \[ (b'c'-a'd')(bd)(b'd')(bd) = (bc-ad)bd(b'd')(b'd') > 0 \]
+    % e 
+    % \[ (b'c'-a'd')b'd' > 0 \].
     
     
     % Se $(bc-ad)bd \geq 0$ então \\
@@ -204,21 +239,21 @@ Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6
     
 \end{dem}
 
-\begin{prop}
-    Dado um número racional $\frac{a}{b}$, é sempre possível encontrar esse número com denominador positivo.
-\end{prop}
-\begin{dem}
-    Seja então $b \leq 0$, tem-se que $\frac{a}{b} = \frac{-a}{-b}$ pois $a \cdot (-b) = b \cdot (-a)$, assim, $-b \geq 0$.
-\end{dem}
+% \begin{prop}
+%     Dado um número racional $\frac{a}{b}$, é sempre possível encontrar esse número com denominador positivo.
+% \end{prop}
+% \begin{dem}
+%     Seja $b \leq 0$, tem-se que $\frac{a}{b} = \frac{-a}{-b}$ pois $a \cdot (-b) = b \cdot (-a)$, assim, $-b \geq 0$.
+% \end{dem}
 
-\begin{prop}
-    Se um número racional $\frac{a}{b} > \frac{0}{1}$, e $b > 0$, então $a > 0$.
-\end{prop}
-\begin{dem}
-    Temos $0b < a$.
-\end{dem}
+% \begin{prop}
+%     Se um número racional $\frac{a}{b} > \frac{0}{1}$, e $b > 0$, então $a > 0$.
+% \end{prop}
+% \begin{dem}
+%     Temos $0b < a$.
+% \end{dem}
 
-\begin{prop}{Relação de ordem}
+\begin{prop}{A relação de ordem no conjunto dos números racionais tem as seguintes propriedades:}\label{rac-prop-relOrdem}
     \begin{enumerate}[label=(\roman*)]
         \item Reflexiva:
         \item Antissimétrica:
@@ -233,18 +268,18 @@ Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6
     Sejam $\frac{a}{b}, \frac{c}{d}, \frac{e}{f}$ números racionais quaisquer tais que $b,d,f > 0$.
     \begin{enumerate}[label=(\roman*)]
         \item Reflexiva, pois $\frac{a}{b} \leq \frac{a}{b} \iff ab \leq ba$.
-        \item Antissimétrica, pois se $\frac{a}{b} \leq \frac{c}{d} \iff ad \leq bc$. Por outro lado, $\frac{c}{d} \leq \frac{a}{b} \iff cb \leq da$. Pela antissimetria de $\leq$ em \Z, concluímos que $\frac{a}{b} = \frac{c}{d}$.
+        \item Antissimétrica, pois se $\frac{a}{b} \leq \frac{c}{d} \iff ad \leq bc$. Por outro lado, $\frac{c}{d} \leq \frac{a}{b} \iff cb \leq da$. Pela antissimetria de $\leq$ em $\mathbb{Z}$, concluímos que $\frac{a}{b} = \frac{c}{d}$.
         \item Transitiva: \\
-        $\frac{a}{b} \leq \frac{c}{d} \iff ad \leq bc$. \\
-        $\frac{c}{d} \leq \frac{e}{f} \iff cf \leq de$. \\
-        Pela compatibilidade do produto em \Z, temos: \\
+        \[ \frac{a}{b} \leq \frac{c}{d} \iff ad \leq bc. \]
+        \[ \frac{c}{d} \leq \frac{e}{f} \iff cf \leq de \]
+        Pela compatibilidade do produto em $\mathbb{Z}$, temos: \\
         $adf \leq bcf$ e $bcf \leq bde$, assim $adf \leq bde$.
         Logo $af \leq be \therefore \frac{a}{b} \leq \frac{e}{f}$.
         
         \item Totalidade:
         Temos que $\frac{a}{b} \leq \frac{c}{d} \iff ad \leq bc$. \\
         Também, $\frac{c}{d} \leq \frac{a}{b} \iff cb \leq da$. \\
-        Como a relação de ordem em \Z é total, aqui também é, como consequência.
+        Como a relação de ordem em $\mathbb{Z}$ é total, aqui também é, como consequência.
         
         \item Compatível com a adição: \\
         Temos $\frac{a}{b} \leq \frac{c}{d} \iff ad \leq bc$. As linhas abaixo são equivalentes: \\
@@ -265,10 +300,45 @@ Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6
     \end{enumerate}
 \end{dem}
 
+\begin{prop}\label{rac-prop-numeradorPositivo}
+    Seja $r \in \mathbb{Q}_{+}^*$. Se $r = \frac{a}{b}$ com $b > 0$ então $a > 0$.
+\end{prop}
+\begin{dem}
+    Seja $0 = \frac{0}{1}$, temos $0 < r = \frac{a}{b} \iff 0b \leq 1a \iff 0 \leq a$. \\
+    Notemos que ambos os denominadores são positivos, o que nos permite efetivamente fazer a comparação através da relação de ordem.
+\end{dem}
 
-\section{Imersão de \Z em \Q}
+\begin{prop}\label{rac-prop-produtoMaioresMaior}
+    Sejam $r,s,r',s' \in \mathbb{Q}_{+}^*$. Se $r \leq r'$ e $s \leq s'$, então $rs \leq r's'$.
+\end{prop}
+\begin{dem}
+    Sejam $r = \frac{a}{b},\ s = \frac{c}{d},\ r' = \frac{a'}{b'},\ s' = \frac{c'}{d'}$, com todos os denominadores positivos. Pela \Cref{rac-prop-numeradorPositivo}, concluímos que cada numerador também é positivo. \\
+    Temos por definição
+    \[ r \leq r' \iff ab' \leq ba' \]
+    \[ s \leq s' \iff cd' \leq dc' \]
+
+    Multiplicando os termos esquerdos das linhas acima entre si, e os termos direitos entre si, obtemos as linhas abaixo, que são equivalentes entre si:
+    \[ ab' \cdot cd' \leq ba' \cdot dc' \]
+    \[ acb'd' \leq bda'c' \]
+    \[ \frac{ac}{bd} \leq \frac{a'c'}{b'd'} \]
+    \[ \frac{a}{b} \cdot \frac{c}{d} \leq \frac{a'}{b'} \cdot \frac{c'}{d'} \]
+    \[ rs \leq r's' \]
+    
+    % \begin{equation*}
+    %     % \frac{a}{b} \frac{c}{d} = \\
+    %     \frac{ac}{bd} \leq \frac{a'c'}{b'd'} \iff \\ 
+    %     acb'd' \leq bda'c' \iff ab' \cdot cd' \leq ba' \cdot dc' \\ 
+    %     \iff ac \cdot b'd' \leq bd \cdot a'c' \iff \\
+    %     \frac{ac}{bd} \leq \frac{a'c'}{b'd'}.
+    % \end{equation*}
+        
+\end{dem}
+
+
+
+\section{Imersão de $\mathbb{Z}$ em $\mathbb{Q}$}
 \begin{teo}\label{rac-teo-imersao}
-    Seja a função $f: \Z \rightarrow \Q, f(x) \mapsto \frac{x}{1}$. Essa função tem as propriedades a seguir:
+    Seja a função $f: \mathbb{Z} \rightarrow \mathbb{Q}, f(x) \mapsto \frac{x}{1}$. Essa função tem as propriedades a seguir:
     \begin{enumerate}[label=(\roman*)]
         \item $f(a + b) = f(a) + f(b)$;
         \item $f(a \cdot b) = f(a) \cdot f(b)$;
@@ -281,6 +351,32 @@ Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6
         \item $f(a \cdot b) = \frac{ab}{1} = \frac{a}{1} \frac{b}{1} = f(a) \cdot f(b)$;
         \item Temos que $a \leq b$, assim, $\frac{a}{1} \leq \frac{b}{1} \iff a1 \leq 1b$ o que sempre ocorre, observando a hipótese.
     \end{enumerate}
+\end{dem}
+
+Na demonstração a seguir vamos utilizar as imersões pois será necessário para confirmar uma visão prática, um exemplo do que quero dizer é que $2$ é um número natural com a notação de número natural. Já $\frac{x}{2}$ é como um todo, um número racional, mas o $2$ que figura no denominador é um número inteiro com notação de número natural. Como já provamos a imersão de $\mathbb{N}$ em $\mathbb{Z}$, vamos utilizar a notação dos naturais com o sinal de $-$ quando necessário.
+
+\begin{prop}\label{rac-prop-diferencaPositiva}
+    Sejam $r,s$ números racionais positivos e distintos, tal que $s < r$. Então existe um único racional positivo $t$ onde $r = s+t$.
+\end{prop}
+\begin{dem}
+    Temos que $s<r \implies s-s < r-s \iff 0 < r-s$. Assim o elemento $r-s$ é positivo, e também $s+(r-s) = r$, dessa forma $r-s$ é um $t$ do enunciado. Para mostrar que nenhum outro $t' \neq t$ satisfaz o enunciado podemos supomos que seja verdade que $r=s+t'$ daí vem $r-s=t'$, e substituindo $r-s$ por $t$, obtemos $t = t'$. 
+\end{dem}
+
+\begin{prop}\label{rac-prop-somaEntreDobro}
+    Sejam $s, r \in \mathbb{Q}$ com $s < r$. Vale que $2s < s+r < 2r$
+\end{prop}
+\begin{dem}
+    Como $s < r$ temos que $r = s + t$, com $t$ racional positivo (\Cref{rac-prop-diferencaPositiva}).
+    O número $t$ é positivo pois $s < r \implies 0 = s-s < r-s$. Aí temos $0 < t \implies 2s < 2s+t = s+r$. E para mostrar que $s+r < 2r$, temos
+    $0 < t \implies t < t+t = 2t$, assim $t+2s < 2t+2s = 2r$. 
+\end{dem}
+
+\begin{corol}\label{rac-corol-terceiroEntreDois}
+    Entre quaisquer dois números racionais distintos há sempre algum terceiro racional entre eles. É o mesmo que dizer
+    que se $s,r \in \mathbb{Q}$ com $s<r$ então existe $t \in \mathbb{Q}$ onde $s < t < r$.
+\end{corol}
+\begin{dem}
+    Temos que $2s < s+r < 2r$ conforme \Cref{rac-prop-somaEntreDobro}, aí multiplicando por $\frac{1}{2} > 0$ obtemos $s < \frac{s+r}{2} < r$.
 \end{dem}
 
 \end{document}

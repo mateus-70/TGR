@@ -1,17 +1,17 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \chapter{O CONJUNTO DOS NÚMEROS INTEIROS}
-Neste capítulos faremos a construção dos números inteiros. A bibliografia principal continua sendo \Parencite{ferreira} e \Parencite{domingues-2009}. Será apresentado uma relação de equivalência que servirá para criar \Z. Depois definiremos uma adição e um produto que tenha algumas propriedades que já tinham em \N, isto é, queremos "estender" \ \N.
+Neste capítulos faremos a construção dos números inteiros. A bibliografia principal continua sendo \textcite{ferreira} e \textcite{domingues-2009}. Será apresentado uma relação de equivalência que servirá para criar $\mathbb{Z}$. Depois definiremos uma adição e um produto que tenha algumas propriedades que já tinham em $\mathbb{N}$, isto é, queremos "estender"  $\mathbb{N}$.
 
-Devemos observar que em \N temos que a subtração, tal como conhecemos no ensino básico, não é uma operação (no sentido da álgebra), pois a subtração não está definida para quaisquer dois elementos de \N tal que o resultado esteja em \N.
+Devemos observar que em $\mathbb{N}$ temos que a subtração, tal como conhecemos no ensino básico, não é uma operação (no sentido da álgebra), pois a subtração não está definida para quaisquer dois elementos de $\mathbb{N}$ tal que o resultado esteja em $\mathbb{N}$.
 
-Com o objetivo de contornar esse problema (e portanto poder recriar a subtração como no ensino básico, em que ela seja uma operação sobre um conjunto), iremos criar um novo conjunto a partir de \N. Veremos que isso é possível, tal conjunto será denotado por \Z e chamaremos ele de conjunto dos \emph{números inteiros}.
+Com o objetivo de contornar esse problema (e portanto poder recriar a subtração como no ensino básico, em que ela seja uma operação sobre um conjunto), iremos criar um novo conjunto a partir de $\mathbb{N}$. Veremos que isso é possível, tal conjunto será denotado por $\mathbb{Z}$ e chamaremos ele de conjunto dos \emph{números inteiros}.
 
 Nos números naturais, poderíamos ter definido uma função que tivesse o intuito de fazer o inverso da soma, que seria a subtração denotada por "$-$". Seguindo esse raciocínio poderíamos mostrar que $9-3 = 8-2 = 7-1$. Concluiríamos com base nessas igualdades, que $9 + 2 = 8 + 3$ e $8 + 1 = 7 + 2$, o que em ambos os casos, os resultados são números naturais. 
 
-Além disso, queremos expressar um número inteiro apenas com números naturais, sem ter que assumir mais que \N, a lógica e a teoria de conjuntos que já foram assumidas. Além disso, tentar dar significado à expressões do tipo $3-5, 4-8, 2-3$ que nesses exemplos não são números naturais.
+Além disso, queremos expressar um número inteiro apenas com números naturais, sem ter que assumir mais que $\mathbb{N}$, a lógica e a teoria de conjuntos que já foram assumidas. Além disso, tentar dar significado à expressões do tipo $3-5, 4-8, 2-3$ que nesses exemplos não são números naturais.
 
-A maneira como expressaremos será através de uma relação binária $\sim$ sobre $\N \times \N$ definida desse modo: $(a,b) \sim (c,d) \iff a+d = b+c$, sendo $a,b,c,d$ números naturais quaisquer.
+A maneira como expressaremos será através de uma relação binária $\sim$ sobre $\mathbb{N} \times \mathbb{N}$ definida desse modo: $(a,b) \sim (c,d) \iff a+d = b+c$, sendo $a,b,c,d$ números naturais quaisquer.
 \begin{teo}
     A relação $\sim$ é de equivalência.
 \end{teo}
@@ -28,30 +28,30 @@ A maneira como expressaremos será através de uma relação binária $\sim$ sob
     \end{enumerate}
 \end{dem}
 \begin{defi}\label{int-def-conjNum}
-    O conjunto quociente $\N \times \N / \sim = \{ \overline{(a,b)}: (a,b) \in \N \times \N\}$ será chamado de $\emph{conjunto dos números inteiros}$ e será denotado, conforme já anunciado, por \Z.
+    O conjunto quociente $\mathbb{N} \times \mathbb{N} / \sim = \{ \overline{(a,b)}: (a,b) \in \mathbb{N} \times \mathbb{N}\}$ será chamado de $\emph{conjunto dos números inteiros}$ e será denotado, conforme já anunciado, por $\mathbb{Z}$.
 \end{defi}
-A \Cref{agb-def-conjQuoc} define conjunto quociente. Um exemplo de elemento de \Z é $\overline{(1,5)} = \overline{(2,6)} = \overline{(3,7)}$, em que cada representante da classe, a saber, $(1,5), (2,6) e (3,7)$ representa o mesmo número inteiro (a mesma classe de equivalência). Embora essa não seja uma notação comum de ser utilizada fora da criação dos conjuntos numéricos (porque o objetivo de usar pares ordenados, classes de equivalência, etc. não é facilitar o manuseio de \Z, mas sim formalizar esse conjunto, com suas operações e relações como conhecemos). Enquanto escrevemos normalmente o número inteiro $(5,1)$ por $4$, escrevemos o número $(1,5)$ por $-4$.
+A \Cref{agb-def-conjQuoc} define conjunto quociente. Um exemplo de elemento de $\mathbb{Z}$ é $\overline{(1,5)} = \overline{(2,6)} = \overline{(3,7)}$, em que cada representante da classe, a saber, $(1,5), (2,6) e (3,7)$ representa o mesmo número inteiro (a mesma classe de equivalência). Embora essa não seja uma notação comum de ser utilizada fora da criação dos conjuntos numéricos (porque o objetivo de usar pares ordenados, classes de equivalência, etc. não é facilitar o manuseio de $\mathbb{Z}$, mas sim formalizar esse conjunto, com suas operações e relações como conhecemos). Enquanto escrevemos normalmente o número inteiro $(5,1)$ por $4$, escrevemos o número $(1,5)$ por $-4$.
 
 \begin{obs}
-    Utilizaremos a mesma notação para adição e multiplicação de números inteiros, que utilizamos nos números naturais. Inicialmente para o desenvolvimento do texto, sempre que $a,b \in \N$ entenderemos a soma $a+b$ como sendo executada em \N. Caso $a,b \in \Z$ entenderemos a soma $a+b$ sendo executada em \Z. Posteriormente justificaremos a escolha de utilizar os mesmos símbolos sendo que os conjuntos são diferentes. Isso se repetirá com a multiplicação e coma a relação de ordem. Quando $a \in N$ e $b \in Z$, entendemos a soma $a + b$ como $f(a) + b$ em que $f(a) \in \Z$, sendo $f$ a função do \Cref{int-teo-imersao}.
+    Utilizaremos a mesma notação para adição e multiplicação de números inteiros, que utilizamos nos números naturais. Inicialmente para o desenvolvimento do texto, sempre que $a,b \in \mathbb{N}$ entenderemos a soma $a+b$ como sendo executada em $\mathbb{N}$. Caso $a,b \in \mathbb{Z}$ entenderemos a soma $a+b$ sendo executada em $\mathbb{Z}$. Posteriormente justificaremos a escolha de utilizar os mesmos símbolos sendo que os conjuntos são diferentes. Isso se repetirá com a multiplicação e coma a relação de ordem. Quando $a \in N$ e $b \in Z$, entendemos a soma $a + b$ como $f(a) + b$ em que $f(a) \in \mathbb{Z}$, sendo $f$ a função do \Cref{int-teo-imersao}.
 \end{obs}
 
-Com essa definição de número inteiro podemos interpretar, a nível de ensino básico, que o número $\overline{(a,b)}$ é $a - b$. Embora caso fôssemos definir subtração em \N, ela não seria uma operação, pois estaria definida apenas quando $a > b$.
+Com essa definição de número inteiro podemos interpretar, a nível de ensino básico, que o número $\overline{(a,b)}$ é $a - b$. Embora caso fôssemos definir subtração em $\mathbb{N}$, ela não seria uma operação, pois estaria definida apenas quando $a > b$.
 
-\begin{prop}
-    Se $a,b,c \in \N$ vale que: $\overline{(a+c,b+c)} = \overline{(a,b)}$.
+\begin{prop}\label{int-prop-cancelaCoordenadas}
+    Se $a,b,c \in \mathbb{N}$ vale que: $\overline{(a+c,b+c)} = \overline{(a,b)}$.
 \end{prop}
 \begin{dem}
     A demonstração é imediata, vemos que os elementos (os pares ordenados) representam a mesmo conjunto pois $a+c+b = b+c+a$.
 \end{dem}
 
-\section{A adição em \Z}
-Tínhamos a adição em \N. Vamos definir uma adição em \Z, mantendo algumas propriedades da adição em \N.
-\begin{defi}
-    Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em \Z, definimos a adição $\overline{(a,b)} + \overline{(c,d)}$ pelo número $\overline{(a+c, b+d)}$.
+\section{A adição em $\mathbb{Z}$}
+Tínhamos a adição em $\mathbb{N}$. Vamos definir uma adição em $\mathbb{Z}$, mantendo algumas propriedades da adição em $\mathbb{N}$.
+\begin{defi}\label{int-def-adicao}
+    Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em $\mathbb{Z}$, definimos a adição $\overline{(a,b)} + \overline{(c,d)}$ pelo número $\overline{(a+c, b+d)}$.
 \end{defi}
 \begin{prop}
-    A operação de adição está bem definida em \Z. Isto é, a adição em \Z não depende do representante das classes envolvidas na adição. Podemos expressar isso assim também: $a,a',b,b',c,c',d,d' \in \N$, $\overline{(a,b)} = \overline{(a',b')} \land \overline{(c,d)} = \overline{(c',d')}
+    A operação de adição está bem definida em $\mathbb{Z}$. Isto é, a adição em $\mathbb{Z}$ não depende do representante das classes envolvidas na adição. Podemos expressar isso assim também: $a,a',b,b',c,c',d,d' \in \mathbb{N}$, $\overline{(a,b)} = \overline{(a',b')} \land \overline{(c,d)} = \overline{(c',d')}
     \implies \overline{(a,b)} + \overline{(c,d)} = \overline{(a',b')} + \overline{(c',d')} $.
 \end{prop}
 \begin{dem}
@@ -82,10 +82,10 @@ Tínhamos a adição em \N. Vamos definir uma adição em \Z, mantendo algumas p
 \end{prop}
 
 \begin{dem}
-    Explicitamos que entendemos $a,b,c,d,e,f$ como números naturais, o que é devido à \cref{int-def-conjNum}.
+    Explicitamos que entendemos $a,b,c,d,e,f$ como números naturais, o que é devido à \Cref{int-def-conjNum}.
     \begin{enumerate}[label=(\roman*)]
-        \item Fechamento: $\overline{(a,b)} + \overline{(c,d)} \in \Z$:
-        Essa é imediata pois $a+c \in \N \land b+d \in \N \implies \overline{(a+c,b+d)} \in \Z$.
+        \item Fechamento: $\overline{(a,b)} + \overline{(c,d)} \in \mathbb{Z}$:
+        Essa é imediata pois $a+c \in \mathbb{N} \land b+d \in \mathbb{N} \implies \overline{(a+c,b+d)} \in \mathbb{Z}$.
 
         \item Associativa: 
         $\left(\overline{(a,b)} + \overline{(c,d)}\right) +  \overline{(e,f)} =
@@ -94,14 +94,14 @@ Tínhamos a adição em \N. Vamos definir uma adição em \Z, mantendo algumas p
        
         \item Comutativa: $\overline{(a,b)} + \overline{(c,d)} = \overline{(a+c,b+d)} = \overline{(c+a,d+b)} = \overline{(c,d)} + \overline{(a,b)}$;
        
-        \item Elemento neutro: $\exists! x \in \Z : x + \overline{(a,b)} = \overline{(a,b)} + x = \overline{(a,b)}$; \\
+        \item Elemento neutro: $\exists! x \in \mathbb{Z} : x + \overline{(a,b)} = \overline{(a,b)} + x = \overline{(a,b)}$; \\
         Consideremos $\overline{(1,1)}$, vamos mostrar que ele o $x$ acima. 
         Provaremos que é neutro pela esquerda. Temos que $\overline{(1,1)} + \overline{(a,b)} = \overline{(1+a,1+b)}$. Provemos que $\overline{(1+a,1+b)} \sim \overline{(a,b)}$.
-        Temos então que $(1+a)+b = (1+b)+a$, o que sempre ocorre, portanto $\overline{(1,1)}$ é neutro pela esquerda. Analogamente prova-se que é pela direita, e além disso, todo elemento neutro para uma operação é único, conforme o \cref{agb-neutro-unico}, o que conclui nossa prova. Denotaremos o elemento neutro da adição de $0$ e chamaremos de zero.
+        Temos então que $(1+a)+b = (1+b)+a$, o que sempre ocorre, portanto $\overline{(1,1)}$ é neutro pela esquerda. Analogamente prova-se que é pela direita, e além disso, todo elemento neutro para uma operação é único, conforme o \Cref{agb-neutro-unico}, o que conclui nossa prova. Denotaremos o elemento neutro da adição de $0$ e chamaremos de zero.
        
-        \item Simétrico: $(\forall x \in \Z) (\exists!y \in \Z) : x + y = y + x  = 0$; \\
+        \item Simétrico: $(\forall x \in \mathbb{Z}) (\exists!y \in \mathbb{Z}) : x + y = y + x  = 0$; \\
         A comutatividade nós já temos, basta provar que $x + y = 0$.
-        Consideremos então $x = \overline{(a,b)}$, mostraremos que $y = \overline{(b,a)}$ é tal que $\overline{(a,b)} + \overline{(b,a)} = \overline{(1,1)}$. Temos que $\overline{(a+b,b+a)} = \overline{(1,1)}$ porque $a+b+1 = b+a+1$, o que sempre ocorre. Pelo \cref{agb-teo-simetricoUnico} concluímos também que esse simétrico é único.
+        Consideremos então $x = \overline{(a,b)}$, mostraremos que $y = \overline{(b,a)}$ é tal que $\overline{(a,b)} + \overline{(b,a)} = \overline{(1,1)}$. Temos que $\overline{(a+b,b+a)} = \overline{(1,1)}$ porque $a+b+1 = b+a+1$, o que sempre ocorre. Pelo \Cref{agb-teo-simetricoUnico} concluímos também que esse simétrico é único.
        
         \item Lei do cancelamento: $\overline{(a,b)} + \overline{(c,d)} = \overline{(a,b)} + \overline{(e,f)} \implies \overline{(c,d)} = \overline{(e,f)}$.
         Temos $\overline{(a,b)} + \overline{(c,d)} = \overline{(a,b)} + \overline{(e,f)} \iff \overline{(a+c,b+d)} = \overline{(a+e,b+f)} \iff (a+c)+(b+f)=(b+d)+(a+e) \iff c+f = d+e \iff \overline{(c,d)} = \overline{(e,f)}$. A comutatividade garante a lei do cancelamento à esquerda e à direita.
@@ -110,14 +110,16 @@ Tínhamos a adição em \N. Vamos definir uma adição em \Z, mantendo algumas p
     \end{enumerate}
 \end{dem}
 
-Com essas propriedades, podemos ver que a comutatividade, associatividade e fechamento são mantidos, com a diferença que agora trabalhamos com números inteiros e não naturais. Indo além, é possível ver que o elemento neutro da soma e o simétrico surgem naturalmente, embora não possamos dizer que o neutro em \Z é $(0,0)$, pois nenhuma das coordenadas desse par ordenado são números naturais, não obstante qualquer $a \in \N$ temos que $(a,a) = 0 \in \Z$. Também temos agora um simétrico para a soma, o que em \N não tem análogo. Por último, observando a \cref{agb-def-operacao} concluímos que a adição é uma função.
 
-Com relação ao elemento simétrico da soma, como ele sempre existe e é único, denotamos o simétrico de $a \in \Z$ por $-a$. Agora podemos definir a subtração em \Z de uma maneira relativamente simples.
 
-\begin{defi}
-    Sejam $a,b \in \Z$. A subtração de $a$ por $b$, denotada $a - b$ é definida como $a + (-b)$, onde $-b$ é o simétrico de $b$.
+Com essas propriedades, podemos ver que a comutatividade, associatividade e fechamento são mantidos, com a diferença que agora trabalhamos com números inteiros e não naturais. Indo além, é possível ver que o elemento neutro da soma e o simétrico surgem naturalmente, embora não possamos dizer que o neutro em $\mathbb{Z}$ é $(0,0)$, pois nenhuma das coordenadas desse par ordenado são números naturais, não obstante qualquer $a \in \mathbb{N}$ temos que $(a,a) = 0 \in \mathbb{Z}$. Também temos agora um simétrico para a soma, o que em $\mathbb{N}$ não tem análogo. Por último, observando a \Cref{agb-def-operacao} concluímos que a adição é uma função.
+
+Com relação ao elemento simétrico da soma, como ele sempre existe e é único, denotamos o simétrico de $a \in \mathbb{Z}$ por $-a$. Agora podemos definir a subtração em $\mathbb{Z}$ de uma maneira relativamente simples.
+
+\begin{defi}\label{int-def-subtracao}
+    Sejam $a,b \in \mathbb{Z}$. A subtração de $a$ por $b$, denotada $a - b$ é definida como $a + (-b)$, onde $-b$ é o simétrico de $b$.
 \end{defi}
-\begin{prop} Sejam $a,b \in \Z$, são válidas as seguintes propriedades:
+\begin{prop} Sejam $a,b \in \mathbb{Z}$, são válidas as seguintes propriedades:
     \begin{enumerate}[label=(\roman*)]
         \item $-a + b = b - a$;
         \item $a - ( - b) = a+b$;
@@ -127,21 +129,21 @@ Com relação ao elemento simétrico da soma, como ele sempre existe e é único
 \begin{dem}
         \begin{enumerate}[label=(\roman*)]
         \item $-a + b = b - a$, pois $(-a) + b = b + (-a) = b-a$;
-        \item $a - ( - b) = a+b$, pois $-(-b) = b$, pela \cref{agb-prop-simetricoSimetrico};
+        \item $a - ( - b) = a+b$, pois $-(-b) = b$, pela \Cref{agb-prop-simetricoSimetrico};
         \item $-a-b = -(a+b)$, pois como a adição é função, podemos somar $(a+b)$ em ambos os lados da igualdade, temos
         $(a+b)+(-a)+(-b) = -(a+b) + (a+b) = 0 \iff a+(-a) + b+(-b) = 0$, o que sempre ocorre.
     \end{enumerate}
 \end{dem}
 
-\section{A multiplicação em \Z}
-Agora vamos definir uma multiplicação em \Z, podemos entender a multiplicação em \Z como tentativa de estensão de \N, assim várias propriedades queremos que sejam mantidas. Veremos que isso ocorrerá.
-\begin{defi}
-    Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em \Z, definimos a multiplicação $\overline{(a,b)} \cdot \overline{(c,d)}$ pelo número $\overline{(a \cdot c + b \cdot d, a \cdot d + b \cdot c)}$.
+\section{A multiplicação em $\mathbb{Z}$}
+Agora vamos definir uma multiplicação em $\mathbb{Z}$, podemos entender a multiplicação em $\mathbb{Z}$ como tentativa de estensão de $\mathbb{N}$, assim várias propriedades queremos que sejam mantidas. Veremos que isso ocorrerá.
+\begin{defi}\label{int-def-multiplicacao}
+    Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em $\mathbb{Z}$, definimos a multiplicação $\overline{(a,b)} \cdot \overline{(c,d)}$ pelo número $\overline{(a \cdot c + b \cdot d, a \cdot d + b \cdot c)}$.
 \end{defi}
 Podemos observar a título de intuição que, se as primeiras coordenadas representam a parte "positiva" do número e as segundas coordenadas a parte negativa, a multiplicação de dois positivos é positiva, e a multiplicação de dois negativos é positiva, então esses resultados ficam na primeira coordenada. Semelhantemente, quando um é positivo e outro negativo, o resultado fica negativo, e assim fica na segunda coordenada.
 \begin{teo}
-    A operação de multiplicação está bem definida em \Z. Isto é, a multiplicação em \Z não depende do representante das classes envolvidas na multiplicação. Equivale a dizer que, se \\
-    $a,a',b,b',c,c',d,d' \in \N \land \overline{(a,b)} = \overline{(a',b')} \land \overline{(c,d)} = \overline{(c',d')}
+    A operação de multiplicação está bem definida em $\mathbb{Z}$. Isto é, a multiplicação em $\mathbb{Z}$ não depende do representante das classes envolvidas na multiplicação. Equivale a dizer que, se \\
+    $a,a',b,b',c,c',d,d' \in \mathbb{N} \land \overline{(a,b)} = \overline{(a',b')} \land \overline{(c,d)} = \overline{(c',d')}
     \implies \overline{(a,b)} \cdot \overline{(c,d)} = \overline{(a',b')} \cdot \overline{(c',d')} $.
 \end{teo}
 \begin{dem}
@@ -184,7 +186,7 @@ Podemos observar a título de intuição que, se as primeiras coordenadas repres
     Entendemos $a,b,c,d,e,f$ como números naturais, como é colocado na definição.
     \begin{enumerate}[label=(\roman*)]
         \item Fechamento:
-        Temos $\overline{(a,b)} \cdot \overline{(c,d)} = \overline{(ac+bd, ad+bc)}$. Como $ac+bd \in \N$ e também $ad+bc \in \N$ temos $\overline{(ac+bd, ad+bc)} \in \Z$.
+        Temos $\overline{(a,b)} \cdot \overline{(c,d)} = \overline{(ac+bd, ad+bc)}$. Como $ac+bd \in \mathbb{N}$ e também $ad+bc \in \mathbb{N}$ temos $\overline{(ac+bd, ad+bc)} \in \mathbb{Z}$.
 
         \item Associativa: 
         \begin{align*}
@@ -203,7 +205,7 @@ Podemos observar a título de intuição que, se as primeiras coordenadas repres
         \overline{(ca+db, bc+da)} = \overline{(c,d)} \cdot \overline{(a,b)}$
             
         
-        \item Elemento neutro: Consideremos o número $\overline{(2,1)}$. Vamos mostrar que ele é neutro pela direita. Temos $\overline{(a,b)} \cdot \overline{(2,1)} = \overline{(2a+b, a+2b)} = \overline{(a,b)}$, essa última igualdade é porque $a + a + 2b = b + 2a + b$. Analogamente se mostra que é neutro pela esquerda. A unicidade é garantido pelo teorema \cref{agb-neutro-unico}.
+        \item Elemento neutro: Consideremos o número $\overline{(2,1)}$. Vamos mostrar que ele é neutro pela direita. Temos $\overline{(a,b)} \cdot \overline{(2,1)} = \overline{(2a+b, a+2b)} = \overline{(a,b)}$, essa última igualdade é porque $a + a + 2b = b + 2a + b$. Analogamente se mostra que é neutro pela esquerda. A unicidade é garantido pelo teorema \Cref{agb-neutro-unico}.
         
         \item Distributiva: primeiro vamos mostrar a distributiva à esquerda.
         \begin{align*}
@@ -213,7 +215,7 @@ Podemos observar a título de intuição que, se as primeiras coordenadas repres
             &= \overline{(ac+bd, ad+bc)} + \overline{(ae+bf, af+be)} \\
             &= \big( \overline{(a,b)} \cdot \overline{(c,d)} \big) + \big( \overline{(a,b)} \cdot \overline{(e,f)} \big)    
         \end{align*}
-        Pela comutatividade do produto em \Z e pela distributiva à esquerda, a distributiva a direita está também provada.
+        Pela comutatividade do produto em $\mathbb{Z}$ e pela distributiva à esquerda, a distributiva a direita está também provada.
 
         \item Lei do cancelamento: Por hipótese temos 
         \begin{center}
@@ -246,20 +248,27 @@ Podemos observar a título de intuição que, se as primeiras coordenadas repres
     \end{enumerate}
 \end{dem}
 
-\begin{prop}
+\begin{prop}\label{int-prop-sinalRegra1}
     Sejam $a, b$ números inteiros quaisquer. É válido que $-(ab) = a(-b) = (-a)b$.
 \end{prop}
 \begin{dem}
-    A demonstração consiste em explorar a unicidade do simétrico, conforme a \cref{agb-teo-simetricoUnico}.
+    A demonstração consiste em explorar a unicidade do simétrico, conforme a \Cref{agb-teo-simetricoUnico}.
     Vamos mostrar que $ab$ é o simétrico de todos no enunciado. Basta observar que $ab + (-ab) = 0$.
     Também vale que $ab + a(-b) = a(b+(-b)) = a0 = 0$. Por último, $ab + (-a)b = (a + (-a))b = 0b = 0$.
 \end{dem}
+\begin{corol}\label{int-corol-sinalRegra2}
+    Se $a,b \in \mathbb{Z}$, então vale $(-a)(-b) = ab$
+\end{corol}
+\begin{dem}
+    Observando a \Cref{int-prop-sinalRegra1} concluímos que vale $(-a)(-b) = -(a(-b)$, como o produto é comutativo, temos $-((-b)a) = -(-(ba))$,
+    o que, pelo \Cref{agb-prop-simetricoSimetrico} temos que $-(-(ba)) = ba = ab$.
+\end{dem}
 
-Com isso, podemos observar a \cref{agb-def-anel} e concluir que \Z com essa soma e esse produto, é um anel.
+Com isso, podemos concluir que $\mathbb{Z}$ com essa soma e esse produto, é um anel, conforme definido na \Cref{agb-def-anel}.
 
 \section{Relação de ordem}
 \begin{defi}
-    Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em \Z, definimos a relação de ordem $\leq$ e dizemos que $\overline{(a,b)}$ é menor do que ou igual a $\overline{(c,d)}$ quando $a+d \leq b+c$ e denotamos por $\overline{(a,b)} \leq \overline{(c,d)}$.
+    Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em $\mathbb{Z}$, definimos a relação de ordem $\leq$ e dizemos que $\overline{(a,b)}$ é menor do que ou igual a $\overline{(c,d)}$ quando $a+d \leq b+c$ e denotamos por $\overline{(a,b)} \leq \overline{(c,d)}$.
 \end{defi}
 
 \begin{prop}
@@ -277,7 +286,7 @@ Com isso, podemos observar a \cref{agb-def-anel} e concluir que \Z com essa soma
     \end{align*}
      
 \end{dem}
-\begin{prop}{Sejam $\overline{(a,b)}, \overline{(c,d)}, \overline{(e,f)}$ números inteiros quaisquer, para a relação de ordem valem as seguintes propriedades:}
+\begin{prop}{Sejam $\overline{(a,b)}, \overline{(c,d)}, \overline{(e,f)}$ números inteiros quaisquer, para a relação de ordem valem as seguintes propriedades:}\label{int-prop-relacaoOrdem}
     \begin{enumerate}[label=(\roman*)]
         \item Reflexiva;
         \item Antissimétrica;
@@ -297,7 +306,7 @@ Com isso, podemos observar a \cref{agb-def-anel} e concluir que \Z com essa soma
                 $\overline{(a,b)} \leq \overline{(c,d)} \myspace\land \overline{(c,d)} \leq \overline{(a,b)}$ \\
                 $a+d \leq b+c \myspace\land c+b \leq d+a$
             \end{center}
-            O que, pela antissimetria em \N temos que $a+d = c+b$, então $(a,b) \sim (c,d)$ e $\overline{(a,b)} = \overline{(c,d)} $.
+            O que, pela antissimetria em $\mathbb{N}$ temos que $a+d = c+b$, então $(a,b) \sim (c,d)$ e $\overline{(a,b)} = \overline{(c,d)} $.
         
         \item Transitiva: 
         \begin{align*}
@@ -314,7 +323,7 @@ Com isso, podemos observar a \cref{agb-def-anel} e concluir que \Z com essa soma
             \overline{(a,b)} \leq \overline{(c,d)} & \myspace\lor \overline{(c,d)} \leq \overline{(a,b)} \\ 
             a+d \leq b+c & \myspace\lor c+b \leq d+a   
         \end{align*}
-        Pela totalidade em \N temos que sempre pelo menos uma das proposições disjuntas pelo $\lor$ ocorre.
+        Pela totalidade em $\mathbb{N}$ temos que sempre pelo menos uma das proposições disjuntas pelo $\lor$ ocorre.
         
         \item Compatível com a adição: \\
         \begin{center}
@@ -371,17 +380,124 @@ Com isso, podemos observar a \cref{agb-def-anel} e concluir que \Z com essa soma
 \end{prop}
 \begin{dem}
     Vamos separar em 4 casos: \\
-    Se $\overline{(a,b)} = \overline{(c,d)}$ então $\overline{(a,b)} + 0 = \overline{(c,d)}$. \\ 
-    Se $\overline{(a,b)} < \overline{(c,d)}$, caímos na proposição anterior. \\
-    Se $\overline{(e,f)} = 0$, temos $\overline{(a,b)} + 0 = \overline{(c,d)}$. \\
-    Se $\overline{(e,f)} > 0$, caímos na proposição anteior.
+    \begin{enumerate}
+        \item Se $\overline{(a,b)} = \overline{(c,d)}$ então $\overline{(a,b)} + 0 = \overline{(c,d)}$.
+        \item Se $\overline{(a,b)} < \overline{(c,d)}$, caímos na proposição anterior.
+        \item Se $\overline{(e,f)} = 0$, temos $\overline{(a,b)} + 0 = \overline{(c,d)}$.
+        \item Se $\overline{(e,f)} > 0$, caímos na proposição anterior.
+    \end{enumerate}
+   
 \end{dem}
 
-\section{Imersão de \N em \Z}
-A imersão que trataremos a seguir justificará que utilizemos apenas um símbolo para adição, quer trabalhemos com \N, quer trabalhemos com \Z. Isso valerá também para \Q e \R também, que serão apresentados nos seus respectivos capítulos. A ideia de imersão trata de nos permitir corresponder um conjunto num outro, no caso, \N em \Z, e assim trabalhar como se \N fosse um subconjunto de \Z.
+\begin{prop}\label{int-prop-coordenadaMaior}
+    Um número inteiro é não negativo se, e somente se a primeira coordenada é maior do que ou igual a segunda coordenada. 
+    Isto é, se $\overline{(a,b)}$ é um número inteiro, então vale $0 \leq \overline{(a,b)}  \iff b \leq a$
+\end{prop}
+\begin{dem}
+    Seja $0 = \overline{(1,1)}$.
+    As linhas a seguir são equivalentes:
+    \[ 0 = \overline{(1,1)} \leq \overline{(a,b)} \]
+    \[ 1+b \leq 1+a \]
+    \[ b \leq a. \]
+\end{dem}
+
+\begin{corol}\label{int-corol-numeroOuSimetricoPositivo}
+    Dado um número inteiro, ou ele é maior do que ou igual a zero, ou seu simétrico aditivo é, ou seja
+    se $\overline{(a,b)} \in \mathbb{Z}$, então $\overline{(a,b)} \geq 0 = \overline{(1,1)}$ ou $-\overline{(a,b)} \geq 0$.
+\end{corol}
+\begin{dem}
+    Como a relação de ordem $\leq$ é total conforme a \Cref{int-prop-relacaoOrdem}, vale que $\overline{(a,b)} \leq \overline{(1,1)}$ ou $\overline{(1,1)} \leq \overline{(a,b)}$. Se $\overline{(a,b)}$ é não negativo é imediato que o corolário é válido. Já no segundo caso, 
+    de $\overline{(a,b)} \leq \overline{(1,1)}$ temos $a+1 \leq b+1 \implies a \leq b$. \\
+    Temos que o número $-\overline{(a,b)} = \overline{(b,a)} \geq \overline{(1,1)}$ pela \Cref{int-prop-coordenadaMaior}.
+\end{dem}
+
+\begin{corol}\label{int-corol-simetricoSinalTrocado}
+    Um número inteiro é não negativo se, e somente se, seu simétrico aditivo é não positivo.
+\end{corol}
+\begin{dem}
+    Pelo \Cref{int-corol-numeroOuSimetricoPositivo}, considerando um número $x$ e seu simétrico $-x$, ao menos um deles é não negativo. Caso seja $0 \leq x$ temos $0 + (-x) \leq x + (-x) \iff -x \leq 0$, assim $-x$ é não positivo. No outro caso supomos que $0 \leq -x$, daí 
+    $0 + x \leq -x + x = 0$, assim $x \leq 0$.
+\end{dem}
+
+\begin{prop}\label{int-prop-somaPositivosPositiva}
+    A soma de dois inteiros não negativos é não negativa, isto é, se $x, y \in \mathbb{Z}$ com $x,y \geq 0$ então $0 \leq x+y$.
+\end{prop}
+\begin{dem}
+    Conforme o \Cref{int-corol-simetricoSinalTrocado}, como $x,y \geq 0$ temos $-x \leq 0$ e $-y \leq 0$, como qualquer inteiro não negativo é maior do que ou igual a qualquer inteiro não positivo, temos $-y \leq +x$ e pela compatibilidade da soma com a relação de ordem, \Cref{int-prop-relacaoOrdem}, temos 
+    $-y + y \leq x + y$, desse modo $x+y \geq 0$.
+\end{dem}
+
+\begin{prop}\label{int-prop-diferencaPositiva}
+    Se $x,x' \in \mathbb{Z}$ com $x' \geq x$, então existe $y$ inteiro, onde $y \geq 0$ e $x' = x+y$.
+\end{prop}
+\begin{dem}
+    Se $x' = x$ então $y=0$.
+    Caso contrário, se $x'>x$ então considere $x = \overline{(a,b)}, x'=\overline{(a',b')}$, temos 
+    \[ x < x' \iff a+b' < b + a' \iff b+a' = a+b'+c \iff \] 
+    \[  a+c+b' = b+a' \iff (a+c,b) \sim (a',b') \text{ , com $c$ natural.} \] 
+
+    Temos também que $\overline{(a+c,b)} = \overline{(a+c+1,b+1)} = \overline{(a,b)} + \overline{(c+1, 1)}$, onde usamos a \Cref{int-def-adicao} e a \Cref{int-prop-cancelaCoordenadas}.
+
+    O número $\overline{(c+1,1)}$ é inteiro, pois suas entradas são números naturais, e é positivo pois $\overline{(1,1)} \leq \overline{(c+1,1)} 
+    \iff 1+1 \leq 1+(c+1)$, como $c$ é natural ele não pode ser zero, conforme nossa construção. Dessa forma $\overline{(c+1,1)}$ é o $y$ da proposição.
+    % O número inteiro $y = \overline{(m+1,1)}$ é tal que $y>0$ e $x' = x+ y$. Ele é positivo porque $0 = \overline{(1,1)} \leq \overline{(m+1,1)}$ uma vez que $1+1 \leq 1+(c+1)$. Ainda, $0 \neq y$ pois $c \in \mathbb{N}$ e nosso $\mathbb{N}$ não tem o zero. Agora mostremos que $x+y = x'$, temos:
+    % $x+y = \overline{(a,b)} + \overline{(c+1,1)} = \overline{(a+c+1,b+1)} = \overline{(a+c,b)}$, isso usando a \Cref{int-def-adicao} e \Cref{int-prop-cancelaCoordenadas}. 
+    % Temos também que $ a+c+b' = b+a' \iff (a+c,b) \sim (a',b')$ 
+\end{dem}
+
+\begin{prop}\label{int-prop-quadradoPositivo}
+    O quadrado de um número inteiro é um inteiro não negativo, ou seja, se $\overline{(a,b)} \in \mathbb{Z}$, então vale $0 = \overline{(1,1)} \leq \overline{(a,b)} \cdot \overline{(a,b)}$. 
+\end{prop}
+\begin{dem}
+    Temos $\overline{(a,b)} \cdot \overline{(a,b)} \iff \overline{(aa + bb, ab+ba)}$. Observando a \Cref{int-prop-coordenadaMaior}, queremos mostrar que $aa+bb \geq ab+ba$. Considerando a tricotomia de $\mathbb{N}$ (aplicada em $a$ e $b$) dada na \Cref{nat-soma-props} separaremos em 3 casos:
+    \begin{enumerate}[label=(\roman*)]
+        \item Caso $a=b$ \\
+        Temos $aa+aa \geq aa+aa$.
+
+        \item Caso $a < b$: \\
+        Temos $b = a+c$, com $c \in \mathbb{N}$ \ \footnote{Lembrando que sem o zero.} \\
+        \[ aa+bb = aa+(a+c)(a+c) = aa+aa+ac+ac+cc \] 
+        \[ ab+ba = a(a+c)+(a+c)a = aa+ac+aa+ca \]
+        Notemos que o membro da direita na penúltima linha tem o número $cc$ e na última linha não tem, assim $aa+bb \geq ab+ba$.
+
+        \item Caso $b < a$: análogo ao caso anterior\\
+        Temos $a = (b+c)$, com $c \in \mathbb{N}$
+        \[ aa+bb = (b+c)(b+c) + bb = bb+bc+cb+cc+bb \]
+        \[ ab+ba = (b+c)b+b(b+c) = bb+cb+bb+bc \]
+        Como $aa+bb = ab+ba+cc$, provamos que $aa+bb \geq ab+ba$.
+    \end{enumerate}
+\end{dem}
+
+\begin{prop}\label{int-prop-produtoPositivo}
+    O produto de dois inteiros não negativos é um número não negativo.
+\end{prop}
+\begin{dem}
+    Seja $r$ um número inteiro, tal que $0 \leq r$. Se $s \in \mathbb{Z}_{+}$, pela compatibilidade do produto com a relação de ordem \Cref{int-prop-relacaoOrdem}, temos $0 \cdot s \leq r \cdot s$, assim $0 \leq rs$.
+\end{dem}
+\begin{prop}
+    Sejam $a, b, a', b'$ números inteiros com $a \leq a'$ e $b \leq b'$. Vale que $ab \leq a'b'$.
+\end{prop}
+\begin{dem}
+    Temos $a' \geq a \iff a' = a + r$ com $r > 0$ (conforme \Cref{int-prop-diferencaPositiva}), e também $b' \geq b \iff b' = b+s$ com $s > 0$.
+    Daí temos $a'b' = (a+r)(a+s) = aa+as+ar+rs$, e cada uma dessas parcelas é não negativa, conforme a \Cref{int-prop-produtoPositivo}, assim, essa expressão da soma é não negativa (\Cref{int-prop-somaPositivosPositiva}).
+    
+\end{dem}
+
+\begin{prop}\label{int-prop-produtoMaiores}
+    Sejam $\overline{(a,b)},\ \overline{(a',b')},\ \overline{(c,d)},\ \overline{(c',d')}$ números inteiros, tais que $\overline{(a,b)} \leq \overline{(a',b')}$ e $\overline{(c,d)} \leq \overline{(c',d')}$. Vale que $\overline{(a,b)} \cdot \overline{(c,d)} \leq \overline{(a',b')}
+    \overline{(c',d')}$.
+\end{prop}
+\begin{dem}
+    \[ (ac+bd) + (a'd'+b'c') \leq (ad+bc) + (a'c' + b'd') \]
+    \[ \overline{(ac+bd, ad+bc)} \leq \overline{(a'c'+b'd', a'd'+b'c')} \]
+    \[ \overline{(a,b)} \cdot \overline{(c,d)} \leq \overline{(a',b')} \cdot \overline{(c',d')}  \]
+\end{dem}
+
+\section{Imersão de $\mathbb{N}$ em $\mathbb{Z}$}
+A imersão que trataremos a seguir justificará que utilizemos apenas um símbolo para adição, quer trabalhemos com $\mathbb{N}$, quer trabalhemos com $\mathbb{Z}$. Isso valerá também para $\mathbb{Q}$ e $\mathbb{R}$ também, que serão apresentados nos seus respectivos capítulos. A ideia de imersão trata de nos permitir corresponder um conjunto num outro, no caso, $\mathbb{N}$ em $\mathbb{Z}$, e assim trabalhar como se $\mathbb{N}$ fosse um subconjunto de $\mathbb{Z}$.
 
 \begin{teo}\label{int-teo-imersao}
-    Seja a função $f: \N \rightarrow \Z, f(x) \mapsto \overline{(x+1, 1)}$. Essa função tem as propriedades a seguir:
+    Seja a função $f: \mathbb{N} \rightarrow \mathbb{Z}, f(x) \mapsto \overline{(x+1, 1)}$. Essa função tem as propriedades a seguir:
     \begin{enumerate}[label=(\roman*)]
         \item $f(a + b) = f(a) + f(b)$;
         \item $f(a \cdot b) = f(a) \cdot f(b)$;
@@ -408,24 +524,30 @@ A imersão que trataremos a seguir justificará que utilizemos apenas um símbol
         
         \item $a \leq b \implies f(a) \leq f(b)$ \\
         Se $a=b$ então $f(a)=f(b)$ é óbvio. Suponhamos, por outro lado, $a \neq b$.
-        Então $a<b \iff b=a+m$ para algum $m \in \N$.
+        Então $a<b \iff b=a+m$ para algum $m \in \mathbb{N}$.
         Temos então $f(a) = \overline{(a+1,1)}$ e $f(b) = f(a+m) = \overline{(a+m+1,1)}$.
         Vemos que $\overline{(a+1,1)} \leq \overline{(a+m+1,1)}$ porque $a+1+1 \leq 1 + a + m + 1$.
     \end{enumerate}
 \end{dem}
 \begin{obs}
-    A partir de agora, temos a liberdade de escrever os números inteiros com a notação usual de \N, isto é $1 = \overline{(2,1)}, 2 = \overline{(3,1)}, 3 = \overline{(4,1)}$ e assim por diante, além de representar o $\overline{(1,2)} = -1,\ \overline{(1,3)} = -2,\ \overline{(4,1)} = -3$ analogamente, ad infinitum.
+    A partir de agora, temos a liberdade de escrever os números inteiros com a notação usual de $\mathbb{N}$, isto é $1 = \overline{(2,1)}, 2 = \overline{(3,1)}, 3 = \overline{(4,1)}$ e assim por diante, além de representar o $\overline{(1,2)} = -1,\ \overline{(1,3)} = -2,\ \overline{(4,1)} = -3$ analogamente, ad infinitum.
 \end{obs}
 
-A imersão de \N em \Z permite-nos interpretar \N como um subconjunto de \Z, embora pela nossa construção fique evidente que isso não ocorra, nos termos de elementos dos conjuntos. Mas, por outro lado, as operações de adição e multiplicação e a relação de ordem funcionam analogamente em \Z, ou seja, o objetivo inicial de construir mantendo certa semelhança funcionou.
+\begin{ex}\label{int-ex-imersaoProduto}
+    Considerando a imersão provada acima, podemos entender o produto $2 \cdot \overline{(a,b)}$ da seguinte forma:
+    $2 = \overline{(3,1)}$ aí $\overline{(3,1)} \cdot \overline{(a,b)} = \overline{(3a+b,3b+a)} = \overline{(2a,2b)}$.
+    Essa é a notação usual quando se trabalha com vetores onde a multiplicação por um escalar funciona da maneira usual 
+    $k \cdot \overline{(a,b)} = \overline{(ka,kb)}$ quando $k > 0$, já quando $k < 0$ precisamos inverter as coordenadas, o que não é usual.
+\end{ex}
+A imersão de $\mathbb{N}$ em $\mathbb{Z}$ permite-nos interpretar $\mathbb{N}$ como um subconjunto de $\mathbb{Z}$, embora pela nossa construção fique evidente que isso não ocorra, nos termos de elementos dos conjuntos. Mas, por outro lado, as operações de adição e multiplicação e a relação de ordem funcionam analogamente em $\mathbb{Z}$, ou seja, o objetivo inicial de construir mantendo certa semelhança funcionou.
 
-Essa é uma parte importante da construção dos números inteiros. Em geral não importa o que é um número, mas apenas o que conseguimos fazer com ele, as regras do jogo. Por outro lado, a construção do conjunto dos números inteiros mostra-nos que, se existir um conjunto \N, a lógica e a teoria de conjuntos elementar que assumimos até agora, então existe um conjunto \Z que podemos manipular com as regras mostradas.
+Essa é uma parte importante da construção dos números inteiros. Em geral não importa o que é um número, mas apenas o que conseguimos fazer com ele, as regras do jogo. Por outro lado, a construção do conjunto dos números inteiros mostra-nos que, se existir um conjunto $\mathbb{N}$, a lógica e a teoria de conjuntos elementar que assumimos até agora, então existe um conjunto $\mathbb{Z}$ que podemos manipular com as regras mostradas.
 
 Por certo ponto de vista, não interessa o que são e como são definidas as operações de soma e produto, mas, admitindo que exista um conjunto $A$ com uma operação de soma e uma operação de produto, ambas tendo certas propriedades, é possível provar teoremas sem levar em conta a \emph{natureza} dos entes matemáticos envolvidos.
 
-A construção de \Z, as apresentações e provas das proposições apresentadas caminham nesse sentido de permitir uma abstração do conjunto, para que não seja mais necessário trabalhado com pares ordenados (ainda mais sem o $0$ em \N!).
+A construção de $\mathbb{Z}$, as apresentações e provas das proposições apresentadas caminham nesse sentido de permitir uma abstração do conjunto, para que não seja mais necessário trabalhado com pares ordenados (ainda mais sem o $0$ em $\mathbb{N}$!).
 
-Poderíamos desenvolver alguns tópicos importantes levando em conta a natureza dos nossos números inteiros, que são pares ordenados. Isso é satisfatório, se conseguirmos provar o que queremos. Por outro lado, tratar com conjuntos genéricos (independente da construção utilizada) permite uma abstração e uma generalização, mostrando que certas características não dependem de um conjunto específico (no nosso caso $\N \times \N / \sim$). As abstrações permitem formar conclusões dependendo de apenas algumas caracterísitcas/propriedades do conjunto. Dessa maneira, em geral a pergunta "qual conjunto de números inteiros?" não faz sentido, pois o que nos importa é o que podemos fazer com ele, e não como ele foi construído. Isso se tornará importante na construção de \R, podendo ser feita de dois métodos que formalizam o conjunto, mas nos interessa como \R foi construído porque nosso tema é construção dos números, mas na utilização do conjunto, se for feito por séries ou por cortes de Dedekind não é relevante. 
+Poderíamos desenvolver alguns tópicos importantes levando em conta a natureza dos nossos números inteiros, que são pares ordenados. Isso é satisfatório, se conseguirmos provar o que queremos. Por outro lado, tratar com conjuntos genéricos (independente da construção utilizada) permite uma abstração e uma generalização, mostrando que certas características não dependem de um conjunto específico (no nosso caso $\mathbb{N} \times \mathbb{N} / \sim$). As abstrações permitem formar conclusões dependendo de apenas algumas caracterísitcas/propriedades do conjunto. Dessa maneira, em geral a pergunta "qual conjunto de números inteiros?" não faz sentido, pois o que nos importa é o que podemos fazer com ele, e não como ele foi construído. Isso se tornará importante na construção de $\mathbb{R}$, podendo ser feita de dois métodos que formalizam o conjunto, mas nos interessa como $\mathbb{R}$ foi construído porque nosso tema é construção dos números, mas na utilização do conjunto, se for feito por séries ou por cortes de Dedekind não é relevante. 
 
-Tá! Mas e aí, muitos números e cadê o $15$, o $35$, o $-351$? A resposta é que nesse momento não possuimos um sistema de numeração, que para ser desenvolvido precisa da divisão euclidiana. O leitor interessado em verificar o sistema de numeração para \Z pode consultar \cite{hefez-algebra}.
+Tá! Mas e aí, muitos números e cadê o $15$, o $35$, o $-351$? A resposta é que nesse momento não possuimos um sistema de numeração, que para ser desenvolvido precisa da divisão euclidiana. O leitor interessado em verificar o sistema de numeração para $\mathbb{Z}$ pode consultar \cite{hefez-algebra}.
 \end{document}
