@@ -116,7 +116,7 @@ Como exemplo, representam o mesmo número as notações a seguir: $1/2, 2/4, 3/6
 \begin{dem}
     Sejam $\frac{a}{b} = \frac{a'}{b'}$ e $\frac{c}{d} = \frac{c'}{d'}$ números racionais quaisquer. Então temos $ab' = ba'$ e $cd' = dc'$. Segue que $ab'cd' = ba'dc' \iff acb'd' = bda'c'$ então a classe $\frac{ac}{bd}$ é a mesma que classe $\frac{a'c'}{b'd'}$.
 \end{dem}
-\begin{prop}{Para a multiplicação valem as seguintes propriedades:}
+\begin{prop}{Para a multiplicação valem as seguintes propriedades:}\label{rac-prop-multiplicacao}
     \begin{enumerate}[label=(\roman*)]
         \item fechamento;
         \item associativa;
@@ -334,7 +334,13 @@ Devemos notar também que as operações de adição e multiplicação são inde
         
 \end{dem}
 
-
+\begin{prop}\label{rac-prop-solucaoAigualXB}
+    Sejam $r,s \in \mathbb{Q}$ numeros fixos quaisquer, com $s \neq 0$. A expressão\footnote{Muitas vezes é enunciada como $A=XB$.} $r = s \cdot t$ sempre é válida escolhendo $t$ adequadamente. 
+\end{prop}
+\begin{dem}
+    De $r = st$ temos 
+    \[ \frac{1}{s}\frac{r}{1} = \frac{1}{s}\frac{st}{1} \iff \frac{r}{s} = \frac{st}{s} = \frac{t}{1}. \]
+\end{dem}
 
 \section{Imersão de $\mathbb{Z}$ em $\mathbb{Q}$}
 \begin{teo}\label{rac-teo-imersao}
@@ -377,6 +383,14 @@ Na demonstração a seguir vamos utilizar as imersões pois será necessário pa
 \end{corol}
 \begin{dem}
     Temos que $2s < s+r < 2r$ conforme \Cref{rac-prop-somaEntreDobro}, aí multiplicando por $\frac{1}{2} > 0$ obtemos $s < \frac{s+r}{2} < r$.
+\end{dem}
+
+\begin{teo}\label{rac-teo-ilimitadoSuperiormente}
+    O conjunto $\mathbb{N}$ não é limitado superiormente em $\mathbb{Q}$.
+\end{teo}
+\begin{dem}
+    \todo{demonstrar}
+    .
 \end{dem}
 
 \end{document}

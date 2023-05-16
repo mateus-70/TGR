@@ -294,11 +294,30 @@ Deixemos claro que o nome de soma e de multiplicação não agregam em nada como
 \end{defi}
 
 A definição acima nos permite a definição a seguir.
-\begin{defi}
+\begin{defi}\label{agb-def-compativelMultiplicacao}
     Seja $A$ um conjunto parcialmente ordenado pela relação $\leq$. Sejam $a,b,c \in A$, em que $c$ é um número positivo. Seja também $\cdot$ uma multiplicação sobre $A$.
     Dizemos que $\leq$ é \emph{compatível com a multiplicação} quando 
     \[ a \leq b \implies ac \leq bc. \]
 \end{defi}
+
+\begin{defi}\label{agb-def-limiteSup}
+    Sejam $A$ um conjunto parcialmente ordenado pela relação $\leq$, e $\emptyset \neq X \subset A$. Um elemento $L \in A$ é cota superior de $X$ quando para qualquer $x \in  X$ temos $x \leq L$.
+\end{defi}
+\begin{defi}
+    Sejam $A$ um conjunto parcialmente ordenado pela relação $\leq$, e $\emptyset \neq X \subset A$. Um elemento $l \in A$ é cota inferior de $X$ quando para qualquer $x \in  X$ temos $l \leq x$.
+\end{defi}
+
+Existem conjuntos que não são limitados nem superiormente, nem inferiormente. Vamos explorar isso \todo{Provar que N , Z e Q nao sao limitados}.
+
+\begin{defi}\label{agb-def-maximo}
+    Seja $A$ um conjunto parcialmente ordenado pela relação $\leq$. Dizemos que um elemento $M$ é máximo de $A$ caso ele pertença a $A$ e também seja uma cota superior de $A$.
+\end{defi}
+
+\begin{defi}\label{agb-def-minimo}
+    Seja $A$ um conjunto parcialmente ordenado pela relação $\leq$. Dizemos que um elemento $m$ é máximo de $A$ caso ele pertença a $A$ e também seja uma cota inferior de $A$.
+\end{defi}
+
+
 
 \begin{defi}\label{agb-def-anel}
     Seja $A$ um conjunto, e sejam $+, \cdot$ duas operações sobre $A$, chamadas de adição e multiplicação. Dizemos que $(A, +, \cdot)$ é um anel se são válidas as propriedades:
@@ -324,24 +343,22 @@ A definição acima nos permite a definição a seguir.
 \end{obs}
 
 
-\begin{prop}
+\begin{prop}\label{agb-prop-anulamentoProdutoCom0}
     Seja $A$ um anel. Então para qualquer $a \in A$ vale que $a \cdot 0 = 0 = 0 \cdot a$.
 \end{prop}
 \begin{dem}
  Temos que as seguintes igualdades são válidas: $a \cdot 0+0 = a \cdot 0 = a \cdot (0+0) = a \cdot 0+a \cdot 0$. Assim $a \cdot 0+0 = a \cdot 0+a \cdot 0$ e pela lei do cancelamento, $0=a \cdot 0$. Ainda, como o produto é comutativo, vale $a \cdot 0=0 \cdot a$.
 \end{dem}
 
-\begin{prop}
+\begin{prop}\label{agr-prop-anulamentoProduto}
     Seja $A$ um anel. Então se $a,b \in A$, vale que $ab = 0$ se, e somente se, $a = 0$ ou $b = 0$.
 \end{prop}
 \begin{dem}
-    Se $a = 0$ ou se $b=0$ então $ab = 0$ pela proposição anterior.
+    Se $a = 0$ ou se $b=0$ então $ab = 0$ pela \Cref{agb-prop-anulamentoProdutoCom0}.
     Agora, se $ab=0$, e suponhamos $b \neq 0$, então temos $ab = 0 = 0b$, como $b \neq 0$ podemos cancelar, ficamos com $a=0$. Analogamente caso $a \neq 0$.
 \end{dem}
 
-
-
-\begin{defi}
+\begin{defi}\label{agb-def-corpo}
     Um corpo é um anel $A$ em que cada elemento diferente do zero aditivo tem um simétrico multiplicativo.
 \end{defi}
 

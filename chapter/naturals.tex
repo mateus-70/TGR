@@ -45,8 +45,8 @@ O nosso estudo dos números naturais será iniciado pela sua apresentação em 3
     $s$ é injetora, isto é, $s(a) = s(b) \implies a = b$ \footnote{Vale notar a contra-positiva que estabelece, nesse caso: $a \neq b \implies s(a) \neq s(b)$}.
 \end{axi}
 \begin{axi}\label{axi-ind-finita}
-    Se $\S$ é um subconjunto de $\mathbb{N}$, caso $1 \in \S$ e se para todo $k$ em $\S\ s(k)$ também esteja em $\S$, então $\S = \mathbb{N}$, isso é o mesmo que colocar: \\
-     \[ \S \subseteq \mathbb{N} \land 1 \in S \land ( k \in \S \implies s(k) \in \S) \implies \S = \mathbb{N} .\]
+    Se $\mathbb{S}$ é um subconjunto de $\mathbb{N}$, caso $1 \in \mathbb{S}$ e se para todo $k$ em $\mathbb{S}\ s(k)$ também esteja em $\mathbb{S}$, então $\mathbb{S} = \mathbb{N}$, isso é o mesmo que colocar: \\
+     \[ \mathbb{S} \subseteq \mathbb{N} \land 1 \in \mathbb{S} \land ( k \in \mathbb{S} \implies s(k) \in \mathbb{S}) \implies \mathbb{S} = \mathbb{N} .\]
 \end{axi}
 Este último axioma é chamado de axioma da indução finita.
 
@@ -64,9 +64,9 @@ Em seguida apresentamos um lema que será necessário para ampliação de nosso 
 \end{lema}
 \begin{dem}
     Faremos por indução.\\
-    Seja $\S = \{x \in \mathbb{N} : x \neq s(x) \}$
-    Os axiomas \ref{axi-um-natural} e \ref{axi-um-nao-sucessor} garantem que $1 \in \S$.\\
-    Supondo que existe $ k \in \S$ onde $ k \neq s(k)$, queremos provar que o sucessor de $k$ é diferente do sucessor do sucessor de $k$, isto é, $s(k) \neq s(s(k))$. Como $k \neq s(k)$ e $s$ é injetora pelo \Cref{axi-s-injetora}, concluímos que $s(k) \neq s(s(k))$.
+    Seja $\mathbb{S} = \{x \in \mathbb{N} : x \neq s(x) \}$
+    Os axiomas \ref{axi-um-natural} e \ref{axi-um-nao-sucessor} garantem que $1 \in \mathbb{S}$.\\
+    Supondo que existe $ k \in \mathbb{S}$ onde $ k \neq s(k)$, queremos provar que o sucessor de $k$ é diferente do sucessor do sucessor de $k$, isto é, $s(k) \neq s(s(k))$. Como $k \neq s(k)$ e $s$ é injetora pelo \Cref{axi-s-injetora}, concluímos que $s(k) \neq s(s(k))$.
 \end{dem}
 \begin{teo}\label{nat-suc-unico}
     Todo número natural, exceto o $1$ é sucessor de algum outro número natural, que é único.
@@ -74,11 +74,11 @@ Em seguida apresentamos um lema que será necessário para ampliação de nosso 
 \end{teo}
 \begin{dem}
     A prova é feita por indução. \\ 
-    Seja $\S = \{x \in \mathbb{N} : x \neq 1 \implies (\exists y \in \mathbb{N} \land s(y) = x) \}$.\\
-    Sabemos que $1 \in \S$ porque $x = 1$ torna o antecedente falso, assim a implicação é verdadeira. Suponhamos que existe um $k$ em \S, queremos mostrar que $s(k) \in \S$. Devemos observar que $s(k)$ é o sucessor de $k$, assim, colocando na forma que usamos na definição do conjunto,
-    $y = k$, $s(y) = s(k)$, dessa forma $s(k) \in \mathbb{N}$. Pelo \Cref{axi-ind-finita} temos que \S = $\mathbb{N}$.
+    Seja $\mathbb{S} = \{x \in \mathbb{N} : x \neq 1 \implies (\exists y \in \mathbb{N} \land s(y) = x) \}$.\\
+    Sabemos que $1 \in \mathbb{S}$ porque $x = 1$ torna o antecedente falso, assim a implicação é verdadeira. Suponhamos que existe um $k$ em $\mathbb{S}$, queremos mostrar que $s(k) \in \mathbb{S}$. Devemos observar que $s(k)$ é o sucessor de $k$, assim, colocando na forma que usamos na definição do conjunto,
+    $y = k$, $s(y) = s(k)$, dessa forma $s(k) \in \mathbb{N}$. Pelo \Cref{axi-ind-finita} temos que $\mathbb{S}$ = $\mathbb{N}$.
 
-    A unicidade do $y$ que usamos na construção de \S advém do \Cref{axi-s-injetora}, $s(z) = s(y) = x \implies z = y$ pela injetividade de $s$.
+    A unicidade do $y$ que usamos na construção de $\mathbb{S}$ advém do \Cref{axi-s-injetora}, $s(z) = s(y) = x \implies z = y$ pela injetividade de $s$.
 \end{dem}
 \begin{obs}
     Diremos que o número $y$ do teorema anterior é antecessor de $x = s(y)$. Além disso vale notar que $s$ conforme definida no \Cref{axi-existe-n-s} não é sobrejetora somente pelo fato de o contradomínio ser $\mathbb{N}$. Mas se considerarmos o caso restrito para $\mathbb{N} \setminus \{1\}$ 
@@ -106,18 +106,18 @@ Sejam $a, b \in \mathbb{N}$. A adição entre $a$ e $b$, denotada por $a + b$ é
 \end{teo}
 \begin{dem}
     A prova de que a soma está bem definida para quaisquer $a,b \in \mathbb{N}$ é dada a seguir:
-    Dado $a \in \mathbb{N}$ fixo, seja $\S = \{ x \in \mathbb{N} : a + x \ \text{está definido} \}$. Temos que $a + 1 = s(a)$ está definido, portanto $1$ está em \S. 
-    Agora consideremos que vale para um dado $k \in \mathbb{N}$, que $a+k$ esteja bem definida. Temos então que $a + s(k) = s(a+k)$, como $a+k$ está definido, o sucessor também está definido, pelo axioma da indução, temos que \S = $\mathbb{N}$.
+    Dado $a \in \mathbb{N}$ fixo, seja $\mathbb{S} = \{ x \in \mathbb{N} : a + x \ \text{está definido} \}$. Temos que $a + 1 = s(a)$ está definido, portanto $1$ está em $\mathbb{S}$. 
+    Agora consideremos que vale para um dado $k \in \mathbb{N}$, que $a+k$ esteja bem definida. Temos então que $a + s(k) = s(a+k)$, como $a+k$ está definido, o sucessor também está definido, pelo axioma da indução, temos que $\mathbb{S} = \mathbb{N}$.
 \end{dem}
 \begin{lema}\label{soma-n-um-comut}
     O $1$ comuta com qualquer número na soma, isto é,$ \forall x \in \mathbb{N}, x + 1 = 1 + x$
 \end{lema}
 %       Template
-%        Seja $\S = \{ x \in \mathbb{N} : \}$
+%        Seja $\mathbb{S} = \{ x \in \mathbb{N} : \}$
 \begin{dem}
-    Seja $\S = \{ x \in \mathbb{N} : x + 1 = 1 + x\}$. O $1$ está em \S pois $1 + 1 = 1 + 1$.
-    sabendo que existe um $k$ em \S, queremos provar que $s(k)$ também está em \S. Como
-    $s(k) + 1 = s(s(k)) = s(k+1) = s(1+k) = 1 + s(k)$. Portanto $s(k)$ também está em \S sempre que $k$ também está, o que pelo princípio de indução \S = $\mathbb{N}$.
+    Seja $\mathbb{S} = \{ x \in \mathbb{N} : x + 1 = 1 + x\}$. O $1$ está em $\mathbb{S}$ pois $1 + 1 = 1 + 1$.
+    sabendo que existe um $k$ em $\mathbb{S}$, queremos provar que $s(k)$ também está em $\mathbb{S}$. Como
+    $s(k) + 1 = s(s(k)) = s(k+1) = s(1+k) = 1 + s(k)$. Portanto $s(k)$ também está em $\mathbb{S}$ sempre que $k$ também está, o que pelo princípio de indução $\mathbb{S} = \mathbb{N}$.
 \end{dem} \\
 
 \begin{prop}{A adição no conjunto dos números naturais tem as seguintes propriedades:}\label{nat-soma-props}
@@ -135,19 +135,19 @@ Sejam $a, b \in \mathbb{N}$. A adição entre $a$ e $b$, denotada por $a + b$ é
     Antes de demonstrarmos propriamente, façamos a suposição que $a,b,c \in \mathbb{N}$ são números fixos.
     \begin{enumerate}[label=(\roman*)]    
         \item Fechamento: \\
-            Seja $\S = \{ x \in \mathbb{N} : a + x \in \mathbb{N} \}$. Obviamente o $1$ está em \S. Suponhamos então que existe $k \in \S$, queremos saber se isso garante que $s(k) \in \S$. Temos então que $a + k \in \mathbb{N}$, já para $a + s(k) = s(a + k) \in \S$, pois pelo \Cref{axi-existe-n-s} a função tem domínio e contradomínio $\mathbb{N}$.
+            Seja $\mathbb{S} = \{ x \in \mathbb{N} : a + x \in \mathbb{N} \}$. Obviamente o $1$ está em $\mathbb{S}$. Suponhamos então que existe $k \in \mathbb{S}$, queremos saber se isso garante que $s(k) \in \mathbb{S}$. Temos então que $a + k \in \mathbb{N}$, já para $a + s(k) = s(a + k) \in \mathbb{S}$, pois pelo \Cref{axi-existe-n-s} a função tem domínio e contradomínio $\mathbb{N}$.
         \item Associativa: \\
-             Seja $\S = \{ x \in \mathbb{N} : (a + b) + x = a + (b + x) \}$. Para o $1$ temos então
-             $(a + b) + 1 = s(a + b) = a + s(b) = a + (b + 1)$, o que mostra que o $1$ está em \S. 
-             Mostraremos que $k \in \S \implies s(k) \in \S$, pois:
-             $(a + b) + s(k) = s( (a + b) + k) = s(a + (b + k)) = a + s(b + k) = a + (b + s(k))$, o que, pelo princípio de indução \S = $\mathbb{N}$.
+             Seja $\mathbb{S} = \{ x \in \mathbb{N} : (a + b) + x = a + (b + x) \}$. Para o $1$ temos então
+             $(a + b) + 1 = s(a + b) = a + s(b) = a + (b + 1)$, o que mostra que o $1$ está em $\mathbb{S}$. 
+             Mostraremos que $k \in \mathbb{S} \implies s(k) \in \mathbb{S}$, pois:
+             $(a + b) + s(k) = s( (a + b) + k) = s(a + (b + k)) = a + s(b + k) = a + (b + s(k))$, o que, pelo princípio de indução $\mathbb{S} = \mathbb{N}$.
         \item Comutativa: \\
-            Consideremos o conjunto $\S = \{ x \in \mathbb{N} : a + x = x + a\}$. O $1 \in \S$ pois 
+            Consideremos o conjunto $\mathbb{S} = \{ x \in \mathbb{N} : a + x = x + a\}$. O $1 \in \mathbb{S}$ pois 
             $a + 1 = 1 + a$ conforme o \Cref{soma-n-um-comut}.
-            Provemos então que se $k \in \S$ então $s(k) \in \S$, temos 
+            Provemos então que se $k \in \mathbb{S}$ então $s(k) \in \mathbb{S}$, temos 
             $a + s(k) = s(a + k) = s(k + a) = k + s(a) = k + a + 1 = k + 1 + a = s(k) + a$.
         \item Lei do cancelamento: \\
-            Seja $\S = \{ x \in \mathbb{N} : x + b = x + c \implies b = c \}$, vamos provar que \S = $\mathbb{N}$. Obviamente o $1$ está em \S pois $1 + b = 1 + c \iff b + 1 = c + 1$ e pelo \Cref{axi-s-injetora}, se dois elementos tem sucessores iguais, eles próprios são iguais. Agora consideremos se vale que $(k + b = k + c \implies b = c) \implies (s(k) + b = s(k) + c \implies b = c)$. \\
+            Seja $\mathbb{S} = \{ x \in \mathbb{N} : x + b = x + c \implies b = c \}$, vamos provar que $\mathbb{S}$ = $\mathbb{N}$. Obviamente o $1$ está em $\mathbb{S}$ pois $1 + b = 1 + c \iff b + 1 = c + 1$ e pelo \Cref{axi-s-injetora}, se dois elementos tem sucessores iguais, eles próprios são iguais. Agora consideremos se vale que $(k + b = k + c \implies b = c) \implies (s(k) + b = s(k) + c \implies b = c)$. \\
             $s(k) + b = s(k) + c \iff (k + b) + 1 = (k + c) + 1$, o que pelo mesmo motivo anterior, concluímos que $k + b = k + c$, e pela nossa hipótese concluímos que $b = c$.
         \item $a + b \neq a$;\\
             Consideremos quatro casos:
@@ -193,40 +193,40 @@ A multiplicação toma seu lugar como uma operação de redução da soma. Essa 
     \end{enumerate}
 \end{prop}
 % template
-% Seja $\S = \{ x \in \mathbb{N} : \}$
+% Seja $\mathbb{S} = \{ x \in \mathbb{N} : \}$
 \begin{dem}
     Antes de demonstrarmos propriamente, façamos a suposição que $a,b,c \in \mathbb{N}$ são números fixos. Provaremos por indução, exceto no último item.
     \begin{enumerate}[label=(\roman*)]
         \item Fechamento: \\
-            Seja $\S = \{x \in \mathbb{N} : ax \in \mathbb{N} \}$.
-            O $1$ está em \S pois $1 \cdot 1 = 1$. Supondo que é válido $ak \in \mathbb{N}$ para algum $k \in \mathbb{N}$, temos $a \cdot s(k) = ak + a$, como tanto $ak$ quanto $a$ são números naturais, e como a soma é fechada em $\mathbb{N}$, temos $ak + a \in \mathbb{N}$. Pelo \Cref{axi-ind-finita}, \S = $\mathbb{N}$. 
+            Seja $\mathbb{S} = \{x \in \mathbb{N} : ax \in \mathbb{N} \}$.
+            O $1$ está em $\mathbb{S}$ pois $1 \cdot 1 = 1$. Supondo que é válido $ak \in \mathbb{N}$ para algum $k \in \mathbb{N}$, temos $a \cdot s(k) = ak + a$, como tanto $ak$ quanto $a$ são números naturais, e como a soma é fechada em $\mathbb{N}$, temos $ak + a \in \mathbb{N}$. Pelo \Cref{axi-ind-finita}, $\mathbb{S}$ = $\mathbb{N}$. 
         \item Elemento neutro: \\
-            Seja $\S = \{ x \in \mathbb{N} : 1 \cdot x = x \cdot 1  = x \}$. O $1$ está em \S pois $1 \cdot 1 = 1 \cdot 1 = 1$. Supondo que $k \in \S$ podemos concluir que $s(k) \in \S$?
-            Temos $1 \cdot s(k) = 1 \cdot k + 1 = k \cdot 1 + 1 = k + 1 = s(k) = s(k) \cdot 1$. Pelo \Cref{axi-ind-finita}, \S = $\mathbb{N}$.
+            Seja $\mathbb{S} = \{ x \in \mathbb{N} : 1 \cdot x = x \cdot 1  = x \}$. O $1$ está em $\mathbb{S}$ pois $1 \cdot 1 = 1 \cdot 1 = 1$. Supondo que $k \in \mathbb{S}$ podemos concluir que $s(k) \in \mathbb{S}$?
+            Temos $1 \cdot s(k) = 1 \cdot k + 1 = k \cdot 1 + 1 = k + 1 = s(k) = s(k) \cdot 1$. Pelo \Cref{axi-ind-finita}, $\mathbb{S} = \mathbb{N}$.
             
             % \\ Além disso, sejam $e_1, e_2$ dois elementos neutros. Então $e_1 = e_1 \cdot e_2 = e_2 \implies e_1 = e_2$, portanto o neutro é único. Além disso a definição de multiplicação nos diz que é o $1$ quem é o neutro. 
         \item Distributiva à direita: 
-            Seja $\S = \{ x \in \mathbb{N} : ( a + b ) x = ax + bx \}$. Temos que o $1 \in \S$ pois $( a + b ) 1 = a + b = a \cdot 1 + b \cdot 1$. Provemos que se $k \in \S$ temos que $s(k) \in \S$. Temos então: \\
+            Seja $\mathbb{S} = \{ x \in \mathbb{N} : ( a + b ) x = ax + bx \}$. Temos que o $1 \in \mathbb{S}$ pois $( a + b ) 1 = a + b = a \cdot 1 + b \cdot 1$. Provemos que se $k \in \mathbb{S}$ temos que $s(k) \in \mathbb{S}$. Temos então: \\
             $( a + b ) \cdot s(k)= ( a + b ) k + ( a + b ) = ak + bk + a + b = ak + a + bk + b 
-            = a \cdot s(k) + b \cdot s(k)$. Pelo \Cref{axi-ind-finita} tem-se que \S = $\mathbb{N}$.
+            = a \cdot s(k) + b \cdot s(k)$. Pelo \Cref{axi-ind-finita} tem-se que $\mathbb{S} = \mathbb{N}$.
             \\ \\
             Distributiva à esquerda: \\
             A prova da distributiva à esquerda é facilmente obtida quando já dispusermos da propriedade comutativa. Por sua vez a prova da comutatividade que faremos precisará apenas da distributiva à direita.
-            % Seja $\S = \{ x \in \mathbb{N} : x (a+b) = xa + xb\} $. O $1 \in \S$ pois ele é o neutro, que comuta com qualquer número, assim temos 
+            % Seja $\mathbb{S} = \{ x \in \mathbb{N} : x (a+b) = xa + xb\} $. O $1 \in \mathbb{S}$ pois ele é o neutro, que comuta com qualquer número, assim temos 
             % $1 \cdot (a+b) = (a+b) \cdot 1 = a + b = a \cdot 1 + b \cdot 1 = 1 \cdot a + 1 \cdot b$. Supondo que vale para algum $k \in \mathbb{N}$, que $k(a+b) = ka + kb$, teremos então que $s(k) \cdot (a+b) = (k+1) \cdot (a+b) = k(a+b) + 1(a+b) = (ka + kb) + (a+b) = ka + a + kb + b = 
-            % a \cdot s(k) + b \cdot s(k)$, e pelo \Cref{axi-ind-finita} concluímos que \S = \mathbb{N}.
+            % a \cdot s(k) + b \cdot s(k)$, e pelo \Cref{axi-ind-finita} concluímos que \mathbb{S} = \mathbb{N}.
         \item Comutativa: \\
-            Seja $\S = \{ x \in \mathbb{N} : ax = xa \}$. Com certeza o $1$ está em \S, porque $1$ é o neutro da multiplicação. Agora suponhamos que $k \in \S$, vejamos se $s(k) \in \S$. Temos então: $a \cdot s(k) = ak + a = 1 \cdot a + ka = (1+k)a = s(k) \cdot a$. Pelo \Cref{axi-ind-finita} tem-se que \S = $\mathbb{N}$.
+            Seja $\mathbb{S} = \{ x \in \mathbb{N} : ax = xa \}$. Com certeza o $1$ está em $\mathbb{S}$, porque $1$ é o neutro da multiplicação. Agora suponhamos que $k \in \mathbb{S}$, vejamos se $s(k) \in \mathbb{S}$. Temos então: $a \cdot s(k) = ak + a = 1 \cdot a + ka = (1+k)a = s(k) \cdot a$. Pelo \Cref{axi-ind-finita} tem-se que $\mathbb{S}$ = $\mathbb{N}$.
 
         \item Associativa:  \\
-            Seja $\S = \{ x \in \mathbb{N} : a(bx) = (ab)x \}$. Sabemos que o $1$ está em \S pois $a (b \cdot 1) = a(b) = ab = (ab)\cdot 1$.
-            Agora suponhamos que exista um $k \in \S$, assim, podemos omitir parênteses em $abx$ , consideremos $s(k)$, para ver se ele está ou não em \S. Temos
-            $a(b \cdot s(k)) = a(bk + b) = abk + ab = s(k) \cdot  (ab)$, o que pelo \Cref{axi-ind-finita} tem-se que \S = $\mathbb{N}$. 
+            Seja $\mathbb{S} = \{ x \in \mathbb{N} : a(bx) = (ab)x \}$. Sabemos que o $1$ está em $\mathbb{S}$ pois $a (b \cdot 1) = a(b) = ab = (ab)\cdot 1$.
+            Agora suponhamos que exista um $k \in \mathbb{S}$, assim, podemos omitir parênteses em $abx$ , consideremos $s(k)$, para ver se ele está ou não em $\mathbb{S}$. Temos
+            $a(b \cdot s(k)) = a(bk + b) = abk + ab = s(k) \cdot  (ab)$, o que pelo \Cref{axi-ind-finita} tem-se que $\mathbb{S}$ = $\mathbb{N}$. 
             
             
             
         \item Lei do cancelamento: \\
-            Seja $\S = \{ x \in \mathbb{N} : xb = xc \implies b = c\}$. O $1$ está em \S pois $1b = 1c \implies b = c$. Provemos que $k\in \S \implies s(k) \in \S$. Temos que $s(k) \cdot b = s(k) \cdot c \iff b + bk = c + ck \iff b = c$. Pelo \Cref{axi-ind-finita} tem-se que \S = $\mathbb{N}$.
+            Seja $\mathbb{S} = \{ x \in \mathbb{N} : xb = xc \implies b = c\}$. O $1$ está em $\mathbb{S}$ pois $1b = 1c \implies b = c$. Provemos que $k\in \mathbb{S} \implies s(k) \in \mathbb{S}$. Temos que $s(k) \cdot b = s(k) \cdot c \iff b + bk = c + ck \iff b = c$. Pelo \Cref{axi-ind-finita} tem-se que $\mathbb{S}$ = $\mathbb{N}$.
         \item $a \cdot b = 1 \implies a = b = 1$.
             Consideremos que o $a$ ou o $b$ podem ser igual (ou iguais) a $1$.
             Sem perda de generalidade, seja $a = 1$. Temos que $1 \cdot b = 1 \implies b = 1$ pois $1$ é o elemento neutro. Portanto se $a$ ou se $b$ forem $1$, obrigatoriamente o outro deverá ser, para que a igualdade ocorra.
@@ -234,7 +234,7 @@ A multiplicação toma seu lugar como uma operação de redução da soma. Essa 
             Assim, $ab=1 \iff (c+1) (d+1) = 1 \implies cd + c + d + 1 = 1 \implies s(cd + c + d) = 1$, o que obviamente não pode ocorrer de acordo com o  \Cref{axi-um-nao-sucessor}.
     \end{enumerate}
 \end{dem}
-% Seja $\S = \{ x \in \mathbb{N} : \}$
+% Seja $\mathbb{S} = \{ x \in \mathbb{N} : \}$
 
 Nesse desenvolvimento, as propriedades da multiplicação são semelhantes às que teríamos se tivéssemos tomado o $0$ como número natural. Uma propriedade que essa multiplicação não tem agora é o anulamento, que carece de significado. As propriedades associativa e comutativa já eram presentes na soma. Agora no produto, temos um elemento neutro que não há para a soma, além da distributiva que pode ser aplicada com soma e produto.
 Na nossa lei do cancelamento, não precisamos especificar que o termo a ser cancelado é diferente de zero.
@@ -288,7 +288,7 @@ Sejam $a, b \in \mathbb{N}$. Definiremos a relação $\leq$ entre $a$ e $b$, den
             \end{enumerate}
         \item Tricotomia:
         Vamos provar por indução. \\
-        Seja $\S = \{ x \in \mathbb{N} : x = a \lor x < a \lor x > a \}$. Sabemos que o $1 \in \S$ porque, ou ocorre que $a = 1$, ou $a = s(m) = m + 1$, para algum $m$ natural, assim, $1 < a$. \\
+        Seja $\mathbb{S} = \{ x \in \mathbb{N} : x = a \lor x < a \lor x > a \}$. Sabemos que o $1 \in \mathbb{S}$ porque, ou ocorre que $a = 1$, ou $a = s(m) = m + 1$, para algum $m$ natural, assim, $1 < a$. \\
         Supondo que vale para algum $k$ que $k = a \lor k < a \lor k > a$, consideremos 3 casos.  \\
         
         No primeiro caso, $k = a$, assim $s(k) > a$. \\
@@ -296,7 +296,7 @@ Sejam $a, b \in \mathbb{N}$. Definiremos a relação $\leq$ entre $a$ e $b$, den
         No terceiro caso, $k > a$, assim $k = a + m$ para algum $m$ natural, e $s(k) = a + m + 1 > a$.
 
         A unicidade, embora não esteja explícita na criação do conjunto, pode ser vista no desenvolvimento de cada caso.
-        Portanto, em todos os casos, $s(k) \in \S$, e pelo \Cref{axi-ind-finita}, \S = $\mathbb{N}$.
+        Portanto, em todos os casos, $s(k) \in \mathbb{S}$, e pelo \Cref{axi-ind-finita}, $\mathbb{S}$ = $\mathbb{N}$.
         
         \item Compatível com adição: \\
         Seja $a \leq b$. Se $a = b$ teremos que $a+c = b+c$ porque a adição é uma função! 
@@ -327,5 +327,19 @@ Sejam $a, b \in \mathbb{N}$. Definiremos a relação $\leq$ entre $a$ e $b$, den
     $bc = ac + m \iff bc = (bc + n) + m$, o que não pode ocorrer pela \Cref{nat-soma-props}, $a+b \neq a$. Uma outra demonstração dessa segunda parte seria pela tricotomia, que não permite que ocorra $ac < bc $ e $ac > bc$.
 \end{dem}
 
+\begin{teo}\label{nat-teo-ilimitadoSuperiormente}
+    O conjunto $\mathbb{N}$ não é limitado superiormente.
+\end{teo}
+\begin{dem}
+    \todo{demonstrar}
+    .
+\end{dem}
+\begin{teo}\label{nat-teo-PBO}
+    Princípio da boa ordem
+\end{teo}
+\begin{dem}
+    \todo{demonstrar}
+    .
+\end{dem}
 
 \end{document}
