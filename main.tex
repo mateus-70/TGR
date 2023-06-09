@@ -52,6 +52,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage[left=3cm,right=2cm,top=3cm,bottom=2cm]{geometry}
+\usepackage{nccmath} % para intertext no align
 \usepackage{mathtools}
 \usepackage{subfiles}
 \usepackage{pdfpages}
@@ -60,13 +61,12 @@
 \usepackage[sorting=nty, style=abnt]{biblatex} % citestyle=authoryear, 
 \usepackage[portuguese=brazilian]{csquotes} % Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing. Loading 'csquotes' recommended.
 \usepackage{etoolbox} % para modificar as citacoes, colocar margem no blockquote
-\usepackage{showkeys} % para que quando for usar \ref apareça uma prévia do que se trata, teorema prop, def etc. pois \ref gera apenas numeros
-\usepackage[capitalise]{cleveref}
+%\usepackage{showkeys} % para que quando for usar \ref apareça uma prévia do que se trata, teorema prop, def etc. pois \ref gera apenas numeros
+\usepackage[capitalise, brazilian]{cleveref}
 \usepackage{physics} % para \abs{}
 %%  You'll get surprised by
 %%  https://en.wikibooks.org/wiki/LaTeX/Package_Reference
 %\usepackage{array}
-
 
 %\usepackage{eufrak} % para estilizar o elemento neutro 'e' // %  eufrak package is redundant if the amsfonts package is used
 
@@ -81,7 +81,7 @@
 % \newcommand{\textoIncluido}[1]{\todo{Texto Incluído} {\color{blue} \textit{#1}}}
 % \newcommand{\textoRemovido}[1]{\todo{Texto Removido} {\color{gray} \textit{#1}}}
 
-
+\usepackage{marginnote} % para todonotes dentro de align
 
 
 % ---
@@ -158,17 +158,17 @@
 \newcommand{\littleSpace}{\hspace{12pt}}
 
 \newcommand{\authorName}{MATEUS SCHROEDER DA SILVA}
-\newcommand{\orientationBy}{Doutor Marnei Luis Mandler}
-\newcommand{\titleTGR}{A CONSTRUÇÃO DOS NÚMEROS}
-\newcommand{\subtitleTGR}{DOS NATURAIS AOS REAIS}
+\newcommand{\orientationBy}{\noindent Prof. Me. Marnei Luis Mandler}
+\newcommand{\titleTGR}{DOS AXIOMAS DE PEANO AOS CORTES DE DEDEKIND}
+\newcommand{\subtitleTGR}{UMA FORMALIZAÇÃO PARA OS CONJUNTOS NUMÉRICOS}
 \newcommand{\titleComplete}{\textbf{\titleTGR:} \subtitleTGR}
 
 \newcommand{\absurd}{\Rightarrow\!\Leftarrow}
 %\patchcmd{\blockquote}{\leftmargin}{\leftmargin 4cm}{}{}
 %\patchcmd{\quote}{\rightmargin}{\leftmargin 4cm \rightmargin}{}{}
+\renewcommand*{\thefootnote}{(\arabic{footnote})} % colocar nota de rodapé entre parenteses
 
-
-
+% \newcommand{\myRedDef}[2]{}
 
 %\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
@@ -190,6 +190,7 @@
 
 \newenvironment{dem}[1][\textbf{Demonstração:} \ ]{\textbf{#1}}{\hfill\rule{2mm}{2mm} \\ }
 \newcommand{\afi}{\textbf{Afirmação:} }
+\newcommand{\notacao}{\noindent\textbf{Notação:} }
 
 \relpenalty=9999
 \binoppenalty=9999
@@ -202,6 +203,8 @@
 \Crefname{ex}{Exemplo}{Exemplos}
 \Crefname{defi}{Definição}{Definições}
 \Crefname{axi}{Axioma}{Axiomas}
+% \Crefname{enumerate}{item}{Itens}
+% \creflabelformat{punto}{Item}
 %\usepackage{lipsum}				% para geração de dummy text
 
 % ---
@@ -260,6 +263,22 @@
   { \end{changemargin}  }
 \makeatother
 
+\makeatletter % para todonotes dentro de align
+\renewcommand{\@todonotes@drawMarginNoteWithLine}{%
+\begin{tikzpicture}[remember picture, overlay, baseline=-0.75ex]%
+    \node [coordinate] (inText) {};%
+\end{tikzpicture}%
+\marginnote[{% Draw note in left margin
+    \@todonotes@drawMarginNote%
+    \@todonotes@drawLineToLeftMargin%
+}]{% Draw note in right margin
+    \@todonotes@drawMarginNote%
+    \@todonotes@drawLineToRightMargin%
+}%
+}
+\makeatother
+\newcommand{\todoAlign}[1]{\text{\todo{#1}}}
+
 % --- 
 % CONFIGURAÇÕES DE PACOTES
 % --- 
@@ -305,7 +324,7 @@
 \date{2023}
 \tipotrabalho{TRABALHO DE CONCLUSÃO DE CURSO}
 \preambulo{ Trabalho de conclusão de curso apresentado como requisito parcial para obtenção do título de licenciado em Matemática pelo curso de Licenciatura em Matemática do Centro de Ciências Tecnológicas - CCT, da Universidade do Estado de Santa Catarina - UDESC. \\
- Orientador: \orientationBy}
+Orientador: \orientationBy}
 % ---
 
 \makeatother
@@ -334,7 +353,7 @@
 % Retira espaço extra obsoleto entre as frases.
 \frenchspacing 
 
-%\subfile{chapter/presentation}
+\subfile{chapter/presentation}
 
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
@@ -342,32 +361,31 @@
 
 \textual
 \pagestyle{meuestilo}
-%\subfile{chapter/introduction}
+\subfile{chapter/introduction}
 
 % INICIO CAPITULOS
-
- % \subfile{chapter/algebra}
+ \subfile{chapter/algebra}
  \subfile{chapter/naturals}
- % \subfile{chapter/integers}
- % \subfile{chapter/rationals}
+ \subfile{chapter/integers}
+ \subfile{chapter/rationals}
  % \subfile{chapter/reals}
-
+ % \subfile{chapter/enumerabilidade}
 % FIM CAPITULOS
 
 % ------------------------------------------------------------
 % Conclusão
 % ------------------------------------------------------------
-%\subfile{chapter/conclusion}
+% \subfile{chapter/conclusion}
 
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
-%\subfile{chapter/references}
+% \subfile{chapter/references}
 
-% \chapter*[Referências]{REFERÊNCIAS}
-% \addcontentsline{toc}{chapter}{REFERÊNCIAS}
-% \nocite{*}
-% \printbibliography[block=none, heading=none]
+\chapter*[Referências]{REFERÊNCIAS}
+\addcontentsline{toc}{chapter}{REFERÊNCIAS}
+\nocite{*}
+\printbibliography[block=none, heading=none]
 % ----------------------------------------------------------
 % Apêndices
 % ----------------------------------------------------------

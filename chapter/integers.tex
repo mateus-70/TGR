@@ -1,191 +1,271 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
-\chapter{O CONJUNTO DOS NÚMEROS INTEIROS}
-Neste capítulos faremos a construção dos números inteiros. A bibliografia principal continua sendo \textcite{ferreira} e \textcite{domingues-2009}. Será apresentado uma relação de equivalência que servirá para criar $\mathbb{Z}$. Depois definiremos uma adição e um produto que tenha algumas propriedades que já tinham em $\mathbb{N}$, isto é, queremos "estender"  $\mathbb{N}$.
+\chapter{O CONJUNTO DOS NÚMEROS INTEIROS}\label{cap-inteiros}
+Neste capítulos faremos a construção dos números inteiros. A bibliografia principal continua sendo \textcite{ferreira} e \textcite{domingues-2009}. Será apresentada uma relação de equivalência que servirá para criar $\mathbb{Z}$. Depois definiremos uma adição e um produto que tenham algumas propriedades que já eram válidas em $\mathbb{N}$, isto é, queremos "estender"\ $\mathbb{N}$.
 
 Devemos observar que em $\mathbb{N}$ temos que a subtração, tal como conhecemos no ensino básico, não é uma operação (no sentido da álgebra), pois a subtração não está definida para quaisquer dois elementos de $\mathbb{N}$ tal que o resultado esteja em $\mathbb{N}$.
 
-Com o objetivo de contornar esse problema (e portanto poder recriar a subtração como no ensino básico, em que ela seja uma operação sobre um conjunto), iremos criar um novo conjunto a partir de $\mathbb{N}$. Veremos que isso é possível, tal conjunto será denotado por $\mathbb{Z}$ e chamaremos ele de conjunto dos \emph{números inteiros}.
+Com o objetivo de contornar esse problema (e portanto poder recriar a subtração como no ensino básico, em que ela seja uma operação sobre um conjunto), iremos criar um novo conjunto a partir de $\mathbb{N}$. Veremos que isso é possível, tal conjunto será denotado por $\mathbb{Z}$ e o chamaremos ele de conjunto dos \emph{números inteiros}.
 
-Nos números naturais, poderíamos ter definido uma função que tivesse o intuito de fazer o inverso da soma, que seria a subtração denotada por "$-$". Seguindo esse raciocínio poderíamos mostrar que $9-3 = 8-2 = 7-1$. Concluiríamos com base nessas igualdades, que $9 + 2 = 8 + 3$ e $8 + 1 = 7 + 2$, o que em ambos os casos, os resultados são números naturais. 
+Nos números naturais, poderíamos ter definido uma função que tivesse o intuito de fazer o papel de inverso da soma, que seria a subtração, denotada por "$-$". Seguindo esse raciocínio poderíamos mostrar que $9-3 = 8-2 = 7-1$. Concluiríamos com base nessas igualdades, que $9 + 2 = 8 + 3$ e $8 + 1 = 7 + 2$, o que em ambos os casos, os resultados são números naturais. 
 
-Além disso, queremos expressar um número inteiro apenas com números naturais, sem ter que assumir mais que $\mathbb{N}$, a lógica e a teoria de conjuntos que já foram assumidas. Além disso, tentar dar significado à expressões do tipo $3-5, 4-8, 2-3$ que nesses exemplos não são números naturais.
+Além disso, queremos expressar um número inteiro sem ter que assumir novos conceitos além de $\mathbb{N}$, da lógica e a teoria de conjuntos que já foram assumidas no capítulo anterior. Além disso, daremos significado à expressões do tipo $3-5, 4-8, 2-3$, que nesses exemplos não são números naturais.
 
-A maneira como expressaremos será através de uma relação binária $\sim$ sobre $\mathbb{N} \times \mathbb{N}$ definida desse modo: $(a,b) \sim (c,d) \iff a+d = b+c$, sendo $a,b,c,d$ números naturais quaisquer.
-\begin{teo}
+A maneira como expressaremos será por meio de uma relação binária $\sim$ sobre $\mathbb{N} \times \mathbb{N}$ definida desse modo: $(a,b) \sim (c,d) \iff a+d = b+c$, sendo $a,b,c,d$ números naturais quaisquer.
+
+\begin{ex}
+    Os pares ordenados $(1,2)$ e $(5,6)$ se relacionam através da relação $\sim$, pois $1+6 = 2+5$.
+\end{ex}
+\begin{ex}
+    Os pares ordenados $(1,2)$ e $(5,5)$ não se relacionam através da relação $\sim$, pois $1+5 \neq 2+5$.
+\end{ex}
+\begin{ex}\label{int-ex-elementosRelacionadosPorSim}
+    Os pares ordenados $(6,6)$ e $(8,8)$ se relacionam por meio da relação $\sim$, pois $6+8 = 6+8$. Fica claro que para quaisquer naturais $m,n$ temos que $(m,m) \sim (n,n)$, uma vez que sempre ocorrerá $m+n = m+n$.
+\end{ex}
+
+
+\begin{teo}\label{int-teo-classeEquivalenciaNumero}
     A relação $\sim$ é de equivalência.
 \end{teo}
 \begin{dem}
+    Sejam $a,b,c,d \in \mathbb{N}$. A relação $(a,b) \sim (c,d) \iff a+d = b+c$ possui as seguintes propriedades:
     \begin{enumerate}[label=(\roman*)]
-        \item Reflexiva: $(a,b) \sim (a,b) \iff a+b=b+a$.
-        \item Simetria: $(a,b) \sim (c,d) \iff (c,d) \sim (a,b)$ \\
-        Temos $ a+d = b+c = c+b = d+a \iff (c,d) \sim (a,b)$.
+        \item Reflexiva: $(a,b) \sim (a,b)$, pois $ a+b=b+a$.
+        \item Simétrica: $(a,b) \sim (c,d) \implies (c,d) \sim (a,b)$ \\
+        Temos $ a+d = b+c \implies c+b = d+a \iff (c,d) \sim (a,b)$.
         \item Transitiva: $(a,b) \sim (c,d) \land (c,d) \sim (e,f) \implies (a,b) \sim (e,f)$. \\
-        Temos $(a,b) \sim (c,d) \iff a+d=b+c$ \\
-        e também que $(c,d) \sim (e,f) \iff c+f=d+e$. \\
-        Somando os dois primeiros termos entre si, e os dois segundos termos entre si, e igualando os resultados, temos: \\ 
+        Supondo $(a,b) \sim (c,d) $ e $(c,d) \sim (e,f)$ obtemos $a+d=b+c$ e $c+f=d+e$. \\
+        Somando termo a termo temos: \\ 
         $(a+d)+(c+f)= (b+c)+(d+e) \iff a+f = b+e \iff (a,b) \sim (e,f)$.
     \end{enumerate}
 \end{dem}
-\begin{defi}\label{int-def-conjNum}
-    O conjunto quociente $\mathbb{N} \times \mathbb{N} / \sim = \{ \overline{(a,b)}: (a,b) \in \mathbb{N} \times \mathbb{N}\}$ será chamado de $\emph{conjunto dos números inteiros}$ e será denotado, conforme já anunciado, por $\mathbb{Z}$.
+
+\begin{ex}\label{int-ex-classesIguaisRepresentantesDiferentes}
+    Sabemos que $(1,1) \sim (2,2)$, e conforme a notação utilizada no capítulo anterior, temos que $\overline{(1,1)} = \overline{(2,2)}$.
+\end{ex}
+\begin{ex}
+    As representações $\overline{(1,5)}, \overline{(2,6)}, \overline{(3,7)}$ representam a mesma classe de equivalência, pois $1+6 = 5+2$ e $2+7=6+3$.
+\end{ex}
+\begin{ex}
+    Os elementos $\overline{(10,1)}$ e $\overline{(12,3)}$ representam a mesma classe de equivalência pois $(10,1) \sim (12,3)$ uma vez que
+    $10+3 = 1 + 12$, e conforme o \Cref{agb-teo-relacaoEquivalenciaPropriedades} se os elementos estão relacionados via relação de equivalência, então eles estão na mesma classe de equivalência.
+\end{ex}
+\begin{ex}
+    Os elementos $\overline{(1,5)} = \overline{(2,6)} = \overline{(3,7)}$, em que cada representante da classe, a saber, $(1,5), (2,6)$ e $(3,7)$ representam a mesma classe de equivalência. A ideia de criar essas classes é que um número inteiro é uma classe de equivalência. Embora essa não seja uma ideia normal de ser encontrada fora do contexto de criação dos conjuntos numéricos (porque o objetivo de usar pares ordenados e classes de equivalência não é facilitar o manuseio de $\mathbb{Z}$, mas sim formalizar esse conjunto, com suas operações e relações como conhecemos).
+\end{ex}
+% \begin{ex}
+%     A ideia intuitiva com a utilização dos pares é que a primeira coordenada do par seja a "parte positiva"\ enquanto que a segunda coordenada seja a "parte negativa". Com essa intuição futuramente vamos justificar a compreensão do $5 \in \mathbb{N}$ como $\overline{(6,1)}$, pois $6-1 = 5$. 
+%     De modo a extender essa notação, como conhecemos no ensino básico, teremos que o $-5 = \overline{(1,6)}$, sendo que nessa representação o $-5$ é um número inteiro, e o $1$ e o $6$ são números naturais.
+% \end{ex}
+
+\begin{defi}\label{int-def-conjuntoZ}
+    O conjunto quociente $\mathbb{N} \times \mathbb{N} / \sim = \{ \overline{(a,b)}: (a,b) \in \mathbb{N} \times \mathbb{N}\}$ será chamado de $\emph{conjunto dos números inteiros}$ e será denotado por $\mathbb{Z}$.
 \end{defi}
-A \Cref{agb-def-conjQuoc} define conjunto quociente. Um exemplo de elemento de $\mathbb{Z}$ é $\overline{(1,5)} = \overline{(2,6)} = \overline{(3,7)}$, em que cada representante da classe, a saber, $(1,5), (2,6) e (3,7)$ representa o mesmo número inteiro (a mesma classe de equivalência). Embora essa não seja uma notação comum de ser utilizada fora da criação dos conjuntos numéricos (porque o objetivo de usar pares ordenados, classes de equivalência, etc. não é facilitar o manuseio de $\mathbb{Z}$, mas sim formalizar esse conjunto, com suas operações e relações como conhecemos). Enquanto escrevemos normalmente o número inteiro $(5,1)$ por $4$, escrevemos o número $(1,5)$ por $-4$.
 
 \begin{obs}
-    Utilizaremos a mesma notação para adição e multiplicação de números inteiros, que utilizamos nos números naturais. Inicialmente para o desenvolvimento do texto, sempre que $a,b \in \mathbb{N}$ entenderemos a soma $a+b$ como sendo executada em $\mathbb{N}$. Caso $a,b \in \mathbb{Z}$ entenderemos a soma $a+b$ sendo executada em $\mathbb{Z}$. Posteriormente justificaremos a escolha de utilizar os mesmos símbolos sendo que os conjuntos são diferentes. Isso se repetirá com a multiplicação e coma a relação de ordem. Quando $a \in N$ e $b \in Z$, entendemos a soma $a + b$ como $f(a) + b$ em que $f(a) \in \mathbb{Z}$, sendo $f$ a função do \Cref{int-teo-imersao}.
+    Utilizaremos a mesma notação para adição e multiplicação de números inteiros, que utilizamos nos números naturais. Inicialmente para o desenvolvimento do texto, sempre que $a,b \in \mathbb{N}$ entenderemos a soma $a+b$ como sendo executada em $\mathbb{N}$. Caso $a,b \in \mathbb{Z}$ entenderemos a soma $a+b$ sendo executada em $\mathbb{Z}$. Posteriormente justificaremos a escolha de utilizar os mesmos símbolos sendo que os conjuntos são diferentes. Isso se repetirá com a multiplicação e com a relação de ordem.
 \end{obs}
 
-Com essa definição de número inteiro podemos interpretar, a nível de ensino básico, que o número $\overline{(a,b)}$ é $a - b$. Embora caso fôssemos definir subtração em $\mathbb{N}$, ela não seria uma operação, pois estaria definida apenas quando $a > b$.
+Com essa definição de número inteiro poderemos interpretar, a nível de ensino básico, que o número $\overline{(a,b)}$ é $a - b$. Caso fôssemos definir a subtração em $\mathbb{N}$, ela não seria uma operação, pois estaria definida apenas quando $a > b$.
 
 \begin{prop}\label{int-prop-cancelaCoordenadas}
     Se $a,b,c \in \mathbb{N}$ vale que: $\overline{(a+c,b+c)} = \overline{(a,b)}$.
 \end{prop}
 \begin{dem}
-    A demonstração é imediata, vemos que os elementos (os pares ordenados) representam a mesmo conjunto pois $a+c+b = b+c+a$.
+    A demonstração é imediata, visto que $(a+c)+b = (b+c)+a$, ou seja, $(a+c,b+c) \sim (a,b)$ e pelo \Cref{agb-teo-relacaoEquivalenciaPropriedades} temos $\overline{(a+c,b+c)} = \overline{(a,b)}$.
 \end{dem}
 
 \section{A adição em $\mathbb{Z}$}
-Tínhamos a adição em $\mathbb{N}$. Vamos definir uma adição em $\mathbb{Z}$, mantendo algumas propriedades da adição em $\mathbb{N}$.
-\begin{defi}\label{int-def-adicao}
-    Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em $\mathbb{Z}$, definimos a adição $\overline{(a,b)} + \overline{(c,d)}$ pelo número $\overline{(a+c, b+d)}$.
+Vamos definir uma adição em $\mathbb{Z}$, mantendo algumas propriedades da adição em $\mathbb{N}$.
+\begin{defi}\label{int-def-soma}
+    Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em $\mathbb{Z}$, definimos a adição $\overline{(a,b)} + \overline{(c,d)}$ como $\overline{(a+c, b+d)}$.
 \end{defi}
 \begin{prop}
-    A operação de adição está bem definida em $\mathbb{Z}$. Isto é, a adição em $\mathbb{Z}$ não depende do representante das classes envolvidas na adição. Podemos expressar isso assim também: $a,a',b,b',c,c',d,d' \in \mathbb{N}$, $\overline{(a,b)} = \overline{(a',b')} \land \overline{(c,d)} = \overline{(c',d')}
-    \implies \overline{(a,b)} + \overline{(c,d)} = \overline{(a',b')} + \overline{(c',d')} $.
+    A operação de adição está bem definida em $\mathbb{Z}$. Isto é, a adição em $\mathbb{Z}$ não depende do representante das classes de equivalência envolvidas na adição. 
 \end{prop}
 \begin{dem}
-    Vamos desenvolver as duas somas e mostrar que são iguais. Consideremos 
-    $\overline{(a,b)} + \overline{(c,d)} = \overline{(a+c,b+d)}$.
+    Sejam $a,a',b,b',c,c',d,d' \in \mathbb{N}$. Vamos provar que 
+    \[ \overline{(a,b)} = \overline{(a',b')} \land \overline{(c,d)} = \overline{(c',d')}
+    \implies \overline{(a,b)} + \overline{(c,d)} = \overline{(a',b')} + \overline{(c',d')}. \]
+
+    \noindent Vamos desenvolver as duas somas e mostrar que são iguais. Consideremos  
+    \[\overline{(a,b)} + \overline{(c,d)} = \overline{(a+c,b+d)}.\]
     Considerando agora a segunda soma temos: 
-    $\overline{(a',b')} + \overline{(c',d')} = \overline{(a'+c',b'+d')}$.
-    Precisamos agora apenas mostrar que $(a+c,b+d) \sim (a'+c',b'+d')$, isso mostrará que 
-    $\overline{(a+c,b+d)} = \overline{(a'+c',b'+d')}$. 
+    \[ \overline{(a',b')} + \overline{(c',d')} = \overline{(a'+c',b'+d')}. \]
+    Precisamos agora apenas mostrar que 
+    \[ (a+c,b+d) \sim (a'+c',b'+d'), \]
+    isso mostrará que 
+    \[ \overline{(a+c,b+d)} = \overline{(a'+c',b'+d')}. \] 
     Como $\overline{(a,b)} = \overline{(a',b')} \iff a+b' = b+a'$ e ainda
      $\overline{(c,d)} = \overline{(c',d')} \iff c+d' = d+c'$ teremos então que 
-     \begin{center}
-         $(a+b')+(c+d') = (b+a')+(d+c') \iff $ \\
-         $(a+c) + (b'+d') = (b+d) + (a'+c') \iff $ \\
-         $(a+c,b+d) \sim (a'+c',b'+d')$.
-     \end{center}
+    
+         \[ (a+b')+(c+d') = (b+a')+(d+c') \]
+         ou seja
+         \[ (a+c) + (b'+d') = (b+d) + (a'+c') \]
+         isto é
+         \[ (a+c,b+d) \sim (a'+c',b'+d'). \]
+    
 \end{dem}
 
-\begin{prop}{Sejam $\overline{(a,b)}, \overline{(c,d)}, \overline{(e,f)}$ números inteiros quaisquer, para a adição valem as seguintes propriedades:}
+\begin{teo}\label{int-teo-somaPropriedades}
+    Sejam $\overline{(a,b)}, \overline{(c,d)}, \overline{(e,f)}$ números inteiros quaisquer. Para a adição em $\mathbb{Z}$, valem as seguintes propriedades:
     \begin{enumerate}[label=(\roman*)]
-        \item fechamento;
-        \item associativa;
-        \item comutativa;
-        \item do elemento neutro; 
-        \item do elemento simétrico;
-        \item lei do cancelamento.
+        \item Fechamento;
+        \item Associativa;
+        \item Comutativa;
+        \item Da existência do elemento neutro; 
+        \item Da existência do elemento simétrico;
+        \item Lei do cancelamento.
     \end{enumerate}
-\end{prop}
+\end{teo}
 
 \begin{dem}
-    Explicitamos que entendemos $a,b,c,d,e,f$ como números naturais, o que é devido à \Cref{int-def-conjNum}.
+    Sejam $a,b,c,d,e,f \in  \mathbb{N}$.
     \begin{enumerate}[label=(\roman*)]
         \item Fechamento: $\overline{(a,b)} + \overline{(c,d)} \in \mathbb{Z}$:
-        Essa é imediata pois $a+c \in \mathbb{N} \land b+d \in \mathbb{N} \implies \overline{(a+c,b+d)} \in \mathbb{Z}$.
+        É imediata, pois \[ a+c \in \mathbb{N} \land b+d \in \mathbb{N} \implies \overline{(a+c,b+d)} \in \mathbb{Z}. \]
 
         \item Associativa: 
-        $\left(\overline{(a,b)} + \overline{(c,d)}\right) +  \overline{(e,f)} =
-        \overline{(a+c,b+d)}+\overline{(e,f)} = \overline{(a+c+e, b+d+f)} = \overline{ \left( a+(c+e), b+(d+f) \right) } = \overline{(a,b)} + 
-        \overline{ (c+e, d+f) } = \overline{(a,b)} + \left( \overline{(c,d)} + \overline{(e,f)} \right)$.
+        \begin{align*}
+            \left(\overline{(a,b)} + \overline{(c,d)}\right) +  \overline{(e,f)} 
+            &= \overline{(a+c,b+d)}+\overline{(e,f)} \\ 
+            &= \overline{(a+c+e, b+d+f)} \\
+            &= \overline{ \left( a+(c+e), b+(d+f) \right) } \\
+            &= \overline{(a,b)} + \overline{ (c+e, d+f) } \\
+            &= \overline{(a,b)} + \left( \overline{(c,d)} + \overline{(e,f)} \right).
+        \end{align*}
+        % \left(\overline{(a,b)} + \overline{(c,d)}\right) +  \overline{(e,f)} =
+        % \overline{(a+c,b+d)}+\overline{(e,f)} = \overline{(a+c+e, b+d+f)} = \overline{ \left( a+(c+e), b+(d+f) \right) } = \overline{(a,b)} + 
+        % \overline{ (c+e, d+f) } = \overline{(a,b)} + \left( \overline{(c,d)} + \overline{(e,f)} \right)$.
        
-        \item Comutativa: $\overline{(a,b)} + \overline{(c,d)} = \overline{(a+c,b+d)} = \overline{(c+a,d+b)} = \overline{(c,d)} + \overline{(a,b)}$;
+        \item Comutativa: $\overline{(a,b)} + \overline{(c,d)} = \overline{(a+c,b+d)} = \overline{(c+a,d+b)} = \overline{(c,d)} + \overline{(a,b)}$.
        
-        \item Elemento neutro: $\exists! x \in \mathbb{Z} : x + \overline{(a,b)} = \overline{(a,b)} + x = \overline{(a,b)}$; \\
-        Consideremos $\overline{(1,1)}$, vamos mostrar que ele o $x$ acima. 
-        Provaremos que é neutro pela esquerda. Temos que $\overline{(1,1)} + \overline{(a,b)} = \overline{(1+a,1+b)}$. Provemos que $\overline{(1+a,1+b)} \sim \overline{(a,b)}$.
-        Temos então que $(1+a)+b = (1+b)+a$, o que sempre ocorre, portanto $\overline{(1,1)}$ é neutro pela esquerda. Analogamente prova-se que é pela direita, e além disso, todo elemento neutro para uma operação é único, conforme o \Cref{agb-neutro-unico}, o que conclui nossa prova. Denotaremos o elemento neutro da adição de $0$ e chamaremos de zero.
+        \item Da existência do elemento neutro: $\exists! x \in \mathbb{Z} : x + \overline{(a,b)} = \overline{(a,b)} + x = \overline{(a,b)}$; \\
+        Consideremos $\overline{(1,1)}$, vamos mostrar que ele é o $x$ acima. 
+        Provaremos que é neutro pela esquerda. Temos que $\overline{(1,1)} + \overline{(a,b)} = \overline{(1+a,1+b)}$. Provemos que  \\ $\overline{(1+a,1+b)} \sim \overline{(a,b)}$.
+        Para isso basta notar que $(1+a)+b = (1+b)+a$. Portanto $\overline{(1,1)}$ é neutro pela esquerda. Analogamente prova-se que é neutro pela direita. Além disso, todo elemento neutro para uma operação é único, conforme o \Cref{agb-teo-neutroUnico}, o que conclui nossa prova. Denotaremos o elemento neutro da adição por $0$ e chamaremos de zero. Conforme os \Cref{int-ex-elementosRelacionadosPorSim,int-ex-classesIguaisRepresentantesDiferentes} podemos representar de maneiras diferentes esse elemento neutro, mas sempre entendendo, em última instância, como $\overline{(m,m)}$ para qualquer $m \in \mathbb{N}$.
        
-        \item Simétrico: $(\forall x \in \mathbb{Z}) (\exists!y \in \mathbb{Z}) : x + y = y + x  = 0$; \\
-        A comutatividade nós já temos, basta provar que $x + y = 0$.
-        Consideremos então $x = \overline{(a,b)}$, mostraremos que $y = \overline{(b,a)}$ é tal que $\overline{(a,b)} + \overline{(b,a)} = \overline{(1,1)}$. Temos que $\overline{(a+b,b+a)} = \overline{(1,1)}$ porque $a+b+1 = b+a+1$, o que sempre ocorre. Pelo \Cref{agb-teo-simetricoUnico} concluímos também que esse simétrico é único.
+        \item Da existência do simétrico: \\
+        Vamos mostrar que para qualquer inteiro $\overline{(a,b)}$, o elemento $\overline{(b,a)}$ é seu simétrico. 
+        Temos que $\overline{(a,b)}+ \overline{(b,a)} = \overline{(a+b,b+a)} = \overline{(1,1)}$, onde esse último elemento é o neutro da soma. Uma vez que a adição também é comutativa, temos $ \overline{(b,a)} + \overline{(a,b)} = \overline{(1,1)}$, o que mostra que $\overline{(b,a)}$ é simétrico de $\overline{(a,b)}$. Que ele é único é consequência do \Cref{agb-teo-simetricoUnico}.
+        % A comutatividade nós já temos, basta provar que $x + y = 0$.
+        % Consideremos então $x = \overline{(a,b)}$, mostraremos que $y = \overline{(b,a)}$ é tal que $\overline{(a,b)} + \overline{(b,a)} = \overline{(1,1)}$. Temos que $\overline{(a+b,b+a)} = \overline{(1,1)}$ porque $a+b+1 = b+a+1$, o que sempre ocorre. Pelo \Cref{agb-teo-simetricoUnico} concluímos também que esse simétrico é único.
        
-        \item Lei do cancelamento: $\overline{(a,b)} + \overline{(c,d)} = \overline{(a,b)} + \overline{(e,f)} \implies \overline{(c,d)} = \overline{(e,f)}$.
-        Temos $\overline{(a,b)} + \overline{(c,d)} = \overline{(a,b)} + \overline{(e,f)} \iff \overline{(a+c,b+d)} = \overline{(a+e,b+f)} \iff (a+c)+(b+f)=(b+d)+(a+e) \iff c+f = d+e \iff \overline{(c,d)} = \overline{(e,f)}$. A comutatividade garante a lei do cancelamento à esquerda e à direita.
-
-
+        \item Lei do cancelamento: $\overline{(a,b)} + \overline{(c,d)} = \overline{(a,b)} + \overline{(e,f)} \implies \overline{(c,d)} = \overline{(e,f)}$. \\
+        Temos 
+        \begin{align*}
+            \overline{(a,b)} + \overline{(c,d)} = \overline{(a,b)} + \overline{(e,f)} 
+            &\implies \overline{(a+c,b+d)} = \overline{(a+e,b+f)} \\ 
+            &\implies (a+c)+(b+f)=(b+d)+(a+e) \\
+            &\implies c+f = d+e \\ 
+            &\implies \overline{(c,d)} = \overline{(e,f)}.
+        \end{align*}
+        Desse modo a adição admite a lei do cancelamento à esquerda. Para ver que o cancelamento à direita também é válido, basta notar que a adição é comutativa.
     \end{enumerate}
 \end{dem}
 
 
 
-Com essas propriedades, podemos ver que a comutatividade, associatividade e fechamento são mantidos, com a diferença que agora trabalhamos com números inteiros e não naturais. Indo além, é possível ver que o elemento neutro da soma e o simétrico surgem naturalmente, embora não possamos dizer que o neutro em $\mathbb{Z}$ é $(0,0)$, pois nenhuma das coordenadas desse par ordenado são números naturais, não obstante qualquer $a \in \mathbb{N}$ temos que $(a,a) = 0 \in \mathbb{Z}$. Também temos agora um simétrico para a soma, o que em $\mathbb{N}$ não tem análogo. Por último, observando a \Cref{agb-def-operacao} concluímos que a adição é uma função.
+Com o \Cref{int-teo-somaPropriedades}, podemos ver que a comutatividade, a associatividade e o fechamento são mantidos, com a diferença que agora trabalhamos com números inteiros e não naturais. Indo além, é possível ver que o elemento neutro da soma e o simétrico em $\mathbb{Z}$, surgem naturalmente, embora não possamos dizer que o neutro, de acordo com o \Cref{cap-naturais} é $\overline{(0,0)}$, pois nenhuma das coordenadas desse par ordenado são números naturais. Não obstante, para qualquer $a \in \mathbb{N}$ temos que $(a,a) \sim (1,1)$ o que garante que $\overline{(a,a)} =\overline{(1,1)} = 0 \in \mathbb{Z}$. Também temos agora um simétrico para a soma, o que em $\mathbb{N}$ não ocorre. Por último, observando a \Cref{agb-def-operacao} concluímos que a adição em $\mathbb{Z}$ é uma operação.
 
-Com relação ao elemento simétrico da soma, como ele sempre existe e é único, denotamos o simétrico de $a \in \mathbb{Z}$ por $-a$. Agora podemos definir a subtração em $\mathbb{Z}$ de uma maneira relativamente simples.
+\begin{obs}\label{int-obs-notacaoSimetrico}
+    Com relação ao elemento simétrico da soma, como ele sempre existe e é único, denotaremos o simétrico de $x = \overline{(a,b)} \in \mathbb{Z}$ por $-x = -\overline{(a,b)} = \overline{(b,a)}$. Com isso, podemos definir a subtração em $\mathbb{Z}$ de uma maneira relativamente simples.  
+\end{obs}
 
 \begin{defi}\label{int-def-subtracao}
-    Sejam $a,b \in \mathbb{Z}$. A subtração de $a$ por $b$, denotada $a - b$ é definida como $a + (-b)$, onde $-b$ é o simétrico de $b$.
+    Sejam $x,y \in \mathbb{Z}$. A subtração de $x$ por $y$, denotada $x - y$ é definida como $x + (-y)$, onde $-y$ é o simétrico de $y$.
 \end{defi}
-\begin{prop} Sejam $a,b \in \mathbb{Z}$, são válidas as seguintes propriedades:
+\begin{prop} 
+    Sejam $x,y \in \mathbb{Z}$, são válidas as seguintes propriedades:
     \begin{enumerate}[label=(\roman*)]
-        \item $-a + b = b - a$;
-        \item $a - ( - b) = a+b$;
-        \item $-a-b = -(a+b)$.
+        \item $-x + y = y - x$;
+        \item $x - ( - y) = x+y$;
+        \item $-x-y = -(x+y)$.
     \end{enumerate}
 \end{prop}
 \begin{dem}
+    Sejam $x, y \in \mathbb{Z}$, temos:
         \begin{enumerate}[label=(\roman*)]
-        \item $-a + b = b - a$, pois $(-a) + b = b + (-a) = b-a$;
-        \item $a - ( - b) = a+b$, pois $-(-b) = b$, pela \Cref{agb-prop-simetricoSimetrico};
-        \item $-a-b = -(a+b)$, pois como a adição é função, podemos somar $(a+b)$ em ambos os lados da igualdade, temos
-        $(a+b)+(-a)+(-b) = -(a+b) + (a+b) = 0 \iff a+(-a) + b+(-b) = 0$, o que sempre ocorre.
+        \item Pela comutatividade da soma, $(-x) + y = y + (-x) = y-x$;
+        \item Como $-(-y) = y$, pela \Cref{agb-prop-simetricoSimetrico}, segue que $x - ( - y) = x+y$;
+        \item Vamos mostrar que $-(x+y)$ é simétrico de $x+y$, e também que $-x-y$ é simétrico de $x+y$. De $-(x+y) + (x+y)$
+            temos $(x+y) -(x+y) = 0$, o que mostra que $-(x+y)$ é simétrico de $(x+y)$. Para mostrar que $(-x-y)$ é simétrico de $(x+y)$ temos que 
+            $(-x-y)+(x+y) = (-x)+(-y)+(x)+(y) = x-x+y-y = 0$. Conforme o \Cref{agb-teo-simetricoUnico}, o simétrico é único, e portanto $-(x+y)=-x-y$.
     \end{enumerate}
 \end{dem}
 
 \section{A multiplicação em $\mathbb{Z}$}
-Agora vamos definir uma multiplicação em $\mathbb{Z}$, podemos entender a multiplicação em $\mathbb{Z}$ como tentativa de estensão de $\mathbb{N}$, assim várias propriedades queremos que sejam mantidas. Veremos que isso ocorrerá.
-\begin{defi}\label{int-def-multiplicacao}
-    Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em $\mathbb{Z}$, definimos a multiplicação $\overline{(a,b)} \cdot \overline{(c,d)}$ pelo número $\overline{(a \cdot c + b \cdot d, a \cdot d + b \cdot c)}$.
+Agora vamos definir uma multiplicação em $\mathbb{Z}$. Podemos entender a multiplicação em $\mathbb{Z}$ como uma tentativa de extensão da operação de multiplicação válida em $\mathbb{N}$. Com isso, várias propriedades que queremos serão mantidas em $\mathbb{Z}$.
+\begin{defi}\label{int-def-produto}
+    Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em $\mathbb{Z}$, definimos a multiplicação como 
+    \[ \overline{(a,b)} \cdot \overline{(c,d)} = \overline{(a \cdot c + b \cdot d, a \cdot d + b \cdot c)}. \]
 \end{defi}
-Podemos observar a título de intuição que, se as primeiras coordenadas representam a parte "positiva" do número e as segundas coordenadas a parte negativa, a multiplicação de dois positivos é positiva, e a multiplicação de dois negativos é positiva, então esses resultados ficam na primeira coordenada. Semelhantemente, quando um é positivo e outro negativo, o resultado fica negativo, e assim fica na segunda coordenada.
-\begin{teo}
-    A operação de multiplicação está bem definida em $\mathbb{Z}$. Isto é, a multiplicação em $\mathbb{Z}$ não depende do representante das classes envolvidas na multiplicação. Equivale a dizer que, se \\
-    $a,a',b,b',c,c',d,d' \in \mathbb{N} \land \overline{(a,b)} = \overline{(a',b')} \land \overline{(c,d)} = \overline{(c',d')}
-    \implies \overline{(a,b)} \cdot \overline{(c,d)} = \overline{(a',b')} \cdot \overline{(c',d')} $.
+% Podemos observar a título de intuição que, se as primeiras coordenadas representam a parte "positiva" do número e as segundas coordenadas a parte negativa, a multiplicação de dois positivos é positiva, e a multiplicação de dois negativos é positiva, então esses resultados ficam na primeira coordenada. Semelhantemente, quando um é positivo e outro negativo, o resultado fica negativo, e assim fica na segunda coordenada.
+\begin{teo}\label{int-teo-produtoBemDefinido}
+    A operação de multiplicação está bem definida em $\mathbb{Z}$. Isto é, a multiplicação em $\mathbb{Z}$ não depende do representante das classes de equivalência. 
 \end{teo}
 \begin{dem}
-    Comecemos pela definição de multiplicação, $\overline{(a,b)} = \overline{(a',b')}$ e $\overline{(c,d)} = \overline{(c',d')}$ teremos os produtos:
-    $\overline{(a,b)} \cdot \overline{(c,d)} = \overline{(ac+bd,ad+bc)}$ e $\overline{(a',b')} \cdot \overline{(c',d')} = \overline{(a'c'+b'd',a'd'+b'c')}$.
+    Sejam $a,a',b,b',c,c',d,d' \in \mathbb{N} $ tais que 
+    \[ \overline{(a,b)} = \overline{(a',b')} \land \overline{(c,d)} = \overline{(c',d')}\]
+    Vamos mostrar que
+    \[ \overline{(a,b)} \cdot \overline{(c,d)} = \overline{(a',b')} \cdot \overline{(c',d')}. \]
+
+    % Pela \Cref{int-def-produto}, $\overline{(a,b)} = \overline{(a',b')}$ e $\overline{(c,d)} = \overline{(c',d')}$ 
+    Pela definição de multiplicação, temos que 
+    \[ \overline{(a,b)} \cdot \overline{(c,d)} = \overline{(ac+bd,ad+bc)} \text{ e } \overline{(a',b')} \cdot \overline{(c',d')} = \overline{(a'c'+b'd',a'd'+b'c')}.\]
     
-    Vamos considerar agora as igualdades das classes, temos: \\
-        $\overline{(a,b)} = \overline{(a',b')} \iff a + b' = b + a' $ disso concluímos que 
-        $ (a + b')c' = (b + a')c'$ e que $(a + b')d' = (b + a')d'$. \\
-    Considerando $\overline{(c,d)} = \overline{(c',d')} \iff c + d' = d + c' $, temos que
-    $a(c + d') = a(d + c')$ e também que $b(c + d') = b(d + c')$.
+    Vamos considerar agora as igualdades das classes. Como 
+    %     \[ \overline{(a,b)} = \overline{(a',b')} \iff a + b' = b + a' \] 
+    %     disso concluímos que 
+    %     \[ (a + b')c' = (b + a')c' \text{ e que } (a + b')d' = (b + a')d' .\] 
+    % Considerando 
+    % \[ \overline{(c,d)} = \overline{(c',d')} \iff c + d' = d + c',\] 
+    % temos que
+    % \[ a(c + d') = a(d + c') \] 
+    % e também que 
+    % \[ b(c + d') = b(d + c'). \]
+    \begin{align}
+        \overline{(a,b)} = \overline{(a',b')} &\iff a + b' = b + a', \nonumber \\        \shortintertext{disso concluímos que}  
+        (a + b')c' &= (b + a')c' \label{int-dummyProduto-eq1} \\         \shortintertext{e que} 
+        (a + b')d' &= (b + a')d' . \label{int-dummyProduto-eq2} \\        \shortintertext{Considerando} 
+        \overline{(c,d)} = \overline{(c',d')} &\iff c + d' = d + c', \nonumber \\        \shortintertext{temos que}  
+        a(c + d') &= a(d + c') \label{int-dummyProduto-eq3} \\        \shortintertext{e também que}  
+        b(c + d') &= b(d + c'). \label{int-dummyProduto-eq4}
+    \end{align}
     
-    Das igualdades que obtemos no parágrafo anterior, colocaremos na ordem de aparecimento as duas últimas de cada caso, embora apliquemos as distributivas e talvez troquemos o primeiro com o segundo termo da igualdade.
+    Considerando as \Cref{int-dummyProduto-eq1,int-dummyProduto-eq2,int-dummyProduto-eq3,int-dummyProduto-eq4} que obtemos acima, aplicando a distributiva ficamos respectivamente, com:
     \begin{align*}
-        ac'+b'c' &= bc'+a'c' \\
-        bd'+a'd' &= ad'+b'd' \\
-        ac+ad'   &= ad+ac' \\
-        bd+bc'   &= bc+bd'.
+        ac'+b'c' &= bc'+a'c' \text{ (\Cref{int-dummyProduto-eq1}) }, \\
+        bd'+a'd' &= ad'+b'd' \text{ (\Cref{int-dummyProduto-eq2}) },\\
+        ac+ad'   &= ad+ac' \text{ (\Cref{int-dummyProduto-eq3}) },\\
+        bd+bc'   &= bc+bd' \text{ (\Cref{int-dummyProduto-eq4}) }.
     \end{align*}
-    Vamos agora somar a colona à esquerda, depois a coluna à direita, e colocar na mesma equação, assim:
-    $$ac'+b'c' + bd'+a'd' + ac+ad' + bd+bc' = bc'+a'c' + ad'+b'd' + ad+ac' + bc+bd'$$
+    Vamos agora somar termo a termo essas equações e obter:
+    \[ ac'+b'c' + bd'+a'd' + ac+ad' + bd+bc' = bc'+a'c' + ad'+b'd' + ad+ac' + bc+bd'. \]
     Cancelando os termos $ac', bd', ad', bc'$ ficamos com:
-    \begin{align*}
-        b'c' +a'd' + ac + bd  &= a'c' + b'd' + ad+ bc \\
-        ac + bd + a'd' + b'c' &= ad + bc + a'c' + b'd'.
-    \end{align*}
-    Com isso provamos que $ (ac+bd,ad+bc) \sim (a'c'+b'd',a'd'+b'c')$, o que nos mostra que a classe é a mesma, então o produto não depende do representante da classe, que pode, portanto, ser arbitrário.
+    
+    \[ b'c' +a'd' + ac + bd  = a'c' + b'd' + ad+ bc, \]
+    ou seja,
+    \[ ac + bd + a'd' + b'c' = ad + bc + a'c' + b'd'. \]
+    
+    Com isso, provamos que $ (ac+bd,ad+bc) \sim (a'c'+b'd',a'd'+b'c')$, o que nos mostra que $\overline{(a,b)} \cdot \overline{(c,d)} = 
+    \overline{(a',b')} \cdot \overline{(c',d')}$ e o produto não depende do representante da classe.
 \end{dem}
-\begin{prop}{Sejam $\overline{(a,b)}, \overline{(c,d)}, \overline{(e,f)}$ números inteiros quaisquer, para a multiplicação valem as seguintes propriedades:}
+\begin{teo}\label{int-teo-produtoPropriedades}
+    Sejam $\overline{(a,b)}, \overline{(c,d)}, \overline{(e,f)}$ números inteiros quaisquer. Para a multiplicação valem as seguintes propriedades:
     \begin{enumerate}[label=(\roman*)]
-        \item fechamento;
-        \item associativa;
-        \item comutativa;
-        \item do elemento neutro; 
-        \item do elemento simétrico;
-        \item lei do cancelamento \footnote{A lei do cancelamento do produto é para todo elemento diferente do neutro da soma, ou seja, diferente de $0$}.
+        \item Fechamento;
+        \item Associativa;
+        \item Comutativa;
+        \item Da existência do elemento neutro; 
+        \item Da existência do elemento simétrico;
+        \item Lei do cancelamento\footnote{A lei do cancelamento do produto é para todo elemento diferente do neutro da soma, ou seja, diferente de $0$.}.
     \end{enumerate}
-\end{prop}
+\end{teo}
 \begin{dem}
-    Entendemos $a,b,c,d,e,f$ como números naturais, como é colocado na definição.
+    Sejam $a,b,c,d,e,f \in \mathbb{N}$.
     \begin{enumerate}[label=(\roman*)]
-        \item Fechamento:
+        \item Fechamento: \\
         Temos $\overline{(a,b)} \cdot \overline{(c,d)} = \overline{(ac+bd, ad+bc)}$. Como $ac+bd \in \mathbb{N}$ e também $ad+bc \in \mathbb{N}$ temos $\overline{(ac+bd, ad+bc)} \in \mathbb{Z}$.
 
         \item Associativa: 
@@ -196,156 +276,168 @@ Podemos observar a título de intuição que, se as primeiras coordenadas repres
             &= \overline{(ace+adf+bcf+bde, acf+ade+bce+bdf)} \\
             &= \overline{(a(ce+df) + b(cf+de) , a(cf+de) + b(ce+df))} \\
             &= \overline{(a,b)} \cdot \overline{(ce+df, cf+de)} \\
-            &= \overline{(a,b)} \cdot \big( \overline{(c,d)} \cdot \overline{(e,f)} \big)
+            &= \overline{(a,b)} \cdot \big( \overline{(c,d)} \cdot \overline{(e,f)} \big).
         \end{align*}
-        
-        
-        \item Comutativa: 
+              
+        \item Comutativa: \\
         $\overline{(a,b)} \cdot \overline{(c,d)} = \overline{(ac+bd, ad+bc)} =
-        \overline{(ca+db, bc+da)} = \overline{(c,d)} \cdot \overline{(a,b)}$
-            
+        \overline{(ca+db, bc+da)} = \overline{(c,d)} \cdot \overline{(a,b)}$ .     
         
-        \item Elemento neutro: Consideremos o número $\overline{(2,1)}$. Vamos mostrar que ele é neutro pela direita. Temos $\overline{(a,b)} \cdot \overline{(2,1)} = \overline{(2a+b, a+2b)} = \overline{(a,b)}$, essa última igualdade é porque $a + a + 2b = b + 2a + b$. Analogamente se mostra que é neutro pela esquerda. A unicidade é garantido pelo teorema \Cref{agb-neutro-unico}.
+        \item Da existência do elemento neutro: \\
+        Consideremos o número $\overline{(2,1)}$. Vamos mostrar que ele é neutro pela direita. Temos $\overline{(a,b)} \cdot \overline{(2,1)} = \overline{(2a+b, a+2b)} = \overline{(a,b)}$. A última igualdade ocorre porque $a + a + 2b = b + 2a + b$. Analogamente, se mostra que $\overline{(2,1)}$ é neutro pela esquerda. A unicidade é garantida pelo \Cref{agb-teo-neutroUnico}, a menos de escolha do representante da classe.
         
-        \item Distributiva: primeiro vamos mostrar a distributiva à esquerda.
+        \item Distributiva: \\
+        Primeiro vamos mostrar a distributiva à esquerda.
         \begin{align*}
             \overline{(a,b)} \cdot \left( \overline{(c,d)} + \overline{(e,f)} \right) &= \overline{(a,b)} \cdot (\overline{(c+e,d+f)}) \\
             &= \overline{(a(c+e) + b(d+f), a(d+f) +b(c+e)} \\
             &= \overline{(ac+ae+bd+bf, ad+af+bc+be)} \\
             &= \overline{(ac+bd, ad+bc)} + \overline{(ae+bf, af+be)} \\
-            &= \big( \overline{(a,b)} \cdot \overline{(c,d)} \big) + \big( \overline{(a,b)} \cdot \overline{(e,f)} \big)    
+            &= \big( \overline{(a,b)} \cdot \overline{(c,d)} \big) + \big( \overline{(a,b)} \cdot \overline{(e,f)} \big)  .  
         \end{align*}
-        Pela comutatividade do produto em $\mathbb{Z}$ e pela distributiva à esquerda, a distributiva a direita está também provada.
+        Pela comutatividade do produto em $\mathbb{Z}$ e pela distributividade à esquerda, a distributividade a direita está também provada.
 
-        \item Lei do cancelamento: Por hipótese temos 
-        \begin{center}
-            $\overline{(a,b)} \cdot \overline{(c,d)} = \overline{(a,b)} \cdot \overline{(e,f)}$ \\
-            $\overline{(ac+bd, ad+bc)} = \overline{(ae+bf, af+be)}$
-        \end{center}
-        O que equivale a: 
-        \begin{center}
-            $ac+bd+af+be = ad+bc+ae+bf$ \\
-             $a(c+f) + b(d+e) = a(d+e) + b(c+f)$
-        \end{center}
-        Como $\overline{(a,b)} \neq 0$, $a \neq b$. Suponhamos sem perda de generalidade que $a > b$, temos que $a = b + m$ para algum $m$ natural. Substituindo na equação ficamos com 
-        \begin{center}
-            $(b+m)(c+f)+ b(d+e) = (b+m)(d+e)+b(c+f)$ \\
-            $bc + bf + mc + mf + bd + be = bd + be + md + me + bc + bf$
-        \end{center}
-        Cancelando os termos $bc, bf, bd, be$ ficamos com
-        \[\begin{split}
-             mc + mf = md + me \iff \\
-            m(c+f) = m(d+e) \iff \\
-            c+f = d+e \iff \\
-            (c,d) \sim (e,f)           
-        \end{split} \]
-       $$\therefore \overline{(c,d)} = \overline{(e,f)}$$.
-
-        % \item Lei do anulamento do produto:
-        %     $\overline{(a,b)} \cdot \overline{(c,d)} = 0 \implies \overline{(a,b)} = 0 \lor \overline{(c,d)}=0$; \\
-        %     \yellow{TODO}
-        %     \gray{asd}
+        \item Lei do cancelamento: \\
+        Suponha que $\overline{(a,b)} \neq 0$ seja tal que $\overline{(a,b)} \cdot \overline{(c,d)} = \overline{(a,b)} \cdot \overline{(e,f)}$. Ou seja,  
+        % \begin{center}
+        %     $\overline{(a,b)} \cdot \overline{(c,d)} = \overline{(a,b)} \cdot \overline{(e,f)}$ \\
+        \[ \overline{(ac+bd, ad+bc)} = \overline{(ae+bf, af+be)}, \]
+        % \end{center}
+        o que equivale a
+        \[ ac+bd+af+be = ad+bc+ae+bf, \]
+        isto é, 
+        \[ a(c+f) + b(d+e) = a(d+e) + b(c+f). \]
+        Como $\overline{(a,b)} \neq 0$, $a \neq b$. Suponhamos, sem perda de generalidade, que $a > b$. Temos que $a = b + m$ para algum $m$ natural. Substituindo na igualdade anterior, ficamos com 
+        \[ (b+m)(c+f)+ b(d+e) = (b+m)(d+e)+b(c+f) \]
+        e então,
+        \[ bc + bf + mc + mf + bd + be = bd + be + md + me + bc + bf. \]
+        
+        Cancelando os termos $bc, bf, bd, be$, obtemos
+        \begin{align*}
+            mc + mf = md + me 
+            &\iff m(c+f) = m(d+e) \\ 
+            &\iff c+f = d+e  \\
+            &\iff (c,d) \sim (e,f).
+        \end{align*}
+        E portanto
+       \[ \overline{(c,d)} = \overline{(e,f)}. \]
     \end{enumerate}
 \end{dem}
 
-\begin{prop}\label{int-prop-sinalRegra1}
-    Sejam $a, b$ números inteiros quaisquer. É válido que $-(ab) = a(-b) = (-a)b$.
-\end{prop}
+Podemos usar a notação como na \Cref{int-obs-notacaoSimetrico} e na \Cref{int-def-subtracao}. Assim, se $x = \overline{(a,b)}$, poderemos quando conveniente trabalhar somente com a notação da variável $x$, ao invés de usar a classe. Por outro lado, em vista de necessidade, não abandonaremos a notação das classes de equivalência.
+
+\begin{teo}\label{int-teo-produtoRegraSinal1}
+    Sejam $x, y$ números inteiros quaisquer. É válido que 
+    \[ -(xy) = x(-y) = (-x)y. \]
+\end{teo}
 \begin{dem}
-    A demonstração consiste em explorar a unicidade do simétrico, conforme a \Cref{agb-teo-simetricoUnico}.
-    Vamos mostrar que $ab$ é o simétrico de todos no enunciado. Basta observar que $ab + (-ab) = 0$.
-    Também vale que $ab + a(-b) = a(b+(-b)) = a0 = 0$. Por último, $ab + (-a)b = (a + (-a))b = 0b = 0$.
+    A demonstração consiste em explorar a unicidade do simétrico, conforme o \Cref{agb-teo-simetricoUnico}.
+    Vamos mostrar que $xy$ é o simétrico de todos no enunciado. Basta observar que $xy + (-xy) = 0$.
+    Também vale que $xy + x(-y) = x(y+(-y)) = x0 = 0$. Por último, $xy + (-x)y = (x + (-x))y = 0y = 0$.
 \end{dem}
-\begin{corol}\label{int-corol-sinalRegra2}
-    Se $a,b \in \mathbb{Z}$, então vale $(-a)(-b) = ab$
+\begin{corol}\label{int-corol-produtoRegraSinal2}
+    Se $x,y \in \mathbb{Z}$, então vale $(-x)(-y) = xy$.
 \end{corol}
 \begin{dem}
-    Observando a \Cref{int-prop-sinalRegra1} concluímos que vale $(-a)(-b) = -(a(-b)$, como o produto é comutativo, temos $-((-b)a) = -(-(ba))$,
-    o que, pelo \Cref{agb-prop-simetricoSimetrico} temos que $-(-(ba)) = ba = ab$.
+    Observando o \Cref{int-teo-produtoRegraSinal1} concluímos que vale \\ $(-x)(-y) = -(x(-y)$, como o produto é comutativo, temos $-((-y)x) = -(-(yx))$,
+    o que, pela \Cref{agb-prop-simetricoSimetrico} implica que $-(-(yx)) = yx = xy$.
 \end{dem}
 
-Com isso, podemos concluir que $\mathbb{Z}$ com essa soma e esse produto, é um anel, conforme definido na \Cref{agb-def-anel}.
+Com isso, podemos observar que $\mathbb{Z}$ com a soma dada na \Cref{int-def-soma} e com o produto dado na \Cref{int-def-produto}, tem as propriedades enunciadas na \Cref{agb-def-anel}, e portanto é um anel.
 
-\section{Relação de ordem}
-\begin{defi}
+\section{A relação de ordem em $\mathbb{Z}$}
+\begin{defi}\label{int-def-relacaoOrdem}
     Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em $\mathbb{Z}$, definimos a relação de ordem $\leq$ e dizemos que $\overline{(a,b)}$ é menor do que ou igual a $\overline{(c,d)}$ quando $a+d \leq b+c$ e denotamos por $\overline{(a,b)} \leq \overline{(c,d)}$.
 \end{defi}
 
-\begin{prop}
-    A relação de ordem está bem definida, isto é, sejam $\overline{(a,b)} = \overline{(a',b')}$ e $\overline{(c,d)} = \overline{(c',d')}$. Se $\overline{(a,b)} \leq \overline{(c,d)}$, então $\overline{(a',b')} \leq \overline{(c',d')}$.
-\end{prop}
+\begin{teo}\label{int-teo-relacaoOrdemBemDefinida}
+    A relação de ordem está bem definida, isto é, para $\overline{(a,b)} = \overline{(a',b')}$ e $\overline{(c,d)} = \overline{(c',d')}$, se $\overline{(a,b)} \leq \overline{(c,d)}$, então $\overline{(a',b')} \leq \overline{(c',d')}$.
+\end{teo}
 \begin{dem}
-    Temos $\overline{(a,b)} = \overline{(a',b')} \iff a+b' = b+a'$. 
-    Também $\overline{(c,d)} = \overline{(c',d')} \iff c+d' = d+c'$. 
-    Como $\overline{(a,b)} \leq \overline{(c,d)} \iff a+d \leq b+c$, temos:
+    % Sejam $\overline{(a,b)} = \overline{(a',b')} \iff a+b' = b+a'$. 
+    % Também $\overline{(c,d)} = \overline{(c',d')} \iff c+d' = d+c'$. 
+    % Como $\overline{(a,b)} \leq \overline{(c,d)} \iff a+d \leq b+c$, temos:
+    % \begin{align*}
+    %     b+a'+c+d' &= a+b' + d+c' \\
+    %     a'+d' + a+d + m &= b' + c' + a + d \\
+    %     a'+d' + m &= b' + c'  \\
+    %     a'+d' & \leq b'+c'.
+    % \end{align*}
+
+    Sejam $\overline{(a,b)} = \overline{(a',b')}$ e $\overline{(c,d)} = \overline{(c',d')}$. Logo $a+b' = b+a'$ e $c+d' = d+c'$.
+   
+    Supondo $\overline{(a,b)} \leq \overline{(c,d)} \iff a+d \leq b+c$, temos $a+d \leq b+c$ e existe $m \in \mathbb{N}$ tal que $(a+d)+m=b+c$. Assim
+    
     \begin{align*}
         b+a'+c+d' &= a+b' + d+c' \\
         a'+d' + a+d + m &= b' + c' + a + d \\
         a'+d' + m &= b' + c'  \\
-        a'+d' & \leq b'+c'.
+        a'+d' & \leq b'+c',
     \end{align*}
+    o que mostra que $\overline{(a',b')}\leq\overline{(c',d')}$
      
 \end{dem}
-\begin{prop}{Sejam $\overline{(a,b)}, \overline{(c,d)}, \overline{(e,f)}$ números inteiros quaisquer, para a relação de ordem valem as seguintes propriedades:}\label{int-prop-relacaoOrdem}
+\begin{teo}{Sejam $\overline{(a,b)}, \overline{(c,d)}, \overline{(e,f)}$ números inteiros quaisquer. Para a relação de ordem valem as seguintes propriedades:}\label{int-teo-relacaoOrdemPropriedades}
     \begin{enumerate}[label=(\roman*)]
         \item Reflexiva;
         \item Antissimétrica;
         \item Transitiva;
         \item Totalidade;
-        \item Compatível com a adição;
-        \item Compatível com a multiplicação.
+        \item Compatibilidade com a adição;
+        \item Compatibilidade com a multiplicação.
     \end{enumerate}
-\end{prop}
+\end{teo}
 \begin{dem}
     \begin{enumerate}[label=(\roman*)]
         \item Reflexiva: \\
-            De fato ocorre que $a+b \leq b+a \therefore \overline{(a,b)} \leq \overline{(a,b)}$.
+            De fato, como $a+b \leq b+a$, segue que $\overline{(a,b)} \leq \overline{(a,b)}$.
         
-        \item Antissimétrica: 
-            \begin{center}
-                $\overline{(a,b)} \leq \overline{(c,d)} \myspace\land \overline{(c,d)} \leq \overline{(a,b)}$ \\
-                $a+d \leq b+c \myspace\land c+b \leq d+a$
-            \end{center}
-            O que, pela antissimetria em $\mathbb{N}$ temos que $a+d = c+b$, então $(a,b) \sim (c,d)$ e $\overline{(a,b)} = \overline{(c,d)} $.
-        
-        \item Transitiva: 
-        \begin{align*}
-            \overline{(a,b)} \leq \overline{(c,d)} & \myspace\land \overline{(c,d)} \leq \overline{(e,f)}  \\
-            a+d \leq b+c & \myspace\land c+f \leq d+e  \\
-            a+d+f \leq b + c + f & \myspace\land c + f + b \leq d + e + b  \\
-            a + d + f & \myspace\leq d + e + b \\
-            a + f & \myspace\leq b + e 
-            \therefore \overline{(a,b)}  \myspace\leq \overline{(e,f)}.
-        \end{align*}
+        \item Antissimétrica: \\
+            Supondo
             
-        \item Totalidade: 
-        \begin{align*}
-            \overline{(a,b)} \leq \overline{(c,d)} & \myspace\lor \overline{(c,d)} \leq \overline{(a,b)} \\ 
-            a+d \leq b+c & \myspace\lor c+b \leq d+a   
+            \[ \overline{(a,b)} \leq \overline{(c,d)} \myspace\land \overline{(c,d)} \leq \overline{(a,b)} \]
+            temos que 
+            \[ a+d \leq b+c \myspace\land c+b \leq d+a \]
+            Pela antissimetria em $\mathbb{N}$, temos que $a+d = c+b$, então $(a,b) \sim (c,d)$ e $\overline{(a,b)} = \overline{(c,d)} $.
+        
+        \item Transitiva: \\
+            Supondo
+            \begin{align*}
+                \overline{(a,b)} \leq \overline{(c,d)} & \myspace\land \overline{(c,d)} \leq \overline{(e,f)},  \\ \shortintertext{temos que}
+                a+d \leq b+c & \myspace\land c+f \leq d+e.  \\ \shortintertext{Logo}
+                a+d+f \leq b + c + f & \myspace\land c + f + b \leq d + e + b.  \\ \shortintertext{Assim}
+                a + d + f & \myspace\leq d + e + b, \\ \shortintertext{ou seja}
+                a + f & \myspace\leq b + e. \\ \shortintertext{Portanto}
+                \overline{(a,b)}  & \myspace\leq \overline{(e,f)}.
+            \end{align*}
+            
+        \item Totalidade: \\
+        Pela totalidade em $\mathbb{N}$, dados $a,b,c,d \in \mathbb{N}$, temos que $a+d \leq b+c \lor c+b \leq d+a$. Logo 
+        $\overline{(a,b)} \leq \overline{(c,d)} \lor  \overline{(c,d)} \leq  \overline{(a,b)}$.
+        % \begin{align*}
+        %     \overline{(a,b)} \leq \overline{(c,d)} & \myspace\lor \overline{(c,d)} \leq \overline{(a,b)} \\ 
+        %     a+d \leq b+c & \myspace\lor c+b \leq d+a   
+        % \end{align*}
+        % Pela totalidade em $\mathbb{N}$ temos que sempre pelo menos uma das proposições disjuntas pelo $\lor$ ocorre.
+        
+        \item Compatibilidade com a adição: \\
+        Supondo que $\overline{(a,b)} \myspace\leq \overline{(c,d)}$, temos que $a+d \myspace\leq b+c$. 
+
+            Se $e, f$ são também naturais, pela compatibilidade da adição em $\mathbb{N}$ temos: \\
+        \begin{align*}    
+           % $a+d+e+f \myspace\leq a+d+m+e+f$ \\
+            a+d +e+f \leq b+c+e+f, \\ \shortintertext{ou seja,}
+            a + e + d +f \myspace\leq b + f + c + e. \\ \shortintertext{Logo}
+            \overline{(a+e,b+f)} \myspace\leq \overline{(c+e, d+f)}. \\ \shortintertext{Portanto}
+            \overline{(a,b)} + \overline{(e,f)} \myspace\leq \overline{(c,d)} + \overline{(e,f)}.
         \end{align*}
-        Pela totalidade em $\mathbb{N}$ temos que sempre pelo menos uma das proposições disjuntas pelo $\lor$ ocorre.
-        
-        \item Compatível com a adição: \\
-        \begin{center}
-            $\overline{(a,b)} \myspace\leq \overline{(c,d)}$ \\
-            $a+d \myspace\leq b+c$ 
-        \end{center}
-            Assim, temos $b+c = a+d + m$, para algum $m$ natural. Se $e, f$ são também naturais, temos: \\
-        \begin{center}    
-           $a+d+e+f \myspace\leq a+d+m+e+f$ \\
-
-            $a + d +e+f \myspace\leq b + c + e+f$ \\
-            $a + e + d +f \myspace\leq b + f + c + e$ \\
-            $\overline{(a+e,b+f)} \myspace\leq \overline{(c+e, d+f)}$ \\
-            $\overline{(a,b)} + \overline{(e,f)} \myspace\leq \overline{(c,d)} + \overline{(e,f)}$
-
-        \end{center}
 
         
-        \item Compatível com a multiplicação: \\
+        \item Compatibilidade com a multiplicação: \\
         Suponhamos $\overline{(a,b)} \leq \overline{(c,d)}$ e também $0 = \overline{(1,1)} < \overline{(e,f)}$.
         Desse modo, temos que $e > f$ pois $1+f < 1+e$. Seja então $e = f+m$ para algum $m$ natural. As linhas abaixo são equivalentes:
         \begin{center}
+            $\overline{(a,b)} \leq \overline{(c,d)}$\\
             $a+d \myspace\leq b+c  $\\
             $(a+d)m \myspace\leq (b+c)m $ \\
             $(a+d)m + (a+d)f + (b+c)f \myspace\leq (b+c)m + (a+d)f + (b+c)f$ \\
@@ -353,69 +445,87 @@ Com isso, podemos concluir que $\mathbb{Z}$ com essa soma e esse produto, é um 
             $(a+d)e + (b+c)f \myspace\leq (a+d)f + (b+c)e$ \\
             $ae+bf + cf+de \myspace\leq af+be + ce+df  $\\
             $\overline{(ae+bf, af+be)} \myspace\leq \overline{(ce+df, cf+de)}  $ \\           
-            $\overline{(a,b)} \cdot \overline{(e,f)} \myspace\leq \overline{(c,d)} \cdot \overline{(e,f)} $ 
+            $\overline{(a,b)} \cdot \overline{(e,f)} \myspace\leq \overline{(c,d)} \cdot \overline{(e,f)}$.
         \end{center}        
         
     \end{enumerate}
 \end{dem}
 \begin{obs}
-    Na compatibilidade com a multiplicação que acabamos de provar, ela também prova que se $\overline{(a,b)} \cdot \overline{(e,f)} 
-    \leq \overline{(c,d)} \cdot \overline{(e,f)}$, então $\overline{(a,b)} \leq \overline{(c,d)}$. Comentário análogo vale para essa compatibilidade com a adição.
+    A compatibilidade com a multiplicação, que acabamos de provar, também garante que se $\overline{(a,b)} \cdot \overline{(e,f)} 
+    \leq \overline{(c,d)} \cdot \overline{(e,f)}$, então $\overline{(a,b)} \leq \overline{(c,d)}$. Comentário análogo vale para a compatibilidade com a adição.
 \end{obs}
 
-\begin{prop}
-    É válido que $\overline{(a,b)} < \overline{(c,d)}$ se, e somente se, existe um $\overline{(e,f)} > 0$ onde $\overline{(a,b)} + \overline{(e,f)} = \overline{(c,d)}$.
+\begin{prop}\label{int-prop-AMenorBAMaisCIgualB}
+    É válido que $\overline{(a,b)} < \overline{(c,d)}$ se, e somente se, existe um $\overline{(e,f)} > 0$ em que  $\overline{(a,b)} + \overline{(e,f)} = \overline{(c,d)}$.
 \end{prop}
 \begin{dem}
-    Como $\overline{(a,b)} < \overline{(c,d)}$, temos $a+d + m = b+c$, para algum $m$ natural. Consideremos o número $\overline{(m+1, 1)}$, vamos mostrar que ele é o número procurado. Sabemos que ele é positivo pois $\overline{(1,1)} < \overline{(m+1, 1)} \iff 1+1 < 1+m+1 $. \\
+    Supondo $\overline{(a,b)} < \overline{(c,d)}$, temos $a+d < b+c$, ou seja, \\ 
+    $a+d + m = b+c$, para algum $m$ natural. Consideremos o número $\overline{(m+1, 1)}$, vamos mostrar que ele é o número procurado. Sabemos que ele é positivo pois 
+    \[ \overline{(1,1)} < \overline{(m+1, 1)} \iff 1+1 < 1+m+1. \] \\
     Agora, $\overline{(a,b)} + \overline{(m+1,1)} = \overline{(a+m+1,b+1)} = \overline{(a+m, b)}$.
     Podemos observar que $\overline{(a+m, b)} = \overline{(c,d)}$, pois $a+m+d = b+c$.
 
-    Provemos a volta. Suponhamos que $\overline{(a,b)} + \overline{(e,f)} = \overline{(c,d)}$, para algum $\overline{(e,f)} > 0$. Temos $e=f+m$ para algum $m$ natural. Assim, ficamos com $\overline{(a+f+m, b+f)} = \overline{(a+m, b)} = \overline{(c,d)}$. Assim, $a+m+d = b+c$, logo, $a+d < b+c 
-    \therefore \overline{(a,b)} < \overline{(c,d)}$.
+    Provemos a volta. Suponhamos que $\overline{(a,b)} + \overline{(e,f)} = \overline{(c,d)}$, para algum $\overline{(e,f)} > 0$. Temos $e=f+m$ para algum $m$ natural. Assim, ficamos com 
+    \[ \overline{(a+f+m, b+f)} = \overline{(a+m, b)} = \overline{(c,d)}. \] 
+    Assim, $a+m+d = b+c$, logo, $a+d < b+c$. Portanto $ \overline{(a,b)} < \overline{(c,d)}$.
 \end{dem}
 
+A próxima proposição complementa a proposição anterior.
 \begin{prop}
-    Complementando a proposição anterior, vale que $\overline{(a,b)} \leq \overline{(c,d)}$ se, e somente se, existe um $\overline{(e,f)} \geq 0$ onde $\overline{(a,b)} + \overline{(e,f)} = \overline{(c,d)}$.
+    É válido que $\overline{(a,b)} \leq \overline{(c,d)}$ se, e somente se, existe um $\overline{(e,f)} \geq 0$ em que $\overline{(a,b)} + \overline{(e,f)} = \overline{(c,d)}$. 
 \end{prop}
 \begin{dem}
-    Vamos separar em 4 casos: \\
-    \begin{enumerate}
+    Para provar a ida, separemos em dois casos:
+    \begin{enumerate}[label=(\roman*)]
         \item Se $\overline{(a,b)} = \overline{(c,d)}$ então $\overline{(a,b)} + 0 = \overline{(c,d)}$.
-        \item Se $\overline{(a,b)} < \overline{(c,d)}$, caímos na proposição anterior.
+        \item Se $\overline{(a,b)} < \overline{(c,d)}$, caímos na \Cref{int-prop-AMenorBAMaisCIgualB}.
+    \end{enumerate} 
+    Para provar a volta, também separaremos em dois casos:    
+    \begin{enumerate}[label=(\roman*)]
         \item Se $\overline{(e,f)} = 0$, temos $\overline{(a,b)} + 0 = \overline{(c,d)}$.
-        \item Se $\overline{(e,f)} > 0$, caímos na proposição anterior.
-    \end{enumerate}
-   
+        \item Se $\overline{(e,f)} > 0$, caímos na \Cref{int-prop-AMenorBAMaisCIgualB}.
+    \end{enumerate} 
 \end{dem}
+
+Vamos relembrar que um número negativo, conforme \Cref{agb-def-numNegativo}, em $\mathbb{Z}$, é qualquer número menor que $0$.
+\begin{ex}
+    O número $\overline{(1,2)} < \overline{(1,1)} = 0$. De fato, $1+1 < 2+1$. 
+\end{ex}
+\begin{ex}
+    O número $\overline{(4,2)}$ é positivo. Pois de acordo com a \Cref{agb-def-numPositivo}, temos que $\overline{(1,1)} < \overline{(4,2)}$ pois 
+    $1+2 < 1+4$.
+\end{ex}
+\begin{ex}
+    O número $0 = \overline{(1,1)}$ não é nem positivo, nem negativo, conforme as \Cref{agb-def-numPositivo,agb-def-numNegativo}, pois ele não é maior do que o zero do conjunto, embora ele seja maior do que ou igual.
+\end{ex}
+\begin{ex}
+    Quando quisermos mencionar os números positivos e incluir o zero, chamaremos simplesmente de números não negativos. Analogamente, os números não positivos são os números negativos junto com o zero.
+\end{ex}
 
 \begin{prop}\label{int-prop-coordenadaMaior}
-    Um número inteiro é não negativo se, e somente se a primeira coordenada é maior do que ou igual a segunda coordenada. 
-    Isto é, se $\overline{(a,b)}$ é um número inteiro, então vale $0 \leq \overline{(a,b)}  \iff b \leq a$
+    Um número inteiro é não negativo se, e somente se, a primeira coordenada é maior do que ou igual a segunda coordenada. 
+    Isto é, se $\overline{(a,b)}$ é um número inteiro, então vale $0 \leq \overline{(a,b)}  \iff b \leq a$.
 \end{prop}
 \begin{dem}
-    Seja $0 = \overline{(1,1)}$.
-    As linhas a seguir são equivalentes:
-    \[ 0 = \overline{(1,1)} \leq \overline{(a,b)} \]
-    \[ 1+b \leq 1+a \]
-    \[ b \leq a. \]
+    Seja $0 = \overline{(1,1)}$. Tem-se que:
+    \[ 0 = \overline{(1,1)} \leq \overline{(a,b)} \iff 1+b \leq 1+a \iff b \leq a. \]
 \end{dem}
 
 \begin{corol}\label{int-corol-numeroOuSimetricoPositivo}
-    Dado um número inteiro, ou ele é maior do que ou igual a zero, ou seu simétrico aditivo é, ou seja
+    Dado um número inteiro, ou ele é maior do que ou igual a zero, ou seu simétrico aditivo é, ou seja,
     se $\overline{(a,b)} \in \mathbb{Z}$, então $\overline{(a,b)} \geq 0 = \overline{(1,1)}$ ou $-\overline{(a,b)} \geq 0$.
 \end{corol}
 \begin{dem}
-    Como a relação de ordem $\leq$ é total conforme a \Cref{int-prop-relacaoOrdem}, vale que $\overline{(a,b)} \leq \overline{(1,1)}$ ou $\overline{(1,1)} \leq \overline{(a,b)}$. Se $\overline{(a,b)}$ é não negativo é imediato que o corolário é válido. Já no segundo caso, 
+    Como a relação de ordem $\leq$ é total conforme o \Cref{int-teo-relacaoOrdemPropriedades}, vale que $\overline{(a,b)} \leq \overline{(1,1)}$ ou $\overline{(1,1)} \leq \overline{(a,b)}$. Se $\overline{(a,b)}$ é não negativo é imediato que o corolário é válido. Já no segundo caso, 
     de $\overline{(a,b)} \leq \overline{(1,1)}$ temos $a+1 \leq b+1 \implies a \leq b$. \\
-    Temos que o número $-\overline{(a,b)} = \overline{(b,a)} \geq \overline{(1,1)}$ pela \Cref{int-prop-coordenadaMaior}.
+    Com isso, $-\overline{(a,b)} = \overline{(b,a)} \geq \overline{(1,1)}$ pela \Cref{int-prop-coordenadaMaior}.
 \end{dem}
 
 \begin{corol}\label{int-corol-simetricoSinalTrocado}
     Um número inteiro é não negativo se, e somente se, seu simétrico aditivo é não positivo.
 \end{corol}
 \begin{dem}
-    Pelo \Cref{int-corol-numeroOuSimetricoPositivo}, considerando um número $x$ e seu simétrico $-x$, ao menos um deles é não negativo. Caso seja $0 \leq x$ temos $0 + (-x) \leq x + (-x) \iff -x \leq 0$, assim $-x$ é não positivo. No outro caso supomos que $0 \leq -x$, daí 
+    Pelo \Cref{int-corol-numeroOuSimetricoPositivo}, considerando um número $x$ e seu simétrico $-x$, ao menos um deles é não negativo. Caso seja $0 \leq x$ temos $0 + (-x) \leq x + (-x)$. Logo $-x \leq 0$, assim $-x$ é não positivo. No outro caso supomos que $0 \leq -x$, daí 
     $0 + x \leq -x + x = 0$, assim $x \leq 0$.
 \end{dem}
 
@@ -423,81 +533,110 @@ Com isso, podemos concluir que $\mathbb{Z}$ com essa soma e esse produto, é um 
     A soma de dois inteiros não negativos é não negativa, isto é, se $x, y \in \mathbb{Z}$ com $x,y \geq 0$ então $0 \leq x+y$.
 \end{prop}
 \begin{dem}
-    Conforme o \Cref{int-corol-simetricoSinalTrocado}, como $x,y \geq 0$ temos $-x \leq 0$ e $-y \leq 0$, como qualquer inteiro não negativo é maior do que ou igual a qualquer inteiro não positivo, temos $-y \leq +x$ e pela compatibilidade da soma com a relação de ordem, \Cref{int-prop-relacaoOrdem}, temos 
-    $-y + y \leq x + y$, desse modo $x+y \geq 0$.
+    Conforme o \Cref{int-corol-simetricoSinalTrocado}, como $x,y \geq 0$ temos $-x \leq 0$ e $-y \leq 0$. Como qualquer inteiro não negativo é maior do que ou igual a qualquer inteiro não positivo, temos $-y \leq +x$, e pela compatibilidade da soma com a relação de ordem (\Cref{int-teo-relacaoOrdemPropriedades}), temos 
+    $-y + y \leq x + y$. Desse modo, $x+y \geq 0$.
 \end{dem}
 
 \begin{prop}\label{int-prop-diferencaPositiva}
-    Se $x,x' \in \mathbb{Z}$ com $x' \geq x$, então existe $y$ inteiro, onde $y \geq 0$ e $x' = x+y$.
+    Se $x,x' \in \mathbb{Z}$ com $x' \geq x$, então existe $y$ inteiro, tal que $y \geq 0$ e $x' = x+y$.
 \end{prop}
 \begin{dem}
     Se $x' = x$ então $y=0$.
-    Caso contrário, se $x'>x$ então considere $x = \overline{(a,b)}, x'=\overline{(a',b')}$, temos 
-    \[ x < x' \iff a+b' < b + a' \iff b+a' = a+b'+c \iff \] 
-    \[  a+c+b' = b+a' \iff (a+c,b) \sim (a',b') \text{ , com $c$ natural.} \] 
+    Caso contrário, se $x'>x$ então considere $x = \overline{(a,b)}, x'=\overline{(a',b')}$. Temos 
+    \begin{align*}
+        x < x' \iff a+b' < b + a' &\iff b+a' = a+b'+c \text{ para algum } c \in \mathbb{N}. \\ \shortintertext{Logo}
+        a+c+b' = b+a' &\iff (a+c,b) \sim (a',b').
+    \end{align*}
+    % \[ x < x' \iff a+b' < b + a' \iff b+a' = a+b'+c  \] 
+    % \[  a+c+b' = b+a' \iff (a+c,b) \sim (a',b') \text{ , com $c$ natural.} \] 
 
-    Temos também que $\overline{(a+c,b)} = \overline{(a+c+1,b+1)} = \overline{(a,b)} + \overline{(c+1, 1)}$, onde usamos a \Cref{int-def-adicao} e a \Cref{int-prop-cancelaCoordenadas}.
+    Temos também que $\overline{(a+c,b)} = \overline{(a+c+1,b+1)} = \overline{(a,b)} + \overline{(c+1, 1)}$, onde usamos a \Cref{int-def-soma} e a \Cref{int-prop-cancelaCoordenadas}. Assim $x' = \overline{(a+c,b)} = \overline{(a,b)} + \overline{(c+1,1)}$.
 
     O número $\overline{(c+1,1)}$ é inteiro, pois suas entradas são números naturais, e é positivo pois $\overline{(1,1)} \leq \overline{(c+1,1)} 
-    \iff 1+1 \leq 1+(c+1)$, como $c$ é natural ele não pode ser zero, conforme nossa construção. Dessa forma $\overline{(c+1,1)}$ é o $y$ da proposição.
+    \iff 1+1 \leq 1+(c+1)$ e como $c$ é natural, ele não pode ser zero, conforme nossa construção. Dessa forma $\overline{(c+1,1)}$ é o $y$ desejado.
     % O número inteiro $y = \overline{(m+1,1)}$ é tal que $y>0$ e $x' = x+ y$. Ele é positivo porque $0 = \overline{(1,1)} \leq \overline{(m+1,1)}$ uma vez que $1+1 \leq 1+(c+1)$. Ainda, $0 \neq y$ pois $c \in \mathbb{N}$ e nosso $\mathbb{N}$ não tem o zero. Agora mostremos que $x+y = x'$, temos:
-    % $x+y = \overline{(a,b)} + \overline{(c+1,1)} = \overline{(a+c+1,b+1)} = \overline{(a+c,b)}$, isso usando a \Cref{int-def-adicao} e \Cref{int-prop-cancelaCoordenadas}. 
+    % $x+y = \overline{(a,b)} + \overline{(c+1,1)} = \overline{(a+c+1,b+1)} = \overline{(a+c,b)}$, isso usando a \Cref{int-def-soma} e \Cref{int-prop-cancelaCoordenadas}. 
     % Temos também que $ a+c+b' = b+a' \iff (a+c,b) \sim (a',b')$ 
+\end{dem}
+
+\begin{prop}\label{int-prop-diferencaPositivaII}
+    Sejam $x, x'$ números inteiros quaisquer. Se existe $y$ inteiro tal que $y \geq 0$ e $x' = x+y$, então $x \leq x'$.    
+\end{prop}
+\begin{dem}
+    Seja $x = \overline{(a,b)}$.
+    Suponhamos $0 \leq y$, assim $y = \overline{(e,f)}$ para $e,f$ naturais tais que $e \geq f$ (\Cref{int-prop-coordenadaMaior}). 
+    De $x' = x + y$ temos que $x' = \overline{(a+e,b+f)}$. Temos que 
+    \begin{align*}
+        f &\leq e \\ \shortintertext{assim}
+        a+b+f &\leq b+a+e \\ \shortintertext{e então}
+        a+(b+f) &\leq b+ (a+e). \\ \shortintertext{Logo}
+        \overline{(a,b)} &\leq \overline{(a+e,b+f)} \\ \shortintertext{e portanto}
+        x &\leq x'.
+    \end{align*}
 \end{dem}
 
 \begin{prop}\label{int-prop-quadradoPositivo}
     O quadrado de um número inteiro é um inteiro não negativo, ou seja, se $\overline{(a,b)} \in \mathbb{Z}$, então vale $0 = \overline{(1,1)} \leq \overline{(a,b)} \cdot \overline{(a,b)}$. 
 \end{prop}
 \begin{dem}
-    Temos $\overline{(a,b)} \cdot \overline{(a,b)} \iff \overline{(aa + bb, ab+ba)}$. Observando a \Cref{int-prop-coordenadaMaior}, queremos mostrar que $aa+bb \geq ab+ba$. Considerando a tricotomia de $\mathbb{N}$ (aplicada em $a$ e $b$) dada na \Cref{nat-soma-props} separaremos em 3 casos:
+    Temos $\overline{(a,b)} \cdot \overline{(a,b)} = \overline{(aa + bb, ab+ba)}$. Observando a \Cref{int-prop-coordenadaMaior}, queremos mostrar que $aa+bb \geq ab+ba$. Considerando a tricotomia de $\mathbb{N}$ (aplicada em $a$ e $b$) dada na \Cref{nat-teo-somaPropriedades}, separaremos a demonstração em 3 casos:
     \begin{enumerate}[label=(\roman*)]
-        \item Caso $a=b$ \\
+        \item Caso $a=b$: \\
         Temos $aa+aa \geq aa+aa$.
 
         \item Caso $a < b$: \\
-        Temos $b = a+c$, com $c \in \mathbb{N}$ \ \footnote{Lembrando que sem o zero.} \\
+        Temos $b = a+c$, com $c \in \mathbb{N}$. Logo \\
         \[ aa+bb = aa+(a+c)(a+c) = aa+aa+ac+ac+cc \] 
+        e
         \[ ab+ba = a(a+c)+(a+c)a = aa+ac+aa+ca \]
-        Notemos que o membro da direita na penúltima linha tem o número $cc$ e na última linha não tem, assim $aa+bb \geq ab+ba$.
+        Notemos que $aa+bb = ab+ba+cc$, com $cc \in \mathbb{N}$, assim $aa+bb \geq ab+ba$.
 
-        \item Caso $b < a$: análogo ao caso anterior\\
-        Temos $a = (b+c)$, com $c \in \mathbb{N}$
+        \item Caso $b < a$: \\
+        Temos $a = b+c$, com $c \in \mathbb{N}$. Logo
         \[ aa+bb = (b+c)(b+c) + bb = bb+bc+cb+cc+bb \]
-        \[ ab+ba = (b+c)b+b(b+c) = bb+cb+bb+bc \]
-        Como $aa+bb = ab+ba+cc$, provamos que $aa+bb \geq ab+ba$.
+        e
+        \[ ab+ba = (b+c)b+b(b+c) = bb+cb+bb+bc. \]
+        Como $aa+bb = ab+ba+cc$, com $cc \in \mathbb{N}$, provamos que $aa+bb \geq ab+ba$.
     \end{enumerate}
 \end{dem}
 
 \begin{prop}\label{int-prop-produtoPositivo}
-    O produto de dois inteiros não negativos é um número não negativo.
+    O produto de dois inteiros não negativos é não negativo.
 \end{prop}
 \begin{dem}
-    Seja $r$ um número inteiro, tal que $0 \leq r$. Se $s \in \mathbb{Z}_{+}$, pela compatibilidade do produto com a relação de ordem \Cref{int-prop-relacaoOrdem}, temos $0 \cdot s \leq r \cdot s$, assim $0 \leq rs$.
+    Seja $r$ um número inteiro, tal que $0 \leq r$. Se $s$ é um inteiro tal que $0 \leq s$, pela compatibilidade do produto com a relação de ordem (\Cref{int-teo-relacaoOrdemPropriedades}), então $0 \cdot s \leq r \cdot s$, assim $0 \leq rs$.
 \end{dem}
-\begin{prop}
-    Sejam $a, b, a', b'$ números inteiros com $a \leq a'$ e $b \leq b'$. Vale que $ab \leq a'b'$.
+\begin{prop}\label{int-prop-produtoMaiores}
+    Sejam $x, y, x', y'$ números inteiros não negativos, tais que $x \leq x'$ e $y \leq y'$. Vale que $xy \leq x'y'$.
 \end{prop}
 \begin{dem}
-    Temos $a' \geq a \iff a' = a + r$ com $r > 0$ (conforme \Cref{int-prop-diferencaPositiva}), e também $b' \geq b \iff b' = b+s$ com $s > 0$.
-    Daí temos $a'b' = (a+r)(a+s) = aa+as+ar+rs$, e cada uma dessas parcelas é não negativa, conforme a \Cref{int-prop-produtoPositivo}, assim, essa expressão da soma é não negativa (\Cref{int-prop-somaPositivosPositiva}).
-    
+    Suponhamos $x' \geq x $ e $y' \geq y$. Temos que  $x' = x + r$ para algum $r$ inteiro não negativo, e que $y' = y+s$ para algum $s$ inteiro não negativo.
+    Segue que $ x'y' = (x+r)(y+s) = xy+xs+ry+rs \geq 0$, pois cada uma dessas parcelas é não negativa. De fato, sendo $x,y,r,s$ todos não negativos,  o produto de quaisquer dois deles é não negativo (\Cref{int-prop-produtoPositivo}). Pela \Cref{int-prop-diferencaPositivaII} obtemos $xy \leq x'y'$.
 \end{dem}
 
-\begin{prop}\label{int-prop-produtoMaiores}
-    Sejam $\overline{(a,b)},\ \overline{(a',b')},\ \overline{(c,d)},\ \overline{(c',d')}$ números inteiros, tais que $\overline{(a,b)} \leq \overline{(a',b')}$ e $\overline{(c,d)} \leq \overline{(c',d')}$. Vale que $\overline{(a,b)} \cdot \overline{(c,d)} \leq \overline{(a',b')}
-    \overline{(c',d')}$.
-\end{prop}
-\begin{dem}
-    \[ (ac+bd) + (a'd'+b'c') \leq (ad+bc) + (a'c' + b'd') \]
-    \[ \overline{(ac+bd, ad+bc)} \leq \overline{(a'c'+b'd', a'd'+b'c')} \]
-    \[ \overline{(a,b)} \cdot \overline{(c,d)} \leq \overline{(a',b')} \cdot \overline{(c',d')}  \]
-\end{dem}
+% \begin{prop}\MODIFICADOlabel{int-prop-produtoMaiores} % Foi alterado a notação, ao invés de trabalhar com pares ordenados foi trabalhado somente com uma variável em Z.
+%     Sejam $\overline{(a,b)},\ \overline{(a',b')},\ \overline{(c,d)},\ \overline{(c',d')}$ números inteiros não negativos, tais que \\
+%     $\overline{(a,b)} \leq \overline{(a',b')}$ e $\overline{(c,d)} \leq \overline{(c',d')}$. Vale que 
+%     \[ \overline{(a,b)} \cdot \overline{(c,d)} \leq \overline{(a',b')} \cdot \overline{(c',d')}. \]
+% \end{prop}
+% \begin{dem}
+%     Supondo $\overline{(a,b)} \leq \overline{(a,b)}$ e $\overline{(c,d)} \leq \overline{(c',d')}$ temos $a+b' \leq b+a'$ e $c+d' \leq d+c'$.
+%     \[ (ac+bd) + (a'd'+b'c') \leq (ad+bc) + (a'c' + b'd') \]
+%     \[ \overline{(ac+bd, ad+bc)} \leq \overline{(a'c'+b'd', a'd'+b'c')} \]
+%     \[ \overline{(a,b)} \cdot \overline{(c,d)} \leq \overline{(a',b')} \cdot \overline{(c',d')}  \]
+% \end{dem}
 
 \section{Imersão de $\mathbb{N}$ em $\mathbb{Z}$}
-A imersão que trataremos a seguir justificará que utilizemos apenas um símbolo para adição, quer trabalhemos com $\mathbb{N}$, quer trabalhemos com $\mathbb{Z}$. Isso valerá também para $\mathbb{Q}$ e $\mathbb{R}$ também, que serão apresentados nos seus respectivos capítulos. A ideia de imersão trata de nos permitir corresponder um conjunto num outro, no caso, $\mathbb{N}$ em $\mathbb{Z}$, e assim trabalhar como se $\mathbb{N}$ fosse um subconjunto de $\mathbb{Z}$.
+A imersão que trataremos a seguir justificará que utilizemos apenas um símbolo para a adição, quer trabalhemos com $\mathbb{N}$, quer trabalhemos com $\mathbb{Z}$. Isso valerá também para $\mathbb{Q}$ e $\mathbb{R}$, que serão apresentados nos próximos capítulos. A ideia de imersão trata de nos permitir corresponder um conjunto num outro, no caso, $\mathbb{N}$ em $\mathbb{Z}$, e assim trabalhar como se $\mathbb{N}$ fosse um subconjunto de $\mathbb{Z}$.
 
 \begin{teo}\label{int-teo-imersao}
-    Seja a função $f: \mathbb{N} \rightarrow \mathbb{Z}, f(x) \mapsto \overline{(x+1, 1)}$. Essa função tem as propriedades a seguir:
+    Considere a função definida abaixo:
+    % $f: \mathbb{N} \rightarrow \mathbb{Z}, f(x) \mapsto \overline{(x+1, 1)}$. 
+    \begin{align*}
+        f \colon &\mathbb{N} \to \mathbb{Z} \\
+        &x \mapsto \overline{(x+1, 1)}.
+    \end{align*}
+    Essa função tem as propriedades a seguir:
     \begin{enumerate}[label=(\roman*)]
         \item $f(a + b) = f(a) + f(b)$;
         \item $f(a \cdot b) = f(a) \cdot f(b)$;
@@ -506,14 +645,16 @@ A imersão que trataremos a seguir justificará que utilizemos apenas um símbol
 \end{teo}
 \begin{dem}
     \begin{enumerate}[label=(\roman*)]
-        \item $f(a + b) = f(a) + f(b)$\\
+        \item 
+            \begin{align*}
+                f(a + b) 
+                &= \overline{(a+b+1, 1)} \\
+                &= \overline{(a+1+b+1, 1+1)}  \\
+                &= \overline{(a+1,1)} + \overline{(b+1,1)} \\
+                &= f(a) + f(b).
+            \end{align*}
         
-            $f(a + b) = \overline{(a+b+1, 1)}
-                     = \overline{(a+1+b+1, 1+1)} 
-                     = f(a) + f(b)$.
-        
-    
-        \item $f(a \cdot b) = f(a) \cdot f(b)$;
+        \item 
         \begin{align*}
             f(a \cdot b) &= \overline{(ab+1, 1)}\\
                         &= \overline{(ab+a+b+1+1, a+1+b+1)}\\
@@ -522,41 +663,58 @@ A imersão que trataremos a seguir justificará que utilizemos apenas um símbol
                         &= f(a) + f(b).
         \end{align*}        
         
-        \item $a \leq b \implies f(a) \leq f(b)$ \\
+        \item 
         Se $a=b$ então $f(a)=f(b)$ é óbvio. Suponhamos, por outro lado, $a \neq b$.
         Então $a<b \iff b=a+m$ para algum $m \in \mathbb{N}$.
         Temos então $f(a) = \overline{(a+1,1)}$ e $f(b) = f(a+m) = \overline{(a+m+1,1)}$.
         Vemos que $\overline{(a+1,1)} \leq \overline{(a+m+1,1)}$ porque $a+1+1 \leq 1 + a + m + 1$.
     \end{enumerate}
 \end{dem}
+
+
+
 \begin{obs}
-    A partir de agora, temos a liberdade de escrever os números inteiros com a notação usual de $\mathbb{N}$, isto é $1 = \overline{(2,1)}, 2 = \overline{(3,1)}, 3 = \overline{(4,1)}$ e assim por diante, além de representar o $\overline{(1,2)} = -1,\ \overline{(1,3)} = -2,\ \overline{(4,1)} = -3$ analogamente, ad infinitum.
+    A partir de agora, temos a liberdade de escrever os números inteiros com a notação usual de $\mathbb{N}$, isto é $1 = \overline{(2,1)}, 2 = \overline{(3,1)}, 3 = \overline{(4,1)}$ e assim por diante, além de representar o $\overline{(1,2)} = -1,\ \overline{(1,3)} = -2,\ \overline{(4,1)} = -3$ e, analogamente, ad infinitum.
 \end{obs}
-
-\begin{ex}\label{int-ex-imersaoProduto}
-    Considerando a imersão provada acima, podemos entender o produto $2 \cdot \overline{(a,b)}$ da seguinte forma:
-    $2 = \overline{(3,1)}$ aí $\overline{(3,1)} \cdot \overline{(a,b)} = \overline{(3a+b,3b+a)} = \overline{(2a,2b)}$.
-    Essa é a notação usual quando se trabalha com vetores onde a multiplicação por um escalar funciona da maneira usual 
-    $k \cdot \overline{(a,b)} = \overline{(ka,kb)}$ quando $k > 0$, já quando $k < 0$ precisamos inverter as coordenadas, o que não é usual.
-\end{ex}
-A imersão de $\mathbb{N}$ em $\mathbb{Z}$ permite-nos interpretar $\mathbb{N}$ como um subconjunto de $\mathbb{Z}$, embora pela nossa construção fique evidente que isso não ocorra, nos termos de elementos dos conjuntos. Mas, por outro lado, as operações de adição e multiplicação e a relação de ordem funcionam analogamente em $\mathbb{Z}$, ou seja, o objetivo inicial de construir mantendo certa semelhança funcionou.
-
-Essa é uma parte importante da construção dos números inteiros. Em geral não importa o que é um número, mas apenas o que conseguimos fazer com ele, as regras do jogo. Por outro lado, a construção do conjunto dos números inteiros mostra-nos que, se existir um conjunto $\mathbb{N}$, a lógica e a teoria de conjuntos elementar que assumimos até agora, então existe um conjunto $\mathbb{Z}$ que podemos manipular com as regras mostradas.
-
-Por certo ponto de vista, não interessa o que são e como são definidas as operações de soma e produto, mas, admitindo que exista um conjunto $A$ com uma operação de soma e uma operação de produto, ambas tendo certas propriedades, é possível provar teoremas sem levar em conta a \emph{natureza} dos entes matemáticos envolvidos.
-
-A construção de $\mathbb{Z}$, as apresentações e provas das proposições apresentadas caminham nesse sentido de permitir uma abstração do conjunto, para que não seja mais necessário trabalhado com pares ordenados (ainda mais sem o $0$ em $\mathbb{N}$!).
-
-Poderíamos desenvolver alguns tópicos importantes levando em conta a natureza dos nossos números inteiros, que são pares ordenados. Isso é satisfatório, se conseguirmos provar o que queremos. Por outro lado, tratar com conjuntos genéricos (independente da construção utilizada) permite uma abstração e uma generalização, mostrando que certas características não dependem de um conjunto específico (no nosso caso $\mathbb{N} \times \mathbb{N} / \sim$). As abstrações permitem formar conclusões dependendo de apenas algumas caracterísitcas/propriedades do conjunto. Dessa maneira, em geral a pergunta "qual conjunto de números inteiros?" não faz sentido, pois o que nos importa é o que podemos fazer com ele, e não como ele foi construído. Isso se tornará importante na construção de $\mathbb{R}$, podendo ser feita de dois métodos que formalizam o conjunto, mas nos interessa como $\mathbb{R}$ foi construído porque nosso tema é construção dos números, mas na utilização do conjunto, se for feito por séries ou por cortes de Dedekind não é relevante. 
-
-Tá! Mas e aí, muitos números e cadê o $15$, o $35$, o $-351$? A resposta é que nesse momento não possuimos um sistema de numeração, que para ser desenvolvido precisa da divisão euclidiana. O leitor interessado em verificar o sistema de numeração para $\mathbb{Z}$ pode consultar \cite{hefez-algebra}.
 
 \begin{teo}\label{int-teo-ilimitadoSuperiormente}
     O conjunto $\mathbb{N}$ não é limitado superiormente em $\mathbb{Z}$.
 \end{teo}
 \begin{dem}
-    \todo{demonstrar}
-    .
+    O teorema deve ser entendido no contexto da imersão de $\mathbb{N}$ em $\mathbb{Z}$.
+    Por contradição, vamos supor que $\overline{(a,b)} \in \mathbb{Z}$ seja um número fixo e uma cota superior de $\mathbb{N}$. Sabemos que um número natural em $\mathbb{Z}$ é da forma $\overline{(n+1,1)} \in \mathbb{Z}$, com $n \in \mathbb{N}$. Logo, devemos ter $\overline{(n+1,1)} \leq \overline{(a,b)}$ para qualquer $n \in \mathbb{N}$. Temos $n+1+b \leq 1+a$ e então
+    \begin{equation}
+        n+b \leq a, \label{int-dummyIlimitadoSuperiormente}     
+    \end{equation}
+    em que $a$ e $b$ são naturais fixos e $n$ um natural qualquer.
+    
+    Substituindo $n$ por $n_0$ na Inequação \ref{int-dummyIlimitadoSuperiormente}, obtemos $n_0 + b \leq a$. Se for $n_0 + b = a$, tomando $n_1 = n_0 + 1$, obtemos que 
+    \[ a = n_0 + b < n_0 + 1 + b =  n_1 + b, \] 
+    em que $n_1 + b \in \mathbb{N}$, o que é uma contradição. Se for 
+    $n_0 + b < a$, então $a = n_0 + b + m$, para algum $m \in \mathbb{N}$. Tomando $n_1 = n_0 + m + 1$, obtemos 
+    \[ a = n_0 + b + m < n_0+m+1 + b = n_1 + b, \] 
+    em que $n_1 + b \in \mathbb{N}$, o que é uma contradição. Portanto, em $\mathbb{Z}$ não existe uma cota superior para $\mathbb{N}$.
+
 \end{dem}
+
+\begin{ex}\label{int-ex-imersaoProduto}
+    Considerando a imersão, podemos entender o produto $2 \cdot \overline{(a,b)}$ da seguinte forma:
+    $2 = \overline{(3,1)}$ e $\overline{(3,1)} \cdot \overline{(a,b)} = \overline{(3a+b,3b+a)} = \overline{(2a,2b)}$.
+    Essa é a notação usual quando se trabalha com elementos onde a multiplicação por um escalar funciona da maneira usual 
+    $k \cdot \overline{(a,b)} = \overline{(ka,kb)}$ quando $k > 0$, já quando $k < 0$ precisamos inverter as coordenadas, o que não é usual.
+\end{ex}
+A imersão de $\mathbb{N}$ em $\mathbb{Z}$ permite-nos interpretar $\mathbb{N}$ como um subconjunto de $\mathbb{Z}$, embora pela nossa construção fique evidente que isso não ocorra, nos termos de elementos dos conjuntos. Mas, por outro lado, as operações de adição e multiplicação e a relação de ordem funcionam analogamente em $\mathbb{Z}$, ou seja, o nosso objetivo do capítulo de construir uma adição, uma multiplicação e uma relação de ordem mantendo certa semelhança com $\mathbb{N}$ foi alcançado.
+
+Essa é uma parte importante da construção dos números inteiros. Em geral não importa o que é um número, mas apenas o que conseguimos fazer com ele, as regras do jogo. Por outro lado, a construção do conjunto dos números inteiros mostra-nos que, a existência de um conjunto $\mathbb{N}$, a lógica e a teoria de conjuntos elementar que assumimos até agora garantem que existe um conjunto $\mathbb{Z}$ que podemos manipular com as regras mostradas.
+
+Por certo ponto de vista, não interessa o que são e como são definidas as operações de soma e produto, mas, admitindo que exista um conjunto $A$ com uma operação de soma e uma operação de produto, ambas tendo certas propriedades, é possível provar teoremas sem levar em conta a \emph{natureza} dos entes matemáticos envolvidos.
+
+A construção de $\mathbb{Z}$, as apresentações e provas das proposições apresentadas caminham nesse sentido de permitir uma abstração do conjunto, para que não seja mais necessário trabalhar com pares ordenados (ainda mais sem o $0$ em $\mathbb{N}$!).
+
+Poderíamos desenvolver alguns tópicos importantes levando em conta a natureza dos nossos números inteiros, que são pares ordenados. Isso é satisfatório, se conseguirmos provar o que queremos. Por outro lado, tratar com conjuntos genéricos (independente da construção utilizada) permite uma abstração e uma generalização, mostrando que certas características não dependem de um conjunto específico (no nosso caso $\mathbb{N} \times \mathbb{N} / \sim$). As abstrações permitem formar conclusões dependendo de apenas algumas caracterísitcas/propriedades do conjunto. Dessa maneira, em geral a pergunta "qual é o conjunto de números inteiros?"\ não faz sentido, pois o que nos importa é o que podemos fazer com ele, e não como ele foi construído. Isso se tornará importante na construção de $\mathbb{R}$, podendo ser feita de dois métodos que formalizam o conjunto, mas nos interessa como $\mathbb{R}$ foi construído porque o tema deste trabalho é a construção dos números, mas na utilização do conjunto, se for feito por sequências ou por cortes de Dedekind, não é relevante. 
+
+Tá! Mas e aí, existem muitos números e cadê o $15$, o $35$, o $-351$? A resposta é que nesse momento não possuimos um sistema de numeração, que para ser desenvolvido precisa da divisão euclidiana. O leitor interessado em verificar o sistema de numeração para $\mathbb{Z}$ pode consultar \cite{hefez-algebra}.
+
+
 
 \end{document}
