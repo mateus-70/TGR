@@ -16,7 +16,7 @@ $A = \{ x \in \mathbb{Q} : x^2 < 2\}$ não tem um máximo em $Q$. Vamos provar i
     \end{enumerate}
 \end{defi}
 
-A ideia por trás da definição é que um corte é um subconjunto próprio do conjunto dos números racionais, tal que, dado qualquer elemento do corte, todos os elementos que o precedem pela relação de ordem nos racionais, também está no corte.
+A ideia por trás da \Cref{reais-def-corte} é que um corte é um subconjunto próprio do conjunto dos números racionais que não admite máximo e tal que, dado qualquer elemento do corte, todos os elementos que o precedem pela relação de ordem nos racionais, também está no corte.
 
 \begin{obs}
     Algo importante que devemos ter em mente na definição de corte é o fato do corte ser subconjunto de $\mathbb{Q}$ e, além disso, de que o conjunto $\mathbb{Q}$ é o conjunto universo aqui considerado.
@@ -30,20 +30,20 @@ Alguns exemplos de corte são:
     \begin{enumerate}[label=(\roman*)]
         \item Como $4 \in \mathbb{Q}$ é tal que $4 < 5$, temos  $4 \in \alpha$, logo  $ \alpha \neq \emptyset$. Como $5 \not< 5$, temos que $5 \not\in \alpha$, e portanto $\alpha \neq \mathbb{Q}$.
         \item Suponha $s$ racional tal que $s < r$ e $r \in \alpha$. Temos $s < r < 5$, logo $s \in \alpha$.
-        \item Para mostrar que não há máximo em $\alpha$, por contradição suponhamos que exista um, que chamaremos de $s$. Temos que $s < 5$, e assim $s < \frac{s+5}{2} < 5$. E portanto $s$ não é máximo de $\alpha$, o que é uma contradição, e portanto $\alpha$ não tem máximo.
+        \item Para mostrar que não há máximo em $\alpha$, por contradição suponhamos que exista um, que chamaremos de $s$. Temos que $s < 5$, e assim, pelo \Cref{rac-corol-terceiroEntreDois}, $s < \frac{s+5}{2} < 5$. Logo $s < \frac{s+5}{2} \in \alpha$ e $s$ não é máximo de $\alpha$, o que é uma contradição, e portanto $\alpha$ não tem máximo.
     \end{enumerate}
 \end{ex}
 \begin{ex}
     O conjunto $\alpha = \{ x \in \mathbb{Q} : x < 5/2 \}$ é um corte.
     \begin{enumerate}[label=(\roman*)]
-        \item Como $1 \in \mathbb{Q}$ é tal que $1 < 5/2$, temos  $1 \in \alpha$, logo  $ \alpha \neq \emptyset$. Como $10 \not< 5/2$, temos que $10 \not\in \alpha$, e portanto $\alpha \neq \mathbb{Q}$.
+        \item De fato, $1 \in \mathbb{Q}$ é tal que $1 < 5/2$, temos  $1 \in \alpha$, logo  $ \alpha \neq \emptyset$. Como $10 \not< 5/2$, temos que $10 \not\in \alpha$, e portanto $\alpha \neq \mathbb{Q}$.
         \item Suponha $s$ racional tal que $s < r \in \alpha$. Temos $s < r < 5/2$, logo $s \in \alpha$.
-        \item Para mostrar que não há máximo em $\alpha$, por contradição suponhamos que exista um, que chamaremos de $s$. Seja $r = 5/2$ Temos que 
-        $s < r$, e assim $s < \frac{s+r}{2} < r$. E portanto $s$ não é máximo de $\alpha$, o que é uma contradição, e portanto $\alpha$ não tem máximo.
+        \item Para mostrar que não há máximo em $\alpha$, por contradição suponhamos que exista um, que chamaremos de $s$. Seja $r = 5/2$. Temos que 
+        $s < r$, e assim, pelo \Cref{rac-corol-terceiroEntreDois}, $s < \frac{s+r}{2} < r$. Logo, $s < \frac{s+r}{2} \in \alpha$ e $s$ não é máximo de $\alpha$, o que é uma contradição, e portanto, $\alpha$ não tem máximo.
     \end{enumerate}
 \end{ex}
 \begin{ex}
-    O conjunto $\alpha =  \mathbb{Q}_{-}^* \cup \{ x \in \mathbb{Q_{+}} : x \cdot x < 2 \} $ é um corte.
+    O conjunto $\alpha =  \mathbb{Q}_{-}^* \cup \{ x \in \mathbb{Q_{+}} : x \cdot x < 2 \} $ é um corte. Isso será provado na \Cref{reais-prop-corteRaizDoisNaoRacional}.
 \end{ex}
 
 Alguns exemplos de conjuntos que não são cortes são:
@@ -57,7 +57,7 @@ Alguns exemplos de conjuntos que não são cortes são:
     O conjunto $A = \{ x \in \mathbb{Q} : 1 < x < 5 \}$ não é um corte, pois $2 \in A$, mas $0 < 2$ e $0$ não está em $A$.
 \end{ex}
 
-\begin{teo}
+\begin{teo}\label{reais-teo-todoCorteTemCotaSuperior}
     Todo corte tem uma cota superior.
 \end{teo}
 \begin{dem}
@@ -70,10 +70,10 @@ Alguns exemplos de conjuntos que não são cortes são:
 \end{prop}
 \begin{dem}
     Primeiro provemos a ida. Por hipótese, $r$ é cota superior de $\alpha$, desse modo $r$ não pode estar em $\alpha$, pois se estivesse, seria máximo de $\alpha$, o que contradiz o \Cref{reais-def-corteSemMaximo} da \Cref{reais-def-corte}.
-    Agora, vamos provar a volta. Por hipótese $r \not\in \alpha$. Argumentando por contradição, se $r$ não fosse cota superior de $\alpha$, existiria um $s > r$ com $s \in \alpha$, e pelo \Cref{reais-def-cortePrecede} teríamos que $r \in \alpha$, o que é uma contradição.
+    Agora, vamos provar a volta. Por hipótese $r \not\in \alpha$. Argumentando por contradição, se $r$ não fosse cota superior de $\alpha$, existiria um $s > r$ com $s \in \alpha$, e pelo \Cref{reais-def-cortePrecede}, teríamos que $r \in \alpha$, o que é uma contradição.
 \end{dem}
 \begin{teo}\label{reais-teo-corteRacional}
-    Seja $r$ um racional e $\alpha = \{ x \in \mathbb{Q} : x < r \}$, então $\alpha$ é um corte é $r$ é a menor cota superior de $\alpha$.
+    Sejam $r$ um racional e $\alpha = \{ x \in \mathbb{Q} : x < r \}$, então $\alpha$ é um corte e $r$ é a menor cota superior de $\alpha$.
 \end{teo}
 \begin{dem}
     
@@ -81,7 +81,7 @@ Alguns exemplos de conjuntos que não são cortes são:
     Para o \Cref{reais-def-cortePrecede}, se $s \in \alpha$, então $s < r$, e para qualquer $q < s$, com $q$ racional, vale que $q < s < r$, logo $q \in \alpha$.
     Agora mostremos que $\alpha$ não tem máximo. Consideremos um número $s \in \alpha$, assim vale que $s < \frac{s+r}{2}$ conforme \Cref{rac-corol-terceiroEntreDois}, e analogamente $\frac{s+r}{2} < r$, assim $s$ não é máximo de $\alpha$. Como $s$ é arbitrário, $\alpha$ não tem máximo.
 
-    Com isso provamos que $\alpha$ é um corte. Provemos agora que $r$ é a menor cota superior de $\alpha$. Seja $t < r$, com $t$ racional, pela definição de $\alpha$ sabemos que $t \in \alpha$. Assim $t$ não pode ser máximo, porque um corte não tem máximo. Logo, qualquer $t < r$ não é cota superior de $\alpha$ e $r$ é a menor cota superior de $\alpha$.
+    Com isso provamos que $\alpha$ é um corte. Provemos agora que $r$ é a menor cota superior de $\alpha$. Se $x \in \alpha$, então $x < r$ e $r$ é uma cota superior de $\alpha$. Seja $t < r$, com $t$ racional, pela definição de $\alpha$ sabemos que $t \in \alpha$. Assim $t$ não pode ser máximo, porque um corte não tem máximo. Logo, qualquer $t < r$ não é cota superior de $\alpha$ e $r$ é a menor cota superior de $\alpha$.
 \end{dem}
 
 \begin{defi}
@@ -97,37 +97,41 @@ Alguns exemplos de conjuntos que não são cortes são:
 \end{teo}
 \begin{dem}
     Sejam $\alpha$ um corte e $q$ a menor cota superior de $\alpha$. Considere $\beta = \{\, x \in \mathbb{Q} : x < q \,\}$, vamos mostrar que $\alpha = \beta$.
-    Se $r \in \alpha$, temos que $r < q$, pois que é cota superior de $\alpha$. Logo $\alpha \subset \beta$. Se $x \in \beta$, temos $x < q$. Devemos ter $r \in \alpha$, pois do contrário, $q$ não seria a menor cota superior de $\alpha$. Assim $\beta \subset \alpha$, e portanto $\alpha = \beta = q^*$ e $\alpha$ é um corte racional.
+    Se $r \in \alpha$, temos que $r < q$, pois $q$ é cota superior de $\alpha$. Logo $\alpha \subset \beta$. Se $x \in \beta$, temos $x < q$. Devemos ter $x \in \alpha$, pois do contrário, $q$ não seria a menor cota superior de $\alpha$. Assim $\beta \subset \alpha$, e portanto $\alpha = \beta = q^*$ e $\alpha$ é um corte racional.
 \end{dem}
 
 \begin{prop}\label{reais-prop-raizQuadradaDoisIrracional}
     Não existe um número racional $r$, tal que $r^2 = 2$.
 \end{prop}
-\begin{dem}\todo{Feito}
+\begin{dem}
     A prova será desenvolvida semelhante à feita por \textcite{alfeld}, que utiliza o Teorema Fundamental da Aritmética, cuja demonstração aqui é omitida, mas pode ser encontrada em \textcite[p. 9]{santos}. Esse teorema garante que todo número inteiro maior do que $1$ pode ser representado de maneira única, a menos de ordem, por um produto de fatores primos.    
     
-    Suponhamos que $r \in \mathbb{Q}$ seja tal que $r^2 = 2$. Como $r = \frac{p}{q}$, para $p \in \mathbb{Z}$ e $q \in \mathbb{Z}^*$. Podemos, pelo Teorema Fundamental da aritmética, supor que $p$ e $q$ sejam números primos entre si (se não forem, basta observar que podemos cancelar o fator comum usando a \Cref{rac-prop-cancelarFatorComumNumeradorDenominador}. Temos que $r^2 = \left( \frac{p}{q} \right)^2 = \frac{p^2}{q^2}$, logo, $p^2 = 2q^2$, e portanto $p^2$ é par, e então $p$ também é par. Seja $p = 2m$, para algum $m \in \mathbb{Z}$, segue que $p^2= (2m)^2 = 4m^2$. Disso obtemos que $4m^2 = 2q^2$, assim $2m^2 = q^2$. Desse modo, concluímos que são pares os números $q^2$ e $q$. Isso é uma contradição, pois supomos que $p$ e $q$ não tinham fatores primos em comum. Portanto, não existe um número racional $r$, tal que $r^2 = 2$.
+    Suponhamos que $r \in \mathbb{Q}$ seja tal que $r^2 = 2$. Temos $r = \frac{p}{q}$, para $p \in \mathbb{Z}$ e $q \in \mathbb{Z}^*$. Podemos, pelo Teorema Fundamental da Aritmética, supor que $p$ e $q$ sejam números primos entre si (se não forem, basta observar que podemos cancelar o fator comum usando a \Cref{rac-prop-cancelarFatorComumNumeradorDenominador}). Temos que $2 = r^2 = \left( \frac{p}{q} \right)^2 = \frac{p^2}{q^2}$, logo, $p^2 = 2q^2$, e portanto $p^2$ é par, e então $p$ também é par. Seja $p = 2m$, para algum $m \in \mathbb{Z}$, segue que $p^2= (2m)^2 = 4m^2$. Disso obtemos que $4m^2 = 2q^2$, assim $2m^2 = q^2$. Desse modo, concluímos que são pares os números $q^2$ e $q$. Isso é uma contradição, pois supomos que $p$ e $q$ não tinham fatores primos em comum. Portanto, não existe um número racional $r$, tal que $r^2 = 2$.
 
-    Com uma outra terminologia, também dizemos que a raiz quadrada de $2$ não é um número racional.
+    
 \end{dem}
 
-\begin{prop}
+\begin{obs}
+    Com uma outra terminologia, a \Cref{reais-prop-raizQuadradaDoisIrracional} também indica que a raiz quadrada de $2$ não é um número racional.
+\end{obs}
+
+\begin{prop}\label{reais-prop-corteRaizDoisNaoRacional}
     Seja $\alpha = \mathbb{Q}_{-}^* \cup \{\, x \in \mathbb{Q}_{+} : x^2 < 2 \,\}$. Tem-se que $\alpha$ é um corte sem cota superior mínima.
 \end{prop}
-\begin{dem}\todo{Feito}
+\begin{dem}
    Sabemos que $0 \in \alpha$ e que $3^2 = 9 \not\in \alpha$, e portanto $\alpha$ é um subconjunto próprio de $\mathbb{Q}$ e atende ao \Cref{reais-def-corteSubconjuntoProprio} da \Cref{reais-def-corte}. 
    Sejam $s < r$ números racionais, tais que $r \in \alpha$. Se $s \leq 0$ é óbvio que $s \in \alpha$. Se for $s > 0$ temos $0 < s < r$, e pelo
    \Cref{rac-prop-produtoMaioresMaior}, obtemos $0 < s^2 < r^2 < 2$. Portanto $s \in \alpha$ e $\alpha$ atende ao \Cref{reais-def-cortePrecede}.
-   Para mostrar que não há máximo em $\alpha$, tomemos um elemento arbitrário $r \in \alpha$. Se $r \leq 0$, basta tomar $s = 0$, pois $0 \in \alpha$. Caso seja $r > 0$, basta mostrar que existe um $s = r + h \in \alpha$, com $h > 0$. Vamos encontrar um $h < 1$, com $s=r+h$. 
-   Tomando $h = 2 - r^2$. Temos que
+   Para mostrar que não há máximo em $\alpha$, tomemos um elemento arbitrário $r \in \alpha$ e provemos que $r < s$ para algum $s \in \alpha$. Se $r \leq 0$, basta tomar $s = 0$, pois $0 \in \alpha$. Caso seja $r > 0$, basta mostrar que existe um $s = r + h \in \alpha$, com $h > 0$. Vamos encontrar um $0 < h < 2$, com $s=r+h$. 
+   Tomando $h = 2 - r^2$, temos que
    \[ s^2 = \left( r+ \frac{h}{5} \right)^2 = r^2 + \frac{2rh}{5}+ \frac{h^2}{25}, \]
-    e como $r^2 < 2$, temos $r<2$, daí $2rh < 4h$. Tínhamos que $0 < h < 2$, daí $h^2 < 2h$. Substituindo na equação as desigualdades obtidas, temos
+    e como $r^2 < 2$, temos $r<2$, daí $2rh < 4h$. Tínhamos que $0 < h < 2$, daí $h^2 < 2h$. Substituindo as desigualdades obtidas, temos
     \[ s^2 < r^2 + \frac{4h}{5} + \frac{2h}{25}  = r^2 + \frac{22h}{25} < r^2 + h = 2. \]
     Desse modo, $s^2 < 2$, logo $s \in \alpha$. Também provamos que $s>r$, o que nos mostra que em $\alpha$ não há máximo, e portanto, $\alpha$ é um corte.
 
-    Para mostrar que qualquer cota superior $r$ de $\alpha$ não é mínima, notemos que não pode ocorrer $r^2 = 2$, pois essa equação não admite solução racional. Se, por outro lado, for $r^2<2$, temos $r \in \alpha$, logo $r$ não é uma cota superior. Resta então verificar que $r^2 > 2$ também não ocorre. 
+    Para mostrar que qualquer cota superior $r$ de $\alpha$ não é mínima, notemos que não pode ocorrer $r^2 = 2$, pois essa equação não admite solução racional, pela \Cref{reais-prop-raizQuadradaDoisIrracional}. Se, por outro lado, for $r^2<2$, temos $r \in \alpha$, logo $r$ não é uma cota superior. Resta então verificar que $r^2 > 2$ também não ocorre. 
 
-    Temos que $r^2 = 2+ h$ para algum racional positivo. Além disso, como $2$ é uma cota superior de $\alpha$, pois $2^2 \not< 2$, obtemos que $0 < h < 2$. Além disso, como $r < 2$, temos $rh < 2h$, e então $-2h < -rh$, que equivale a $-h < \frac{-sh}{2}$.
+    Suponhamos, por contradição, que $r^2 = 2+ h$ para algum racional $h$ positivo. Como $2$ é uma cota superior de $\alpha$, pois $2^2 \not< 2$, obtemos que $0 < h < 2$. Além disso, como $r < 2$, temos $rh < 2h$, e então $-2h < -rh$, que equivale a $-h < \frac{-rh}{2}$.
     
     Seja $t = r - \frac{h}{4}$. Assim, $t < r$. Como $r$ e $h$ são positivos, para $t$ temos que
     \[ t^2 = \left( r - \frac{h}{4} \right)^2 = r^2 - \frac{rh}{2} + \frac{h^2}{16} > r^2 - \frac{rh}{2}. \]
@@ -138,10 +142,10 @@ Alguns exemplos de conjuntos que não são cortes são:
 \end{dem}
 
 \begin{defi}
-    O conjunto dos números reais, denotado por $\mathbb{R}$ é o conjunto de todos os cortes dado na \Cref{reais-def-corte}.
+    O conjunto dos números reais, denotado por $\mathbb{R}$, é o conjunto de todos os cortes $\alpha$, dados pela \Cref{reais-def-corte}.
 \end{defi}
 
-\section{Relação de ordem em $\mathbb{R}$}
+\section{A relação de ordem em $\mathbb{R}$}
 
 \begin{defi}\label{reais-def-relacaoOrdem}
     Sejam $\alpha$ e $\beta$ cortes. Diremos que $\alpha$ é menor do que $\beta$ e denotaremos $\alpha < \beta$ quando $\beta \setminus \alpha \neq \emptyset$.
@@ -171,8 +175,11 @@ Alguns exemplos de conjuntos que não são cortes são:
     \begin{enumerate}[label=(\roman*)]
         \item\label{reais-dummy-subset} $\alpha < \beta \iff \alpha \subset \beta$ e $\alpha \neq \beta$: \\
         De $\alpha < \beta$ temos que existe $x \in \beta \setminus \alpha$, logo $x$ é cota superior de $\alpha$. Sendo assim $x > y$ para qualquer $y \in \alpha$, e ainda, como $\alpha \subset \mathbb{Q}$, temos que $y \in \beta$ para qualquer $y \in \alpha$ (devido ao \Cref{reais-def-cortePrecede} da \Cref{reais-def-corte}), assim $\alpha \subset \beta$. Obviamente $\alpha \neq \beta$ pois $x \in \beta$ e $x \not\in \alpha$.
+        Reciprocamente, se $\alpha \subset \beta$ e $\alpha \neq \beta$, então $\alpha \subset \beta$ e, por definição, $\alpha < \beta$.
+        
         \item $\alpha \leq \beta \iff \alpha \subset \beta$: \\
         Se $\alpha \leq \beta$ pode ocorrer uma de duas situações: $\alpha < \beta$, o que nos leva ao item anterior. Se por outro lado, $\alpha = \beta$, pela dupla inclusão de conjuntos, $\alpha \subset \beta$. 
+        Reciprocamente, se $\alpha \subset \beta$ então, por definição, $\alpha < \beta$. Logo, $\alpha \leq \beta$.
     \end{enumerate}
 \end{dem}
 
@@ -183,13 +190,13 @@ Alguns exemplos de conjuntos que não são cortes são:
     Sejam $\alpha$ e $\beta$ números reais.
     Primeiro vamos mostrar que no máximo uma relação entre $=, <$ e $>$ pode ocorrer.
     Comecemos analisando a igualdade. Se $\alpha = \beta$ então $\alpha \setminus \beta = \beta \setminus \alpha = \emptyset$, logo $\alpha \not< \beta$ e $\beta \not< \alpha$.
-    Agora analisemos as desigualdades $<, >$ e constatemos que elas não podem ocorrer simultaneamente. Se $\alpha < \beta$ existe $x \in \beta \setminus \alpha$. Por contradição, admitamos que possa ocorrer $\beta < \alpha$. Desse modo existe $y \in \alpha \setminus \beta$, mas tal $y$ não pode existir pois conforme o \Cref{reais-teo-subset}, temos $\alpha \subset \beta$. \\
+    Agora analisemos as desigualdades $<, >$ e constatemos que elas não podem ocorrer simultaneamente. Se $\alpha < \beta$ existe $x \in \beta \setminus \alpha$. Por contradição, admitamos que possa ocorrer $\beta < \alpha$. Desse modo existe $y \in \alpha \setminus \beta$, mas tal $y$ não pode existir pois, conforme o \Cref{reais-teo-subset}, temos $\alpha \subset \beta$. \\
 
     Agora vamos mostrar que ao menos uma das relações ocorre. Se $\alpha = \beta$ nada há para provar. Se $\alpha \neq \beta$ então ocorre $\alpha \setminus \beta \neq \emptyset$ ou $\beta \setminus \alpha \neq \emptyset$, assim $\alpha \leq \beta$ ou $\beta \leq \alpha$, o que garante que ao menos uma das três relações ocorre.
 \end{dem}
 
 \begin{teo}\label{reais-teo-ordemTotal}
-    A relação de $\leq$ é uma relação de ordem total sobre $\mathbb{R}$.
+    A relação $\leq$ é uma relação de ordem total sobre $\mathbb{R}$.
 \end{teo}
 \begin{dem}
     Sejam $\alpha, \beta$ e $\gamma$ números reais, a relação $\leq$ é:
@@ -206,7 +213,7 @@ Alguns exemplos de conjuntos que não são cortes são:
     Sejam $\alpha$ e $\beta$ números reais. A adição de $\alpha$ e $\beta$, denotada por $\alpha + \beta$, é definida por $\gamma = \{ x + y : x \in \alpha \land y \in \beta \}$.
 \end{defi}
 
-O lema a seguir terá sua demonstração omitida.
+O lema a seguir terá sua demonstração omitida. O leitor interessado pode consultar \textcite[p. 73]{ferreira}.
 \begin{lema}
     O conjunto $\{\,s + mr : n \in \mathbb{Z}_{+} \text{ e } r \in \mathbb{Q}_{+}^* \,\}$ não é limitado superiormente em $\mathbb{Q}$.
 \end{lema}
@@ -215,16 +222,15 @@ O lema a seguir terá sua demonstração omitida.
     Sejam $\alpha$ um corte e $r$ um número racional positivo. Então existem racionais $p,q$ tais que $q$ é cota superior não mínima de $\alpha$, $p \in \alpha$ e vale que $q-p = r$.
 \end{lema}
 \begin{dem}
-    \todo{Feito}
     Consideremos a sequência de números racionais 
     \[ s, s+r, s+2r, s+3r, ..., s+mr, ...,\] 
-    em que $s \in \alpha$ é um elemento qualquer, $r \in \mathbb{Q}_{+}^*$ e $m \in \mathbb{Z}_{+}$. Essa sequência inicia em $\alpha$ mas sai do conjunto em algum valor de $m$. De fato, $\alpha$ é limitado, mas a sequência não o é. Seja $A = \{\,m \in \mathbb{Z}_{+} : s+mr \text{ é cota superior de } \alpha \,\}$. Assim, $A \neq \emptyset$. O conjunto $A$ admite elemento mínimo pelo princípio da boa ordem (\Cref{nat-teo-PBO}), basta observar que caso $0$ seja elemento de $A$, então ele será elemento mínimo, e caso $0$ não esteja em $A$, a aplicação do princípio não muda.
+    em que $s \in \alpha$ é um elemento qualquer, $r \in \mathbb{Q}_{+}^*$ e $m \in \mathbb{Z}_{+}$. Essa sequência inicia em $\alpha$ mas sai do conjunto em algum valor de $m$. De fato, $\alpha$ é limitado, mas a sequência não o é. Seja $A = \{\,m \in \mathbb{Z}_{+} : s+mr \text{ é cota superior de } \alpha \,\}$. Assim, $A \neq \emptyset$. O conjunto $A$ admite elemento mínimo, basta observar que caso $0$ seja elemento de $A$, então ele será elemento mínimo, e caso $0$ não esteja em $A$, a aplicação do princípio da boa ordem (\Cref{nat-teo-PBO}) garante que há tem um elemento mínimo.
 
-    Temos que $A$ tem um elemento mínimo, chamemos de $t$. Caso $s+tr$ não seja cota superior mínima, tome $q = s+tr$ e $p = s+(t-1)r$, e assim 
+    Temos então que $A$ tem um elemento mínimo, o chamemos de $t$. Caso $s+tr$ seja cota superior não mínima de $\alpha$, tome $q = s+tr$ e $p = s+(t-1)r$, e assim 
     \[ q-p =  (s+tr) - (s+(t-1)r) = tr -tr + r = r. \]
-    Caso $s+tr$ seja cota superior mínima, tome $q = s+tr+\frac{r}{2}$ e $p = s+(t-1)r+\frac{r}{2}$, e assim 
+    Caso $s+tr$ seja cota superior mínima de $\alpha$, tome $q = s+tr+\frac{r}{2}$ e $p = s+(t-1)r+\frac{r}{2}$, e assim 
     \[ q - p = s+tr+\frac{r}{2} - \left(s+(t-1)r+\frac{r}{2}\right) = s + tr + \frac{r}{2} - s - tr + r - \frac{r}{2} = r. \]
-    
+    Em ambos os casos $q$ é cota superior não mínima de $\alpha$ e $p \in \alpha$. 
 \end{dem}
 
 \begin{teo}\label{reais-teo-somaPropriedades}{Sejam $\alpha, \beta$ números reais quaisquer. Para a adição valem as seguintes propriedades:}
@@ -286,16 +292,16 @@ O lema a seguir terá sua demonstração omitida.
             Para verificar o \Cref{reais-def-corteSemMaximo} da \Cref{reais-def-corte}, seja $-a \in \mathbb{S}_{\alpha}$. Assim $-a$ é uma cota superior não mínima de $\alpha$. Seja $-b$ uma outra cota superior de $\alpha$, tal que $-b < -a$. Para $-b$ não precisamos da exigência de não ser mínima. Pegamos $-c = \frac{-a-b}{2}$, daí $-b < -c < -a$, desse modo $b > c > a$. Note que $-c$ é cota superior não mínima de $\alpha$, pois $-b < -c$ e $-b$ é cota superior de $\alpha$. Desse modo, para qualquer $a \in \delta$ existirá algum $b \in \delta$ com $b > a$, assim $\delta$ não possuí máximo.
 
             Com isso, provamos que $\delta \in \mathbb{R}$. Vamos mostrar que $\delta$ é o simétrico de $\alpha$, isto é, $\alpha + \delta = 0^*$. Vamos iniciar pela inclusão $\alpha + \delta \subset 0^*$. 
-            Seja $c \in \alpha + \delta$, assim $c = a + d$, com $a \in \alpha, d \in \delta$, logo $-d \in \mathbb{S}_{\alpha}$ e $-d > a$. Com isso, $0 > a + d$ e $a + d \in 0^*$. Assim está provada a primeira inclusão. 
+            Seja $c \in \alpha + \delta$, assim $c = a + d$, com $a \in \alpha$ e $d \in \delta$, logo $-d \in \mathbb{S}_{\alpha}$ e $-d > a$. Com isso, $0 > a + d$ e $a + d \in 0^*$. Assim está provada a primeira inclusão. 
 
             Agora vamos mostrar que $0^* \subset \alpha + \delta$.
-            Seja $c \in 0^*$, então $c \in \mathbb{Q}_{-}^*$. Pelo \Cref{reais-lema-pqNaoMinimo}  sabemos que existem $d, d'$ onde $d'-d = -c$, tais que  $d' \in \mathbb{S}_{\alpha}$ e $d \in \alpha$. Assim $d' \in \delta$, mas de $-c = d' - d$ temos $c = -d' + d = d -d'$, com $d \in \alpha,\ d' \in \delta$ assim $c \in \alpha + \delta$.
+            Seja $c \in 0^*$, então $c \in \mathbb{Q}_{-}^*$. Pelo \Cref{reais-lema-pqNaoMinimo}  sabemos que existem $d, d'$ tais que $d'-d = -c$, com  $d' \in \mathbb{S}_{\alpha}$ e $d \in \alpha$. Assim $d' \in \delta$, mas de $-c = d' - d$ temos $c = -d' + d = d -d'$, com $d \in \alpha,\ d' \in \delta$ assim $c \in \alpha + \delta$.
             
         \item Lei do cancelamento, é válida conforme a \Cref{agb-teo-leiCancelamento}, pois a adição é associativa e admite simétrico.
     \end{enumerate}
 \end{dem}
 \begin{obs}
-    Além de existir um elemento simétrico ele é único, como visto no \Cref{agb-teo-simetricoUnico}. Isso nos permite utilizar a notação usual, e então denotar o simétrico de $\alpha$ por $-\alpha$.
+    Além de existir um elemento simétrico para a adição, ele é único, como visto no \Cref{agb-teo-simetricoUnico}. Isso nos permite utilizar a notação usual, e então denotar o simétrico de $\alpha$ por $-\alpha$.
 \end{obs}
 
 
@@ -337,14 +343,14 @@ O lema a seguir terá sua demonstração omitida.
     Se $0^* \leq \alpha$ então $-\alpha \leq 0^*$.
 \end{prop}
 \begin{dem}
-    De $0^* \leq \alpha$ e do \Cref{reais-teo-somaCompativelOrdem} obtemos \todo{Prof, o latex quebra a equivalencia no fim da linha.} \\ 
+    De $0^* \leq \alpha$ e do \Cref{reais-teo-somaCompativelOrdem} obtemos \\ 
     \[ 0^* + (-\alpha) \leq \alpha + (-\alpha) \iff -\alpha \leq 0^*. \]
 \end{dem}
 \begin{prop}
     Se $\alpha \neq 0^*$, então $-\alpha \neq 0^*$.
 \end{prop}
 \begin{dem}
-    Sabemos que $\alpha + (-\alpha) = 0^*$. Se admitíssemos que pudesse ocorrer $-\alpha = 0^*$, teríamos $\alpha + 0^* = 0^*$, o que contradiz a hipótese da proposição. 
+    Sabemos que $\alpha + (-\alpha) = 0^*$. Se admitíssemos que pudesse ocorrer $-\alpha = 0^*$, teríamos $\alpha + 0^* = 0^*$, o que contradiz a hipótese. 
 \end{dem}
 \begin{corol}\label{reais-corol-xPositivoMenosxNegativo1}
     Se $0^* < \alpha$ então $-\alpha < 0^*$.
@@ -367,7 +373,7 @@ O lema a seguir terá sua demonstração omitida.
 \end{dem}
 
 \begin{defi}\label{reais-def-modulo1}
-    O módulo de um corte $\alpha$, denotado por $\abs{\alpha}$, é defindo por
+    O módulo de um corte $\alpha$, denotado por $\abs{\alpha}$, é definido por
     \begin{equation*}
         \abs{\alpha} = 
         \begin{cases}
@@ -391,7 +397,7 @@ O lema a seguir terá sua demonstração omitida.
 \end{prop}
 \begin{dem}
     Se $\alpha = 0^*$ então obtemos $\abs{0^*} = 0^*$. 
-    Se $\alpha \neq 0^*$ então, ou $\alpha > 0*$ ou $\alpha < 0*$. No primeiro caso, temos $\abs{\alpha} = \alpha > 0*$. No segundo, temos $\abs{\alpha} = -\alpha$, como $\alpha \leq 0^*$, pela \Cref{reais-prop-xPositivoMenosxNegativo1}, temos $-\alpha \geq 0^*$, mas tínhamos $\alpha \neq 0*$, assim $-\alpha \neq 0*$ onde concluímos que $-\alpha > 0*$.
+    Se $\alpha \neq 0^*$ então, ou $\alpha > 0^*$ ou $\alpha < 0^*$. No primeiro caso, temos $\abs{\alpha} = \alpha > 0^*$. No segundo, temos $\abs{\alpha} = -\alpha$, como $\alpha \leq 0^*$, pela \Cref{reais-prop-xPositivoMenosxNegativo1}, temos $-\alpha \geq 0^*$, mas tínhamos $\alpha \neq 0^*$, assim $-\alpha \neq 0^*$ onde concluímos que $-\alpha > 0^*$.
 \end{dem}
 
 \begin{obs}
@@ -406,7 +412,7 @@ O lema a seguir terá sua demonstração omitida.
         \begin{aligned}
              &\alpha \hspace{0.6cm} \text{ , se } \alpha \geq 0^* \\
             -&\alpha \hspace{0.6cm} \text{ , se } \alpha \leq 0^*
-        \end{aligned}
+        \end{aligned}.
         \end{cases}            
     \end{equation*}
 \end{defi}
@@ -442,7 +448,7 @@ O lema a seguir terá sua demonstração omitida.
 
 \section{A multiplicação em $\mathbb{R}$}
 \begin{defi}\label{reais-def-produto}
-    A multiplicação de dois números reais $\alpha$ e $\beta$, denotada por $\alpha \cdot \beta$ é definida por:
+    A multiplicação de dois números reais $\alpha$ e $\beta$, denotada por $\alpha \cdot \beta$, é definida por:
     \begin{equation*}
          \alpha \cdot \beta = 
         \begin{cases}
@@ -470,11 +476,11 @@ Essa definição faz com que a multiplicação fique "fundamentada"\ no produto 
 
     Seja $\alpha \cdot \beta = \mathbb{Q}^*_{-} \cup \{ rs : r \in \alpha \text{ e } s \in \beta, 0 \leq r, 0 \leq s \}$.
     
-    Vamos mostrar que $\alpha\beta$ é um conjunto próprio de $\mathbb{Q}$. Sabemos que $\mathbb{Q}^*_{-} \subset \alpha \beta$, assim o produto é não vazio. Sejam $r'$ uma cota superior de $\alpha$ e $s'$ uma cota superior de $\beta$, assim ficamos com $0 \leq r < r'$ para qualquer $r$ não negativo de $\alpha$ (caso exista, isto é, $\alpha \neq 0*$). Analogamente para $\beta$, temos $0 \leq s < s'$ para qualquer $s$ não negativo de $\beta$. Pela \Cref{rac-prop-produtoMaioresMaior}, temos $rs < r's'$, desse modo $r's' \not\in \alpha \beta$, assim $\alpha \cdot \beta \neq \mathbb{Q}$.
+    Vamos mostrar que $\alpha\beta$ é um conjunto próprio de $\mathbb{Q}$. Sabemos que $\mathbb{Q}^*_{-} \subset \alpha \beta$, assim o produto é não vazio. Sejam $r'$ uma cota superior de $\alpha$ e $s'$ uma cota superior de $\beta$, assim ficamos com $0 \leq r < r'$ para qualquer $r$ não negativo de $\alpha$ (caso exista, isto é, $\alpha \neq 0^*$). Analogamente para $\beta$, temos $0 \leq s < s'$ para qualquer $s$ não negativo de $\beta$. Pela \Cref{rac-prop-produtoMaioresMaior}, temos $rs < r's'$, desse modo $r's' \not\in \alpha \beta$, assim $\alpha \cdot \beta \neq \mathbb{Q}$.
 
     Para verificar o segundo item da \Cref{reais-def-corte}, observamos que o conjunto $\alpha \cdot \beta$ é uma união dos racionais negativos com outro conjunto (que pode ter alguns racionais não negativos). Desse modo, qualquer número racional negativo está em $\alpha \beta$. Vejamos agora o que ocorre com a parte não negativa. Se dados $r,s$ com $0 \leq s < r$ e $r \in \alpha \beta$, vamos provar que  $s \in \alpha \beta$. Temos que $r = xy$, com $0 \leq x \in \alpha$ e $0 \leq y \in \beta$, assim $s < xy$. Se $x = 0$, então $s < 0y = 0$ e $s \in \mathbb{Q}_{-}^* \subset \alpha \cdot \beta$. Se $x \neq 0$, usando a compatibilidade do produto com a relação de ordem (\Cref{rac-prop-relOrdem}), obtemos $\frac{s}{x} < y$. Como $s = x \cdot \frac{s}{x}$, e $x \in \alpha, \frac{s}{x} < y \in \beta$, segue que $\frac{s}{x} \in \beta$ e $s \in \alpha \beta$.    
 
-    Para mostrar que não há máximo em $\alpha \beta$ usamos o fato de que não há máximo nem em $\alpha$ nem em $\beta$. Sejam $r \in \alpha$ e $s \in \beta$. Em $\alpha$ existe $r' > r$ e em $\beta$ existe $s' > s$, dessa forma, pela \Cref{rac-prop-produtoMaioresMaior}, obtemos $rs < r's'  \in \alpha \beta$.
+    Para mostrar que não há máximo em $\alpha \beta$ usamos o fato de que não há máximo nem em $\alpha$, nem em $\beta$. Sejam $r \in \alpha$ e $s \in \beta$. Em $\alpha$ existe $r' > r$ e em $\beta$ existe $s' > s$, dessa forma, pela \Cref{rac-prop-produtoMaioresMaior}, obtemos $rs < r's'  \in \alpha \beta$.
 
     Desse modo, concluímos que quando $\alpha$ e $\beta$ são não negativos, o resultado $\alpha \cdot \beta$ é um corte.
     %não negativo (pois $\alpha\beta \supset \mathbb{Q}_{-}^*$).
@@ -486,7 +492,7 @@ Essa definição faz com que a multiplicação fique "fundamentada"\ no produto 
     Sejam $\alpha$ e $\beta$ números reais. Vale que $\left( - \alpha \right) \beta = \alpha \left( -\beta \right) = -\left(\alpha \beta \right) $.
 \end{prop}
 \begin{dem}
-    Consideremos quatro casos distintos, que contempla todas as combinações de $\alpha, \beta$ sendo maiores do que ou iguais a $0^*$, ou sendo menores do que $0^*$. Vamos utilizar a \Cref{reais-prop-moduloDoMenos} e a \Cref{reais-def-modulo2} (a segunda definição de módulo) porque ela fica é conveniente quando trabalhamos com, digamos, $\gamma \geq 0^*$ e obtemos $-\gamma \leq 0^*$. Com isso evitamos separar em dois casos ($-\gamma = 0^*$ e $-\gamma < 0^*$) para aplicar a definição de módulo inicial (\Cref{reais-def-modulo1}).
+    Consideremos quatro casos distintos, que contemplem todas as combinações de $\alpha, \beta$ sendo maiores do que ou iguais a $0^*$, ou sendo menores do que $0^*$. Vamos utilizar a \Cref{reais-prop-moduloDoMenos} e a \Cref{reais-def-modulo2} (a segunda definição de módulo) porque ela  é conveniente quando trabalhamos com, digamos, $\gamma \geq 0^*$ e obtemos $-\gamma \leq 0^*$. Com isso evitamos separar em dois casos ($-\gamma = 0^*$ e $-\gamma < 0^*$) para aplicar a definição de módulo inicial (\Cref{reais-def-modulo1}).
     \begin{enumerate}
         \item $\alpha \geq 0^*$ e $\beta \geq 0^*$: \\
             Temos $-\alpha \leq 0^*$ e $-\beta \leq 0^*$. Assim
@@ -502,7 +508,7 @@ Essa definição faz com que a multiplicação fique "fundamentada"\ no produto 
             Temos $-\alpha > 0^*$ e $-\beta \leq 0^*$. Assim
             \[ \alpha(-\beta) = \abs{\alpha}\abs{-\beta} = (-\alpha)\beta. \]
             Temos também que $-(\alpha \beta) = -(- (\abs{\alpha}\abs{\beta} )) = \abs{\alpha}\abs{\beta} = (-\alpha)\beta$.       
-        \item $\alpha < 0^*$ e $\beta < 0^*$ \\
+        \item $\alpha < 0^*$ e $\beta < 0^*$: \\
             Temos $-\alpha > 0^*$ e $-\beta > 0^*$. Assim  
             \[ (-\alpha) \beta = -(\abs{-\alpha} \abs{\beta}) = -((-\alpha)(-\beta)), \]
             \[ \alpha (-\beta) = -(\abs{\alpha}  \abs{-\beta}) = -((-\alpha)(-\beta)), \]
@@ -518,7 +524,7 @@ Essa definição faz com que a multiplicação fique "fundamentada"\ no produto 
     Sejam $\alpha$ e $\beta$ números reais, vale que $\left( -\alpha \right) \left( -\beta \right) = \alpha \beta$.
 \end{prop}
 \begin{dem}
-    Vamos utilizar a \Cref{reais-def-modulo2} e \Cref{reais-prop-moduloDoMenos}, analogamente à prova anterior (\Cref{reais-teo-regraSinaisProduto1}).
+    Vamos utilizar a \Cref{reais-def-modulo2} e a \Cref{reais-prop-moduloDoMenos}, analogamente à prova anterior (\Cref{reais-teo-regraSinaisProduto1}).
     \begin{enumerate}
         \item $\alpha \geq 0^*$ e $\beta \geq 0^*$: \\
             Temos $-\alpha \leq 0^*$ e $-\beta \leq 0^*$. Assim
@@ -542,7 +548,7 @@ Essa definição faz com que a multiplicação fique "fundamentada"\ no produto 
 \begin{dem}
     Vamos provar que $(\alpha\beta)\gamma = \alpha(\beta\gamma)$, separando em casos. 
     \begin{enumerate}
-        \item Se $\alpha,\ \beta,\ \gamma \geq 0^*$ \\
+        \item Se $\alpha,\ \beta,\ \gamma \geq 0^*$: \\
             Como $\alpha\beta = \mathbb{Q}_{-}^* \cup \{ ab : a \in \alpha \land b \in \beta \}$ segue que: 
             \[ (\alpha\beta)\gamma = \mathbb{Q}_{-}^* \cup \{ (ab)c : (a \in \alpha \land b \in \beta) \land c \in \gamma \}, \]
             \[ \alpha(\beta\gamma) = \mathbb{Q}_{-}^* \cup \{ a(bc) : a \in \alpha \land (b \in \beta \land c \in \gamma) \}. \]
@@ -647,7 +653,7 @@ Essa definição faz com que a multiplicação fique "fundamentada"\ no produto 
     $\alpha(\beta + \gamma) = \alpha\beta+\alpha\gamma$.
 \end{prop}
 \begin{dem}
-    Sejam $\alpha, \beta, \gamma$ números reais. Inicialmente vamos supor que sejam não negativos. Temos que 
+    Sejam $\alpha, \beta, \gamma$ números reais. Inicialmente vamos supor que sejam todos não negativos. Temos que 
     \[ \beta + \gamma = \{ y+z \in \mathbb{Q} : y \in \beta \land z \in \gamma \} .\]
     Seja $A = \alpha(\beta+\gamma) = \mathbb{Q}^*_{-} \cup \{ r \in \mathbb{Q} : r = pq, \text{ com } 0 \leq p \in \alpha \land 0 \leq q \in \beta + \gamma \}$. \\
     Assim, de $q \in \beta + \gamma$ temos que $q = y + z$ com $y \in \beta$ e $z \in \gamma$. \\
@@ -669,14 +675,14 @@ Essa definição faz com que a multiplicação fique "fundamentada"\ no produto 
         \item\label{reais-dummy-charBd} $p'y' + p''z''\text{, com }0 \leq p' \in  \alpha \text{ , } 0 \leq y' \in \beta \text{ , } 0 \leq p'' \in \alpha\text{ e }0 \leq z'' \in \gamma$.
     \end{enumerate}
 
-    Para provar que $ A \subset B$, observemos que $A$ é a união de dois conjuntos. Assim
+    Para provar que $ A \subset B$, observemos que $A$ é a união de dois conjuntos. Assim:
     \begin{enumerate}
-        \item se $x$ é um número negativo de $A$, então em $B$, o elemento $x$ se caracteriza pela \ref{reais-dummy-charBa}.
+        \item se $r$ é um número negativo de $A$, então $r$ está em $B$ , pois o elemento $r$ se caracteriza pela \ref{reais-dummy-charBa}.
         \item {se $r \in A$ é da forma $r = py + pz$, com $0 \leq p \in \alpha$ e $0 \leq y+z$, com $y \in \beta$ e $z \in \gamma$, dividimos em quatro subcasos:
             \begin{enumerate}
                 \item se $y \geq 0$ e $z \geq 0$ então $r$ está em $B$ na \ref{reais-dummy-charBd}.
-                \item se $y \leq 0$ e $z \geq 0$ então $r = py+pz = a + pz$ com $a \leq 0$. Se $a=0$, então $r$ está em $B$ na \ref{reais-dummy-charBd}. Caso $a < 0$ então $r$ está em $B$ na $\ref{reais-dummy-charBb}$.
-                \item se $y \geq 0$ e $z \leq 0$ então $r = py + pz$. Se $z=0$, então $py + 0$ está na \ref{reais-dummy-charBd}. Caso $z<0$, temos $r=py + b, b< 0$, aí $r \in B$ é da \ref{reais-dummy-charBc}.
+                \item se $y \leq 0$ e $z \geq 0$ então $r = py+pz = a + pz$ com $a \leq 0$. Se $a=0$, então $r$ está em $B$ na \ref{reais-dummy-charBd}. Caso $a < 0$ então $r$ está em $B$ na \ref{reais-dummy-charBb}.
+                \item se $y \geq 0$ e $z \leq 0$ então $r = py + pz$. Se $z=0$, então $r = py + 0$ está em $B$ na \ref{reais-dummy-charBd}. Caso $z<0$, temos $r=py + b, b< 0$, aí $r \in B$ é da \ref{reais-dummy-charBc}.
                 \item para $y < 0$ e $z < 0$ temos um caso impossível, pois temos necessariamente $0 > y+z$.
             \end{enumerate}
         }
@@ -684,23 +690,24 @@ Essa definição faz com que a multiplicação fique "fundamentada"\ no produto 
 
     Assim concluímos que $A \subset B$.
 
-    Para mostrar que $B \subset A$ vamos mostrar que o caso da \ref{reais-dummy-charBd} está em $A$, e também que, para qualquer elemento $s$ que esteja representado em uma das outras três formas de $B$, existirá um elemento $r$ na \ref{reais-dummy-charBd} com $r > s$.  
+    Para mostrar que $B \subset A$ vamos provar que o caso da \ref{reais-dummy-charBd} está em $A$, e também que, para qualquer elemento $s$ que esteja representado em uma das outras três formas de $B$, existirá um elemento $r$ na \ref{reais-dummy-charBd} com $r > s$.  
     
-    Tomemos um elemento da \ref{reais-dummy-charBd}, dado por $p'y' + p''z''$ com $0 \leq p' \in \alpha, 0 \leq y' \in \beta, 0 \leq p'' \in \alpha, 0 \leq z'' \in \gamma$. 
-        Sabemos que pela tricotomia de $\mathbb{Q}$, vale $p' \geq p'' \lor p'' > p'$, temos:\\
+    Tomemos um elemento da \ref{reais-dummy-charBd}, dado por $p'y' + p''z''$ com $0 \leq p' \in \alpha$, \\
+    $ 0 \leq y' \in \beta, 0 \leq p'' \in \alpha, 0 \leq z'' \in \gamma$. 
+        Sabemos que pela tricotomia de $\mathbb{Q}$, vale $p' \geq p'' $ ou $ p'' > p'$. Assim:
         \begin{enumerate}
             \item Se $p' \geq p''$ então:
                 \begin{align*}
-                    p'y' + p''z'' &= p'y' + p'z'' - p'z'' + p''z'' \\
+                   r= p'y' + p''z'' &= p'y' + p'z'' - p'z'' + p''z'' \\
                     &= p'(y' + z'') + z''(p''-p').
                 \end{align*}
-                Sabemos que $p' \in A$ e $y'+z'' \in \beta+\gamma$. Logo $p'(y' + z'') \in A = \alpha (\beta+ \gamma)$. Além disso, $z''(p''-p') \leq 0$ e como $A$ é um corte então $z''(p''-p') \in A$, e também $p'(y' + z'')+z''(p''-p') < p'(y' + z'')$. Assim $r = p'(y' + z'') + z''(p''-p') \in A$.
+                Sabemos que $p' \in \alpha$ e $y'+z'' \in \beta+\gamma$. Logo $p'(y' + z'') \in A = \alpha (\beta+ \gamma)$. Além disso, $z''(p''-p') \leq 0$ e como $A$ é um corte, então $z''(p''-p') \in A$, e também $p'(y' + z'')+z''(p''-p') < p'(y' + z'')$. Assim $r = p'(y' + z'') + z''(p''-p') \in A$.
         
         \item Se $p'' > p'$ então:
             \begin{align*}
                 r = p'y' + p''z'' &= p'y' + p''y' - p''y' + p''z'' \\
                 &= p''y' + p''z'' + p'y' - p''y' \\
-                &= p''(y'+z'') + y'(p'-p'')
+                &= p''(y'+z'') + y'(p'-p'').
             \end{align*}
             Analogamente ao caso anterior, a primeira parcela da soma está em $A$ e a segunda parcela é um número negativo, então $r$ está no corte $A$.
     \end{enumerate}
@@ -785,10 +792,10 @@ Essa definição faz com que a multiplicação fique "fundamentada"\ no produto 
             Temos 
             \[ \alpha\gamma = \mathbb{Q}_{-}^* \cup \{ rs : 0 \leq r \in \alpha \text{ e } 0 \leq s \in \gamma \}, \]
             e
-            \[ \beta\gamma = \mathbb{Q}_{-}^* \cup \{ r's' : 0 \leq r' \in \beta \text{ e } 0 \leq s' \in \gamma \} \]
+            \[ \beta\gamma = \mathbb{Q}_{-}^* \cup \{ r's' : 0 \leq r' \in \beta \text{ e } 0 \leq s' \in \gamma \}. \]
             Obviamente, $\mathbb{Q}_{-}^* $ está contido em $\alpha\gamma$ e em $\beta\gamma$. Para a segunda parcela da união em $\alpha\gamma$, como ocorre que $r \in \alpha \implies r \in \beta$, temos também que para $s \in \gamma$, $rs \in \alpha\gamma \implies rs \in \beta\gamma$. Logo $\alpha\gamma \subset \beta\gamma$ e $\alpha\gamma \leq \beta\gamma$.
 
-        \item $\alpha \leq \beta \leq 0^*$: \\
+        \item $\alpha \leq \beta \leq 0^*$: 
             
             Pelo \Cref{reais-teo-desigualdadeSimetrico}, temos 
             \[ \alpha \leq \beta \iff - \beta \leq - \alpha. \]
@@ -833,7 +840,7 @@ Essa definição faz com que a multiplicação fique "fundamentada"\ no produto 
 
     Para mostrar o \Cref{reais-def-corteSemMaximo} da \Cref{reais-def-corte}, devemos mostrar que dado $r \in \beta$, existe $s>r$ com $s \in \beta$. Qualquer racional não positivo está em $\beta$, por construção. Se, por outro lado, escolhermos um $r > 0$ de $\beta$, então $\frac{1}{r} \in \mathbb{S}_{\alpha}$, e como $\frac{1}{r}$ é cota superior não mínima de $\alpha$, existe uma cota superior $s' < \frac{1}{r}$, e podemos obter o inverso $s$ de $s'$, pois qualquer racional diferente de $0$ possui um inverso, como diz o \Cref{rac-teo-produtoPropriedades}. Assim, $s' = \frac{1}{s}$ é uma cota superior de $\alpha$, podendo ser mínima ou não. Temos então $\frac{1}{s} < \frac{1}{r}$, aí podemos escolher um terceiro elemento entre eles, como provado no \Cref{rac-corol-terceiroEntreDois}. Pode ser, usando a mesma expressão do \Cref{rac-corol-terceiroEntreDois},
     \[ \dfrac{1}{t} = \dfrac{\frac{1}{s} + \frac{1}{r}}{2}, \]
-    assim $\frac{1}{s} < \frac{1}{t} < \frac{1}{r}$ e, portanto, $s > t > r$, uma vez que o produto é compatível com a relação de ordem em $\mathbb{Q}$.Observando que $\frac{1}{t} \in \mathbb{S}_{\alpha}$ concluímos que $t \in \beta$, com $t>r$, desse modo $\beta$ não tem máximo. 
+    assim $\frac{1}{s} < \frac{1}{t} < \frac{1}{r}$ e, portanto, $s > t > r$, uma vez que o produto é compatível com a relação de ordem em $\mathbb{Q}$. Observando que $\frac{1}{t} \in \mathbb{S}_{\alpha}$ concluímos que $t \in \beta$, com $t>r$, desse modo $\beta$ não tem máximo. 
 
     Para mostrar o caso em que $\alpha < 0$, observemos a \Cref{reais-def-produto}, pois o produto de dois números não negativos é não negativo, e o produto de dois não positivos é não negativo. Como $1^*$ é positivo, se o inverso de $\alpha$ existir, ele deve ser negativo. Aí temos 
     $\alpha \cdot \beta = \abs{\alpha} \abs{\beta}$, com $\beta$ igual no caso anterior, quando $\alpha > 0$. Como o inverso é único conforme \Cref{agb-teo-simetricoUnico}, concluímos que apenas esse $\beta$ é o inverso de $\alpha$, ou seja, $\beta < 0^*$ é o inverso de $\alpha < 0^*$, em que $\abs{\beta}$ é inverso de $\abs{\alpha}$.
@@ -842,13 +849,94 @@ Essa definição faz com que a multiplicação fique "fundamentada"\ no produto 
 
 
 \section{Imersão de $\mathbb{Q}$ em $\mathbb{R}$}
-\begin{teo}\label{reais-teo-ilimitadoSuperiormente}
-    O conjunto $\mathbb{N}$ não é limitado superiormente em $\mathbb{R}$.
+\begin{teo}\label{reais-teo-imersao}
+    Considere a função definida abaixo:
+    % $f: \mathbb{N} \rightarrow \mathbb{Z}, f(x) \mapsto \overline{(x+1, 1)}$. 
+    \begin{align*}
+        ^* \colon &\mathbb{Q} \to \mathbb{R} \\
+        &x \mapsto x^*.
+    \end{align*}
+    Essa função tem as propriedades a seguir:
+    \begin{enumerate}[label=(\roman*)]
+        \item $(p + q)^* = p^* + q^*$;
+        \item $(p \cdot q)^* = p^* \cdot q^*$;
+        \item $p \leq q \implies p^* \leq q^*$.
+    \end{enumerate}
 \end{teo}
 \begin{dem}
-    \todo{demonstrar}
-    .
+    Sejam $p^* = \{\,x \in \mathbb{Q} : x < p\,\}$ e $q^* = \{\,x \in \mathbb{Q} : x < q\,\}$.
+    \begin{enumerate}[label=(\roman*)]
+     \item Vamos provar que $(p+q)^* \subset p^* + q^*$ e em seguida que $p^*+q^*  \subset (p+q)^*$.
+     Temos que $(p+q)^* = \{\, x \in \mathbb{Q} : x < p+q \,\}$, e que $p^* + q^* = \{\,x+y : x \in p^* \text{ e } y \in q^*\,\}$. Logo, se $x \in (p+q)^*$, então $x<p+q$. Seja $h>0$ um racional tal que $x+h = p+q$. Assim, $x = p+q-h = \left( p-\frac{h}{2}\right) + \left(q-\frac{h}{2} \right) $. Tomando $a = p - \frac{h}{2} < p$ e $b = q - \frac{h}{2}$, temos que $a \in p^*$ e $b \in q^*$. 
+     Portanto, se $x = a+b \in (p+q)^*$, então $x \in p^* + q^*$.
+
+     Vamos mostrar que $p^* + q^* \subset (p+q)^*$. Considere $r = x+y \in p^*+q^*$, com $x \in p^*$ e $y \in q^*$. Assim $x < p$ e $y < q$. Sejam $h_1$ e $h_2$ tais que $x+h_1 = p$ e $y+h_2 = q$. Temos que $x+h_1 + y + h_2 = p+q$, logo, $x+y < p+q$. Desse modo, $r = x+y \in (p+q)^*$. 
+
+     % \item Para provar que $^*$ é multiplicativa, temos que $(ab)^* = \{\,x \in \mathbb{Q} : x < ab\,\}$ e também que 
+     % $a^* \cdot b^* = \mathbb{Q}_{-}^* \cup \{\,rs : 0 \leq r \in a^* \text{ e } 0 \leq s \in b^* \,\}$.
+     % Vamos mostrar que $(ab)^* \subset a^* \cdot b^*$. Se $x \in (ab)^*$, então $x < ab$. Caso $x < 0$, é imediato que $x \in a^* \cdot b^*$. Caso 
+     % $x \geq 0$, então $a,b$ são positivos, e assim, $\frac{x}{b}<a$, logo $\frac{x}{b} \in a^*$. Do mesmo modo, de $x < ab$, temos que $\frac{x}{a} < b$ e assim $\frac{x}{a} \in b^*$. Também vale que $\frac{x}{a}$ e $\frac{x}{b}$ são estritamente positivos. Ainda, $\frac{x}{a} \cdot \frac{x}{b} < ab$ (\Cref{rac-prop-produtoMaioresMaior}), o que leva a $x^2 < ab\cdot ab$. Como são todos positivos nessa ultima desigualdade, temos $x < ab$.
+
+    \item Para provar que $(pq)^* = p^*\cdot q^*$, notemos inicialmente que, para $p=0$, temos
+        \[ p^* \cdot q^* = 0^* \cdot q^* = 0^* = (0q)^* = (pq)^*. \]
+        Para $q = 0$ é análogo. Resta mostrar para os casos onde $p$ e $q$ são ambos não nulos. 
+
+        \begin{enumerate}
+            \item Caso $p,q > 0$:  \\ 
+            Provemos que $(pq)^* \subset p^* \cdot q^*$. Temos que 
+            \[ p^* \cdot q^* = \mathbb{Q}_{-}^* \cup \{\,rs : 0 \leq r \in p^* \text{ e } 0 \leq s \in q^* \,\}, \] 
+            e que 
+            \[ (pq)^* = \{\,x \in \mathbb{Q} : x < pq\,\}. \] 
+            Seja $x \in (pq)^*$. Logo $x < pq$.
+        Se $x < 0$, então $x \in \mathbb{Q}_{-}^* \subset (pq)^*$ e a inclusão é imediata. Se $x \geq 0$, tomemos 
+        $y = \frac{1}{2} \left(\frac{x}{q}+p\right)$.
+        Como $x \geq 0$, $p>0$ e $q>0$, temos que $y > 0$. Pelo \Cref{rac-corol-terceiroEntreDois}, concluímos que $\frac{x}{q} < y < p$. Assim, $y < p$, portanto $y \in p^*$. Como $\frac{x}{q} < y$, temos que $\frac{x}{y} < q$, pois $y,q > 0$. Desse modo, $s = \frac{x}{y} \in q^*$. Assim, 
+        $x = y \cdot \frac{x}{y} = ys$, com $0 \leq y \in p^*$ e $0 \leq s \in q^*$, ou seja, $x \in p^* \cdot q^*$.
+
+        Para mostrar a inclusão  $p^* \cdot q^* \subset (pq)^*$, seja $x \in p^* \cdot q^*$. Notemos que se $x < 0$, então $x < pq$, e assim $x \in (pq)^* $ e a inclusão desejada é imediata. Se for $x \geq 0$, então $x = rs$, com $r \in p^*$ e $s \in q^*$. Logo, $r<p$ e $s < q$. Pela \Cref{rac-prop-produtoMaioresMaior}, obtemos que $x=rs < pq$, e portanto $x \in (pq)^*$, como queríamos mostrar.
+
+            \item Caso $p < 0$ e $q>0$: \\
+            Temos $-p^* > 0^*$ e, pela \Cref{reais-def-modulo1}:
+            \begin{align*}
+                p^* \cdot q^* 
+                &= -( \abs{p^*} \cdot \abs{q^*} ) \\
+                &= -((-p^*) \cdot q^*) \\
+                &= - ((-p^* \cdot q^*)) \\
+                &= - ((-p \cdot q)^*) \\
+                &= - (- (pq)^*) \\
+                &= (pq)^*.
+            \end{align*}
+
+            \item Caso $p>0$ e $q<0$:\\
+            Basta usar a comutatividade do produto e aplicar o item anterior.
+
+            \item Caso $p,q < 0$: \\
+            Temos $-p^* > 0$ e $-q^* > 0$, pela \Cref{reais-def-modulo1}, segue que
+            \begin{align*}
+                p^* \cdot q^* 
+                &= \abs{p^*}\abs{q^*} \\
+                &= ((-p)(-q))^* \\
+                &= (pq)^*.
+            \end{align*}
+        \end{enumerate}
+        Portanto, em todos os casos, $p^* \cdot q^* = (pq)^*$.        
+
+     \item Para mostrar que $^*$ preserva a relação de ordem, considere $p < q$. Temos que $p^* = \{\,x \in \mathbb{Q} : x< p\,\}$ e que 
+     $q^* = \{\,x \in \mathbb{Q} : x< q \,\}$. Temos assim que existe $r$ tal que $p < r < q$, e portanto $r \in q^*$ mas $r \not\in p^*$. Portanto 
+      $r \in q^* \setminus p^*$, e pela \Cref{reais-def-relacaoOrdem}, $p^* < q^*$.
+     
+    \end{enumerate}
 \end{dem}
+
+\begin{teo}\label{reais-teo-ilimitadoSuperiormente}
+    O conjunto $\mathbb{Q}$ não é limitado superiormente em $\mathbb{R}$.
+\end{teo}
+\begin{dem}
+    Faremos a demonstração por contradição. Suponha que $L \in \mathbb{R}$ seja uma cota superior de $\mathbb{Q}$. Assim, $L$ é um corte (\Cref{reais-def-corte}) que não tem cota superior em $\mathbb{Q}$, o que contraria o \Cref{reais-teo-todoCorteTemCotaSuperior}. 
+\end{dem}
+\begin{obs}
+    É imediato que $\mathbb{N}$ também não é limitado superiormente em $\mathbb{R}$, em vista de $\mathbb{N}$ ser ilimitado em $\mathbb{Z}$ (\Cref{int-teo-ilimitadoSuperiormente}), de $\mathbb{Z}$ ser ilimitado em $\mathbb{Q}$ (\Cref{rac-teo-ilimitadoSuperiormente}), e de $\mathbb{Q}$ ser ilimitado em $\mathbb{R}$ (\Cref{reais-teo-ilimitadoSuperiormente}).
+\end{obs}
 
 \begin{prop}\label{reais-prop-entreDoisReaisHaUmTerceiro}
     Se $\alpha, \beta \in \mathbb{R}$ com $\alpha < \beta$, então existe um corte racional $r^*$ tal que $\alpha < r^* < \beta$.

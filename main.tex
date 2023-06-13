@@ -61,7 +61,7 @@
 \usepackage[sorting=nty, style=abnt]{biblatex} % citestyle=authoryear, 
 \usepackage[portuguese=brazilian]{csquotes} % Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing. Loading 'csquotes' recommended.
 \usepackage{etoolbox} % para modificar as citacoes, colocar margem no blockquote
-%\usepackage{showkeys} % para que quando for usar \ref apareça uma prévia do que se trata, teorema prop, def etc. pois \ref gera apenas numeros
+% \usepackage{showkeys} % para que quando for usar \ref apareça uma prévia do que se trata, teorema prop, def etc. pois \ref gera apenas numeros
 \usepackage[capitalise, brazilian]{cleveref}
 \usepackage{physics} % para \abs{}
 %%  You'll get surprised by
@@ -72,7 +72,7 @@
 
 % https://pt.overleaf.com/latex/templates/modelo-canonico-de-trabalhos-academicos-com-abntex2/ybtpkzkccnnj
 
-\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+% \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 %\usepackage[numeric]{footmisc} % para alterar rótulos de footnote 
 
 \usepackage{color,soul} % para marcar para revisao
@@ -263,21 +263,21 @@
   { \end{changemargin}  }
 \makeatother
 
-\makeatletter % para todonotes dentro de align
-\renewcommand{\@todonotes@drawMarginNoteWithLine}{%
-\begin{tikzpicture}[remember picture, overlay, baseline=-0.75ex]%
-    \node [coordinate] (inText) {};%
-\end{tikzpicture}%
-\marginnote[{% Draw note in left margin
-    \@todonotes@drawMarginNote%
-    \@todonotes@drawLineToLeftMargin%
-}]{% Draw note in right margin
-    \@todonotes@drawMarginNote%
-    \@todonotes@drawLineToRightMargin%
-}%
-}
-\makeatother
-\newcommand{\todoAlign}[1]{\text{\todo{#1}}}
+% \makeatletter % para todonotes dentro de align
+% \renewcommand{\@todonotes@drawMarginNoteWithLine}{%
+% \begin{tikzpicture}[remember picture, overlay, baseline=-0.75ex]%
+%     \node [coordinate] (inText) {};%
+% \end{tikzpicture}%
+% \marginnote[{% Draw note in left margin
+%     \@todonotes@drawMarginNote%
+%     \@todonotes@drawLineToLeftMargin%
+% }]{% Draw note in right margin
+%     \@todonotes@drawMarginNote%
+%     \@todonotes@drawLineToRightMargin%
+% }%
+% }
+% \makeatother
+% \newcommand{\todoAlign}[1]{\text{\todo{#1}}}
 
 % --- 
 % CONFIGURAÇÕES DE PACOTES
@@ -368,14 +368,14 @@ Orientador: \orientationBy}
  \subfile{chapter/naturals}
  \subfile{chapter/integers}
  \subfile{chapter/rationals}
- % \subfile{chapter/reals}
- % \subfile{chapter/enumerabilidade}
+ \subfile{chapter/reals}
+ \subfile{chapter/enumerabilidade}
 % FIM CAPITULOS
 
 % ------------------------------------------------------------
 % Conclusão
 % ------------------------------------------------------------
-% \subfile{chapter/conclusion}
+\subfile{chapter/conclusion}
 
 % ----------------------------------------------------------
 % Referências bibliográficas
