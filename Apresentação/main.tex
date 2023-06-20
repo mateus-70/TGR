@@ -1,0 +1,426 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+
+
+\usepackage{physics}
+\usepackage[sorting=nty, style=abnt]{biblatex} % citestyle=authoryear,
+\usepackage{cmap}				% Mapear caracteres especiais no PDF
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+
+\addbibresource{./include/refs.bib}
+
+\usetheme{CambridgeUS}
+\useinnertheme{rectangles}
+\useoutertheme{infolines}
+
+\setbeamercolor{frametitle}{fg=Black,bg=White}
+\setbeamercolor{section in head/foot}{bg=ForestGreen}
+\setbeamercolor{author in head/foot}{bg=ForestGreen}
+\setbeamercolor{date in head/foot}{fg=ForestGreen}
+\setbeamercolor{block title}{fg=ForestGreen}
+\setbeamercolor{local structure}{fg=ForestGreen}
+\setbeamercolor{title in head/foot}{fg=ForestGreen}
+\setbeamercolor{bibliography item}{fg=Black}
+\setbeamercolor*{bibliography entry title}{fg=Emerald}
+\setbeamercolor*{bibliography entry author}{fg=ForestGreen}
+\setbeamercolor*{bibliography entry location}{fg=ForestGreen}
+\setbeamercolor*{bibliography entry note}{fg=ForestGreen}
+
+\setbeamersize{text margin left=10mm,text margin right=10mm} 
+
+%Information to be included in the title page:
+\title[DOS AXIOMAS DE PEANO]{DOS AXIOMAS DE PEANO AOS CORTES DE DEDEKIND}
+\subtitle{UMA
+FORMALIZAÇÃO PARA OS CONJUNTOS NUMÉRICOS}
+
+
+\author[Mateus Silva]{\begin{tabular}{r@{ }l} 
+Autor:      & Mateus Schroeder da Silva \\[1ex] 
+Orientador: & Me. Marnei Luis Mandler
+\end{tabular}}
+
+\institute{Licenciatura em Matemática}
+\date[2023]{Joinville, 20 de junho de 2023.}
+\logo{\includegraphics[height=1cm]{images/udesc-logo-small.jpg}}
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    % \[ \\mathbb{N}} \small{\subset} \mathbb{Z} \large{\subset} \Large{\mathbb{Q}} \LARGE{\subset} \Huge{\mathbb{R}}} \]
+    % \begin{center}
+    \[
+        \centering
+        \scalebox{1}{$\mathbb{N}$} 
+        \scalebox{1.2}{$\subset$} 
+        \scalebox{1.5}{$\mathbb{Z}$} 
+        \scalebox{1.7}{$\subset$} 
+        \scalebox{2}{$\mathbb{Q}$} 
+        \scalebox{2.2}{$\subset$} 
+        \scalebox{2.5}{$\mathbb{R}$}
+    \]
+    % \end{center}
+\end{frame}
+
+\begin{frame}{Estrutura do trabalho}
+    \begin{enumerate}
+        \item Introdução;
+        \item Álgebra básica;
+        \item Números naturais;
+        \item Números inteiros;
+        \item Números racionais;
+        \item Números reais;
+        \item Sobre a enumerabilidade e unicidade dos números reais;
+        \item[\textbullet] Considerações finais.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Objetivos}
+    \begin{itemize}
+        \item Mostrar que é possível formalizar os conjuntos numéricos sem tomar o zero como um número natural.
+        \item Fazer extensões sucessivas do conceito de número, até chegarmos nos números reais.
+        \item Provar a não enumerabilidade de $\mathbb{R}$, e sua unicidade.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Álgebra básica: operação}
+    Definição: \\~\
+    
+    Seja $A$ um conjunto arbitrário. Uma operação $*$ sobre $A$ é uma função que a cada $a,b \in A$ associa um único elemento $a * b \in A$, ou seja, associa a cada dois elementos em $A$ a sua imagem $a * b$, que também é um elemento de $A$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Álgebra básica: relação binária}
+    Definição: \\~\
+    
+    Uma relação binária $R$ num conjunto $A$ é qualquer subconjunto do produto cartesiano $A \times A$, isto é, $R \subset A \times A$.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Números naturais: os axiomas de Peano}
+\begin{enumerate}
+    \item Existe um conjunto de exatamente todos os números naturais, que será denotado por $\mathbb{N}$, e existe uma função $s: \mathbb{N} \rightarrow \mathbb{N}$, que é a relação "sucessor". 
+    \item Um é um número natural, isto é, $1 \in \mathbb{N}$.
+    \item Um não é sucessor de nenhum número, isto é, $1 \not \in Im(s)$ ou ainda, $\not \exists a \in \mathbb{N} : s(a) = 1$.
+    \item  $s$ é injetora, isto é, $s(a) = s(b) \implies a = b$.
+    \item Seja $\mathbb{S}$ um subconjunto de $\mathbb{N}$. Caso $1 \in \mathbb{S}$ e se, para todo $k$ em $\mathbb{S}$, ocorrer que $s(k)$ também esteja em $\mathbb{S}$, então $\mathbb{S} = \mathbb{N}$. Isso é o mesmo que colocar: \\
+     \[ \mathbb{S} \subseteq \mathbb{N} \land 1 \in \mathbb{S} \land ( k \in \mathbb{S} \Rightarrow s(k) \in \mathbb{S}) \implies \mathbb{S} = \mathbb{N} .\]
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Números naturais: zero é um número natural?}
+    \begin{itemize}
+        \item "É, não é, e talvez seja".
+        \item Uma questão de preferência por parte da literatura.
+        \item Só conveniência apenas? Não é necessário?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Números naturais: zero é um número natural?}
+    Peano colocou o $1$ como o primeiro número natural em sua obra, Arithmetices principia: nova methodo, de 1889.\\~\
+
+    No Tomo II do Formulaire de Mathématiques, de 1897, os axiomas são apresentados reformulados.
+\end{frame}
+
+\begin{frame}
+\frametitle{Números naturais: adição}
+    Definição: \\~\
+    
+    Sejam $a, b \in \mathbb{N}$. A adição entre $a$ e $b$, denotada por $a + b$ é definida com as seguintes condições: 
+    \begin{enumerate}
+        \item\label{nat-dummySomaMaisUm} $a + 1 = s(a)$;
+        \item\label{nat-dummySomaMaisQualquer} $a + s(b) = s(a+b)$.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Números naturais: fechamento da adição}
+    Demonstração: \\~\
+    
+    Seja $\mathbb{S} = \{ x \in \mathbb{N} : a + x \in \mathbb{N} \}$. Obviamente o $1$ está em $\mathbb{S}$. Suponhamos então que $k \in \mathbb{S}$, queremos  garantir que $s(k) \in \mathbb{S}$. Temos então que $a + k \in \mathbb{N}$ o que implica que $a + s(k) = s(a + k) \in \mathbb{N}$, pois pelo Axioma 1, a função $s$ tem contradomínio $\mathbb{N}$. Como $s(k) \in \mathbb{S}$, pelo Axioma da indução finita, concluímos que $\mathbb{S} = \mathbb{N}$.
+\end{frame}
+
+% \begin{frame}{Números naturais: multiplicação}
+%     Sejam $a, b \in \mathbb{N}$. A multiplicação entre $a$ e $b$, denotada por $a \cdot b$ é definida com a as seguintes condições: 
+% 	\begin{enumerate}
+% 		\item $a \cdot 1 = a$;
+% 		\item $a \cdot s(b) = a \cdot b + a$.
+% 	\end{enumerate}
+% \end{frame}
+
+
+\begin{frame}{Números naturais: relação de ordem}
+    Definição: \\~\
+
+    Sejam $a, b \in \mathbb{N}$. Definiremos a relação $\leq$ entre $a$ e $b$, denotado por $a \leq b$, e diremos que $a$ se relaciona com $b$ através de $\leq$ quando uma das seguintes situações ocorre:
+    \begin{itemize}
+        \item $a = b$;
+        \item $a + n = b$, para algum $n \in \mathbb{N}$.
+    \end{itemize} 
+\end{frame}
+
+\begin{frame}{Números inteiros: relação de equivalência}
+    A maneira como expressamos um número inteiro, é por uma relação binária $\sim$ sobre $\mathbb{N} \times \mathbb{N}$ definida desse modo: $(a,b) \sim (c,d) \iff a+d = b+c$, sendo $a,b,c,d$ números naturais quaisquer.\\~\ 
+
+    
+    Os pares ordenados $(1,2)$ e $(5,6)$ se relacionam através da relação $\sim$, pois $1+6 = 2+5$.   
+    Intuitivamente, significa que $1 - 2 = 5 - 6 = -1$
+\end{frame}
+\begin{frame}{Números inteiros: definição}
+    Definição: \\~\
+    
+    O conjunto quociente $\mathbb{N} \times \mathbb{N} / \sim = \{ \overline{(a,b)}: (a,b) \in \mathbb{N} \times \mathbb{N}\}$ será chamado de conjunto dos números inteiros e será denotado por $\mathbb{Z}$.
+\end{frame}
+
+\begin{frame}{Números inteiros: adição}
+    Definição: \\~\
+    
+    Dados $\overline{(a,b)}$ e $\overline{(c,d)}$ em $\mathbb{Z}$, definimos a adição $\overline{(a,b)} + \overline{(c,d)}$ como 
+    \[\overline{(a+c, b+d)}. \]
+
+    Teorema: \\~\
+    
+    A operação de adição está bem definida em $\mathbb{Z}$. Isto é, a adição em $\mathbb{Z}$ não depende do representante das classes de equivalência envolvidas na adição.
+\end{frame}
+
+\begin{frame}{Números inteiros: imersão}
+    Teorema: \\~\
+    
+    \begin{align*}
+        f \colon &\mathbb{N} \to \mathbb{Z} \\
+        &x \mapsto \overline{(x+1, 1)}.
+    \end{align*}
+    Essa função tem as propriedades a seguir:
+    \begin{enumerate}
+        \item $f(a + b) = f(a) + f(b)$;
+        \item $f(a \cdot b) = f(a) \cdot f(b)$;
+        \item $a \leq b \implies f(a) \leq f(b)$.
+    \end{enumerate}
+    Ou seja, preserva a adição, a multiplicação e a relação de ordem.
+\end{frame}
+
+\begin{frame}{Números racionais}
+
+    \[ \mathbb{Z} \times \mathbb{Z}^* = \{\, \left( a,b \right) : a \in \mathbb{Z} \land b \in \mathbb{Z}^* \,\}. \]
+
+    Sobre $\mathbb{Z} \times \mathbb{Z}^*$ vamos considerar a relação definida por $\left( a,b \right) \sim \left( c,d \right) \iff ad = bc$.
+\end{frame}
+
+\begin{frame}{Números racionais: multiplicação}
+    Definição: \\~\
+    
+    Sejam $\frac{a}{b}$ e $\frac{c}{d}$ números racionais quaisquer. A multiplicação de $\frac{a}{b}$ por $\frac{c}{d}$ será denotada por $\frac{a}{b} \cdot \frac{c}{d}$ e é definida por $\frac{ac}{bd}$.
+\end{frame}
+
+\begin{frame}{Números racionais: inverso multiplicativo}
+    Demonstração: \\~\
+    
+    Vamos obter o inverso de $\frac{a}{b}$. Por hipótese, temos $b \neq 0$. Suponhamos que $a=0$. Vejamos se algum $\frac{c}{d}$
+        pode ser simétrico de $\frac{a}{b}$. Temos $\frac{a}{b} \frac{c}{d} = \frac{ac}{bd} = \frac{0}{bd} \neq \frac{1}{1}$. Assim não podemos ter zero no numerador. \\
+        Suponhamos por outro lado, $a \neq 0$. Temos $\frac{ac}{bd} = \frac{1}{1} \implies ac = bd$, que é o mesmo que dizer que $\frac{a}{b} = \frac{d}{c}$. Para que a igualdade ocorra, basta tomar $c=b$ e $d=a$, assim, o inverso de $\frac{a}{b}$, para $a \neq 0$, é $\frac{c}{d} = \frac{b}{a}$.
+\end{frame}
+
+\begin{frame}{Números racionais: escolha do denominador}
+    Teorema: \\~\
+    
+    Qualquer que seja o número racional $\frac{a}{b}$, é sempre possível escolher uma representação $\frac{c}{d}$, de tal modo que $\frac{a}{b} = \frac{c}{d}$, com $d > 0$.
+\end{frame}
+
+\begin{frame}{Números racionais: relação de ordem}
+    Definição: \\~\
+    
+    Sejam $\frac{a}{b}$ e $\frac{c}{d}$ números racionais quaisquer, sendo $b$ e $d$ inteiros positivos. A relação de ordem $\leq$ entre $\frac{a}{b}$ e $\frac{c}{d}$ será denotada por $\frac{a}{b} \leq \frac{c}{d}$ para indicar que $ad \leq bc$ e diremos que $\frac{a}{b}$ é menor do que ou igual a $\frac{c}{d}$.
+\end{frame}
+\begin{frame}{Números racionais: relação de ordem}
+    A principal diferença entre a construção de $\mathbb{Z}$ e $\mathbb{Q}$ foi a restrição nos denominadores, que devem ser apenas positivos. Isso não é análogo $\mathbb{Z}$, pois não foi preciso fazer nenhuma restrição na relação de ordem em $\mathbb{Z}$.
+\end{frame}
+
+\begin{frame}{Números racionais: imersão}
+    Teorema: \\~\
+
+    \begin{align*}
+        f \colon &\mathbb{Z} \rightarrow \mathbb{Q} \\
+            & x \mapsto \frac{x}{1}.
+    \end{align*}
+    Essa função tem as propriedades a seguir:
+    \begin{enumerate}
+        \item $f(a + b) = f(a) + f(b)$;
+        \item $f(a \cdot b) = f(a) \cdot f(b)$;
+        \item $a \leq b \implies f(a) \leq f(b)$.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Números reais: corte de Dedekind}
+    Definição: \\~\
+    
+    Um conjunto $\alpha$ de números racionais será chamado de corte caso ele atenda as condições a seguir:
+    \begin{enumerate}
+        \item $\emptyset \neq \alpha \neq \mathbb{Q}$;
+        \item se $r \in \alpha$ e $s < r$, sendo $s$ um racional qualquer, então $s \in \alpha$;
+        \item o conjunto $\alpha$ não tem máximo.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Números reais: exemplos de corte}
+    \begin{itemize}
+        \item O conjunto $\alpha = \{ x \in \mathbb{Q} : x < 5 \}$ é um corte.
+        \item O conjunto $\alpha =  \mathbb{Q}_{-}^* \cup \{ x \in \mathbb{Q_{+}} : x \cdot x < 2 \} $ é um corte.
+        \item O conjunto $A = \{ x \in \mathbb{Q} : x \leq 5 \}$ não é um corte, pois $5$ é máximo de $A$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Números reais: relação de ordem}
+    Definição: \\~\
+    
+    Sejam $\alpha$ e $\beta$ cortes. Diremos que $\alpha$ é menor do que $\beta$ e denotaremos $\alpha < \beta$ quando $\beta \setminus \alpha \neq \emptyset$.    
+\end{frame}
+
+\begin{frame}{Números reais: relação de ordem e operações}
+    A relação de ordem para os cortes (que são os números reais), é introduzida cedo, se comparada aos conjuntos $\mathbb{N}, \mathbb{Z}$ e $\mathbb{Q}$. 
+
+    Isso porque para definir a multiplicação de números reais foi necessário utilizar a relação de ordem, ao passo que nos outros capítulos as definições de multiplicação e da relação de ordem eram independentes.  
+\end{frame}
+
+\begin{frame}{Números reais: por que um corte não tem máximo?}
+    Caso pudesse ocorrer máximo em um corte, consideremos $\alpha = \{\,x \in \mathbb{Q} : x < 5\,\} $ e $\beta = \{\,x \in \mathbb{Q} : x \leq 5\,\}$, teríamos
+    \[ \beta \setminus \alpha = \{\, 5 \,\},\] e portanto $\alpha < \beta$. Seja $\gamma$ tal que $\alpha < \gamma < \beta$, então 
+    \begin{itemize}
+        \item de $\alpha < \gamma$ temos que $x < 5 \implies x \in \gamma$.
+        \item $\alpha$ tem uma cota superior mínima, que é o $5$. Assim, $5 \in \gamma$.
+        \item como $5$ é máximo de $\beta$, é também a menor cota superior. Logo, qualquer $q > 5$ não está em $\beta$, e portanto $\beta \leq \gamma$, o que é uma contradição.
+    \end{itemize}
+    Outra situação seria permitir que conjuntos distintos, nesse exemplo, $\alpha$ e $\beta$, fossem números reais iguais. Nesse caso, $\alpha$ e $\beta$ seriam dois representantes de um mesmo número real, e teríamos que verificar se estavam bem definidas as operações que faríamos. 
+\end{frame}
+
+\begin{frame}{Números reais: adição}
+    Definição: \\~\
+    
+    Sejam $\alpha$ e $\beta$ números reais. A adição de $\alpha$ e $\beta$, denotada por $\alpha + \beta$, é definida por $\gamma = \{ x + y : x \in \alpha \land y \in \beta \}$.
+\end{frame}
+
+\begin{frame}{Números reais: multiplicação}
+    Definição: \\~\
+    
+    A multiplicação de dois números reais $\alpha$ e $\beta$, denotada por $\alpha \cdot \beta$, é definida por:
+    \begin{equation*}
+         \alpha \cdot \beta = 
+        \begin{cases}
+        \begin{aligned}
+            & \mathbb{Q}^*_{-} \cup \{ rs : r \in \alpha \text{ e } s \in \beta, 0 \leq r, 0 \leq s \} \text{, se } & \alpha \geq 0^*, \beta \geq 0^*  \\
+            - & \left(\abs{\alpha}\abs{\beta}\right) \hspace{0.6cm} \text{, se } & \alpha < 0^*, \beta \geq 0^* \\
+            - & \left(\abs{\alpha}\abs{\beta}\right) \hspace{0.6cm} \text{, se } & \alpha \geq 0^*, \beta < 0^* \\
+              & \left(\abs{\alpha}\abs{\beta}\right) \hspace{0.6cm} \text{, se } & \alpha < 0^*, \beta < 0^*
+        \end{aligned}.
+        \end{cases}
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{Números reais: imersão}
+    Teorema: \\~\
+    
+    % $f: \mathbb{N} \rightarrow \mathbb{Z}, f(x) \mapsto \overline{(x+1, 1)}$. 
+    \begin{align*}
+        ^* \colon &\mathbb{Q} \to \mathbb{R} \\
+        &x \mapsto x^*.
+    \end{align*}
+    Essa função tem as propriedades a seguir:
+    \begin{enumerate}
+        \item $(p + q)^* = p^* + q^*$;
+        \item $(p \cdot q)^* = p^* \cdot q^*$;
+        \item $p \leq q \implies p^* \leq q^*$.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Números reais: completude}
+    Teorema: \\~\
+    
+    Sejam $A,B \subset \mathbb{R}$ tais que:
+    \begin{enumerate}
+        \item $\mathbb{R} = A \cup B$;
+        \item $A \cap B = \emptyset$;
+        \item $A \neq \emptyset \neq B$;
+        \item Se $\alpha \in A$ e $\beta \in B$ então $\alpha < \beta$.
+    \end{enumerate}
+    Nestas condições existe um único $\gamma$, tal que $\alpha \leq \gamma \leq \beta$, para quaisquer $\alpha \in A$ e $\beta \in B$.
+\end{frame}
+
+\begin{frame}{Números reais: supremo}
+    O Teorema da Completude do corpo dos números reais foi usado para provar o Teorema do Supremo, que diz que todo subconjunto limitado superiormente de números reais, admite um supremo em $\mathbb{R}$. 
+
+    É o teorema da completude de $\mathbb{R}$ e suas consequências, que diferenciam $\mathbb{R}$ de $\mathbb{Q}$.
+\end{frame}
+
+\begin{frame}{Números reais: conclusão}
+    Até agora provamos que é possível estender o conceito de número até chegar no conjunto dos números reais, isto é, um corpo ordenado completo.
+\end{frame}
+
+% \begin{frame}{Sobre a enumerabilidade $\mathbb{R}$: conjunto enumerável}
+%     Um conjunto é $A$ é dito enumerável se ele é finito ou se existe uma bijeção $f: \mathbb{N} \to A$.
+%     O conjunto $\mathbb{N} \times \mathbb{N}$ é enumerável.
+% \end{frame}
+
+\begin{frame}{Sobre a enumerabilidade $\mathbb{R}$: $\mathbb{N} \times \mathbb{N}$ é enumerável}
+    \begin{align*}
+        f \colon &\mathbb{N} \times \mathbb{N} \to \mathbb{N}, \\
+        &(a,b) \mapsto \phi(a+b-2) + a,
+    \end{align*}
+    em que $\phi(k) = 1 + 2 + ... + k = \frac{k(k+1)}{2}.$.
+
+    A função $f$ é uma bijeção entre $\mathbb{N}$ e $\mathbb{N} \times \mathbb{N}$, portanto $\mathbb{N} \times \mathbb{N}$ é enumerável.
+\end{frame}
+
+\begin{frame}{Sobre a enumerabilidade $\mathbb{R}$: consequências}
+    Teoremas: \\~\
+    
+    Os conjuntos $\mathbb{Z}$ e $\mathbb{Q}$ são enumeráveis.
+\end{frame}
+
+\begin{frame}{Sobre a enumerabilidade $\mathbb{R}$: Teorema dos Intervalos Encaixados}
+    Seja $I_1 \supset I_2 \supset I_3 \dots \supset I_n \supset \dots$ uma sequência de intervalos limitados e fechados $I_n = [a_n, b_n]$.
+    A interseção \[ \bigcap^\infty_{n=1} I_n \] tem ao menos um elemento.\\~\
+
+    O teorema dos intervalos encaixados é usado para mostrar que \emph{o conjunto dos números reais não é enumerável}.
+\end{frame}
+
+\begin{frame}{Sobre a unicidade de $\mathbb{R}$}
+    A meneira como provamos a unicidade de $\mathbb{R}$ foi mostrar que quaisquer dois corpos ordenados completos quaisquer $X$ e $Y$ admitem um isomorfismo que preserva a ordem entre eles, isto é, admite uma função
+    \begin{align*}
+        f \colon &X \to Y, \\
+        &x \mapsto y.
+    \end{align*}
+    que é bijetiva, aditiva, multiplicativa e preserva a relação de ordem, quaisquer que sejam os corpos ordenados completos $X$ e $Y$.
+\end{frame}
+
+\begin{frame}{Sobre a unicidade de $\mathbb{R}$}
+    A ideia dessa demonstração é mostrar que em cada conjunto $X$ e $Y$, tem os números naturais, inteiros e racionais, e que é possível fazer isomorfismos que preservam a relação de ordem entre eles. 
+    Por fim, construímos um isomorfismo que preserva a relação de ordem, entre $X$ e $Y$.
+\end{frame}
+
+\begin{frame}{Conclusão}
+    \begin{itemize}
+        \item Foi possível estender o conceito de número até obtermos os números reais. 
+        \item Foi justificada as inclusões 
+        $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}$.
+        \item Provamos que $\mathbb{R}$ é o único corpo ordenado completo, a menos de isormofismos.
+        \item Mostramos que os conjuntos $\mathbb{Z}$ e $\mathbb{Q}$ são enumeráveis, e que o conjunto $\mathbb{R}$ não é enumerável.
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Disponibilidade}
+    O trabalho está disponível nos formatos .tex e .pdf no github (\url{https://github.com/mateus-70/TGR}), cujo acesso é livre.
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Referências}
+    % \addcontentsline{toc}{chapter}{REFERÊNCIAS}
+    \nocite{*}
+    \printbibliography[block=none, heading=none]
+\end{frame}
+
+\end{document}
