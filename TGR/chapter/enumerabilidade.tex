@@ -1,0 +1,872 @@
+\documentclass[../main.tex]{subfiles}
+
+\newcounter{saveenumerate}
+\makeatletter
+\newcommand{\enumeratext}[1]{%
+\setcounter{saveenumerate}{\value{enum\romannumeral\the\@enumdepth}}
+\end{enumerate}
+#1
+\begin{enumerate}
+\setcounter{enum\romannumeral\the\@enumdepth}{\value{saveenumerate}}%
+}
+\makeatother
+
+\begin{document}
+\chapter{SOBRE A ENUMERABILIDADE E UNICIDADE DE $\mathbb{R}$ }\label{cap-enumerabilidade}
+
+Neste capítulo estudaremos a enumerabilidade de conjuntos, com o intuito de compreender como comparar a quantidade de elementos de um conjunto com outro. Após estabelecermos como comparar quantidades de conjuntos, por meio do conceito de enumerabilidade, vamos mostrar que os conjuntos $\mathbb{Z} $ e $ \mathbb{Q}$ são enumeráveis. Isso servirá para que possamos nos questionar formalmente sobre a enumerabilidade de $\mathbb{R}$. Uma maneira não formal de tratar essa questão seria assumir, por exemplo, que a quantidade de elementos de $\mathbb{Z}$ é maior do que a de $\mathbb{N}$, caso olhássemos para esses conjuntos como uma inclusão própria $\mathbb{N} \subset \mathbb{Z}$, e ainda mais, $\mathbb{Z} \setminus \mathbb{N} \neq \emptyset$, e por fim $\mathbb{Z} \setminus \mathbb{N}$ é um conjunto infinito! 
+
+Olhando por esse lado intuitivo, fica explícito alguns motivos que levam a ideias equivocadas\footnote{Na verdade, nem se poderia dizer equivocadas antes de ser estabelecido um critério formal para a comparação de quantidades de elementos de um conjunto.} a respeito da quantidade de elementos de conjuntos infinitos. Mas não é só na questão de quantidades de elementos, o infinito também acarreta imprecisões quando é operado da mesma forma que um número real, por exemplo, ao somar como se fossem números reais $+\infty + (-\infty) = 0 $. Seria bom se sempre soubéssemos em que ponto a intuição passará a falhar.
+
+Para este capítulo as referências utilizadas serão \textcite{lima-analise-1} e \textcite{bartle}.
+
+
+\section{Conjuntos finitos}
+\begin{defi}\label{enum-def-conjuntoFinito}
+    Considere $C_n = \{ 1, 2, ..., n \} = \{ x \in \mathbb{N} : 1 \leq x \leq n \}$. Diremos que um conjunto $A$ é finito se:
+    \begin{enumerate}[label=(\roman*)]
+        \item $A = \emptyset$, ou
+        % \enumeratext{ou}
+        \item existe uma função bijetora $\phi \colon C_n \to A$.
+    \end{enumerate}
+\end{defi}
+\begin{obs}
+    Note que apesar de a notação $\{ 1,2,...,n \}$ sugerir que sempre o $2$ está em $C_n$, isso não ocorre quando $n=1$, pois temos $C_1 = \{\,1\,\}$.
+\end{obs}
+
+Utilizamos a notação $C_n$ para dar a entender uma contagem em $A$.
+
+Quando $A = \emptyset$ diremos que $A$ não tem elementos ou, alternativamente, que $A$ tem zero elementos. Caso $A \neq \emptyset$, diremos que o número de elementos de $A$ (também chamada de quantidade de elementos de $A$) é o número $n \in \mathbb{N}$ tal que $\phi \colon C_n \to A$ é uma bijeção.
+
+Estabeleçamos que numa função, o seu domínio e contradomínio sejam sempre não vazios.
+
+São por meio de bijeções entre conjuntos que compararemos a quantidade de seus elementos. Isso é o que diferenciará a comparação formal da quantidade de elementos, de uma abordagem não formal ou intuitiva.
+
+\begin{defi}\label{enum-def-conjuntoInfinito}
+    Um conjunto $A$ é chamado de infinito quando ele não é finito.
+\end{defi}
+\begin{teo}
+    Sejam $A,B \neq \emptyset$ e $f \colon A \to B$ uma bijeção. O conjunto $A$ é finito se, e somente se, $B$ também é finito.
+\end{teo}
+\begin{dem}
+    Seja $f \colon A \to B$ uma bijeção. Suponhamos que $A$ seja finito. Então existe uma bijeção 
+    $\phi \colon C_n \to A$ para algum $n \in \mathbb{N}$. Fazendo a composição de funções
+    $f \circ \phi \colon C_n \to B$ obtemos uma função bijetora (pois a composição de funções bijetoras é uma função bijetora). Desse modo, $B$ é finito.
+
+    Por outro lado, suponha $B$ finito. Sabemos que existe uma função bijetora ${\psi \colon C_m \to B}$. Como $f$ é bijetora, ela admite uma função inversa também bijetora, denotada por $f^{-1}$, cujo domínio é $B$ e contradomínio é $A$. Fazendo a composição $f^{-1} \circ \psi \colon C_m \to A$, obtemos uma função bijetora, logo $A$ também é finito. 
+\end{dem}
+
+\begin{teo}\label{enum-teo-bijecaoACn}
+    Se $A \subset C_n$ e existir uma bijeção $f \colon C_n \to A$, então $A = C_n$.
+\end{teo}
+\begin{dem}
+    Os índices usados na demonstração a seguir são para auxiliar a distinguir os conjuntos e funções, mas ressaltamos que eles atendem às hipóteses do teorema.
+    
+    Provaremos por indução em $n$. Para $n = 1$ temos $C_1 = \{\,1\,\}$ e como $A_1 \subset C_1$, então $A_1 = \emptyset $ ou $ A_1 = \{\,1\,\}$. Se fosse $A_1 = \emptyset$ teríamos um contradomínio vazio (o que não pode ocorrer), então $A_1 = C_1 = \{\,1\,\}$. Suponhamos então que seja válido para algum $k \in \mathbb{N}$ que, se $A_k \subset C_k $ e existir uma bijeção $f \colon C_k \to A_k$ então $A_k = C_k$, queremos mostrar que vale o mesmo para $k+1$.
+
+    Dessa forma, suponha que $A_{k+1} \subset C_{k+1}$ e que $f_{k+1} \colon C_{k+1} \to A_{k+1}$ seja uma bijeção (não necessariamente uma extensão da bijeção da hipótese de indução), e tomemos $a = f_{k+1}(k+1)$. Se restringirmos o domínio e contradomínio de $f_{k+1}$ para 
+    $f_{k+1}' \colon C_k \to A_{k+1} \setminus \{\,a\,\}$, obtemos que $f_{k+1}'$ é bijetora.
+
+    Caso $A_{k+1} \setminus \{\,a\,\} \subset C_k$ teremos que $A_{k+1} \setminus \{\,a\,\} = C_k$ o que implica que
+    \[ f_{k+1}(k+1) = k+1 \in A_{k+1},\] 
+    assim concluímos que $A_{k+1} = C_{k+1}$. 
+    
+    Caso $A_{k+1} \setminus \{\,a\,\} \not\subset C_k$ ($f_{k+1}$ não é extensão de $f_k$)
+    teremos $k+1 \in A_{k+1} - \{\,a\,\}$, ou seja, existe $p \in C_{k} \subset C_{k+1}$ com $f(p) = k+1$. Vamos definir uma nova bijeção 
+    $g \colon C_{k+1} \to A_{k+1} $ tal que
+    \begin{align*}
+        &g(x) = f(x) \text{, se } x \neq p \text{ e } x \neq k+1, \\
+        &g(p) = a = f(k+1), \\
+        &g(k+1) = k+1.
+    \end{align*}
+    Assim temos que a restrição de $g$ para $g' \colon C_k \to A_{k+1} \setminus \{\,k+1\,\}$ é uma bijeção, com $A_{k+1} \setminus \{\,k+1\,\} \subset C_k$ e, pela hipótese de indução, temos $A_{k+1} \setminus \{\,k+1\,\} = C_k$, o que implica que $A_{k+1} = C_k \cup \{\,k+1\,\} = C_{k+1}$. 
+    
+    % $g(k+1) = k+1 \in A_{k+1} \cap C_{k+1}$ assim $A_{k+1} = C_{k+1}$.
+\end{dem}
+
+\begin{teo}
+    Sejam dados dois conjuntos $C_m, C_n$. Se existir uma bijeção $f \colon C_m \to C_n$ então $m=n$.
+\end{teo}
+\begin{dem}
+    Suponhamos, sem perda de generalidade, que $m \leq n$. Desse modo $C_m \subset C_n$, pois caso não fosse, ao observarmos a \Cref{enum-def-conjuntoFinito}, exisitiria $p \in C_m \setminus C_n$, daí $n < p \leq m$, o que é contraditório.
+
+    Supondo que existe uma bijeção $f \colon C_m \to C_n$, pelo \Cref{enum-teo-bijecaoACn}, como $C_m \subset C_n$ temos que $C_m = C_n$. Observando novamente a \Cref{enum-def-conjuntoFinito}, que se refere ao $C_n$, concluímos que $m=n$.
+\end{dem}
+
+Com esse resultado sobre a unicidade de $n$ numa bijeção $f: C_n \to A$, não há qualquer risco de ambiguidade quando dizemos que um conjunto $A$ tem uma quantidade $n$ de elementos. Em outras palavras, a quantidade de elementos de $A$ independe da bijeção $f \colon C_N \to A$.
+
+\begin{teo}\label{enum-teo-subconjuntoDeConjuntoFinitoFinito}
+    Qualquer subconjunto de um conjunto finito também é finito. Isto é, dado um conjunto finito $A$, se $B \subset A$, então $B$ é finito. 
+\end{teo}
+\begin{dem}
+    Suponha $A$ finito, com $n$ elementos, e $B \subset A$.
+    Por contradição, vamos supor que $B$ seja um conjunto infinito.
+    % Se $B$ é infinito não existe $n \in \mathbb{N}$ onde alguma $g \colon C_n \to B$ é uma bijeção. 
+    Devemos observar que $B$ tem ao menos $n$ elementos (pois se tivesse menos, necessariamente seria finito). 
+    Seja $B' = \{\,b_1, b_2, b_3, ..., b_n\,\}$ com $b_i \neq b_j,$ elementos distintos quaisquer de $B$. Desse modo existe uma bijeção $g \colon C_n \to B'$. 
+    
+    Queremos mostrar que nesse cenário, existe ao menos um $b \in B \setminus A$. 
+    Temos que $B' \subset B \subset A$, e que $B'$ e $A$ tem ambos $n$ elementos. Ao colocarmos $A = \{\,a_1,a_2,a_3,...,a_n\,\}$ podemos concluir que dado um número natural $i \leq n$, vale que $a_i = b_j$ para algum natural $j \leq n$. Se isso fosse falso existiria algum $b_j \in B$ com $b_j \not\in A$, o que é uma contradição. Seja $b_{n+1} \in B \setminus B'$ (podemos tomar um elemento qualquer, pois se não houvesse qualquer outro elemento $B$ seria finito). Se fosse o caso de $b_{n+1} \in A$, teríamos que $b_{n+1} = a_i = b_j$ para algum par de $i,j$ naturais menores do que ou iguais a $n$, mas daí $b_{n+1} \in B'$ o que é uma contradição.    
+\end{dem}
+
+\begin{teo}\label{enum-teo-finitoLimitado}
+    Seja $A \subset \mathbb{N}$ um conjunto não vazio. O conjunto $A$ é limitado se, e somente se, $A$ é finito.
+\end{teo}
+\begin{dem}
+    Seja $A \subset \mathbb{N}$ limitado. Então existe $\alpha \in \mathbb{R}$ em que $\alpha$ é uma cota superior de $A$. Considere o conjunto $B = \{\,n \in \mathbb{N} : \alpha \leq n \,\}$.
+    Sabemos que pelo \Cref{nat-teo-PBO}, o conjunto $B$ tem um menor elemento, digamos $b$. Temos $A \subset C_b$, pois se não fosse, teríamos algum 
+    $a \in A$ com $a > b$, daí $b$ não seria uma cota superior de $A$, o que é uma contradição. E como $C_b$ é finito, pelo \Cref{enum-teo-subconjuntoDeConjuntoFinitoFinito}, concluímos que $A$ é finito.
+
+    Por outro lado, considere $A$ finito (e não vazio). Então $A$ tem alguma quantidade $n$ de elementos. Suponha $A = \{\,a_1, a_2, ..., a_n\,\}$, com $a_i \in \mathbb{N}$. O número 
+    \[ k = \sum_{i=1}^n a_i \]
+    é uma cota superior para $A$, pois para qualquer $a \in A$ tem-se 
+    \[ a = a_i \leq \sum_{i=1}^n a_i = k. \] 
+    Dessa forma, $A$ é limitado.
+\end{dem}
+
+\section{Conjuntos enumeráveis}
+\begin{defi}\label{enum-def-conjuntoEnumeravel}
+    Um conjunto $A$ é dito enumerável se ele for finito ou se existir uma bijeção $f: \mathbb{N} \to A$.
+\end{defi}
+Note que às vezes ocorre de um conjunto ser infinito e também ser enumerável, mas por outro lado, se ele não é enumerável então necessariamente ele é infinito.
+
+Quando $A$ é infinito e enumerável, uma bijeção $f \colon \mathbb{N} \to A$ é dita uma enumeração dos elementos de $A$. Tomando $f(n) = a_n$ para cada $n \in \mathbb{N}$, tem-se que $A = \{\,a_1, a_2, a_3, ..., a_n, ...\,\}$.
+
+\begin{prop}
+    Seja $f \colon A \to B$ uma função bijetora. O conjunto $A$ será enumerável se, e somente se, $B$ também for enumerável.
+\end{prop}
+\begin{dem}
+    Caso $A$ seja infinito enumerável, existe uma bijeção $g \colon \mathbb{N} \to A$. Com isso, $f \circ g \colon \mathbb{N} \to B$ é uma enumeração de $B$.
+    Caso $B$ seja infinito enumerável, ao considerarmos $f^{-1}$, caímos no caso anterior.
+\end{dem}
+
+\begin{teo}\label{enum-teo-subconjuntoNEnumeravel}
+    Qualquer subconjunto $A \subset \mathbb{N}$ é enumerável.
+\end{teo}
+\begin{dem}
+    Se $A$ for finito é imediato que é enumerável. Se $A$ for infinito, vamos construir uma bijeção crescente  $f \colon \mathbb{N} \to A$.
+    Pelo \Cref{nat-teo-PBO} (Princípio da boa ordem) qualquer subconjunto não vazio de $\mathbb{N}$ tem um elemento mínimo. Definamos como $f(1)$ o menor elemento em $A$ (que denotaremos por $a_1)$. Seja $f(2)$ o menor elemento de $A \setminus \{\,a_1\,\}$, que denotaremos por $a_2$. 
+    
+    Suponhamos que estejam definidos $a_1 = f(1), a_2=f(2), a_3=f(3), ..., a_n=f(n)$, de modo a estender a ideia anterior, de que $a_1 < a_2 < ... < a_n$, e tentemos definir a partir daí o elemento de $A$ que será $f(n+1)$. Primeiro definamos $B_n = A \setminus \{\,a_1,a_2,...,a_n\,\}$. Sabemos que $B_n \neq \emptyset$ pois se fosse $A \setminus \{\,a_1,a_2,a_3,...,a_n\,\} = \emptyset$ teríamos $A \subset \{\,a_1,a_2,a_3,...,a_n\,\}$ e daí pelo \Cref{enum-teo-subconjuntoDeConjuntoFinitoFinito} teríamos que $A$ é finito, o que é uma contradição.
+
+    Definiremos $f(n+1)$ como o menor elemento de $B_n$. Com isso terminamos a definição de $f$, basta mostrar que é bijetora.
+
+    Para mostrar que $f$ é injetora, basta observar que $a_1 < a_2 < ... < a_n < a_{n+1}$, ou seja, dados $m,n \in \mathbb{N}$ com $m < n$ temos $a_m < a_n$, ou seja, $f(m) < f(n)$. 
+    Mostraremos que é sobrejetora por contradição. Suponha que exista algum elemento $a \in A$ com $f(n) \neq a$ para qualquer $n \in \mathbb{N}$.
+    Desse modo $a \in B_n$ para qualquer $n \in \mathbb{N}$, o que acarreta $a > a_n $ para qualquer $n \in \mathbb{N}$ e portanto $A$ é limitado. Como $A$ é infinito, obtemos uma contradição pelo \Cref{enum-teo-finitoLimitado}.
+\end{dem}
+
+\begin{teo}\label{enum-teo-subconjuntoConjuntoEnumeravelEnumeravel}
+    Todo subconjunto de um conjunto enumerável também é enumerável.
+\end{teo}
+\begin{dem}
+    Seja $A \subset B$, com $B$ enumerável. Se $A$ for finito então é enumerável. Se $A$ for infinito, considere uma bijeção $f \colon B \to \mathbb{N}$ (o que podemos fazer pois uma bijeção é sempre inversível). Temos $f(B) = \mathbb{N}$. 
+
+    Vamos provar que $f(A) \subset \mathbb{N}$. Uma vez que $A \subset B$, se existisse $a \in A$ com $f(a) \not\in \mathbb{N}$, como
+    $a \in B$ teríamos $f(a) \in \mathbb{N}$, o que é uma contradição. Desse modo $f(A) \subset \mathbb{N}$, e pelo \Cref{enum-teo-subconjuntoNEnumeravel}, concluímos que $f(A)$ é enumerável.
+
+    Como sabemos que $f(A)$ é enumerável, seja $g \colon f(A) \to \mathbb{N}$ uma bijeção. Ao considerarmos a composta de $g$ com a $f$ restrita a $A$, temos que $g \circ f \colon A \to \mathbb{N}$ é uma bijeção, pois tanto $f$ quanto $g$ são bijetoras. Assim provamos que $A$ é enumerável.
+\end{dem}
+
+% \begin{teo}\label{enum-teo-equivalenciaEnumeravel}
+%     Dado um conjunto qualquer $A$, as afirmações abaixo são equivalentes:
+%     \begin{enumerate}[label=(\roman*)]
+%         \item\label{enum-dummy-equivalenciaEnumeravel1} O conjunto $A$ é enumerável;
+%         \item\label{enum-dummy-equivalenciaEnumeravel2} Existe uma função sobrejetora $f \colon \mathbb{N} \to A$;
+%         \item\label{enum-dummy-equivalenciaEnumeravel3} Existe uma função injetora $g \colon A \to \mathbb{N}$.
+%     \end{enumerate}
+% \end{teo}
+% \begin{dem}
+%     \{fazendo}
+    
+%     \ref{enum-dummy-equivalenciaEnumeravel1} $\implies$ \ref{enum-dummy-equivalenciaEnumeravel2}
+%         Se $A$ é finito, existe uma bijeção $f \colon C_n \to A$. Seja $f' \colon \mathbb{N} \to A$ uma extensão qualquer da função $f$. A função $f'$ é sobrejetora pois o seu gráfico contém o gráfico de $f$ que é sobrejetora.
+%         Se $A$ é infinito, então existe uma bijeção $f \colon \mathbb{N} \to A$, que é naturalmente sobrejetora.
+        
+%     \ref{enum-dummy-equivalenciaEnumeravel2} $\implies$ \ref{enum-dummy-equivalenciaEnumeravel3}
+    
+%     \ref{enum-dummy-equivalenciaEnumeravel3} $\implies$ \ref{enum-dummy-equivalenciaEnumeravel1}
+% \end{dem}
+
+\begin{prop}\label{enum-prop-ABFinjetoraBenumeravelAenumeravel}
+    Se $f \colon A \to B$ é injetora e $B$ é enumerável, então $A$ é enumerável.
+\end{prop}
+\begin{dem}
+    Seja $B$ enumerável e $f \colon A \to B$ injetora.
+    Se $A$ é finito, então é enumerável. Se $A$ é infinito, então considerando a restrição $f' \colon A \to f(A)$, obtemos que $f'$ é bijetora.
+    Temos $f(A) \subset B$, e pelo \Cref{enum-teo-subconjuntoConjuntoEnumeravelEnumeravel}, $f(A)$ é enumerável, assim $A$ é enumerável.
+\end{dem}
+
+\begin{obs}
+    Não vamos fazer a demonstração de duas proposições que utilizaremos, por se tratarem dos requisitos iniciais que supomos de lógica e teoria de conjuntos básica. Caso haja interesse na demonstração, o leitor pode consultar \textcite[p. 22]{lima-analise-1}.
+    \begin{enumerate}[label=(\roman*)]
+        \item Uma função $f \colon A \to B$ admite inversa à direita se, e somente se, é sobrejetora.
+        \item Uma função $f \colon A \to B$ admite inversa à esquerda se, e somente se, é injetora.
+    \end{enumerate}
+\end{obs}
+
+\begin{prop}\label{enum-prop-ABFsobrejetoraAenumeravelBenumeravel}
+    Se $f \colon A \to B$ é sobrejetora e $A$ é enumerável, então $B$ é enumerável.
+\end{prop}
+\begin{dem}
+    Como $f$ é sobrejetora ela admite uma inversa à direita, $g \colon B \to A$, com $f \circ g = id_B$. Assim $g$ admite inversa à esquerda e portanto $g$ é injetora. Aplicando a \Cref{enum-prop-ABFinjetoraBenumeravelAenumeravel} para $g$, concluímos que $B$ é enumerável. 
+\end{dem}
+
+% Antes de enunciar e provar a próxima proposição, observemos que existe uma função $f \colon \mathbb{N} \to \mathbb{Z}^*_{+}$ que é bijetora. A função da imersão dada no \Cref{int-teo-imersao} definida como $f \colon \mathbb{N} \to \mathbb{Z}$, onde $f(n) = \overline{(n+1,n)}$ é uma bijeção.
+
+% Podemos observar que $1 \mapsto \overline{(2,1)} ,2 \mapsto \overline{(3,1)} , 3 \mapsto \overline{(4,1)}$ etc. é bijetora, pois dados $a,b$ naturais com $a \neq b$, temos $f(a) = \overline{(a+1,1)} \neq \overline{(b+1,1)} = f(b)$, e é sobrejetora pois dado qualquer natural $n$  
+% podemos encontrar $\overline{(a,b)} = \overline{(n+1,1)}$.
+
+% Essa observação é necessária porque para provar a próxima proposição precisaremos da subtração, que não definimos em $\mathbb{N}$, só a partir de $\mathbb{Z}$. Mas pela \Cref{enum-prop-AFInjetoraBEnumeravelAenumeravel} sabemos que $\mathbb{Z}^*{+}$ é enumerável.
+
+% % \begin{teo}\label{enum-teo-ZmaisXZmaisEnumeravel}
+% %     O conjunto $\mathbb{Z}^*_+ \times \mathbb{Z}^*_+$ é enumerável.
+% % \end{teo}
+
+
+Para o próximo teorema vamos assumir algumas proposições que não demonstramos ao longo deste trabalho. Destacamos que o foco desta seção é provar a não enumerabilidade de $\mathbb{R}$. Já a enumerabilidade de outros conjuntos tem caráter mais ilustrativo do que essencial. Ainda assim seria mais elegante trabalhar com a enumerabilidade de conjuntos somente com o que já vimos em relação aos números naturais, só que isso é muito restritivo para este objetivo. Por causa disso, trabalharemos com a imersão de $\mathbb{N}$ em $\mathbb{Q}$.
+\begin{teo}\label{enum-teo-NxNEnumeravel}
+    O conjunto $\mathbb{N} \times \mathbb{N}$ é enumerável.
+\end{teo}
+% \begin{dem}
+%     Existe sobrejeção de $\mathbb{Z}^*_+ \times \mathbb{Z}^*_+$ em $\mathbb{N} \times \mathbb{N}$, e como $\mathbb{Z}^*_+ \times \mathbb{Z}^*_+$ é enumerável, pela \Cref{enum-prop-sobrejecaoABBEnumeravelAEnumeravel} $\mathbb{N} \times \mathbb{N}$ é enumerável.
+% \end{dem}
+\begin{dem}
+    Vamos inicialmente considerar a função 
+    \[\phi(k) = 1 + 2 + ... + k = \frac{k(k+1)}{2}.\]
+    Essa função $\phi$ é estritamente crescente, pois, $p < q \implies \frac{1}{2} p (p+1) < \frac{1}{2} q (q+1)$ quando $p,q \in \mathbb{N}$.
+
+    Considere a função 
+    \begin{align*}
+        f \colon &\mathbb{N} \times \mathbb{N} \to \mathbb{N}, \\
+        &(a,b) \mapsto \phi(a+b-2) + a,
+    \end{align*}
+    e provemos que ela é bijetora.
+    
+    Para mostrar a injetividade, vamos mostrar que 
+    \[ (a,b) \neq (a',b') \implies f(a,b) \neq f(a',b'). \]
+
+    De $(a,b) \neq (a',b')$ temos $(a+b \neq a'+b')$ ou $(a+b = a'+b'$ e $a \neq a' $ e $ b \neq b')$.
+    Consideremos $a+b < a'+b'$, e portanto $a+b+r = a'+b'$ para algum $r \in \mathbb{N}$. Temos:
+    \begin{align*}
+        f(a,b) 
+        &= \phi(a+b-2) + a \\
+        &\leq \phi(a+b-2) + (a+b-1) \hspace{4pt} \text{ (pois $b \geq 1$)} \\
+        &=  \phi(a+b-1).
+    \end{align*}
+    Note que a última igualdade vem de
+    \begin{align*}
+        \phi(a+b-1) - \big(  \phi(a&+b-2) + (a+b-1) \big) \\
+        &= \frac{1}{2}(a+b-1)(a+b) - \frac{1}{2}(a+b-2)(a+b-1) - a - b + 1 \\
+        &= \frac{1}{2}(a+b-1)(a+b -a-b+2) - a - b + 1 \\
+        &= a+b-1-a-b+1 = 0.   
+    \end{align*}
+    Tínhamos que $f(a,b) \leq \phi(a+b-1)$ e assim: 
+    \begin{align*}
+        f(a,b) &\leq \phi(a+b-1) \\
+        &\leq \phi(a' + b' -2) \text{ (pois $\phi$ é estritamente crescente)} \\
+        &< \phi(a'+b' - 2) + a' \\
+        &= f(a',b').
+    \end{align*}
+    % \footnote{ $\phi(a+b-1) = \frac{(a+b-1)(a+b-1+1)}{2}$ }
+
+    \noindent
+    Consideremos agora $a+b = a'+b'$ com $a \neq a'$. Temos:
+    \[ f(a,b) = \phi(a+b-2) + a \]
+    e
+    \[ f(a',b') = \phi(a'+b'-2) + a'. \]
+    Obviamente, os valores de $\phi$, nesse caso são iguais. Por outro lado os valores para $f$ são diferentes pois $a \neq a'$.
+    Vale notar que se $a+b = a'+b'$, com $a \neq a'$, então $b \neq b'$. 
+    Portanto, obtemos em qualquer caso que:
+    \[ (a,b) \neq (a',b') \implies f(a,b) \neq f(a',b'). \]
+    % $$ e 
+    % $$. Assim $(m,n) \neq (m',n') \implies f(m,n) \neq f(m',n')$.
+
+    Para mostrar que $f$ é sobrejetora, observemos que $f(1,1) = 1$. Tomemos então um elemento $p \in \mathbb{N}$ com 
+    $p \geq 2$. Queremos encontrar $a_p, b_p \in \mathbb{N}$ tais que $f(a_p,b_p) = p$.
+    Observemos que $p < \frac{p(p+1)}{2} = \phi(p)$, pois
+    \begin{align*}
+        2 \leq p &\implies 2 < p+1 \\
+        & \implies 1 < \frac{p+1}{2} \\
+        & \implies p < \frac{p(p+1)}{2} =\phi(p). 
+    \end{align*}
+    
+    Consideremos o conjunto $E_p = \{\,k \in \mathbb{N} : p \leq \phi(k) \,\}$.
+    Pelo \Cref{nat-teo-PBO}, o conjunto $E_p$ admite um elemento mínimo, que chamaremos de $k_p$. \\
+    Temos $\phi(k_p - 1) < p$ porque $k_p - 1$ é um natural com $k_p - 1 < k_p$, pois se fosse $k_p - 1 \geq p$ então $k_p - 1$ seria elemento de $E_p$ menor que o mínimo, uma contradição.
+    Também pela definição de $E_p$, temos $p \leq \phi(k_p) = \phi(k_p - 1) + (k_p - 1)+1$. Notemos que para a função $\phi$ vale:
+    \[ \phi(k+1) = \frac{1}{2}(k+1)(k+2) = \frac{1}{2}(k^2 + 3k + 2) = \frac{1}{2}(k)(k+1)+\frac{2k+2}{2} = \phi(k) + k+1. \]
+    
+    Temos, agregando esses dados, que $\phi(k_p - 1) < p \leq \phi(k_p) = \phi(k_p-1) + k_p$.
+    
+    Definamos $a_p = p - \phi(k_p-1)$ e $b_p = k_p - a_p + 1$. Disso concluímos que 
+    \[ a_p + b_p - 2 = a_p + (k_p - a_p + 1) - 2 = k_p - 1. \]
+    
+    E por fim, temos
+    \[f(a_p,b_p) = \phi(a_p+b_p-2) + a_p = \phi(k_p-1) + a_p  = \phi(k_p - 1) + (p - \phi(k_p-1))= p .\]
+    
+    Isso prova que $f$ é sobrejetora, e portanto é bijetora. Logo $\mathbb{N} \times \mathbb{N}$ é enumerável. 
+\end{dem}
+% \begin{obs}
+%     Vamos fazer outra demonstração do \Cref{enum-teo-NxNEnumeravel}, admitindo-se o Teorema Fundamental da Aritmética, que pode ser encontrado em \textcite[p. 9]{santos}. Para esta demonstração, é considerada a função injetora 
+%     \begin{align*}
+%         f \colon &\mathbb{N} \times \mathbb{N} \to  \mathbb{N} \\ 
+%         &(a,b) \mapsto 2^a \cdot 3^b.
+%     \end{align*}
+%     O fato dessa função ser injetora já garante que $\mathbb{N} \times \mathbb{N}$ é enumerável, em vista da \Cref{enum-prop-ABFinjetoraBenumeravelAenumeravel}.
+% \end{obs}
+
+
+\begin{teo}\label{enum-teo-ABEnumeraveisAxBEnumeravel}
+    Se $A, B$ são dois conjuntos enumeráveis, então o conjunto $A \times B$ também é enumerável.
+\end{teo}
+\begin{dem}
+    Sejam $\phi \colon \mathbb{N} \to A$ e $\psi \colon \mathbb{N} \to B$ enumerações de $A,B$. Vamos provar que a função 
+    \begin{align*}
+        g \colon & \mathbb{N} \times \mathbb{N} \to A \times B \\
+                 & (m,n) \mapsto (\phi(a),\psi(b))
+    \end{align*}
+    é bijetora.
+
+    Ela é injetora pois se $(m,n) \neq (m',n')$ então $m \neq m'$ ou $n \neq n'$. Sem perda de generalidade, considere $m \neq m'$.
+    Temos  $g(m,n) = (\phi(m),\psi(n))$ e \\ 
+    $g(m',n') = (\phi(m'),\psi(n'))$. Só que $(\phi(m),\psi(n)) \neq (\phi(m'),\psi(n'))$ pois 
+    $\phi(m) \neq \phi(m')$. O caso $n \neq n'$ é análogo. Portanto $g(m,n) \neq g(m',n')$ e $g$ é injetora.
+
+    Para mostrar que $g$ é sobrejetora, considere $(a,b) \in A \times B$, como $\phi$ e $\psi$ são sobrejetoras, existem $m, n \in \mathbb{N}$ com 
+    $a = \phi(m)$ e $b = \psi(n)$. Daí  
+    \[ (a,b) = (\phi(m), \psi(n)) = g(m,n), \] 
+    portanto $g$ é sobrejetora.
+
+    Como $g$ é bijetora, e $\mathbb{N} \times \mathbb{N}$ é enumerável (\Cref{enum-teo-NxNEnumeravel}), concluímos que $A \times B$ é enumerável.
+\end{dem}
+
+\begin{corol}
+    Os conjuntos $\mathbb{Z}$ e $\mathbb{Q}$ são enumeráveis.
+\end{corol}
+\begin{dem}
+    Consideremos as definições dos conjuntos:
+    \[ \mathbb{Z} = \mathbb{N} \times \mathbb{N}/\sim \]
+    e
+    \[ \mathbb{Q} = \mathbb{Z} \times \mathbb{Z}^*/\sim, \]
+    cada um com sua respectiva relação de equivalência, conforme vimos nos \Cref{cap-inteiros,cap-racionais}.
+    Pelo \Cref{enum-teo-NxNEnumeravel} sabemos que $\mathbb{N} \times \mathbb{N}$ é enumerável. Por outro lado a relação $\sim$, em cada caso, não adiciona elementos nos conjuntos $\mathbb{Z}$ e $\mathbb{Q}$. Mais precisamente, temos que a função
+    \begin{align*}
+        f \colon &\mathbb{N} \times \mathbb{N} \to \mathbb{N} \times \mathbb{N} / \sim \\
+                & (m,n) \mapsto \overline{(m,n)}
+    \end{align*}
+    é uma função sobrejetora, assim com a \Cref{enum-prop-ABFsobrejetoraAenumeravelBenumeravel} concluímos que $\mathbb{Z} = \mathbb{N} \times \mathbb{N} / \sim$ é enumerável.
+
+    Para os racionais o argumento da enumerabilidade é análogo.
+\end{dem}
+% \begin{defi}
+%     Seja $A$ um conjunto qualquer. Uma função $f: \mathbb{N} \to A$ é chamada de sequência de elementos de $A$, e o elemento $a \in A$ que é imagem de um número natural $n$, é frequentemente denotado $a_n$.
+% \end{defi}
+% \begin{obs}
+%     Às vezes omite-se o caráter da função e opta-se pela representação de uma sequência só pela exibição dos elementos da imagem, $a_1, a_2, a_3,...a_n,...$ na ordem crescente de $n$.
+% \end{obs}
+
+\begin{defi}
+    Seja $A$ um conjunto limitado superiormente. Um número $s$ chama-se supremo de $A$ se for a menor das suas cotas superiores e é denotado por $sup(A)$.
+\end{defi}
+\begin{ex}
+O conceito de supremo, está intimamente relacionado com a completude dos números reais. O conjunto dos números racionais, que não é completo, nem todo subconjunto limitado superiormente admite um supremo. Por exemplo, o conjunto 
+\[ \{\, r \in \mathbb{Q}_+ : r^2 < 2 \,\} \subset \mathbb{Q}, \] 
+não admite supremo em $\mathbb{Q}$.
+\end{ex}
+\begin{teo}\label{enum-teo-supremo}
+    Qualquer conjunto não vazio e limitado superiormente de números reais admite um supremo. 
+\end{teo}
+\begin{dem}
+    Seja $X \subset \mathbb{R}$ um conjunto não vazio e limitado superiormente. 
+    Definamos $A = \{\, \alpha \in \mathbb{R} : \alpha < x \text{ para algum } x \in X \,\}$, e $B = \mathbb{R} \setminus A$.
+    Vamos usar o \Cref{reais-teo-completude} para provar que existe um supremo para $X$.
+
+    Na definição de $A$, observemos que seus elementos são números que não são cotas superiores de $X$ (essa observação se aplica mesmo que $X$ tenha máximo). Por outro lado, em $B$ estão os elementos complementares de $A$ em relação à $\mathbb{R}$, assim $B$ tem todas as cotas superiores de $X$.
+
+    Devemos observar que os \Cref{reais-dummyCompletude-igualR,reais-dummyCompletude-disjuntos} do \Cref{reais-teo-completude} são imediatos da definição de $A$ e $B$.
+    Para mostrar o \Cref{reais-dummyCompletude-naoVazios} do \Cref{reais-teo-completude}, basta observar que dado $x \in X$, $x-1 < x$ portanto $x-1 \in A \neq \emptyset$.
+    % Para mostrar que $B \neq \emptyset$ basta observar que se algum elemento $L \in \mathbb{R}$ é cota superior de $X$, então $L + 1 \in B$.
+    Além disso, $B \neq \emptyset$, pois $X$ é limitado superiormente, logo existe $L \in \mathbb{R}$ tal que $L \geq x$ para todo $x \in X$.
+    Para mostrar o \Cref{reais-dummyCompletude-alphaMenorBeta}, consideremos $\alpha \in A$ e $\beta \in B$. De $\alpha \in A$ sabemos que $\alpha < x_0$ para algum $x_0 \in X$. Por outro lado, $\beta \in B$ é uma cota superior de $X$, pois se não fosse, ocorreria $\beta < x$ para algum $x \in X$ e daí $\beta$ seria elemento de $A$, o que é contraditório. Temos que $x \leq \beta$ para qualquer $x \in X$, e substituindo $x$ por $x_0$, obtemos $\alpha < x_0 \leq \beta$.
+
+    Concluímos que $A$ e $B$ atendem todas as condições do \Cref{reais-teo-completude}, e portanto existe um único número real tal que 
+    $\alpha \leq \gamma \leq \beta$, para quaisquer $\alpha \in A, \beta \in B$.
+
+    Devemos mostrar que $\gamma \in B$. Vamos supor que tivesse um máximo em $A$, digamos $M$. Teríamos $M < x$ para algum $x \in X$, mas como sempre existe um número real $y$ tal que $M < y < x$ (pela \Cref{reais-prop-entreDoisReaisHaUmTerceiro}), teríamos que $y \in A$ o que é uma contradição, pois $y > M$.
+
+    Isso acarreta que de $\alpha \leq \gamma \leq \beta$ não pode ocorrer que $\gamma = \alpha$ para algum $\alpha \in A$, pois desse modo $\gamma$ seria máximo de $A$, o que não pode ocorrer. Temos então $\alpha < \gamma \leq \beta$. Como $A \cup B = \mathbb{R}$ e $\gamma \not\in A$, então 
+    $\gamma \in B$. Obviamente $\gamma$ é a menor das cotas superiores, pois para qualquer $\beta \in B$ vale $\gamma \leq \beta$. Portanto, $\gamma$ é o supremo de $X$.
+\end{dem}
+
+\begin{defi}
+    Seja $A$ um conjunto limitado inferiormente. Um número $i$ chama-se ínfimo de $A$ se for a maior das cotas inferiores e é denotado por $inf(A)$.
+\end{defi}
+
+\begin{defi}\label{enum-def-intervalos}
+    Um conjunto $I \subset \mathbb{R}$ é chamado de intervalo fechado de extremos $a$ e $b$ (com $a<b$), denotado por $[a,b]$ quando 
+    \[I = [a,b] = \{\,x \in \mathbb{R} : a \leq x \leq b \,\} .\]
+\end{defi}
+
+\begin{teo}{(Intervalos Encaixados)}\label{enum-teo-intervalosEncaixados}
+    Seja $I_1 \supset I_2 \supset I_3 \dots \supset I_n \supset \dots$ uma sequência de intervalos limitados e fechados $I_n = [a_n, b_n]$, com $a_n \leq b_n, \forall n \in \mathbb{N}$.
+    A interseção \[ \bigcap^\infty_{n=1} I_n \] tem ao menos um elemento.
+\end{teo}
+\begin{dem}
+    De acordo com as hipóteses, para um dado $n$ natural, temos $I_{n+1} \subset I_n$, o que acarreta $a_{n+1} \leq a_n \leq b_n \leq b_{n+1}$. 
+    Como cada intervalo é limitado, então o conjunto dos $a_n$ é limitado (inferiormente por $a_1$ e superiormente por $b_n$) para qualquer $n$ natural. Denotando por $A$ o conjunto de todos os $a_i$, e denotando por $B$ o conjunto de todos os $b_i$, temos que o conjunto $A$ admite supremo em $\mathbb{R}$, conforme o \Cref{enum-teo-supremo}. Analogamente, se considerarmos o conjunto dos 
+    $b_n$, ele é limitado superiormente por $b_1$ e inferiormente por $a_n$.
+    Seja $a = sup(A)$ e $b = inf(B)$, como $a$ é sempre maior do que $a_n$, para todo $n \in \mathbb{N}$ e $a \leq b_n$ para todo $n \in \mathbb{N}$, concluímos que $a \in I_n$ para qualquer $n \in \mathbb{N}$.    
+\end{dem}
+\begin{teo}\label{enum-teo-RnaoEnumeravel}
+    O conjunto dos números reais não é enumerável.
+\end{teo}
+\begin{dem}
+    A ideia nesta demonstração é criar intervalos e utilizar o \Cref{enum-teo-intervalosEncaixados} para garantir a existência de um número real, que terá a característica de não ser um elemento de qualquer subconjunto enumerável de $\mathbb{R}$.
+
+    Vamos iniciar ilustrando como serão criados os intervalos. Considere $I = [a,b]$, com $a < b$ e um número real $x$. Então existe um intervalo $J = [a',b'] \subset I$, com  $a' < b', J \neq I$ e $x \not\in [a',b']$.
+    Caso $x \not\in I$, basta tomar $J = [a,b']$ com $a < b' < b$, isso já garante que $J \subset I$ e $J \neq I$. Se $x$ estiver nos extremos do intervalo, isto é, caso $x = a$ ou $x = b$, se for $x = a$ tome $J = [a',b]$, com $a < a' < b$. Caso seja $x = b$, tome $J = [a,b']$, com 
+    $a < b' < b$. Resta a situação $x \in I$, em que $x$ não está nos extremos do intervalo. Tome o intervalo $J = \left[ a + \frac{x-a}{3}, a + \frac{x-a}{2} \right]$, como $x > a \iff x-a > 0$, temos $a + \frac{x-a}{3} > a$ e 
+    $a + \frac{x-a}{3} < b$, pois $b-a > x-a > \frac{x-a}{3}$. Analogamente, $a+ \frac{x-a}{2} > 0$. Temos que $x \not\in J$ e $J \subset I$ com $J \neq I$.
+
+    Seja $X = \{\,x_1,x_2,x_3,...,x_n,...\,\} \subset \mathbb{R}$. Vamos mostrar que existe um $x \in \mathbb{R}$ que não é nenhum dos $x_n$.
+    Vamos construir os intervalos assim, seja $I_0 = [a_0,b_0]$ um intervalo limitado e fechado, com $a_0 < b_0$. Sejam definidos indutivamente os $I_n = [a_n,b_n]$ assim: $I_1 \subset I_0$ tal que $x_1 \not\in I_1$, $I_2 \subset I_1$ tal que $x_2 \not\in I_2$,  $I_3 \subset I_2$ tal que $x_3 \not\in I_3$, e assim por diante, sempre com $a_n < b_n$. Isso cria uma sequência de intervalos $I_n \subset I_{n-1} \subset \dots \subset I_2 \subset I_1$.
+
+    Podemos observar que qualquer $x_n$ não está no intervalo $I_n$, por outro lado, pelo \Cref{enum-teo-intervalosEncaixados} (Teorema dos Intervalos Encaixados), existe pelo menos um número real $x \in \bigcap^\infty_{n=1} I_n$, dessa maneira $x \neq x_n$ para qualquer $n \in \mathbb{N}$. Dessa maneira, qualquer que seja o conjunto enumerável $X$ (e qualquer enumeração $x_1, x_2,...,x_n,...$ de $X$), existe algum número real $x \not\in X$. Portanto não existe uma função sobrejetora $f \colon \mathbb{N} \to \mathbb{R}$. Desse modo $\mathbb{R}$ é não enumerável.
+\end{dem}
+
+\section{A unicidade de $\mathbb{R}$}
+
+O objetivo dessa seção é apresentar $\mathbb{R}$ como o único corpo ordenado completo a menos de isomorfismo. A \Cref{agb-def-corpo} apresenta o que é um corpo. Definiremos o que é um corpo ordenado completo e, em seguida, mostraremos que quaisquer corpos ordenados completos são isomorfos entre si, isto é, preservam a adição, a multiplicação e a relação de ordem. O método de provar essa unicidade lembra, intuitivamente, dos cortes de Dedekind que vimos no \Cref{cap-reais}, tomando um subconjunto próprio de $\mathbb{Q}$, sem máximo, e que para qualquer racional no corte, todos os racionais que o precedem também estejam no corte. Uma abordagem da unicidade via sequências pode ser encontrada em \textcite{hefez-algebra}.
+
+\begin{defi}\label{enum-def-corpoOrdenado}
+    Um corpo  ordenado é um corpo $K$, no qual existe um subconjunto $P \subset K$ de número que são chamados de positivos, em que são satisfeitas as condições a seguir:
+    \begin{enumerate}
+        \item A adição e a multiplicação de elementos de $P$ estão em $P$, isto é, 
+        \[ x,y \in P \implies x+y \in P \] e \[ x,y \in P \implies x \cdot y \in P.\]
+        \item Dado $x \in K$ uma, e apenas uma, das seguintes situações ocorre: 
+        \[x = 0\text{, }x \in P\text{, }-x \in P. \]
+    \end{enumerate}
+\end{defi}
+\begin{obs}
+    Caso o leitor queira mais informações e propriedades a respeito da ordenação em um corpo ordenado, pode consultar \textcite[p. 65]{lima-analise-1}.
+    Vamos usar o fato que a \Cref{enum-def-corpoOrdenado} implica que o corpo ordenado $K$ tem uma relação de ordem total, que é compatível com sua adição e sua multiplicação.
+\end{obs}
+\begin{obs}
+    Para esta seção, vamos também assumir que num corpo ordenado completo, o neutro da adição e o neutro da multiplicação são elementos distintos, e portanto o corpo não é composto de apenas um elemento, com $1=0$.
+\end{obs}
+\begin{defi}\label{enum-def-corpoOrdenadoCompleto}
+    Um corpo ordenado $K$ é chamado de corpo ordenado completo se, para qualquer conjunto $A \subset K$, em que $A$ é limitado superiormente, $A$ admite um supremo em $K$. 
+\end{defi}
+
+Agora vamos mostrar que um corpo ordenado qualquer $X$ contém um subconjunto imergido de $\mathbb{N}$, isto é, existe uma imersão de $\mathbb{N}$ em $X$.
+
+Sejam $0_X$ o elemento neutro da adição de $X$, e $1_X$ o neutro da multiplicação de $X$.
+
+\begin{lema}\label{enum-lema-preservaZero}
+    Sejam $X,Y$, conjuntos com uma adição que admite a lei do cancelamento, e qualquer elemento possui um simétrico para a adição. 
+    Se $f \colon X \to Y$ é uma função aditiva, então $f(0_X)=0_Y$.
+\end{lema}
+\begin{dem}
+    Temos que $f(0_X) + 0_Y = f(0_X) = f(0_X + 0_X) = f(0_X) + f(0_X)$. Pela lei do cancelamento da adição, $f(0_X) = 0_Y$. 
+\end{dem}
+
+\begin{teo}\label{enum-teo-imersaoNX}
+    Seja $X$ um corpo ordenado.
+    Definamos uma função 
+    \begin{align*}
+         i \colon & \mathbb{N} \to X \\
+         &1 \mapsto 1_X \\
+         &m+1 \mapsto i(m)+i(1).
+    \end{align*}    
+    A função $i$ tem as propriedades a seguir, para quaisquer $m,n \in \mathbb{N}$:
+    \begin{enumerate}[label=(\roman*)]
+        \item $i(m + n) = i(m) + i(n)$;
+        \item $i(m \cdot n) = i(m) \cdot i(n)$;
+        \item $m \leq n \implies i(m) \leq i(n)$.
+    \end{enumerate}
+\end{teo}
+\begin{dem}
+    As provas serão por indução.
+    \begin{enumerate}[label=(\roman*)]
+        \item 
+        Temos pela definição de $i$, que $i(m+1) = i(m)+i(1)$. Assim nossa hipótese de indução é que $i(m+k) = i(m)+i(k)$ para $k \in \mathbb{N}$.
+        Daí temos 
+        \[ i(m+k+1) = i((m+k)+1) = i(m+k)+i(1) = i(m) + i(k) + i(1) = i(m) + i(k+1). \]
+
+        \item 
+        Temos, pela definição de $i$, que $i(m \cdot 1) =i(m)= i(m) \cdot 1_X = i(m) \cdot i(1)$. Assim nossa hipótese de indução é que  
+        $i(m \cdot k) = i(m) \cdot i(k)$ para  $k \in \mathbb{N}$. Logo 
+        \begin{alignat*}{2}
+            i(m \cdot (k+1)) &= i(m \cdot k + m) &&= i(m \cdot k) + i(m)  \\
+            &= i(m) \cdot i(k) + i(m) &&= i(m)( i(k)+1_X ) \\
+            &= i(m)(i(k)+i(1))&&=i(m)i(k+1).
+        \end{alignat*}
+        Portanto $i$ preserva a multiplicação.
+
+        \item 
+        Para mostrar que $i$ preserva a relação de ordem, iniciemos mostrando que $i(m) > 0$, para todo $m \in \mathbb{N}$. Temos que $i(1) = 1_X > 0_X$. Suponhamos que vale $i(k) > 0_X$ para algum $k \in \mathbb{N}$. Temos que $i(k+1) = i(k) + i(1)$, e como $i(k)$ e $i(1)$ são ambos positivos, e num corpo ordenado a adição é compatível com a relação de ordem, temos que $i(k+1) > 0_X$.
+        
+        Suponha que $m<n$, temos que $n = m+k$ com algum $k$ natural.
+        Assim \\ 
+        $i(n) = i(m+k) = i(m)+i(k)$. Como num corpo ordenado a adição e a multiplicação são compatíveis com a relação de ordem, e temos que $i(m),i(k) > 0$, então \\ 
+        $i(m)+i(k) > i(m)$. Logo, $i(m) < i(n)$.
+        
+    \end{enumerate}
+\end{dem}
+
+Vamos utilizar a seguinte notação, $1 \mapsto 1_X, 2 \mapsto 2_X$, e assim sucessivamente, para indicar a imagem da imersão de $\mathbb{N}$ no conjunto $X$. A notação é análoga para outro corpo ordenado completo qualquer, $Y$. Além disso, quando conveniente, usaremos a notação $\mathbb{N}_X$ para indicar o conjunto dos números naturais em $X$. O que nos permite fazer isso é o \Cref{enum-teo-imersaoNX}, que garante que todo corpo ordenado completo tem um subconjunto imergido de $\mathbb{N}$. 
+
+% Vamos também usar a notação $\mathbb{Z}_X$, $\mathbb{Q}_X$ e $\mathbb{R}_X$ para indicar, respectivamente, os números inteiros de $X$, os números racionais de $X$, e os números reais de $X$. Vamos assumir também as imersões de $\mathbb{Z}$ e $\mathbb{Q}$ em um corpo ordenado completo qualquer, embora vamos 
+
+\begin{teo}\label{enum-teo-RUnico}
+    Se $X,Y$ são corpos ordenados completos, então existe um isomorfismo entre eles que preserva a relação de ordem. É o mesmo que dizer que existe uma função bijetora $f \colon X \to Y$ tal que, para $x_1,x_2 \in X$ sejam válidas
+    \begin{align*}
+         f(x_1 + x_2) &= f(x_1) + f(x_2) , \\
+         f(x_1 \cdot x_2) &= f(x_1) \cdot f(x_2) , \\
+         x_1 \leq x_2 &\implies f(x_1) \leq f(x_2).
+    \end{align*}
+\end{teo}
+\begin{obs}
+    Isso é o mesmo que dizer que esse isomorfismo preserva a adição, a multiplicação e a relação de ordem.
+\end{obs}
+\begin{dem}
+    Separaremos essa demonstração em quatro casos, a fim de mostrar que $\mathbb{N}_X$ é isomorfo à $\mathbb{N}_Y$, que $\mathbb{Z}_X$ é isomorfo à $\mathbb{Z}_Y$, $\mathbb{Q}_X$ é isomorfo à $\mathbb{Q}_Y$ e por último, que $X$ é isomorfo à $Y$.
+    
+\begin{enumerate}
+    \item Para verificar as propriedades em $\mathbb{N}$, considere a função
+                \begin{align*}
+                    f_1 \colon &\mathbb{N}_X \to \mathbb{N}_Y, \\
+                    & f_1(a_X) = a_Y.
+                \end{align*}
+                
+        \begin{enumerate}
+            \item A função $f_1$ é bijetora. \\
+            Basta observar que existe uma imersão $i$ de $\mathbb{N}$ em $X$ que é uma bijeção se restringirmos o contradomínio para $\mathbb{N}_X$. Analogamente, existe uma imersão $j$ de $\mathbb{N}$ em $Y$, que é uma bijeção de $\mathbb{N}$ em $\mathbb{N}_Y$. Assim, temos bijeções $i \colon \mathbb{N} \to \mathbb{N}_X$ e $j \colon \mathbb{N} \to \mathbb{N}_Y$. Fazendo a composta $ j \circ i^{-1} \colon \mathbb{N}_X \to \mathbb{N}_Y$, obtemos uma função bijetora como queríamos. \\
+                
+            
+            \item Vamos provar agora $f_1$ preserva a adição. Usaremos indução. 
+                Temos que
+                \begin{align*}
+                    f_1(a_X+1_X) 
+                    &= f_1((a+1)_X) \\
+                    &= (a+1)_Y \\
+                    &= a_Y + 1_Y.
+                \end{align*}
+                Nossa hipótese de indução é que vale $f_1(a_X + k_X) = f_1(a_X) + f_1(k_X)$ para $k \in \mathbb{N}$. Vejamos o que ocorre para $k+1$: 
+                \begin{align*}
+                    f_1(a_X + (k+1)_X) 
+                    &= f_1(a_X + k_X + 1_X) \\
+                    &= f_1(a_X + k_X) + f(1_X)  \\
+                    &= f_1(a_X) + f_1(k_X) + 1_Y \\
+                    &= f_1(a_X) + f_1(k_X + 1_X) \\
+                    &= f_1(a_X) + f_1((k+1)_X).     
+                \end{align*}        
+                Dessa maneira a adição é preservada por $f_1$.
+
+            \item
+                Para mostrar que a multiplicação é preservada, também usaremos indução.
+                Temos que
+                
+                \[ f_1(a_X \cdot 1_X) = f_1(a_X) = f_1(a_X) \cdot 1_Y = f_1(a_X) \cdot f_1(1_X). \]
+        
+                Nossa hipótese de indução é que vale $f_1(a_X \cdot k_X) = f_1(a_X) \cdot f_1(k_X)$ para $k \in \mathbb{N}$. Assim
+                \begin{align*}
+                    f_1(a_X \cdot (k+1)_X)
+                    &= f_1(a_X \cdot (k_X + 1_X))\\
+                    &= f_1(a_X \cdot k_X + a_X \cdot 1_X) \\
+                    &= f_1(a_X \cdot k_X + a_X) \\
+                    &= f_1(a_X \cdot k_X) + f_1(a_X) \\
+                    &= f_1(a_X \cdot k_X) + f_1(a_X) \cdot 1_Y \\
+                    &= f_1(a_X) \cdot f_1(k_X) + f(a_X) \cdot 1_Y \\
+                    &= f_1(a_X) (f_1(k_X) + 1_Y) \\
+                    &= f_1(a_X) (f_1(k_X) + f_1(1_X)) \\
+                    &= f_1(a_X) \big( f_1((k+1)_X) \big).
+                \end{align*}
+                Assim, $f_1$ preserva a multiplicação.
+
+            \item Para mostrar que a relação de ordem é preservada, observemos que \\ 
+            $f_1(c_X) > 0_Y$, para todo $c_X \in \mathbb{N}_X$. Isso vem da imersão $i$, dada no \Cref{enum-teo-imersaoNX} ser estritamente crescente (pela preservação da relação de ordem) e de \\ $f_1 \colon \mathbb{N}_X \to \mathbb{N}_Y$ ser uma bijeção. Assim, supondo $a_X < b_X$ temos $b_X = a_X+c_X$ para algum $c_X \in \mathbb{N}_X$, com $c_X \neq 0_X$. E então
+            \begin{align*}
+                f_1(b_X) 
+                &= f_1(a_X + c_X)\\
+                &= f_1(a_X) + f_1(c_X).
+            \end{align*}
+            Como $f_1(c_X) > 0_Y$, e num corpo ordenado completo a adição é compatível com a relação de ordem, segue que $f_1(a_X) < f_1(b_X)$.
+            Portanto a desigualdade é mantida como queríamos mostrar.            
+        \end{enumerate}
+    
+    \item Para $\mathbb{Z}$, queremos estender a função $f_1$ para uma função $f_2$, definida em um conjunto que, a partir dos inteiros positivos, tenha os inteiros negativos e o zero.
+        \begin{enumerate}
+            \item 
+            Definamos o conjunto 
+            \[ \mathbb{Z}_X = \{\,m_X - n_X : m_X, n_X \in \mathbb{N}_X \,\}. \] 
+            Esse conjunto tem o zero, basta tomar $m_X = n_X$, e também qualquer inteiro negativo, quando $n_X > m_X$. Temos também a situação de que a representação de um elemento de $\mathbb{Z}_X$ não é única. Observemos que a subtração indicada é a do corpo $X$. Analogamente, define-se $\mathbb{Z}_Y$.
+            
+            Sendo $m_X, n_X \in \mathbb{N}_X$ e $m_Y = f_1(m_X), n_Y=f_1(n_X) \in \mathbb{N}_Y$ podemos agora definir $f_2$ do seguinte modo:
+            \begin{align*}
+                f_2 \colon \mathbb{Z}_X &\to \mathbb{Z}_Y \\
+                m_X - n_X &\mapsto m_Y - n_Y.
+            \end{align*}
+            Note que $f_2(m_X - n_X) = f_1(m_X) - f_1(n_X)$.
+            Devemos mostrar que a função $f_2$ está bem definida, isto é, dados 
+            $m_X - n_X = m_X' - n_X'$ com 
+            $m_X, n_X, m_X', n_X' \in \mathbb{N}_X$ teremos um mesmo $m_Y - n_Y = m_Y' - n_Y'$ em $Y$. De fato, temos que        
+            \begin{align*}
+                m_X - n_X = m_X' - n_X' &\iff m_X + n_X' = n_X + m_X' \\ \shortintertext{e assim}
+                f_1(m_X + n_X') &= f_1(n_X+m_X'), \\
+                f_1(m_X) + f_1(n_X') &= f_1(n_X) + f_1(m_X'), \\
+                f_1(m_X) - f_1(n_X) &= f_1(m_X') - f_1(n_X'), \\
+                f_2(m_X - n_X) &= f_2(m_X' - n_X').
+            \end{align*}
+            E portanto a função $f_2$ está bem definida.
+        
+            Devemos mostrar que a função $f_2$ é bijetora. Sejam $m_X, m_X', n_X, n_X' \in \mathbb{N}_X$, temos
+            \begin{align*}
+                f_2(m_X - n_X) = f_2(m_X' - n_X') &\implies  f_1(m_X) - f_1(n_X) = f_1(m_X') - f_1(n_X') \\
+                &\implies f_1(m_X) + f_1(n_X') = f_1(n_X) + f_1(m_X') \\
+                &\implies f_1(m_X + n_X') = f_1(n_X + m_X') \\
+                &\implies m_X + n_X' = n_X + m_X' \text{\hspace{4pt} pois $f_1$ é bijetora} \\
+                &\implies m_X - n_X = m_X' - n_X'.
+            \end{align*}
+            E portanto a função $f_2$ é injetora.
+        
+            Para ver que $f_2$ é sobrejetora, seja $a_Y = m_Y - n_Y \in \mathbb{Z}_Y$ um elemento qualquer de $\mathbb{Z}_Y$. Basta considerar o elemento 
+            $m_X - n_X \in \mathbb{Z}_X$, pois 
+            \[ f_2(m_X - n_X) = f_1(m_X) - f_1(n_X) = m_Y - n_Y = a_Y. \] 
+            Dessa forma $f_2$ também é sobrejetora e portanto é bijetora.
+
+            \item $f_2$ é aditiva. Dados $a_X = m_X - n_X$ e $b_X = p_X - q_X$ com $a_X, b_X \in \mathbb{Z}_X$, temos:
+            \begin{align*}
+                f_2(a_X + b_X) &= f_2(m_X - n_X + p_X - q_X) \\
+                &= f_2((m_X + p_X) - (n_X + q_X)) \\
+                &= f_1(m_X + p_X) - f_1(n_X+q_X) \\
+                &= f_1(m_X) + f_1(p_X) - (f_1(n_X) + f_1(q_X)) \\
+                &= f_1(m_X) - f_1(n_X) + f_1(p_X) - f_1(q_X) \\
+                &= f_2(m_X - n_X) + f_2(p_X - q_X) \\
+                &= f_2(a_X) + f_2(b_X).
+            \end{align*}
+            Assim provamos que $f_2$ é aditiva.
+
+            \item $f_2$ é multiplicativa. Dados $a_X = m_X - n_X$ e $b_X = p_X - q_X$ com $a_X, b_X \in \mathbb{Z}_X$, temos:
+            \begin{align*}
+                f_2(a_X \cdot b_X) 
+                &= f_2( (m_X - n_X) \cdot (p_X - q_X) ) \\
+                &= f_2( m_Xp_X - m_Xq_X - n_Xp_X + n_Xq_X ) \\
+                &= f_2( (m_Xp_X + n_Xq_X) - (m_Xq_X + n_Xp_X) ) \\
+                &= f_1 (m_Xp_X + n_Xq_X) - f_1(m_Xq_X + n_Xp_X) \\
+                &= f_1(m_X) f_1(p_X) + f_1(n_X)f_1(q_X) - (f_1(m_X)f_1(q_X)+f_1(n_X)f_1(p_X)) \\
+                &= f_1(m_X)[f_1(p_X)-f_1(q_X)]-f_1(n_X)[f_1(p_X)-f_1(q_X)] \\
+                &= f_1(m_X)f_2(p_X - q_X) - f_1(n_X)f_2(p_X-q_X) \\
+                &= [f_1(m_X) - f_1(n_X)][f_2(p_X-q_X)] \\
+                &= f_2(m_X-n_X) \cdot f_2(p_X-q_X) \\
+                &= f_2(a_X) \cdot f_2(b_X).
+            \end{align*}
+            Dessa forma concluímos que $f_2$ é multiplicativa.
+
+            \item $f_2$ preserva a relação de ordem. Dados $a_X = m_X - n_X$ e $b_X = p_X - q_X$ com $a_X, b_X \in \mathbb{Z}_X$, temos:
+            \begin{align*}
+                a_X < b_X &\implies m_X - n_X < p_X - q_X \\
+                &\implies m_X + q_X < n_X + p_X \\
+                &\implies f_1(m_X+q_X) < f_1(n_X+p_X) \\
+                &\implies f_1(m_X) + f_1(q_X) < f_1(n_X) + f_1(p_X) \\
+                &\implies f_1(m_X) -f_1(n_X) < f_1(p_X) - f_1(q_X) \\
+                &\implies f_2(m_X-n_X) < f_2(p_X-q_X) \\
+                &\implies f_2(a_X) < f_2(b_X).
+            \end{align*}
+            Dessa forma a função $f_2$ também preserva a relação de ordem, o que conclui a bijeção aditiva, multiplicativa e que preserva a ordem, de $\mathbb{Z}_X$ em $\mathbb{Z}_Y$.
+        \end{enumerate}
+    
+    % Onde o conjunto $\mathbb{Z}_X$ tem qualquer elemento $a_X$ na forma $a_X = m_X - n_X$ para $m_X,n_X \in \mathbb{N}_X$.
+    % \begin{align*}
+    %     f \colon &X \to Y \\
+    %     & a_X - b_X \mapsto a_Y - b_Y.
+    % \end{align*}
+    % O sinal de menos representa o simétrico do número naquele conjunto, $X$ ou $Y$, que sempre existem, pois $X$ e $Y$ são corpos.
+    % Essa função está bem definida, e a demonstração disso segue a dada em \Cref{int-teo-classeEquivalenciaNumero}, por isso não repetiremos aqui.
+    
+    \item Para $\mathbb{Q}$, vamos estender os inteiros para todas as frações $\frac{a_X}{b_X}$ em $a_X, b_X \in \mathbb{Z}_X$ e $b_X \neq 0$. Analogamente, definimos $\mathbb{Q}_Y$. 
+        Façamos uma observação no que diz respeito à notação que podemos utilizar para trabalhar com frações, por exemplo, $\frac{a}{b} + \frac{c}{d}$ onde $a,b,c,d$ são elementos de algum corpo, com denominadores não nulos, temos 
+        \[ \frac{ad+bc}{bd} = \frac{a}{b} + \frac{c}{d} = ab^{-1} + cd^{-1} = ab^{-1}dd^{-1} + cd^{-1}bb^{-1} = b^{-1}d^{-1}(ad+bc). \]
+        \begin{enumerate}
+            \item  Sendo $a_X, b_X \in \mathbb{Z}_X$ e $a_Y, b_Y \in \mathbb{Z}_Y$ podemos agora definir $f_3$ do seguinte modo:
+                \begin{align*}
+                    f_3 \colon \mathbb{Q}_X &\to \mathbb{Q}_Y, \\
+                    \frac{a_X}{b_X} &\mapsto \frac{f_2(a_X)}{f_2(b_X)}.
+                \end{align*}
+                Sendo assim, 
+                \[ f_3\left(\frac{a_X}{b_X}\right) = \frac{f_2(a_X)}{f_2(b_X)}. \]
+                Note que, como $b_X \neq 0_X$, e como $f_2$ é aditiva, e injetora, temos que \\
+                $f_2(b_X) \neq f_2(0_X)=0_Y$. 
+                A função $f_3$ está bem definida, pois
+                \[ \frac{a_X}{b_X} = \frac{c_X}{d_X} \iff a_Xd_X = b_Xc_X, \] 
+                e assim 
+                \begin{align*}
+                    f_2(a_Xd_X) = f_2(b_Xc_X) &\iff f_2(a_X)f_2(d_X) = f_2(b_X)f_2(c_X) \\
+                    &\iff \frac{f_2(a_X)}{f_2(b_X)} = \frac{f_2(c_X)}{f_2(d_X)} \\
+                    &\implies f_3\left(\frac{a_X}{b_X}\right) = f_3\left(\frac{c_X}{d_X}\right).
+                \end{align*}
+
+            \item 
+                Para mostrar que $f_3$ é injetora, sejam $a_X,c_X \in \mathbb{Z}_X$, $b_X,d_X \in \mathbb{Z}_X^*$ e $p_X,q_X \in \mathbb{Q}_X$ tais que $p_X = \frac{a_X}{b_X}$ e $q_X = \frac{c_X}{d_X}$. Temos que
+                \begin{align*}
+                    f_3(p_X) = f_3(q_X) 
+                    &\iff \frac{f_2(a_X)}{f_2(b_X)} = \frac{f_2(c_X)}{f_2(d_X)} \\
+                    &\iff f_2(a_X)f_2(d_X) = f_2(b_X)f_2(c_X) \\
+                    &\iff f_2(a_Xd_X) = f_2(b_Xc_X) \\
+                    &\iff a_Xd_X = b_Xc_X \\
+                    &\iff \frac{a_X}{b_X} = \frac{c_X}{d_X}.
+                \end{align*}
+                Para mostrar que $f_3$ é sobrejetora, considere um elemento $p_Y \in \mathbb{Q}_Y$. Assim, $p_Y = \frac{a_Y}{b_Y}$, para $a_Y,b_Y \in \mathbb{Z}_Y$ com $b_Y \neq 0_Y$. Como $f_2$ é sobrejetora, existe $a_X, b_X \in \mathbb{Z}_X$ tais que $f_2(a_X) = a_Y$ e
+                $f_2(b_X) = b_Y$. Como $f_2$ é bijetora e preserva o $0_X$ (\Cref{enum-lema-preservaZero}), como $b_Y \neq 0_Y$, temos $b_X \neq 0_X$. Dessa maneira,
+                \[ f_3\left( \frac{a_X}{b_X} \right) = \frac{f_2(a_X)}{f_2(b_X)} = \frac{a_Y}{b_Y} = p_Y, \]
+                e $f_3$ é sobrejetora, logo, também é bijetora.
+            
+            \item Vamos mostrar que $f_3$ é aditiva. Temos que
+                \begin{align*}
+                    f_3 \left( \dfrac{a_X}{b_X} + \dfrac{c_X}{d_X} \right) &= 
+                    f_3 \left(\dfrac{a_Xd_X+b_Xc_X}{b_Xd_X} \right) \\
+                    &= \dfrac{f_2(a_Xd_X+b_Xc_X)}{f_2(b_Xd_X)} \\
+                    &= \dfrac{f_2(a_Xd_X)+f_2(b_Xc_X)}{f_2(b_X)f_2(d_X)} \\
+                    &= \dfrac{f_2(a_X)f_2(d_X)}{f_2(b_X)f_2(d_X)} + \dfrac{f_2(b_X)f_2(c_X)}{f_2(b_X)f_2(d_X)} \\
+                    &= \dfrac{f_2(a_X)}{f_2(b_X)} + \dfrac{f_2(c_X)}{f_2(d_X)} .
+                \end{align*}                  
+                
+            \item Vamos provar que $f_3$ preserva a multiplicação. De fato, temos que
+                \begin{alignat*}{2}
+                    f_3 \left( \dfrac{a_X}{b_X} \cdot \dfrac{c_X}{d_X} \right) &= f_3 \left( \dfrac{a_Xc_X}{b_Xd_X}  \right) &&= \dfrac{f_2(a_Xc_X)}{f_2(b_Xd_X)}  \\
+                    &= \dfrac{f_2(a_X)f_2(c_X)}{f_2(b_X)f_2(d_X)} &&= \dfrac{f_2(a_X)}{f_2(b_X)} \cdot \dfrac{f_2(c_X)}{f_2(d_X)} \\
+                    &= f_3\left( \dfrac{a_X}{b_X} \right) \cdot f_3\left( \dfrac{c_X}{d_X} \right).
+                \end{alignat*}
+     
+                
+            \item Vamos provar que $f_3$ também preserva a ordem. Observemos que $\frac{a_X}{b_X} = a_Xb_X^{-1}$ é positivo se, e somente se, ambos são positivos ou ambos são negativos, e é nulo caso $a_X=0_X$.
+            Sem perda de generalidade, suponhamos $b_X > 0_X$, o que podemos fazer conforme o \Cref{rac-corol-escolhaDenominador}.
+
+            Tomemos $a_X,c_X \in \mathbb{Z}_X$ e $b_X,d_X \in \mathbb{Z}_X^*$, e considere $p_X = \frac{a_X}{b_X}$ e $q_X = \frac{c_X}{d_X}$.
+            Temos que 
+            \begin{align*}
+                p_X < q_X &\implies a_Xd_X < b_Xc_X \\
+                &\implies f_2(a_Xd_X) < f_2(b_Xc_X) \\
+                &\implies f_2(a_X)f_2(d_X) < f_2(b_X)f_2(c_X) \\
+                &\implies \frac{f_2(a_X)}{f_2(b_X)} < \frac{f_2(c_X)}{f_2(d_X)}\\
+                &\implies f_3\left(\frac{a_X}{b_X}\right) < f_3\left(\frac{c_X}{d_X}\right)\\
+                &\implies f_3(p_X) < f_3(q_X).
+            \end{align*}
+            
+        \end{enumerate}
+    \item Vamos provar, usando os isomorfismos nos subconjuntos de $X$ e de $Y$, que os corpos ordenados completos $X$ e $Y$ são isomorfos. Vamos continuar usando a notação com índices, e neste caso vamos incluir também $\mathbb{R}_X$. Deixamos claro, entretanto, que $X = \mathbb{R}_X$. Assim, quando dissermos que $x \in \mathbb{R}_X$, estamos dizendo que $x$ é um elemento qualquer de $X$, sem necessariamente estar num dos conjuntos trabalhados anteriormente, como $\mathbb{N}_X, \mathbb{Z}_X $ e $ \mathbb{Q}_X$.
+
+        \begin{enumerate}
+            \item Para qualquer $r \in \mathbb{R}_X$ vamos denotar o conjunto $D(r) = \{\,q \in \mathbb{Q}_X : q < r \,\} $. A ideia é a de corte, como já fizemos no capítulo dos números reais.
+            Vamos definir $f \colon \mathbb{R}_X \to \mathbb{R}_Y$ por $f(r) = \sup_{q < r} \{f_3(q)\} $, em que $q \in \mathbb{Q}_X$ e $r \in \mathbb{R}_X$. O índice, depois da notação do supremo, deve ser compreendida todos os racionais $q$, que são menores do que $r$, assim $\sup_{q<r}\{f_3(q)\}$ é o supremo do conjunto $f_3(q)$ para todo racional $q < r$. Vamos usar também a notação $f(r) = \sup(f_3(D(r)))$.
+
+            Num primeiro cenário, vamos mostrar que caso $r$ seja um racional, teremos $f(r) = f_3(r)$.
+            Para qualquer $q \in \mathbb{Q}_X$ com $q < r$, temos $f_3(q) < f_3(r)$, pois $f_3$ preserva a ordem. Assim, $f_3(r)$ é cota superior do conjunto $f_3(D(r))$.
+
+            Para mostrar que $f_3(r)$ é o supremo de $f_3(D(r))$, suponhamos por contradição que $f_3(r)$ não seja a cota superior mínima de $f_3(D(r))$. Temos, pela definição de $f(r)$, que $f(r) < f_3(r)$ e também que $f(r) < f_3(t) < f_3(r)$ para algum $t \in \mathbb{Q}_X$. Como $f_3$ preserva a ordem (de $\mathbb{R}_Y$ para $\mathbb{R}_X$ também) temos $t < r$, o que leva a 
+            $t \in D(r)$ e $f_3(t) \leq f(r)$ (pois $f(r)$ é supremo de $f_3(D(r))$), o que é uma contradição, portanto $f_3(r) = f(r)$.
+
+            \item Devemos provar agora que $f$ é injetora (e concluiremos que também preserva a relação de ordem).
+            Sejam $r,s \in \mathbb{R}_X$ com $r < s$. Existem $p,q \in \mathbb{Q}_X$ tal que $r < p < q < s$. \\
+            Temos que $f_3(p)$ é uma cota superior de $f_3(D(r))$ e daí $f(r) \leq f_3(p) = f(p)$.
+            Como $f=f_3$ para números racionais, obtemos $f(p) < f(q)$, e como $q \in D(s)$ temos $f(q) = f_3(q) \leq f(s)$, desse modo $f(r) < f(s)$. Isso mostra que além de injetora, $f$ preserva a relação de ordem.
+
+            \item Devemos mostrar agora que $f$ é sobrejetora. Seja $y \in \mathbb{R}_Y$ um elemento qualquer.
+            Denotaremos como $D^*(y) = \{\,q \in \mathbb{Q}_Y : q < y\,\}$. Temos então por definição que $y$ é uma cota superior de $D^*(y)$. Além disso, $y$ é supremo de $D^*(y)$, pois se pudesse ocorrer de $z < y$ ser uma cota superior, existiria $r \in \mathbb{Q}_Y$ com 
+            $z < r < y$, e daí $r \in D^*(y)$, logo $z$ não é cota superior de $D^*(y)$, uma contradição.
+
+            Como o conjunto $\mathbb{N}_X$ é ilimitado no corpo dos números reais, dado qualquer $y$ de $\mathbb{R}_Y$, existe $n_Y$ natural com $y < n_Y$.
+            Definamos $n_X = f_3^{-1}(n_Y)$. Tínhamos $n_Y > q_Y$ para qualquer $q_Y \in D^*(y)$, daí para qualquer $q_X \in f_3^{-1}(D^*(y))$ teremos 
+            $q_X < n_X$, e portanto $n_X$ é uma cota superior de $f_3^{-1}(D^*(y))$, que então admite algum supremo em $\mathbb{R}_X$. Vamos denotar esse supremo por $x = \sup\{f_3^{-1}(D^*(y))\}$. 
+
+            Afirmamos que $f(x) = y$, e a ideia como vamos mostrar isso é provar que $y \leq f(x)$, mas que $y < f(x)$ não pode ocorrer.
+            Seja então $q_Y < y$, podemos escolher em $\mathbb{R}_Y$ um $p_Y$ qualquer, com $q_Y < p_Y < y$, e se definirmos $q_X = f_3^{-1}(q_Y)$ e 
+            $p_X = f_3^{-1}(p_Y)$ teremos $q_X < p_X < x$, o que implica $q_Y < p_Y < f(x)$ e portanto $f(x)$ é uma cota superior de $D^*(y)$. Observando que o supremo é a menor cota superior, e que $y = \sup\{D^*(y)\}$, temos que $y \leq f(x)$, pois $f(x)$ é uma cota superior qualquer.
+
+            Para mostrar por contradição que $y < f(x)$ não ocorre, suponha que seja verdade que $y<f(x)$. Isso acarreta que existe $q_Y \in \mathbb{Q}_Y$
+            tal que $y < q_Y < f(x)$. Como $f$ preserva a ordem temos $q_X < x$, pois se não fosse assim teríamos $q_Y = f(x) $ ou $ q_Y > f(x)$.
+            Como $x$ é o supremo de $f_3^{-1}(D^*(y))$, temos que existe $p_X \in \mathbb{Q}_X$ com $q_X < p_X < x$ e também que $f_3(p_X) = p_Y \in D^*(y)$, desse modo $p_Y < y$. Para concluir, tínhamos suposto que $y < q_Y$ e agora obtivemos que $p_Y < y$, logo $p_Y < y < q_Y$, o que contradiz com $q_Y < p_Y$. Assim provamos que $y = f(x)$.
+
+            \item Vamos mostrar que $f$ é aditiva.\\
+            Vamos primeiro considerar o caso particular em que uma das parcelas é racional.
+            Sejam $u \in \mathbb{R}_X$ arbitrário, e $r \in \mathbb{Q}_X$. Temos que 
+            \begin{align*}
+                f(u+r) &= \sup_{q < u+r}\{f_3(q)\} \\
+                &= \sup_{p<q}\{f_3(p)\} + f(r) \\
+                &= f(u) + f(r).
+            \end{align*}
+            Desse modo, provamos que a aditividade para $f$ vale caso uma das parcelas seja racional.
+            Para mostrar o caso geral que $f(u+v) = f(u) + f(v)$, considere um racional $q \in \mathbb{Q}_X$, em que $q < v$.
+            Pela compatibilidade de $f$ com a relação de ordem, temos
+                \[ f(u) + f(q) = f(u+q) < f(u+v). \]
+            Somando $-f(u)$ em ambos os lados, segue que
+            \[ f_3(q) = f(q) < f(u+v) - f(u)\] 
+            e portanto
+            \[ f(v) = \sup_{q<v}\{f_3(q)\} \leq f(u+v) - f(u).\]
+            Vamos mostrar que a desigualdade não ocorre, e o faremos por absurdo. Suponha então que 
+            \[ f(v) = \sup_{q<v}\{f_3(q)\} < f(u+v) - f(u) \]
+            Então existe um racional $r_Y$ tal que 
+            \[ f(v) < r_Y < f(u+v) - f(u).\]
+            Como $f$ é sobrejetora, temos que $r_Y = f(p)$ para algum $p \in \mathbb{Q}_X$.
+
+            Como $f$ preserva a ordem, $v < p$, e da aditividade parcial que acabamos de provar, segue que
+            \[ f(p) = r_Y < f(u+v) - f(u) < f(u+p) - f(u) = f(u)+f(p) - f(u) = f(p), \]
+
+            % \{Inicio // Outra forma de apresertar, veja o que prefere}
+            % \begin{alignat*}{2}
+            %     f(p) = r_Y &< f(u+v) - f(u) &&\text{ supomos por absurdo}\\
+            %     &< f(u+p) - f(u) &&\text{ pois } p>v \text{ e }f\text{ preserva a ordem} \\
+            %     &= f(u)+f(p) - f(u) &&\text{ adição parcial} \\
+            %     &= f(p) &&\text{ elemento simétrico}.
+            % \end{alignat*}
+            % As relações acima claramente são um absurdo, e portanto, a igualdade está provada.
+            % \{Fim //}
+            o que é um absurdo. Logo, a desigualdade não ocorre, e assim 
+            \[ f(u+v) = f(u) + f(v), \] quaisquer que sejam $u,v \in \mathbb{R}_X$.
+
+            \item Vamos mostrar que $f$ preserva a multiplicação.
+            Queremos mostrar que em qualquer caso vale que $f(u\cdot v) = f(u) \cdot f(v)$.
+            Vamos iniciar mostrando que se um dos fatores for $0_X, +1_X, -1_X$, então a multiplicação é preservada. De fato, dado $u \in \mathbb{R}_X$, temos que
+            $f(u \cdot 0_X) = f(0_X) = 0_Y = f(u) \cdot 0_Y$. \\ 
+            Para $f(u \cdot 1_X) = f(u) = f(u) \cdot 1_Y = f(u) \cdot f(1_X)$ e a multiplicação também é preservada. Para o $-1_X$, primeiro provemos que $f(-u) = -f(u)$. Temos que $f(0_X) = f(u+(-u)) = f(u) + f(-u)$, logo, $f(u) + f(-u) = 0_Y$, assim temos $f(-u) = -f(u)$. 
+
+            Para mostrar o caso $f((-1_X) \cdot u)$, temos que
+            \[ f((-1_X) \cdot u) = f(-u) = -f(u) = (-1_Y) \cdot f(u) = f(-1_X) \cdot f(u). \]
+
+            Vamos mostrar agora que, dados $u,v \in \mathbb{R}_X$, com $u,v > 0_X$, a multiplicação é preservada. Como $f$ preserva a ordem, $f(u) > 0_Y$ e $f(v) > 0_Y$. Faremos uma prova parcial com $v$ racional, como no caso da adição. Temos que
+            \[ f(u \cdot v) = \sup_{q < u+v}\{f_3(q)\} = \left( \sup_{p<u}\{f_3(p)\} \right) \cdot f(v) = f(u) \cdot f(v). \]
+            Desse modo, $f$ preserva a multiplicação se ao menos um dos fatores for racional, e ambos forem positivos.
+
+            Vamos agora, estender para $v$ positivo qualquer, não apenas para racionais. Seja $q \in \mathbb{Q}_X$, com $0 < q < v$. 
+            Como num corpo ordenado completo a multiplicação preserva a relação de ordem, temos que $u\cdot q < u\cdot v$, e portanto
+            \[ f(u) \cdot f(q) = f(u \cdot q) < f(u \cdot v). \]
+            Assim, multiplicando por $\frac{1}{f(u)} > 0_Y$ obtemos
+            \[ f(q) < \frac{f(u \cdot  v)}{f(u)} .\]
+
+            Para $f(v)$ temos que
+            \[ f(v) = \sup_{q<v}\{f_3(q)\} \leq \frac{f(u \cdot v)}{f(u)}.\]
+            Vamos mostrar que a desigualdade não ocorre, supondo, por absurdo, que ela ocorra. 
+            Temos então $r_Y \in \mathbb{Q}_Y$, tal que $f(v) < r_Y < \frac{f(u \cdot v)}{f(u)}$. Como $f$ é sobrejetora, temos que $r_Y = f(p)$ para algum $p \in \mathbb{Q}_X$.
+            Em vista de $f$ preservar a ordem, e de que $f(v) < r_Y = f(p)$, temos que $v < p$. Temos então que
+            \[ f(p) = r_Y < \frac{f(u \cdot v)}{f(u)} < \frac{f(u \cdot p)}{f(u)} = \frac{f(u) \cdot f(p)}{f(u)} = f(p),\]
+            o que é uma contradição.
+
+            Para mostrar que $f$ é multiplicativa no caso geral, onde pode haver negativos, considere a função sinal $\sigma$, definida como $\sigma(u) = 1$, se $u > 0$, e $\sigma(u) = -1$, se $u < 0$. Como $f$ preserva a ordem, se $u \in \mathbb{R}_X$ for positivo, $f(u) \in \mathbb{R}_Y$ também será, e a função $\sigma(u)=1=\sigma( f(u) )$. Essa notação tem a vantagem de propiciar que qualquer número $u \in \mathbb{R}_X$ seja representado como $u = \sigma(u) \cdot \abs{u}$, em que o módulo em $\mathbb{R}_X$ ou em $\mathbb{R}_Y$ é análogo ao definido na \Cref{reais-def-modulo1}. Temos então que
+            \begin{align*}
+                f(u \cdot v) &= f((\sigma(u) \cdot \abs{u}) \cdot ((\sigma(v) \cdot \abs{v}))) \\
+                &= f(\sigma(u) \cdot \sigma(v) \cdot \abs{u}\cdot \abs{v}) \\
+                &= \sigma(u) \cdot \sigma(b) \cdot f(\abs{u} \cdot \abs{v}) \\
+                &= \sigma(u) \cdot \sigma(b) \cdot f(\abs{u}) \cdot f(\abs{v}) \\
+                &= f(\sigma(u) \cdot \abs{u}) \cdot f(\sigma(v) \cdot \abs{v}) \\
+                &= f(u) \cdot f(v).
+            \end{align*}
+            Assim, $f$ preserva a multiplicação em todos os casos.
+        \end{enumerate}
+        Dessa forma, provamos que dados dois corpos ordenados completos $X = \mathbb{R}_X$ e $Y = \mathbb{R}_Y$, existe uma função bijetora $f \colon X \to Y$, tal que $f$ preserva a adição, a multiplicação, e a relação de ordem desses conjuntos. Dessa maneira, concluímos que $X$ e $Y$ são isomorfos, e assim, existe apenas um corpo ordenado completo, que chamamos \emph{o corpo dos números reais}.
+    
+\end{enumerate}
+    
+\end{dem}
+
+\end{document}

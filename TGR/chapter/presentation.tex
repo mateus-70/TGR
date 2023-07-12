@@ -1,0 +1,327 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+
+\pretextual
+
+% ---------------------------------------------
+% capa
+% ---------------------------------------------
+\begin{center}
+\thispagestyle{empty}%página não enumerada
+ \textbf{ UNIVERSIDADE DO ESTADO DE SANTA CATARINA - UDESC\\
+CENTRO DE CIÊNCIAS TECNOLÓGICAS - CCT\\
+CURSO DE LICENCIATURA EM MATEMÁTICA\\}
+\vspace{4 cm}\textbf{\authorName}
+
+\vspace{4 cm}\titleComplete
+
+\vspace{\stretch{1}}
+\textbf{JOINVILLE - SC}
+
+\textbf{2023}
+ \pagebreak
+\end{center}
+% ---
+
+
+% ------------------------------------------------
+% folha de rosto
+% ------------------------------------------------
+
+\begin{folhaderosto}
+
+  \begin{center}
+    \textbf{\authorName}
+
+    \vspace*{\fill}\vspace*{\fill}
+    \titleComplete
+    \vspace*{\fill}
+  \end{center}
+  
+  \begin{flushright}
+  \begin{minipage}[t]{8 cm}
+  { Trabalho de conclusão de curso apresentado como requisito parcial para obtenção do título de licenciado em Matemática pelo curso de Licenciatura em Matemática do Centro de Ciências Tecnológicas - CCT, da Universidade do Estado de Santa Catarina - UDESC. 
+
+ Orientador: \orientationBy}
+  \end{minipage}
+  \end{flushright}
+  
+  \vspace{\stretch{1}}
+  
+  \begin{center}
+   \textbf{JOINVILLE - SC}
+ 
+   \textbf{2023} 
+  \end{center}
+\end{folhaderosto}
+% ---
+
+
+
+% ----------------------------------------------------
+% Inserir folha de aprovação
+% ----------------------------------------------------
+
+% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
+% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
+% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
+% imagem da página assinada pela banca com o comando abaixo:
+%
+% \includepdf{folhadeaprovacao_final.pdf}
+% ---
+
+
+% ---------------------------------------------------
+% folha de aprovação
+% ---------------------------------------------------
+\begin{folhadeaprovacao}
+
+  \begin{center}
+    \textbf{\authorName}
+\vspace {1 cm}
+
+   \titleComplete 
+   \vspace {1 cm}
+  \end{center}
+    
+\begin{flushright}
+  \begin{minipage}[t]{8 cm}
+  { Trabalho de conclusão de curso apresentado como requisito parcial para obtenção do título de licenciado em Matemática pelo curso de Licenciatura em Matemática do Centro de Ciências Tecnológicas - CCT, da Universidade do Estado de Santa Catarina - UDESC. 
+
+ Orientador: \orientationBy}
+ 
+  \end{minipage}
+  \end{flushright}
+     
+     \begin{minipage}[c]{3cm} 
+	Membros:
+\end{minipage}
+\begin{minipage}[c]{8 cm}
+	\begin{center}
+	\textbf{BANCA EXAMINADORA}
+	\vspace {2 cm}
+	
+    \orientationBy
+	
+    DMAT/CCT/UDESC
+    
+    \vspace {1.5 cm}
+    
+    Prof. Dr. Luis Gustavo Longen
+	
+    DMAT/CCT/UDESC
+    
+    \vspace {1.5 cm}
+    
+    Prof. Dr. Sidnei Furtado Costa
+	
+    DMAT/CCT/UDESC
+    \vspace {1.5 cm}
+    
+    
+\end{center}
+
+\end{minipage}
+
+\vspace*{\fill}
+     \begin{center}
+	     Joinville, 20 de junho de 2023.
+    \end{center}
+
+    
+\end{folhadeaprovacao}
+% ---
+
+
+
+% ---------------------------------------
+% Dedicatória
+% ---------------------------------------
+\vspace*{\fill}
+
+\begin{dedicatoria}
+   \vspace*{10 cm}
+   \begin{flushright}
+   \begin{minipage}[t]{7cm}
+     À minha mãe
+   \end{minipage}
+   \end{flushright}
+\end{dedicatoria}
+% ---
+
+
+% ---------------------------------------
+% Agradecimentos
+% ---------------------------------------
+\begin{center}
+	\textbf{AGRADECIMENTOS}
+\end{center}
+
+%Elemento opcional utilizado pelo autor para registrar agradecimento às pessoas que contribuíram para a elaboração do trabalho.
+Agradeço à minha mãe, sem ela não teria sido possível concluir este curso. Agradeço também a todos que ajudaram direta ou indiretamente na elaboração do trabalho. Em especial aos meus padrinhos, aos desenvolvedores das ferramentas utilizadas na elaboração do trabalho, aos contribuintes do \LaTeX, ao Overleaf, e da comunidade Debian.
+
+\newpage
+% ---
+
+
+% -----------------------------------------
+% Epígrafe
+% -----------------------------------------
+\vspace*{\fill}
+
+\begin{epigrafe}
+    \vspace*{10cm}
+	\begin{flushright}
+	  \begin{minipage}[t]{7cm}
+		\textit{
+            \textbf{Consolo para os principiantes} \\
+            Vejam a criança, os porcos grunhem em torno dela, \\
+            Abandonada a si mesma, os artelhos encolhidos! \\
+            Só sabe chorar e chorar mais ainda - \\
+            Será que um dia vai aprender a ficar de pé e a caminhar? \\
+            Não tenham medo! Muito breve, penso, \\
+            Poderão ver a criança dançar! \\
+            Logo que conseguir manter-se de pé, \\
+            Haverão de vê-la caminhando de cabeça para baixo.
+            \begin{flushright}
+                Nietzsche    
+            \end{flushright}
+        }
+	 \end{minipage}
+	\end{flushright}
+\end{epigrafe}
+% ---
+
+
+% -----------------------------------------
+% RESUMOS
+% -----------------------------------------
+% resumo em português
+\begin{center}
+	\textbf{RESUMO}
+\end{center}
+
+
+
+  \vspace{\onelineskip}
+
+% \noindent Elemento obrigatório que contém a apresentação concisa dos pontos relevantes do trabalho, fornecendo uma visão rápida e clara do conteúdo e das conclusões do mesmo. A apresentação e a redação do resumo devem seguir os requisitos estipulados pela NBR 6028 (ABNT, 2003). Deve descrever de forma clara e sintética a natureza do trabalho, o objetivo, o método, os resultados e as conclusões, visando fornecer elementos para o leitor decidir sobre a consulta do trabalho no todo.
+
+\noindent Este trabalho tem como objetivo principal estender o conceito de número natural até os números reais, e dar significado às inclusões 
+$\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}$, em que cada inclusão será compreendida por meio da existência de uma função que é aditiva, multiplicativa e que preserva a relação de ordem. A metodologia utilizada é a pesquisa bibliográfica. O estudo inicia com algumas definições e proposições de álgebra. Em seguida é formalizado o conjunto dos números naturais, através dos axiomas de Peano. O conjunto dos números inteiros é obtido por meio de classes de equivalência de uma relação com números naturais. A construção dos números racionais é feita também por classes de equivalência, desta vez com uma relação de números inteiros. Para estender o conjunto $\mathbb{Q}$ e obter $\mathbb{R}$, fazemos o desenvolvimento via Cortes de Dedekind. É provado que $\mathbb{R}$ é um corpo ordenado completo, não enumerável e é único, a menos de isomorfismo.  
+
+
+ \vspace{\onelineskip}
+    
+ \noindent\textbf{Palavras-chave:} Números. Conjuntos Numéricos. Cortes de Dedekind.
+
+\newpage
+
+
+% resumo em inglês
+ \begin{otherlanguage*}{english}
+
+\begin{center}
+	\textbf{ABSTRACT}
+\end{center}
+
+
+
+ \vspace{\onelineskip}
+
+\noindent The main objective of this work is to extend the concept of natural numbers up to the concept of real numbers, and then to give meaning to the following inclusions $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}$, where each inclusion will be understood by means of the existence of a function that is additive, multiplicative and order preserving. The methodology adopted is the bibliographic research. The study begins with some definitions and propositions from algebra. Then the set of natural numbers is formalized using the Peano axioms. The set of integers is obtained through equivalence classes of a relation on the set of natural numbers. The construction of rationals is done again by equivalence classes, this time with a relation on the set of integer numbers. We extend from $\mathbb{Q}$ to $\mathbb{R}$ through Dedekind Cuts. It is proven that $\mathbb{R}$ is a complete ordered field, and it is unique, except by isomorphisms.
+ \vspace{\onelineskip}
+
+\noindent\textbf{Keywords:} Numbers. Number sets. Dedekind Cuts.
+
+ \end{otherlanguage*}
+
+\newpage
+
+
+% ---
+
+
+% -----------------------------------------
+% inserir lista de ilustrações
+% -----------------------------------------
+\renewcommand\listfigurename{{\fontsize{12pt}{\baselineskip}\normalfont \bfseries LISTA DE ILUSTRAÇÕES}}
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+
+% -----------------------------------------
+% inserir lista de tabelas
+% -----------------------------------------
+% \renewcommand\listtablename{{\fontsize{12pt}{\baselineskip}\normalfont \bfseries LISTA DE TABELAS}}
+% \pdfbookmark[0]{\listtablename}{lot}
+% \listoftables*
+% \cleardoublepage
+% ---
+
+
+
+% ----------------------------------------
+% inserir lista de abreviaturas e siglas
+% ----------------------------------------
+% \renewcommand\listadesiglasname{{\fontsize{12pt}{\baselineskip}\normalfont \bfseries LISTA DE ABREVIATURAS E SIGLAS}}
+% \begin{siglas}
+%   \item[IMPA]  Insituto de Matemática Pura e Aplicada 
+%   \item[SBM]  Sociedade Brasileira de Matemática
+
+%   \end{siglas}
+% ---
+
+
+% ----------------------------------------
+% inserir lista de símbolos
+% ----------------------------------------
+\renewcommand\listadesimbolosname{{\fontsize{12pt}{\baselineskip}\normalfont \bfseries LISTA DE SÍMBOLOS}}
+\begin{simbolos}
+  \item[$ \mathbb{N} $] Conjunto dos números naturais (sem o zero)
+  \item[$ \mathbb{Z} $] Conjunto dos números inteiros 
+  \item[$ \mathbb{Q} $] Conjunto dos números racionais 
+  \item[$ \mathbb{R} $] Conjunto dos números reais
+  \item[$\mathbb{A^*}$] Conjunto $A \setminus \{0\}$ (retira o zero), sendo A um conjunto qualquer
+  \item[$ \mathbb{Z}_+^{*} $] Conjunto dos números inteiros positivos
+  \item[$ \mathbb{Z}_+$] Conjunto dos números inteiros não negativos
+  \item[$ \mathbb{Z}_-^{*} $] Conjunto dos números inteiros negativos
+  \item[$ \mathbb{Z}_-$] Conjunto dos números inteiros não positivos
+  \item[$ \mathbb{Q}_+^{*} $] Conjunto dos números racionais positivos
+  \item[$ \mathbb{Q}_+$] Conjunto dos números racionais não negativos
+  \item[$ \mathbb{Q}_-^{*} $] Conjunto dos números racionais negativos
+  \item[$ \mathbb{Q}_-$] Conjunto dos números racionais não positivos
+  \item[$\defeq$] O que está à esquerda do símbolo é, por definição, igual ao que está à direita
+  \item[$\land$] Conjunção (E) das proposições, uma à esquerda e outra à direita. 
+  % \item[$\lor$] Disjunção (OU) das proposições, uma à esquerda e outra a direita. 
+  \item[$\lor$] Disjunção (OU) das proposições, uma à esquerda e outra à direita. 
+  \item[$\subset$] O conjunto à esquerda é subconjunto do conjunto da direita. 
+  \item[$\exists!x$] Existe um único $x$
+\end{simbolos}
+% ---
+
+
+% ----------------------------------------
+% inserir o sumario
+% ----------------------------------------
+% \renewcommand\contentsname{{\fontsize{12pt}{\baselineskip}\normalfont \bfseries SUMÁRIO}}
+% \pdfbookmark[0]{\contentsname}{toc}
+% \tableofcontents*
+% \cleardoublepage
+% ---
+
+% \renewcommand\contentsname{{\fontsize{12pt}{\baselineskip}\normalfont \bfseries SUMÁRIO}}
+% \pdfbookmark[0]{\contentsname}{toc}
+% \tableofcontents*
+% \cleardoublepage
+
+
+
+\end{document}
